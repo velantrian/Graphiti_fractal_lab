@@ -1,0 +1,110 @@
+{
+  "p5_0": {
+    "edge_timestamps_response": {
+      "valid_at": "2026-01-01T10:00:00Z",
+      "invalid_at": null
+    },
+    "edge_timestamps_ok": true,
+    "edge_duplicate_response": {
+      "duplicate_facts": [],
+      "contradicted_facts": [
+        2
+      ]
+    },
+    "edge_duplicate_ok": true,
+    "owner_not_contradicted_ok": true,
+    "expected_contradicted_idx": 2,
+    "old_marker": "P5_OLD_109963d9668c476ca329cbab3629f815",
+    "new_marker": "P5_NEW_109963d9668c476ca329cbab3629f815",
+    "provider": "DeterministicTemporalLLMClient",
+    "note": "DeterministicLLMClient returns contradicted_facts=[] and timestamps None \u2014 banned for P5"
+  },
+  "decisions": [
+    {
+      "model": "EdgeTimestamps",
+      "fact": "ProjectOrion uses Python. Marker P5_OLD_109963d9668c476ca329cbab3629f815.",
+      "valid_at": "2026-01-01T10:00:00Z",
+      "invalid_at": null
+    },
+    {
+      "model": "EdgeDuplicate",
+      "new_fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P5_NEW_109963d9668c476ca329cbab3629f815.",
+      "existing_facts": [
+        {
+          "idx": 0,
+          "fact": "ProjectOrion is owned by Alice."
+        }
+      ],
+      "invalidation_candidates": [
+        {
+          "idx": 1,
+          "fact": "Unrelated noise fact about widgets."
+        },
+        {
+          "idx": 2,
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P5_OLD_109963d9668c476ca329cbab3629f815."
+        },
+        {
+          "idx": 3,
+          "fact": "Another unrelated fact."
+        }
+      ],
+      "duplicate_facts": [],
+      "contradicted_facts": [
+        2
+      ],
+      "selection_rule": "P5_OLD marker index from context (else Python RUNTIME_LANGUAGE)"
+    }
+  ],
+  "p5_a": [
+    {
+      "model": "ExtractedEdges",
+      "reference_time": "2026-01-01T10:00:00Z",
+      "edges": [
+        {
+          "relation_type": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P5_OLD_ff5dd7adafc9465dba31be4950ed4abc.",
+          "valid_at": "2026-01-01T10:00:00Z"
+        },
+        {
+          "relation_type": "OWNED_BY",
+          "fact": "ProjectOrion is owned by Alice.",
+          "valid_at": "2026-01-01T10:00:00Z"
+        }
+      ]
+    }
+  ],
+  "p5_b": [
+    {
+      "model": "ExtractedEdges",
+      "reference_time": "2026-01-02T10:00:00Z",
+      "edges": [
+        {
+          "relation_type": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P5_NEW_ff5dd7adafc9465dba31be4950ed4abc.",
+          "valid_at": "2026-01-02T10:00:00Z"
+        }
+      ]
+    },
+    {
+      "model": "EdgeDuplicate",
+      "new_fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P5_NEW_ff5dd7adafc9465dba31be4950ed4abc.",
+      "existing_facts": [],
+      "invalidation_candidates": [
+        {
+          "idx": 0,
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P5_OLD_ff5dd7adafc9465dba31be4950ed4abc."
+        },
+        {
+          "idx": 1,
+          "fact": "ProjectOrion is owned by Alice."
+        }
+      ],
+      "duplicate_facts": [],
+      "contradicted_facts": [
+        0
+      ],
+      "selection_rule": "P5_OLD marker index from context (else Python RUNTIME_LANGUAGE)"
+    }
+  ]
+}

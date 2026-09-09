@@ -1,0 +1,4 @@
+# P5 deterministic temporal contradiction
+source .venv/bin/activate
+export PYTHONPATH=src
+pytest -q tests/lab/test_falkordblite_p5_temporal_contradiction.py -o asyncio_mode=auto --tb=short 2>&1 | tee artifacts/run_004/pytest.txt

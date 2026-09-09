@@ -1,0 +1,99 @@
+{
+  "phase": "P5-B",
+  "edges": [
+    {
+      "uuid": "f6e9fd4d-8004-4a33-9b30-3b85eb863b83",
+      "name": "RUNTIME_LANGUAGE",
+      "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P5_OLD_ff5dd7adafc9465dba31be4950ed4abc.",
+      "group_id": "p5_orion_ff5dd7adaf",
+      "valid_at": "2026-01-01T10:00:00+00:00",
+      "invalid_at": "2026-01-02T10:00:00+00:00",
+      "expired_at": "2026-09-09T22:37:36.157617+00:00",
+      "reference_time": "2026-01-01T10:00:00+00:00",
+      "source_node_uuid": "261b2c62-9df7-4eda-b5c3-5c2cc38c1976",
+      "target_node_uuid": "4e32aede-6b32-418b-b5d9-de41d87dd040",
+      "episodes": [
+        "63827cc6-1bfc-477e-b72a-72f148d37c5c"
+      ]
+    },
+    {
+      "uuid": "9b3d3bb2-7e67-4997-b99f-ea3a8ff3f676",
+      "name": "OWNED_BY",
+      "fact": "ProjectOrion is owned by Alice.",
+      "group_id": "p5_orion_ff5dd7adaf",
+      "valid_at": "2026-01-01T10:00:00+00:00",
+      "invalid_at": null,
+      "expired_at": null,
+      "reference_time": "2026-01-01T10:00:00+00:00",
+      "source_node_uuid": "261b2c62-9df7-4eda-b5c3-5c2cc38c1976",
+      "target_node_uuid": "ddd7489b-e19c-495d-980e-aebafe3730c6",
+      "episodes": [
+        "63827cc6-1bfc-477e-b72a-72f148d37c5c"
+      ]
+    },
+    {
+      "uuid": "8b3006ca-dac8-4afe-a3ba-492ec06884a1",
+      "name": "RUNTIME_LANGUAGE",
+      "fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P5_NEW_ff5dd7adafc9465dba31be4950ed4abc.",
+      "group_id": "p5_orion_ff5dd7adaf",
+      "valid_at": "2026-01-02T10:00:00+00:00",
+      "invalid_at": null,
+      "expired_at": null,
+      "reference_time": "2026-01-02T10:00:00+00:00",
+      "source_node_uuid": "261b2c62-9df7-4eda-b5c3-5c2cc38c1976",
+      "target_node_uuid": "32038986-c6e3-47db-b5cf-058dcfbb77a6",
+      "episodes": [
+        "90b66e37-e78e-4156-8d29-b7d4d355c916"
+      ]
+    }
+  ],
+  "old_before": {
+    "uuid": "f6e9fd4d-8004-4a33-9b30-3b85eb863b83",
+    "name": "RUNTIME_LANGUAGE",
+    "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P5_OLD_ff5dd7adafc9465dba31be4950ed4abc.",
+    "group_id": "p5_orion_ff5dd7adaf",
+    "valid_at": "2026-01-01T10:00:00+00:00",
+    "invalid_at": null,
+    "expired_at": null,
+    "reference_time": "2026-01-01T10:00:00+00:00",
+    "source_node_uuid": "261b2c62-9df7-4eda-b5c3-5c2cc38c1976",
+    "target_node_uuid": "4e32aede-6b32-418b-b5d9-de41d87dd040",
+    "episodes": [
+      "63827cc6-1bfc-477e-b72a-72f148d37c5c"
+    ]
+  },
+  "old_after": [
+    {
+      "uuid": "f6e9fd4d-8004-4a33-9b30-3b85eb863b83",
+      "name": "RUNTIME_LANGUAGE",
+      "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P5_OLD_ff5dd7adafc9465dba31be4950ed4abc.",
+      "group_id": "p5_orion_ff5dd7adaf",
+      "valid_at": "2026-01-01T10:00:00+00:00",
+      "invalid_at": "2026-01-02T10:00:00+00:00",
+      "expired_at": "2026-09-09T22:37:36.157617+00:00",
+      "reference_time": "2026-01-01T10:00:00+00:00",
+      "source_node_uuid": "261b2c62-9df7-4eda-b5c3-5c2cc38c1976",
+      "target_node_uuid": "4e32aede-6b32-418b-b5d9-de41d87dd040",
+      "episodes": [
+        "63827cc6-1bfc-477e-b72a-72f148d37c5c"
+      ]
+    }
+  ],
+  "new": [
+    {
+      "uuid": "8b3006ca-dac8-4afe-a3ba-492ec06884a1",
+      "name": "RUNTIME_LANGUAGE",
+      "fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P5_NEW_ff5dd7adafc9465dba31be4950ed4abc.",
+      "group_id": "p5_orion_ff5dd7adaf",
+      "valid_at": "2026-01-02T10:00:00+00:00",
+      "invalid_at": null,
+      "expired_at": null,
+      "reference_time": "2026-01-02T10:00:00+00:00",
+      "source_node_uuid": "261b2c62-9df7-4eda-b5c3-5c2cc38c1976",
+      "target_node_uuid": "32038986-c6e3-47db-b5cf-058dcfbb77a6",
+      "episodes": [
+        "90b66e37-e78e-4156-8d29-b7d4d355c916"
+      ]
+    }
+  ]
+}

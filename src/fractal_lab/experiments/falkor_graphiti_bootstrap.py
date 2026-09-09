@@ -14,6 +14,7 @@ from redislite import AsyncFalkorDB
 
 from graphiti_core.driver.falkordb_driver import FalkorDriver
 from graphiti_core.graphiti import Graphiti
+from graphiti_core.llm_client.client import LLMClient
 
 from fractal_lab.experiments.deterministic_providers import (
     DeterministicCrossEncoder,
@@ -55,6 +56,7 @@ async def open_lab_graphiti(
     *,
     database: str = "default_db",
     build_indices: bool = True,
+    llm_client: LLMClient | None = None,
 ) -> LabGraphitiStack:
     """Open FalkorDBLite at db_path and return Graphiti wired with deterministic stubs.
 
@@ -63,6 +65,9 @@ async def open_lab_graphiti(
         database: Initial Falkor graph name (driver default). Per-group add_episode
             still clones to group_id graphs under Falkor multi-tenant semantics.
         build_indices: When True, await Graphiti.build_indices_and_constraints().
+        llm_client: Optional LLM client override (e.g. DeterministicTemporalLLMClient
+            for P5). Defaults to DeterministicLLMClient — which must NOT be used for
+            P5 temporal contradiction conclusions.
     """
     path = Path(db_path)
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -71,7 +76,7 @@ async def open_lab_graphiti(
     driver = FalkorDriver(falkor_db=falkor_db, database=database)
     graphiti = Graphiti(
         graph_driver=driver,
-        llm_client=DeterministicLLMClient(),
+        llm_client=llm_client if llm_client is not None else DeterministicLLMClient(),
         embedder=DeterministicEmbedder(),
         cross_encoder=DeterministicCrossEncoder(),
     )
