@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fractal-lab"
+version = "0.1.0"
+description = "RESEARCH lab for Graphiti_fractal multi-backend experiments (LadybugDB + SQLite). Not production."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "velantrian" }]
+dependencies = [
+  "ladybug==0.20.3",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+# Optional backends — stubs only; NOT VALIDATED in this lab
+kuzu = []
+postgres = ["psycopg[binary]>=3.1"]
+duckdb = ["duckdb>=1.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
