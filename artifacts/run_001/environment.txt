@@ -1,0 +1,55 @@
+OS: Linux cursor 6.12.94+ #1 SMP PREEMPT_DYNAMIC Tue Sep  8 16:09:32 UTC 2026 x86_64 GNU/Linux
+Python: Python 3.13.5
+pip: pip 26.2.1 from /workspace/Graphiti_fractal_lab/.venv/lib/python3.13/site-packages/pip (python 3.13)
+repo_sha: c1c401fe56e089ae5fe54403cbe7b025ce08fe41
+branch: experiment/falkordblite-deterministic-memory
+docker: absent
+OPENAI_API_KEY: unset
+--- pip freeze ---
+annotated-types==0.8.0
+anyio==4.15.1
+backoff==2.2.1
+certifi==2026.7.22
+charset-normalizer==3.5.1
+distro==1.9.0
+FalkorDB==1.7.1
+falkordblite==0.10.0
+-e git+https://github.com/velantrian/Graphiti_fractal_lab.git@c1c401fe56e089ae5fe54403cbe7b025ce08fe41#egg=fractal_lab
+graphiti-core==0.29.3
+h11==0.16.0
+httpcore==1.0.9
+httpcore2==2.12.0
+httpx==0.28.1
+httpx2==2.12.0
+idna==3.19
+iniconfig==2.3.0
+jiter==0.16.0
+ladybug==0.20.3
+neo4j==6.3.0
+numpy==2.5.3
+openai==3.11.0
+packaging==26.3
+pluggy==1.6.0
+posthog==7.48.0
+psutil==7.2.2
+pydantic==2.13.5
+pydantic_core==2.46.5
+Pygments==2.21.0
+pytest==9.1.1
+python-dateutil==2.9.0.post0
+python-dotenv==1.2.3
+pytz==2026.3.post1
+redis==8.1.0
+requests==2.34.2
+setuptools==84.0.0
+six==1.17.0
+sniffio==1.3.1
+tenacity==9.1.4
+truststore==0.10.4
+typing-inspection==0.4.4
+typing_extensions==4.16.0
+urllib3==2.7.0
+
+--- post P0-P3 additions ---
+pytest-asyncio==1.4.0
+lab_e2e: tests/lab/test_falkordblite_graphiti_memory_e2e.py → 5 passed

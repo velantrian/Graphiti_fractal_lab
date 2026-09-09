@@ -1,0 +1,77 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-9.1.1, pluggy-1.6.0 -- /workspace/Graphiti_fractal_lab/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /workspace/Graphiti_fractal_lab
+configfile: pytest.ini (WARNING: ignoring pytest config in pyproject.toml!)
+plugins: asyncio-1.4.0, anyio-4.15.1
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 5 items
+
+tests/lab/test_falkordblite_graphiti_memory_e2e.py::test_t0_p1_bootstrap_connect_indices PASSED [ 20%]
+tests/lab/test_falkordblite_graphiti_memory_e2e.py::test_p1_t1_add_episode_search_marker PASSED [ 40%]
+tests/lab/test_falkordblite_graphiti_memory_e2e.py::test_p2_persistence_reopen_subprocess PASSED [ 60%]
+tests/lab/test_falkordblite_graphiti_memory_e2e.py::test_p3_group_isolation_no_vanish_no_leak PASSED [ 80%]
+tests/lab/test_falkordblite_graphiti_memory_e2e.py::test_t3_negative_control_nonexistent_marker PASSED [100%]/workspace/Graphiti_fractal_lab/.venv/lib/python3.13/site-packages/_pytest/unraisableexception.py:67: PytestUnraisableExceptionWarning: Exception ignored in: <coroutine object AsyncManagementCommands.shutdown at 0x7ffb100e2020>
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/warnings.py", line 692, in _warn_unawaited_coroutine
+    warn(msg, category=RuntimeWarning, stacklevel=2, source=coro)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeWarning: coroutine 'AsyncManagementCommands.shutdown' was never awaited
+
+Enable tracemalloc to get traceback where the object was allocated.
+See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+  warnings.warn(pytest.PytestUnraisableExceptionWarning(msg))
+/workspace/Graphiti_fractal_lab/.venv/lib/python3.13/site-packages/_pytest/unraisableexception.py:67: PytestUnraisableExceptionWarning: Exception ignored in: <coroutine object AsyncManagementCommands.shutdown at 0x7ffb100e3780>
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/warnings.py", line 692, in _warn_unawaited_coroutine
+    warn(msg, category=RuntimeWarning, stacklevel=2, source=coro)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeWarning: coroutine 'AsyncManagementCommands.shutdown' was never awaited
+
+Enable tracemalloc to get traceback where the object was allocated.
+See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+  warnings.warn(pytest.PytestUnraisableExceptionWarning(msg))
+/workspace/Graphiti_fractal_lab/.venv/lib/python3.13/site-packages/_pytest/unraisableexception.py:67: PytestUnraisableExceptionWarning: Exception ignored in: <coroutine object AsyncManagementCommands.shutdown at 0x7ffb10213890>
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/warnings.py", line 692, in _warn_unawaited_coroutine
+    warn(msg, category=RuntimeWarning, stacklevel=2, source=coro)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeWarning: coroutine 'AsyncManagementCommands.shutdown' was never awaited
+
+Enable tracemalloc to get traceback where the object was allocated.
+See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+  warnings.warn(pytest.PytestUnraisableExceptionWarning(msg))
+/workspace/Graphiti_fractal_lab/.venv/lib/python3.13/site-packages/_pytest/unraisableexception.py:67: PytestUnraisableExceptionWarning: Exception ignored in: <coroutine object AsyncManagementCommands.shutdown at 0x7ffb10213780>
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/warnings.py", line 692, in _warn_unawaited_coroutine
+    warn(msg, category=RuntimeWarning, stacklevel=2, source=coro)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeWarning: coroutine 'AsyncManagementCommands.shutdown' was never awaited
+
+Enable tracemalloc to get traceback where the object was allocated.
+See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+  warnings.warn(pytest.PytestUnraisableExceptionWarning(msg))
+/workspace/Graphiti_fractal_lab/.venv/lib/python3.13/site-packages/_pytest/unraisableexception.py:67: PytestUnraisableExceptionWarning: Exception ignored in: <coroutine object AsyncManagementCommands.shutdown at 0x7ffb10213cd0>
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/warnings.py", line 692, in _warn_unawaited_coroutine
+    warn(msg, category=RuntimeWarning, stacklevel=2, source=coro)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeWarning: coroutine 'AsyncManagementCommands.shutdown' was never awaited
+
+Enable tracemalloc to get traceback where the object was allocated.
+See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+  warnings.warn(pytest.PytestUnraisableExceptionWarning(msg))
+
+
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/graphiti_core/driver/search_interface/search_interface.py:22
+  /workspace/Graphiti_fractal_lab/.venv/lib/python3.13/site-packages/graphiti_core/driver/search_interface/search_interface.py:22: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class SearchInterface(BaseModel):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+========================= 5 passed, 1 warning in 3.47s =========================

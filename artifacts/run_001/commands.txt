@@ -1,0 +1,5 @@
+# commands run — Phase P0-P3 2026-09-09T21:00:04Z
+pip install pytest-asyncio
+pytest tests/lab/test_falkordblite_graphiti_memory_e2e.py -v --tb=short
+python -m compile check / receipt finalize
+git commit + push experiment/falkordblite-deterministic-memory

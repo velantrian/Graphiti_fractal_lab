@@ -1,0 +1,164 @@
+{
+  "phases": [
+    {
+      "phase": "P0",
+      "test_id": "environment",
+      "status": "PASS",
+      "evidence": {
+        "environment_txt": "artifacts/run_001/environment.txt",
+        "graphiti_core": "0.29.3",
+        "falkordblite": "0.10.0",
+        "FalkorDB": "1.7.1",
+        "python": "3.13.5",
+        "openai_api_key": "unset",
+        "docker": "absent",
+        "notes": "Prior smoke + pip freeze captured before P1-P3 code."
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-09T21:01:37.690059+00:00"
+    },
+    {
+      "phase": "P1",
+      "test_id": "T0_bootstrap",
+      "status": "PASS",
+      "evidence": {
+        "db_path": "/workspace/Graphiti_fractal_lab/data/falkor_e2e/lab_d2919f240a624274b79c343850af84f3.db",
+        "database": "default_db",
+        "query_ok": 1
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-09T21:00:05.948041+00:00"
+    },
+    {
+      "phase": "P1",
+      "test_id": "T1_add_episode_search",
+      "status": "PASS",
+      "evidence": {
+        "marker": "VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7",
+        "group_id": "g_t1_fac25cbd8a34",
+        "nodes_created": [
+          "VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7",
+          "Alice",
+          "Bob",
+          "MarkerCorp",
+          "Graphiti"
+        ],
+        "edges_created_facts": [
+          "VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7 is related to Alice in lab fixture mentioning VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7. Episode excerpt: Alice collaborated with Bob at MarkerCorp on a synthetic lab project. The unique retrieval token is VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7. Alice confirmed the token VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7 must remain searchable via Graphiti.search.",
+          "Alice is related to Bob in lab fixture mentioning VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7. Episode excerpt: Alice collaborated with Bob at MarkerCorp on a synthetic lab project. The unique retrieval token is VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7. Alice confirmed the token VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7 must remain searchable via Graphiti.search.",
+          "Bob is related to MarkerCorp in lab fixture mentioning VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7. Episode excerpt: Alice collaborated with Bob at MarkerCorp on a synthetic lab project. The unique retrieval token is VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7. Alice confirmed the token VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7 must remain searchable via Graphiti.search.",
+          "MarkerCorp is related to Graphiti in lab fixture mentioning VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7. Episode excerpt: Alice collaborated with Bob at MarkerCorp on a synthetic lab project. The unique retrieval token is VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7. Alice confirmed the token VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7 must remain searchable via Graphiti.search.",
+          "VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7 shares context with Graphiti about VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7"
+        ],
+        "search_result_count": 5,
+        "search_hit_count": 5,
+        "search_facts": [
+          "VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7 shares context with Graphiti about VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7",
+          "VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7 is related to Alice in lab fixture mentioning VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7. Episode excerpt: Alice collaborated with Bob at MarkerCorp on a synthetic lab project. The unique retrieval token is VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7. Alice confirmed the token VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7 must remain searchable via Graphiti.search.",
+          "MarkerCorp is related to Graphiti in lab fixture mentioning VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7. Episode excerpt: Alice collaborated with Bob at MarkerCorp on a synthetic lab project. The unique retrieval token is VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7. Alice confirmed the token VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7 must remain searchable via Graphiti.search.",
+          "Alice is related to Bob in lab fixture mentioning VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7. Episode excerpt: Alice collaborated with Bob at MarkerCorp on a synthetic lab project. The unique retrieval token is VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7. Alice confirmed the token VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7 must remain searchable via Graphiti.search.",
+          "Bob is related to MarkerCorp in lab fixture mentioning VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7. Episode excerpt: Alice collaborated with Bob at MarkerCorp on a synthetic lab project. The unique retrieval token is VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7. Alice confirmed the token VELANTRIM_FALKOR_E2E_cebdae4838c54d82b540abab0ab29df7 must remain searchable via Graphiti.search."
+        ]
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-09T21:00:06.133512+00:00"
+    },
+    {
+      "phase": "P2",
+      "test_id": "persistence_reopen",
+      "status": "PASS",
+      "evidence": {
+        "marker": "VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53",
+        "group_id": "g_p2_d87633243ba3",
+        "db_path": "/workspace/Graphiti_fractal_lab/data/falkor_e2e/lab_59cdefc6c2f74fb2853dcfd82b7a2930.db",
+        "returncode": 0,
+        "stdout": "{\"count\": 5, \"hits\": 5, \"facts\": [\"VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53 shares context with Graphiti about VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53\", \"VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53 is related to Carol in lab fixture mentioning VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53. Episode excerpt: Carol collaborated with Dave at MarkerCorp on a synthetic lab project. The unique retrieval token is VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53. Carol confirmed the token VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53 must remain searchable via Graphiti.search.\", \"MarkerCorp is related to Graphiti in lab fixture mentioning VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53. Episode excerpt: Carol collaborated with Dave at MarkerCorp on a synthetic lab project. The unique retrieval token is VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53. Carol confirmed the token VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53 must remain searchable via Graphiti.search.\", \"Carol is related to Dave in lab fixture mentioning VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53. Episode excerpt: Carol collaborated with Dave at MarkerCorp on a synthetic lab project. The unique retrieval token is VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53. Carol confirmed the token VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53 must remain searchable via Graphiti.search.\", \"Dave is related to MarkerCorp in lab fixture mentioning VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53. Episode excerpt: Carol collaborated with Dave at MarkerCorp on a synthetic lab project. The unique retrieval token is VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53. Carol confirmed the token VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53 must remain searchable via Graphiti.search.\"]}\n",
+        "stderr": "",
+        "payload": {
+          "count": 5,
+          "hits": 5,
+          "facts": [
+            "VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53 shares context with Graphiti about VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53",
+            "VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53 is related to Carol in lab fixture mentioning VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53. Episode excerpt: Carol collaborated with Dave at MarkerCorp on a synthetic lab project. The unique retrieval token is VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53. Carol confirmed the token VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53 must remain searchable via Graphiti.search.",
+            "MarkerCorp is related to Graphiti in lab fixture mentioning VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53. Episode excerpt: Carol collaborated with Dave at MarkerCorp on a synthetic lab project. The unique retrieval token is VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53. Carol confirmed the token VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53 must remain searchable via Graphiti.search.",
+            "Carol is related to Dave in lab fixture mentioning VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53. Episode excerpt: Carol collaborated with Dave at MarkerCorp on a synthetic lab project. The unique retrieval token is VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53. Carol confirmed the token VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53 must remain searchable via Graphiti.search.",
+            "Dave is related to MarkerCorp in lab fixture mentioning VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53. Episode excerpt: Carol collaborated with Dave at MarkerCorp on a synthetic lab project. The unique retrieval token is VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53. Carol confirmed the token VELANTRIM_FALKOR_E2E_47f0c4001949479d90cc863bceef4d53 must remain searchable via Graphiti.search."
+          ]
+        }
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-09T21:00:07.833836+00:00"
+    },
+    {
+      "phase": "P3",
+      "test_id": "group_isolation",
+      "status": "PASS",
+      "evidence": {
+        "group_a": "groupA_72d7cb37b8",
+        "group_b": "groupB_1221325c83",
+        "marker_a": "VELANTRIM_FALKOR_E2E_e51dde8982cb421bab53a6d01e16ac79",
+        "marker_b": "VELANTRIM_FALKOR_E2E_226e992cd544457083f88b6f82c7ad61",
+        "hits_a_before_b": 5,
+        "hits_b": 5,
+        "hits_a_after_b": 5,
+        "b_leak_into_a": 0,
+        "a_leak_into_b": 0,
+        "driver_database_after": "groupB_1221325c83",
+        "facts_a_after": [
+          "VELANTRIM_FALKOR_E2E_e51dde8982cb421bab53a6d01e16ac79 shares context with Graphiti about VELANTRIM_FALKOR_E2E_e51dde8982cb421bab53a6d01e16ac79",
+          "VELANTRIM_FALKOR_E2E_e51dde8982cb421bab53a6d01e16ac79 is related to Alice in lab fixture mentioning VELANTRIM_FALKOR_E2E_e51dde8982cb421bab53a6d01e16ac79. Episode excerpt: Alice collaborated with Alpha at MarkerCorp on a synthetic lab project. The unique retrieval token is VELANTRIM_FALKOR_E2E_e51dde8982cb421bab53a6d01e16ac79. Alice confirmed the token VELANTRIM_FALKOR_E2E_e51dde8982cb421bab53a6d01e16ac79 must remain searchable via Graphiti.search.",
+          "MarkerCorp is related to Graphiti in lab fixture mentioning VELANTRIM_FALKOR_E2E_e51dde8982cb421bab53a6d01e16ac79. Episode excerpt: Alice collaborated with Alpha at MarkerCorp on a synthetic lab project. The unique retrieval token is VELANTRIM_FALKOR_E2E_e51dde8982cb421bab53a6d01e16ac79. Alice confirmed the token VELANTRIM_FALKOR_E2E_e51dde8982cb421bab53a6d01e16ac79 must remain searchable via Graphiti.search.",
+          "Alice is related to Alpha in lab fixture mentioning VELANTRIM_FALKOR_E2E_e51dde8982cb421bab53a6d01e16ac79. Episode excerpt: Alice collaborated with Alpha at MarkerCorp on a synthetic lab project. The unique retrieval token is VELANTRIM_FALKOR_E2E_e51dde8982cb421bab53a6d01e16ac79. Alice confirmed the token VELANTRIM_FALKOR_E2E_e51dde8982cb421bab53a6d01e16ac79 must remain searchable via Graphiti.search.",
+          "Alpha is related to MarkerCorp in lab fixture mentioning VELANTRIM_FALKOR_E2E_e51dde8982cb421bab53a6d01e16ac79. Episode excerpt: Alice collaborated with Alpha at MarkerCorp on a synthetic lab project. The unique retrieval token is VELANTRIM_FALKOR_E2E_e51dde8982cb421bab53a6d01e16ac79. Alice confirmed the token VELANTRIM_FALKOR_E2E_e51dde8982cb421bab53a6d01e16ac79 must remain searchable via Graphiti.search."
+        ],
+        "facts_b": [
+          "VELANTRIM_FALKOR_E2E_226e992cd544457083f88b6f82c7ad61 shares context with Graphiti about VELANTRIM_FALKOR_E2E_226e992cd544457083f88b6f82c7ad61",
+          "VELANTRIM_FALKOR_E2E_226e992cd544457083f88b6f82c7ad61 is related to Bob in lab fixture mentioning VELANTRIM_FALKOR_E2E_226e992cd544457083f88b6f82c7ad61. Episode excerpt: Bob collaborated with Beta at MarkerCorp on a synthetic lab project. The unique retrieval token is VELANTRIM_FALKOR_E2E_226e992cd544457083f88b6f82c7ad61. Bob confirmed the token VELANTRIM_FALKOR_E2E_226e992cd544457083f88b6f82c7ad61 must remain searchable via Graphiti.search.",
+          "MarkerCorp is related to Graphiti in lab fixture mentioning VELANTRIM_FALKOR_E2E_226e992cd544457083f88b6f82c7ad61. Episode excerpt: Bob collaborated with Beta at MarkerCorp on a synthetic lab project. The unique retrieval token is VELANTRIM_FALKOR_E2E_226e992cd544457083f88b6f82c7ad61. Bob confirmed the token VELANTRIM_FALKOR_E2E_226e992cd544457083f88b6f82c7ad61 must remain searchable via Graphiti.search.",
+          "Bob is related to Beta in lab fixture mentioning VELANTRIM_FALKOR_E2E_226e992cd544457083f88b6f82c7ad61. Episode excerpt: Bob collaborated with Beta at MarkerCorp on a synthetic lab project. The unique retrieval token is VELANTRIM_FALKOR_E2E_226e992cd544457083f88b6f82c7ad61. Bob confirmed the token VELANTRIM_FALKOR_E2E_226e992cd544457083f88b6f82c7ad61 must remain searchable via Graphiti.search.",
+          "Beta is related to MarkerCorp in lab fixture mentioning VELANTRIM_FALKOR_E2E_226e992cd544457083f88b6f82c7ad61. Episode excerpt: Bob collaborated with Beta at MarkerCorp on a synthetic lab project. The unique retrieval token is VELANTRIM_FALKOR_E2E_226e992cd544457083f88b6f82c7ad61. Bob confirmed the token VELANTRIM_FALKOR_E2E_226e992cd544457083f88b6f82c7ad61 must remain searchable via Graphiti.search."
+        ],
+        "facts_b_in_a_search": []
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-09T21:00:08.092251+00:00"
+    },
+    {
+      "phase": "T3",
+      "test_id": "negative_control",
+      "status": "PASS",
+      "evidence": {
+        "real_marker": "VELANTRIM_FALKOR_E2E_5e566ebeb08745e19acfe44251436b83",
+        "missing_marker": "VELANTRIM_FALKOR_E2E_NOT_RETRIEVED_7e8b869389b042be99817e904f7d6dc7",
+        "positive_hits": 5,
+        "negative_hits": 0,
+        "negative_facts": []
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-09T21:00:08.282021+00:00"
+    }
+  ],
+  "summary": {
+    "run_id": "run_001",
+    "branch": "experiment/falkordblite-deterministic-memory",
+    "base_sha_before": "c1c401fe56e089ae5fe54403cbe7b025ce08fe41",
+    "phase_status": {
+      "P0": "PASS",
+      "P1": "PASS",
+      "P2": "PASS",
+      "P3": "PASS",
+      "T3": "PASS"
+    },
+    "pytest": "5 passed (tests/lab/test_falkordblite_graphiti_memory_e2e.py)",
+    "answers": {
+      "A_graphiti_on_falkordblite": "PASS \u2014 connect+indices+add_episode+Graphiti.search with deterministic providers",
+      "B_fractal_on_falkor": "NOT_RUN \u2014 Fractal wiring / Neo4j migrations intentionally out of scope for P0-P3",
+      "C_persistence_reopen": "PASS \u2014 subprocess reopened same db path and Graphiti.search hit marker",
+      "D_group_isolation": "PASS \u2014 A survived after B; no A\u2194B leakage on group_ids-scoped search (0.29.3 decorator clone path)",
+      "E_negative_control": "PASS \u2014 nonexistent marker NOT retrieved",
+      "F_openai_network_llm": "NOT used \u2014 DeterministicLLMClient/Embedder/CrossEncoder only",
+      "G_upstream_group_vanish": "NOT observed in this run (would FAIL as F-P3-GROUP-A-VANISH)"
+    },
+    "completed_at_utc": "2026-09-09T21:01:37.690085+00:00"
+  }
+}
