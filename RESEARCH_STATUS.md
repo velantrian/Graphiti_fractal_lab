@@ -1,12 +1,28 @@
 # 📊 RESEARCH_STATUS
 
 > **Repo:** `velantrian/Graphiti_fractal_lab`  
-> **Role:** 🔬 RESEARCH sandbox — not production Fractal Memory  
+> **Role:** 🔬 RESEARCH sandbox — full Fractal tree mirrored for experimentation; not production Fractal Memory  
 > **Date:** 2026-09-09  
-> **Last local verify:** `pytest -v` → **4 passed** · Python 3.13.5 · `ladybug==0.20.3`
+> **Mirror:** Entire tracked tree from `velantrian/Graphiti_fractal` copied into this lab so experiments can edit freely. Upstream must **never** be modified from lab tasks.  
+> **Last local verify (lab smoke only):** `pytest tests/test_ladybug_smoke.py tests/test_sqlite_meta.py -v` → **4 passed** · Python 3.13.5 · `ladybug==0.20.3`
 
 🤖 For machine routing see [`docs/ai/README.md`](docs/ai/README.md).  
 Re-run pytest on the exact head before citing pass counts elsewhere.
+
+## 🪞 Mirror honesty
+
+| Path | Meaning |
+|---|---|
+| `core/`, `api/`, `docker-compose.yml`, Fractal `tests/`, … | Mirrored for experimentation — **Neo4j/Docker/secrets still required** to run full stack; **not claimed runnable here without them** |
+| `src/fractal_lab/`, `tests/test_ladybug_smoke.py`, `tests/test_sqlite_meta.py` | Lab-only Ladybug/SQLite smoke path (no Docker) |
+| `docs/LAB_LANDING.md` | Previous lab-only README landing (pre-mirror) |
+| `docs/ai/UPSTREAM_FRACTAL_README.md` | Upstream Fractal machine router (preserved beside lab router) |
+| `requirements.txt` | Fractal stack deps (Graphiti/Neo4j/…); need Docker/secrets for real use |
+| `requirements-lab.txt` + `pyproject.toml` | Lab Ladybug smoke deps |
+
+```text
+Mirrored Fractal files ≠ Docker available ≠ Neo4j running ≠ Fractal ACTIVE in this environment
+```
 
 ---
 

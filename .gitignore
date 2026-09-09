@@ -1,21 +1,57 @@
-.venv/
+# Neo4j database files (should not be committed)
+neo4j/data/
+neo4j/logs/
+neo4j/import/
+neo4j/plugins/
+
+# Python
 __pycache__/
 *.py[cod]
+*$py.class
+*.so
+.Python
 *.egg-info/
 .eggs/
 dist/
 build/
+
+# Environment / venvs
+.env
+.venv
+.venv/
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Embedding cache
+.embedding_cache.json
+
+# Test / runtime artifacts
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
 .coverage
 htmlcov/
+*.log
+
+# Lab Ladybug / SQLite scratch (under data/ or anywhere)
 data/*.lbdb/
 data/*.lbdb
 data/*.sqlite
 data/*.db
 *.lbdb
-.DS_Store
-.env
-.idea/
-.vscode/
+*.db
+
+# Generated artifacts
+architecture_manifest.md
+project_structure.json
+static/graph_data.json

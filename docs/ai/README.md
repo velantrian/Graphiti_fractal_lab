@@ -9,7 +9,7 @@ This file is intentionally concise and non-narrative. Human readers should start
 ```yaml
 project: Graphiti Fractal Lab
 repository: velantrian/Graphiti_fractal_lab
-architecture_role: RESEARCH sandbox for lightweight multi-backend smoke outside Fractal runtime
+architecture_role: RESEARCH sandbox — full Graphiti_fractal tree mirrored for experimentation + Ladybug/SQLite lab smoke
 upstream_authority: velantrian/Graphiti_fractal  # Graphiti + Neo4j ACTIVE elsewhere
 primary_lab_graph_smoke: ladybug==0.20.3
 primary_lab_meta: sqlite3 (stdlib)
@@ -30,6 +30,8 @@ migration_authorized: false
 8. `tests/` + local `pytest` (or CI) for the exact head under review.
 
 Do **not** begin by scanning upstream `Graphiti_fractal` narrative and inferring that this lab implements it.
+
+The working tree now **mirrors** upstream Fractal sources for safe edits. Presence of `core/`, `docker-compose.yml`, etc. does **not** mean Neo4j/Docker/secrets are available or that Fractal is ACTIVE in this environment. Upstream machine router preserved at [`UPSTREAM_FRACTAL_README.md`](UPSTREAM_FRACTAL_README.md).
 
 ## Authority order
 
@@ -61,6 +63,8 @@ invariants:
   - file_exists_is_not_tested
   - upstream_active_is_not_lab_active
   - do_not_modify_or_push_upstream_Graphiti_fractal_from_lab_tasks
+  - mirrored_tree_is_not_docker_available
+  - mirrored_neo4j_files_are_not_lab_active_runtime
 ```
 
 ## Active (lab-local) architecture
@@ -74,6 +78,7 @@ active_in_this_repo:
     - tests/test_ladybug_smoke.py
     - tests/test_sqlite_meta.py
   evidence_note: "4 passed on Python 3.13 + ladybug 0.20.3 when last verified locally; re-run pytest on exact head"
+  mirrored_fractal_tree: present_for_experimentation_only  # Neo4j/Docker/secrets still required for full stack
 ```
 
 ## Research / stubs / non-active

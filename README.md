@@ -1,62 +1,75 @@
-# 🧠 FRACTAL LAB 🧪🕸️
+# 🧪 LAB NOTICE — Graphiti_fractal_lab
 
-> **RESEARCH sandbox рядом с Graphiti Fractal — не production memory.**
+> **This repository is a RESEARCH full copy of Fractal for experimentation.**
 >
-> Здесь мы проверяем, насколько лёгкие graph/metadata backends (прежде всего
-> **LadybugDB + SQLite**) вообще живут вне Docker/Neo4j — без претензии заменить
-> Graphiti или объявить migration.
->
-> Upstream остаётся источником истины для Fractal Memory:
-> [`velantrian/Graphiti_fractal`](https://github.com/velantrian/Graphiti_fractal).
-> Этот репозиторий — **лаборатория**, не sibling runtime.
-
-[🤖 **Special for AI / Agents**](docs/ai/README.md) ·
-[🗺️ **Deep Human Overview**](SYSTEM_OVERVIEW.md) ·
-[📊 Research Status](RESEARCH_STATUS.md) ·
-[🗄️ Backend Matrix](docs/GRAPH_BACKEND_CAPABILITY_MATRIX.md)
-
-> 🤖 **AI coding agent / automated auditor:** не выводи current state из красивого
-> human narrative. Начни с [`docs/ai/README.md`](docs/ai/README.md), затем проверь
-> exact live code, tests и этот lab ledger. **Не путай lab smoke с Fractal ACTIVE path.**
+> - **Upstream (do not modify from lab tasks):** https://github.com/velantrian/Graphiti_fractal
+> - **This lab:** https://github.com/velantrian/Graphiti_fractal_lab — safe place to try changes, backends, and docs edits.
+> - **Honest runtime split:**
+>   - 🐞 **Lab smoke path (no Docker):** `src/fractal_lab/` + LadybugDB/SQLite — see [`RESEARCH_STATUS.md`](RESEARCH_STATUS.md) and [`docs/ai/README.md`](docs/ai/README.md)
+>   - 🗄️ **Full Fractal / Neo4j path:** mirrored tree below (`core/`, `docker-compose.yml`, …) still **requires Docker + secrets**; it is **not** claimed runnable in this lab environment without them
+> - Previous lab-only landing preserved at [`docs/LAB_LANDING.md`](docs/LAB_LANDING.md)
 
 ---
 
-## 👋 Lab за 60 секунд
+# 🧠 FRACTAL MEMORY 🕸️
 
-Обычный Fractal путь (upstream, **не этот repo**):
+> **Graphiti-native local-first memory for AI agents.**
+>
+> Представь AI, который не просто держит последние сообщения в контекстном окне, а может **помнить события во времени, связывать людей и идеи, возвращаться к прошлому опыту и сохранять происхождение памяти** — при этом не превращая найденное, часто повторяемое или сгенерированное моделью в автоматическую истину.
+>
+> Fractal строит именно такой bounded memory layer поверх **Graphiti + Neo4j**.
+
+[🤖 **Special for AI / Agents**](docs/ai/README.md) · [🗺️ **Deep Human Overview**](SYSTEM_OVERVIEW.md) · [🧱 Technology Evolution](docs/TECHNOLOGY_EVOLUTION.md) · [🧠 AI Model Evolution](docs/AI_MODEL_EVOLUTION.md) · [🦞 OpenClaw Patterns](docs/OPENCLAW_ADOPTED_PATTERNS.md)
+
+> 🤖 **AI coding agent / automated auditor:** не выводи current state из красивого human narrative. Начни с [`docs/ai/README.md`](docs/ai/README.md), затем проверь exact live code, tests и CI evidence.
+
+---
+
+## 👋 Fractal за 60 секунд
+
+Обычный чат часто выглядит так:
 
 ```text
-👤 query → 🧭 recall → 🕸️ Graphiti → 🗄️ Neo4j → 📦 bounded context → 🤖 model
+💬 prompt → 🤖 model → 🗣️ answer
 ```
 
-Этот lab делает другое — тонкий эксперимент **вне** Fractal runtime:
+Fractal добавляет между человеком и моделью долговременную память с явными границами:
 
 ```text
-🧪 lab smoke
+👤 query
    ↓
-🐞 LadybugDB on-disk  ── Cypher node/rel round-trip
+🧭 recall policy
    ↓
-🗃️ SQLite            ── lab ops / metadata only
+🧩 scoped namespaces
    ↓
-📄 stubs             ── Kùzu / Postgres / DuckDB (NOT VALIDATED)
+🕸️ Graphiti temporal memory
+   ↓
+🗄️ Neo4j
+   ↓
+📦 bounded remembered context
+   ↓
+🤖 model
+   ↓
+🗣️ answer
 ```
 
 ### Простыми словами
 
-Lab похож на верстак рядом с настоящей библиотекой памяти:
+Fractal похож на персональную библиотеку памяти, где:
 
-- 🐞 **LadybugDB** — лёгкий embedded graph для smoke (не Neo4j);
-- 🗃️ **SQLite** — таблица метаданных прогонов (не graph authority);
-- 📄 **stubs** — заготовки под другие backends, пока без evidence;
-- 🕸️ **Graphiti + Neo4j** живут только в upstream Fractal и **сюда не перенесены**;
-- 🔬 цель — честно узнать, что проходит smoke, а не объявить migration.
+- 🕸️ **Graphiti** связывает события, сущности и отношения во времени;
+- 🗄️ **Neo4j** хранит граф долговременно;
+- 🧩 **namespaces** не дают разным классам памяти незаметно смешаться;
+- 🔎 **recall** ищет только в разрешённых областях;
+- 🧾 **provenance** показывает, откуда произошли derived artifacts;
+- 🛡️ **trust rules** не позволяют частоте или импорту автоматически стать authority;
+- 🤖 **LLM** использует память, но не получает скрытого права объявлять свой вывод durable fact.
 
 ### Инженерным языком
 
-`fractal-lab` — Python package (`src/fractal_lab`) с Protocol-адаптерами,
-Ladybug smoke adapter, SQLite meta store и stub backends. Нет Docker, нет Neo4j,
-нет OpenAI, нет `graphiti_core` runtime. **4 pytest smoke tests passed** на
-Python 3.13 + `ladybug==0.20.3` (verify locally before citing elsewhere).
+Fractal — single-owner local-first memory service поверх `graphiti_core==0.29.3` и Neo4j 5.26 LTS с canonical ingestion, namespace-scoped retrieval, chat persistence, provenance, L1–L3 views и bounded memory lifecycle.
+
+Он **не строит второй graph engine**: Graphiti остаётся основным temporal/episodic memory semantics layer.
 
 ---
 
@@ -64,32 +77,37 @@ Python 3.13 + `ladybug==0.20.3` (verify locally before citing elsewhere).
 
 | Если вы… | Начните здесь |
 |---|---|
-| 👤 впервые видите lab | этот README, затем [`SYSTEM_OVERVIEW.md`](SYSTEM_OVERVIEW.md) |
-| 🤖 AI coding agent / auditor | [`docs/ai/README.md`](docs/ai/README.md) → [`AGENTS.md`](AGENTS.md) |
-| 🧑‍💻 хотите архитектуру глубже | [`SYSTEM_OVERVIEW.md`](SYSTEM_OVERVIEW.md) |
-| 📊 проверяете, что реально доказано | [`RESEARCH_STATUS.md`](RESEARCH_STATUS.md) + `pytest` |
-| 🗄️ сравниваете backends | [`docs/GRAPH_BACKEND_CAPABILITY_MATRIX.md`](docs/GRAPH_BACKEND_CAPABILITY_MATRIX.md) |
-| 🧠 ищете production Fractal Memory | ➡️ [`Graphiti_fractal`](https://github.com/velantrian/Graphiti_fractal) |
+| 👤 впервые видите проект | этот README, затем [`SYSTEM_OVERVIEW.md`](SYSTEM_OVERVIEW.md) |
+| 🤖 AI coding agent / auditor | [`docs/ai/README.md`](docs/ai/README.md) |
+| 🧑‍💻 хотите понять архитектуру глубоко | [`SYSTEM_OVERVIEW.md`](SYSTEM_OVERVIEW.md) |
+| 🧱 сравниваете технологии | [`docs/TECHNOLOGY_EVOLUTION.md`](docs/TECHNOLOGY_EVOLUTION.md) |
+| 🧠 проверяете model/provider policy | [`docs/AI_MODEL_EVOLUTION.md`](docs/AI_MODEL_EVOLUTION.md) + `core/model_policy.py` |
+| 🦞 изучаете memory lifecycle ideas | [`docs/OPENCLAW_ADOPTED_PATTERNS.md`](docs/OPENCLAW_ADOPTED_PATTERNS.md) |
+| 🧪 проверяете, что реально доказано | tests + GitHub Actions + exact-head PR evidence |
 
 ---
 
 ## 🧠 Mindmap
 
 ```text
-                        🧪 FRACTAL LAB
-                              │
-        ┌─────────────────────┼─────────────────────┐
-        ▼                     ▼                     ▼
-   🐞 Ladybug smoke      🗃️ SQLite meta        📄 Optional stubs
-   on-disk Cypher        ops / runs ledger     Kùzu · Postgres · DuckDB
-        │                     │                     │
-        ▼                     ▼                     ▼
-   ✅ SMOKE-TESTED       ✅ SMOKE-TESTED       🔬 STUB / NOT VALIDATED
-        │                     │                     │
-        └──────────┬──────────┴──────────┬──────────┘
-                   ▼                     ▼
-            🛡️ Authority rule      ❌ No Fractal parity
-         lab ≠ durable memory     Neo4j / Graphiti out of scope
+                           🧠 FRACTAL
+                               │
+       ┌───────────────────────┼───────────────────────┐
+       ▼                       ▼                       ▼
+  🕸️ MEMORY GRAPH         🔎 RECALL               💬 CONTINUITY
+       │                       │                       │
+  events / relations      scoped search          persisted turns
+       │                       │                       │
+       ├──────────────┐        │             ┌────────┘
+       ▼              ▼        ▼             ▼
+  🧾 Provenance   🧩 Namespaces          🪜 L1 / L2 / L3
+       │              │                        │
+       └──────────────┴──────────┬─────────────┘
+                                 ▼
+                         🛡️ TRUST BOUNDARY
+                                 │
+                                 ▼
+                       🔁 MEMORY LIFECYCLE
 ```
 
 ---
@@ -97,27 +115,38 @@ Python 3.13 + `ladybug==0.20.3` (verify locally before citing elsewhere).
 ## 🗺️ Архитектура одним взглядом
 
 ```text
-┌──────────────── 🌍 RESEARCHER / AI AGENT / CI ────────────────┐
-│   ⌨️ pytest · 📄 docs · 🧪 smoke only                         │
-└─────────────────────────────┬─────────────────────────────────┘
-                              ▼
-                    🧪 fractal_lab adapters
-                              │
-          ┌───────────────────┼───────────────────┐
-          ▼                   ▼                   ▼
-   🐞 LadybugAdapter    🗃️ SqliteLabMeta    📄 *Stub backends
-   CREATE/MATCH smoke   record_run/list     raise / declare status
-          │                   │                   │
-          ▼                   ▼                   ▼
-   💾 on-disk .lbdb      💾 .sqlite file     (no durable claim)
+┌──────────────────── 🌍 HUMAN / AGENT / TOOL ──────────────────────┐
+│   🌐 Web UI · 🔌 HTTP · 🤖 MCP · ⌨️ CLI                           │
+└───────────────────────────────┬────────────────────────────────────┘
+                                ▼
+                         🔐 local boundary
+                                │
+                                ▼
+                           🧠 MemoryOps
+                                │
+               ┌────────────────┼────────────────┐
+               ▼                ▼                ▼
+        ✍️ canonical ingest   🔎 recall      💬 persistence
+               │                │                │
+               └────────────────┴────────┬───────┘
+                                        ▼
+                                   🕸️ Graphiti
+                                        │
+                                        ▼
+                                🗄️ Neo4j 5.26 LTS
+                                        │
+                  ┌─────────────────────┼─────────────────────┐
+                  ▼                     ▼                     ▼
+             🧾 provenance         📊 telemetry          🪜 L1/L2/L3
 ```
 
 ### Главная формула
 
 ```text
-Upstream Fractal remembers with Graphiti + Neo4j.
-This lab smokes lightweight backends outside that path.
-Smoke ≠ parity. Stub ≠ validated. Lab graph ≠ Fractal memory.
+Graphiti remembers relationships through time.
+Fractal bounds how that memory enters, is recalled, and is trusted.
+Neo4j persists the graph.
+The model uses memory — it does not become memory authority by default.
 ```
 
 ---
@@ -125,29 +154,45 @@ Smoke ≠ parity. Stub ≠ validated. Lab graph ≠ Fractal memory.
 ## 🌳 Дерево проекта
 
 ```text
-🧪 Graphiti_fractal_lab
+🧠 Fractal Memory
 │
-├── 📦 src/fractal_lab/
-│   └── backends/
-│       ├── base.py              Protocol + ValidationStatus
-│       ├── ladybug_adapter.py   ✅ primary runnable path
-│       ├── sqlite_meta.py       ✅ lab ops/metadata
-│       ├── kuzu_stub.py         🔬 NOT VALIDATED
-│       ├── postgres_stub.py     🔬 NOT VALIDATED
-│       └── duckdb_stub.py       🔬 NOT VALIDATED
+├── 🌐 Interfaces
+│   ├── Web / HTTP
+│   ├── MCP
+│   └── CLI
 │
-├── 🧪 tests/
-│   ├── test_ladybug_smoke.py
-│   └── test_sqlite_meta.py
+├── 🕸️ Graph memory
+│   ├── Graphiti
+│   └── Neo4j
 │
-├── 📚 docs/
-│   ├── ai/README.md             🤖 machine-first entry
-│   └── GRAPH_BACKEND_CAPABILITY_MATRIX.md
+├── 🧩 Namespaces
+│   ├── personal
+│   ├── project
+│   ├── knowledge
+│   ├── experience
+│   └── imports  ⚠️ isolated / untrusted
 │
-├── 🗺️ SYSTEM_OVERVIEW.md
-├── 📊 RESEARCH_STATUS.md
-├── 🤖 AGENTS.md
-└── 💾 data/                     scratch (gitkeep)
+├── 🔎 Recall
+│   └── off / auto / always
+│
+├── ✍️ Canonical ingest
+│   └── knowledge/ingest.py
+│
+├── 🔁 Lifecycle
+│   ├── promotion explainability
+│   ├── consolidation preview
+│   └── external import isolation
+│
+├── 🪜 Derived views
+│   ├── L1 episodic
+│   ├── L2 communities
+│   └── L3 bounded synthesis
+│
+└── 🔬 Research / adjacent
+    ├── GraphRAG / KAG / CAG
+    ├── PostgreSQL / pgvector
+    ├── alternative graph backends
+    └── causal / GDS experiments
 ```
 
 ---
@@ -156,17 +201,22 @@ Smoke ≠ parity. Stub ≠ validated. Lab graph ≠ Fractal memory.
 
 | Область | Сейчас | Смысл |
 |---|---|---|
-| 🐞 LadybugDB on-disk create | ✅ **SMOKE** | `ladybug==0.20.3`, pytest |
-| 🐞 Cypher node/rel round-trip | ✅ **SMOKE** | CREATE NODE/REL + MATCH |
-| 🗃️ SQLite lab metadata | ✅ **SMOKE** | stdlib `sqlite3` runs table |
-| 🔌 Thin adapter Protocol | ✅ **IMPLEMENTED** | `GraphBackend` + status enum |
-| 📄 Kùzu / Postgres / DuckDB | 🔬 **STUB** | declare `NOT VALIDATED` |
-| 🕸️ Graphiti on Ladybug | ❌ **NOT VALIDATED** | no `graphiti_core` path here |
-| 🗄️ Neo4j parity | ❌ **NOT CLAIMED** | temporal, group_id, vectors, … |
-| 🔁 Migration / dual-write | ❌ **NOT AUTHORIZED** | lab ≠ migration decision |
-| 🤖 OpenAI / embeddings | ❌ **OUT OF SCOPE** | intentionally absent |
-| 🐳 Docker / Neo4j server | ❌ **ABSENT** | by design |
-| 🚀 Production / Fractal ACTIVE | ❌ **NOT THIS REPO** | see upstream |
+| 🕸️ Graphiti memory | ✅ **ACTIVE** | основной temporal graph memory engine |
+| 🗄️ Neo4j 5.26 LTS | ✅ **ACTIVE** | durable graph persistence |
+| 🧩 Namespace isolation | ✅ **ACTIVE** | scoped memory boundaries |
+| 🔎 Adaptive recall | ✅ **ACTIVE** | `off / auto / always` |
+| 💬 Chat persistence | ✅ **ACTIVE** | persisted turns + bounded summaries |
+| 🧾 Provenance | ✅ **ACTIVE** | exact lineage для новых derived artifacts |
+| 🔐 Unique ingest claim | ✅ **TESTED** | concurrent duplicate admission fail-closed at app boundary |
+| 🔁 Promotion | 🟡 **EXPLAIN / GATED** | eligibility есть; automatic durable writer отсутствует |
+| 🧪 Consolidation | 🟡 **DRY_RUN** | preview only |
+| 📥 External imports | 🟡 **ISOLATED** | explicit apply; остаются untrusted |
+| 🪜 L1 / L2 / L3 | ✅ / 🟡 | views/synthesis, не новый Canon |
+| 🕸️ GraphRAG / KAG / CAG | 🔬 **RESEARCH** | не active parallel pipelines |
+| 🗃️ PostgreSQL / pgvector | 🔬 **ADJACENT** | не current memory authority |
+| 🐞 Alternative graph backend | 🔬 **RESEARCH** | migration не активирована |
+| 🧮 Causal / GDS write-back | ❌ **NOT AUTHORIZED** | research ≠ runtime |
+| 🚀 Production authorization | ❌ **NOT CLAIMED** | CI green ≠ production authorization |
 
 ---
 
@@ -174,70 +224,256 @@ Smoke ≠ parity. Stub ≠ validated. Lab graph ≠ Fractal memory.
 
 | Метка | Значение |
 |---|---|
-| ✅ **smoke / tested (lab)** | локальный contract evidence в **этом** repo |
-| 🟡 **bounded** | существует, но не authority path |
-| 🔬 **research / stub** | изучается; код/док ≠ runtime adoption |
+| ✅ **active / tested** | относится к текущему инженерному пути и подтверждено соответствующим contract evidence |
+| 🟡 **bounded / gated** | существует, но ограничено preview/config/authority boundary |
+| 🔬 **research / adjacent** | изучается; наличие кода или документа не означает runtime adoption |
+| 🚧 **open PR** | ещё не является `main` |
 | ⚠️ **limitation** | известная граница |
-| ❌ **not authorized / not claimed** | нельзя утверждать как Fractal capability |
+| ❌ **not authorized / unavailable** | нельзя утверждать как действующую capability |
 
 ```text
 📄 file exists
    ≠ 🧪 contract proved
    ≠ 🎛️ feature enabled
-   ≠ 🔗 active Fractal path
-   ≠ 📡 runtime observed in production
-   ≠ 🚀 migration / production authorized
+   ≠ 🔗 active path
+   ≠ 📡 runtime observed
+   ≠ 🚀 production authorized
 ```
-
-> Lab ✅ SMOKE никогда не повышает статус backend до Fractal ✅ ACTIVE.
 
 ---
 
-## 🚀 Быстрый старт (без Docker)
+## 🆚 Чем Fractal отличается по архитектурному акценту
 
-```bash
-cd Graphiti_fractal_lab
-python3 -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
-pip install -r requirements-dev.txt
-pip install -e .
-pytest -v
+> Это **не рейтинг “кто лучше”**. Подходы решают разные задачи и могут использоваться вместе.
+
+| Подход | 🎯 Главная задача | 🕸️ Temporal graph | 🧾 Provenance | 🛡️ Trust isolation | 🔁 Promotion lifecycle |
+|---|---|---:|---:|---:|---:|
+| 📦 Vector RAG | retrieve relevant context | ❌ | 🟡 varies | 🟡 varies | ❌ usually outside scope |
+| 🧠 Agent memory / Letta-style | continuity + managed memory | 🟡 varies | 🟡 varies | 🟡 varies | ✅/🟡 |
+| 🕸️ Graph memory | relation-aware memory | ✅/🟡 | ✅/🟡 | 🟡 varies | 🟡 varies |
+| 🕸️ Graphiti | temporal knowledge-graph primitives | 🎯 core | 🎯 core | implementation-level | graph semantics |
+| 🧠 **Fractal** | bounded local AI memory **on Graphiti** | ✅ | ✅ explicit | 🎯 core | 🎯 explain / preview / gated |
+
+**Fractal не заменяет Graphiti.** Он использует Graphiti как основной memory engine и добавляет application-level boundaries: namespaces, canonical ingestion, trust isolation, lifecycle gates, product surfaces и validation contracts.
+
+Подробное объяснение и ограничения сравнения → [`SYSTEM_OVERVIEW.md`](SYSTEM_OVERVIEW.md).
+
+---
+
+## 🛡️ Пять границ, которые важнее количества функций
+
+```text
+🔎 retrieval  ≠ evidence
+🕸️ graph      ≠ truth
+📥 imported   ≠ trusted
+🔁 frequency  ≠ authority
+🤖 model text ≠ durable fact
 ```
 
-Ожидаемый smoke path:
+И ещё две инженерные:
 
-1. создаёт on-disk LadybugDB;
-2. пишет/читает несколько nodes + relationships через Cypher;
-3. создаёт SQLite table для lab metadata;
-4. assert round-trip; stubs объявляют `STUB_NOT_VALIDATED`.
+```text
+🔬 research ≠ runtime
+✅ green CI ≠ production authorization
+```
+
+---
+
+## 🧩 Memory namespaces
+
+| Namespace | Для чего | Normal recall |
+|---|---|---:|
+| 👤 `personal` | локальная память владельца / диалога | ✅ |
+| 🛠️ `project` | проекты и технические решения | ✅ |
+| 📚 `knowledge` | документы и общие знания | ✅ |
+| 🧪 `experience` | опыт выполнения задач | ✅ |
+| 📥 `imports` | явно применённая внешняя память | ❌ isolated |
+
+Для нескольких namespaces Fractal делает **отдельные bounded Graphiti searches**, затем объединяет результаты на application layer. Один скрытый global unscoped query не является canonical path.
+
+---
+
+## 🔁 Memory lifecycle
+
+### 🧭 Adaptive recall
+
+```text
+query
+  ↓
+recall policy
+  ├── off     → no memory recall
+  ├── auto    → skip only clearly trivial turns
+  └── always  → bounded recall
+```
+
+### ⚖️ Promotion gate
+
+Deterministic scoring может объяснить eligibility и blockers, но **не выполняет automatic durable promotion write**.
+
+`untrusted` и `system` origins не становятся eligible только из-за высокой частоты recall.
+
+### 🧪 Consolidation
+
+```bash
+python main.py memory-consolidate-preview candidates.json
+```
+
+Всегда preview: `DRY_RUN / writes_performed=false`.
+
+### 📥 External imports
+
+```bash
+# Preview — no write
+python main.py memory-import ./memory.md --source-type openclaw
+
+# Explicit write into isolated imports namespace
+python main.py memory-import ./export.jsonl --source-type claude --apply
+```
+
+Applied import остаётся `untrusted` и не получает normal chat recall authority.
+
+---
+
+## 🪜 L1 / L2 / L3
+
+```text
+🧠 L1 — recent episodic memory
+          ↓
+🕸️ L2 — Graphiti communities
+          ↓
+🧩 L3 — bounded synthesis with provenance
+```
+
+L3 — derived representation, а не параллельный источник истины.
+
+---
+
+## 🤖 AI model policy
+
+Current defaults централизованы в `core/model_policy.py`.
+
+| Workload | Default |
+|---|---|
+| 💬 Interactive chat | `gpt-5.6-terra` |
+| 🕸️ Graphiti extraction / reasoning | `gpt-5.6-terra` |
+| 🧩 Summary synthesis | `gpt-5.6-luna` |
+| ⚙️ Graphiti small prompts | `gpt-5.6-luna` |
+| 🧭 Frontier opt-in | `gpt-5.6-sol` via env |
+| 🔢 Embeddings | `text-embedding-3-small` |
+
+First-class provider path сейчас OpenAI. История и роли других model families описаны отдельно в [`docs/AI_MODEL_EVOLUTION.md`](docs/AI_MODEL_EVOLUTION.md); упоминание модели там **не означает active runtime support**.
+
+Embedding model не меняется автоматически вместе с chat model, потому что это меняет identity векторного индекса и требует отдельного reindex/migration решения.
+
+---
+
+## 🧱 Technology roles
+
+| Technology | Role | Status |
+|---|---|---|
+| 🕸️ Graphiti | temporal/episodic graph memory | ✅ ACTIVE |
+| 🗄️ Neo4j | durable graph backend | ✅ ACTIVE |
+| 🗃️ PostgreSQL / pgvector | relational/vector alternatives | 🔬 ADJACENT |
+| 🕸️ GraphRAG / KAG / CAG | retrieval/reasoning references | 🔬 RESEARCH |
+| ⚡ KV / prefix cache | inference compute reuse | ⚙️ INFERENCE LAYER |
+| 🦞 OpenClaw patterns | selected memory lifecycle ideas | 🟡 BOUNDED ADOPTION |
+
+Evidence-backed details → [`docs/TECHNOLOGY_EVOLUTION.md`](docs/TECHNOLOGY_EVOLUTION.md).
+
+---
+
+## 🚀 Быстрый запуск
+
+```bash
+cp .env.example .env
+# Заполните NEO4J_PASSWORD, OPENAI_API_KEY, FRACTAL_API_TOKEN.
+
+docker compose build
+docker compose up -d
+```
+
+Локально:
+
+- 🌐 Web/API — `http://127.0.0.1:8000`
+- 🕸️ Neo4j Browser — `http://127.0.0.1:7474`
+- 🔌 Bolt — `127.0.0.1:7687`
+
+Минимальная конфигурация:
+
+```env
+NEO4J_URI=bolt://localhost:7687
+NEO4J_USER=neo4j
+NEO4J_PASSWORD=<strong-password>
+OPENAI_API_KEY=<key>
+FRACTAL_API_TOKEN=<long-random-token>
+FRACTAL_USER_ID=<local-owner>
+FRACTAL_MEMORY_RECALL=auto
+```
+
+Destructive operations выключены по умолчанию:
+
+```env
+FRACTAL_ALLOW_HARD_DELETE=0
+FRACTAL_ALLOW_CLEAR_ALL=0
+```
+
+---
+
+## 🛠️ Основные CLI команды
+
+```bash
+python main.py setup
+python main.py seed
+python main.py quality
+python main.py context "Graphiti" --size full
+python main.py benchmark
+python main.py memory-status
+python main.py memory-status --deep
+python main.py memory-import ./memory.md --source-type openclaw
+python main.py memory-promote-explain --help
+python main.py memory-consolidate-preview candidates.json
+python main.py l1 --query "Fractal Memory" --hours 24
+python main.py l2 "Graphiti"
+python main.py l3-build "Graphiti"
+```
+
+MCP stdio server:
+
+```bash
+python -m mcp_server
+```
+
+---
+
+## 🧪 Как проверяется система
+
+```text
+⚙️ always-on Python contracts
+           ↓
+🕸️ live provider-free Neo4j integration
+           ↓
+🤖 provider-backed E2E
+   requires real OPENAI_API_KEY
+           ↓
+🗄️ legacy provenance preview
+   requires real legacy credentials
+   DRY_RUN only
+```
+
+External test, который был skipped из-за отсутствующего secret, **не считается PASS**.
 
 ---
 
 ## ⚠️ Честные ограничения
 
-- 🧪 это **RESEARCH lab**, не drop-in для `Graphiti_fractal`;
-- 🕸️ **нет** Graphiti / Neo4j parity и нет такого claim;
-- 🐞 Ladybug здесь — adjacent experiment, не durable Fractal authority;
-- 📄 Kùzu / Postgres / DuckDB — stubs only;
-- 🔁 migration, dual-write, rollback tooling **не спроектированы**;
-- 🤖 LLM / embeddings / OpenAI — out of scope;
-- 🐳 Docker / Neo4j server намеренно отсутствуют;
-- 🚀 green pytest ≠ production authorization ≠ Fractal migration GO.
-
----
-
-## 🔗 Upstream relationship
-
-| Repo | Role |
-|---|---|
-| [`velantrian/Graphiti_fractal`](https://github.com/velantrian/Graphiti_fractal) | ✅ ACTIVE Fractal Memory (Graphiti + Neo4j) |
-| [`velantrian/Graphiti_fractal_lab`](https://github.com/velantrian/Graphiti_fractal_lab) | 🔬 RESEARCH sandbox (this repo) |
-
-```text
-Upstream Graphiti_fractal + Neo4j  = ACTIVE memory authority (elsewhere)
-This lab's LadybugDB instance      = RESEARCH scratch only
-Never treat lab graphs as Fractal durable memory
-```
+- 🏠 система намеренно local/single-owner, не multi-user SaaS;
+- 📥 applied imports остаются isolated/untrusted;
+- 🔁 automatic durable promotion writer не активирован;
+- 🧪 consolidation остаётся preview-first;
+- 🤖 first-class provider path пока OpenAI;
+- 🔬 GraphRAG/KAG/CAG/PostgreSQL/pgvector/alternative graph backends не являются скрытыми active dependencies;
+- 🧮 causal/GDS research не имеет runtime write authority;
+- 🚀 production authorization не следует из одного green CI.
 
 ---
 
@@ -245,41 +481,34 @@ Never treat lab graphs as Fractal durable memory
 
 ### 👤 Для человека
 
-➡️ [`SYSTEM_OVERVIEW.md`](SYSTEM_OVERVIEW.md) — backends, proven vs not, authority boundaries.
+➡️ **[`SYSTEM_OVERVIEW.md`](SYSTEM_OVERVIEW.md)** — подробная архитектурная экскурсия: flows, boundaries, lifecycle, comparisons, validation semantics и research map.
 
 ### 🤖 Для AI / Agents / Auditors
 
-➡️ [`docs/ai/README.md`](docs/ai/README.md) — machine-first reading order и invariants.  
-➡️ [`AGENTS.md`](AGENTS.md) — короткий обязательный указатель.
+➡️ **[`docs/ai/README.md`](docs/ai/README.md)** — machine-first reading order, authority rules, invariants и forbidden inferences.
 
-### 📊 Evidence
+### 🧱 Для технического исследования
 
-- [`RESEARCH_STATUS.md`](RESEARCH_STATUS.md)
-- [`docs/GRAPH_BACKEND_CAPABILITY_MATRIX.md`](docs/GRAPH_BACKEND_CAPABILITY_MATRIX.md)
-- `tests/` + local `pytest`
+- [`docs/TECHNOLOGY_EVOLUTION.md`](docs/TECHNOLOGY_EVOLUTION.md) — technology decisions;
+- [`docs/AI_MODEL_EVOLUTION.md`](docs/AI_MODEL_EVOLUTION.md) — model/provider evolution;
+- [`docs/OPENCLAW_ADOPTED_PATTERNS.md`](docs/OPENCLAW_ADOPTED_PATTERNS.md) — adopted memory patterns.
 
 ---
 
 ## 🧭 Одна реальность — разные представления
 
 ```text
-                       🧪 ONE LAB REALITY
+                       🧠 ONE PROJECT REALITY
                                 │
           ┌─────────────────────┼─────────────────────┐
           │                     │                     │
           ▼                     ▼                     ▼
      👤 HUMAN VIEW         🤖 AI VIEW            📚 EVIDENCE
- README + OVERVIEW       docs/ai/README       pytest / status
+ README + OVERVIEW       docs/ai/README       tests / CI / PR
           │                     │                     │
           └─────────────────────┼─────────────────────┘
                                 ▼
-                       ⚙️ LIVE LAB CODE
+                       ⚙️ LIVE CODE / STATE
 ```
 
 **Human docs объясняют. AI docs маршрутизируют. Evidence доказывает. Live code определяет текущую реализацию.**
-
----
-
-## License
-
-MIT (lab scaffolding). Upstream Fractal остаётся отдельно licensed/owned.

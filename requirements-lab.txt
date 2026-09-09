@@ -1,0 +1,7 @@
+# Primary runnable path (validated in this lab via smoke tests)
+ladybug==0.20.3
+
+# Optional stubs — NOT installed by default; NOT VALIDATED
+# kuzu  # HISTORICAL / optional experiment only
+# psycopg[binary]  # postgres stub only
+# duckdb  # duckdb stub only
