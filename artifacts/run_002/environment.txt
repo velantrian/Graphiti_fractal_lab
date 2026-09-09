@@ -1,0 +1,12 @@
+date_utc=2026-09-09T21:12:46Z
+date_berlin=2026-09-09T23:12:46+0200 Europe/Berlin
+python=Python 3.13.5
+graphiti-core=0.29.3
+falkordblite=0.10.0
+FalkorDB=1.7.1
+redislite=MISSING (No package metadata was found for redislite)
+pytest=9.1.1
+pytest-asyncio=1.4.0
+OPENAI_API_KEY=unset
+branch=experiment/falkordblite-deterministic-memory
+head=69c19bd8f7480c80e5f47cdf0e535f47ac56b259

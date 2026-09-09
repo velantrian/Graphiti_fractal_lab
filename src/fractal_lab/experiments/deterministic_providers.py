@@ -21,7 +21,7 @@ from graphiti_core.llm_client.client import LLMClient
 from graphiti_core.llm_client.config import DEFAULT_MAX_TOKENS, LLMConfig, ModelSize
 from graphiti_core.prompts.models import Message
 
-MARKER_RE = re.compile(r"VELANTRIM_FALKOR_E2E_[A-Za-z0-9_-]+")
+MARKER_RE = re.compile(r"(?:VELANTRIM_FALKOR_E2E_|A_ONLY_|B_ONLY_)[A-Za-z0-9_-]+")
 # Proper-noun-ish tokens for synthetic fixtures (Alice, Bob, AcmeCorp, …)
 NAME_RE = re.compile(r"\b([A-Z][a-zA-Z0-9]+(?:'[A-Za-z]+)?)\b")
 

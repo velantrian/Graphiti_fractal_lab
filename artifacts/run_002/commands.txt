@@ -1,0 +1,4 @@
+# P4 routing lab commands
+source .venv/bin/activate
+export PYTHONPATH=src
+pytest -q tests/lab/test_falkordblite_p4_routing.py -vv --tb=short 2>&1 | tee artifacts/run_002/pytest.txt

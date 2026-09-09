@@ -1,0 +1,90 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-9.1.1, pluggy-1.6.0 -- /workspace/Graphiti_fractal_lab/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /workspace/Graphiti_fractal_lab
+configfile: pytest.ini (WARNING: ignoring pytest config in pyproject.toml!)
+plugins: asyncio-1.4.0, anyio-4.15.1
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 5 items
+
+tests/lab/test_falkordblite_p4_routing.py::test_p4a_last_write_routing_matrix FAILED [ 20%]
+tests/lab/test_falkordblite_p4_routing.py::test_p4b_multi_group_search PASSED [ 40%]
+tests/lab/test_falkordblite_p4_routing.py::test_p4c_multi_group_retrieve_episodes FAILED [ 60%]
+tests/lab/test_falkordblite_p4_routing.py::test_p4d_write_order_reversal FAILED [ 80%]
+tests/lab/test_falkordblite_p4_routing.py::test_p4_cleanup_shutdown_warning_documented PASSED [100%]/workspace/Graphiti_fractal_lab/.venv/lib/python3.13/site-packages/_pytest/unraisableexception.py:67: PytestUnraisableExceptionWarning: Exception ignored in: <coroutine object AsyncManagementCommands.shutdown at 0x7f0eda23d030>
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/warnings.py", line 692, in _warn_unawaited_coroutine
+    warn(msg, category=RuntimeWarning, stacklevel=2, source=coro)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeWarning: coroutine 'AsyncManagementCommands.shutdown' was never awaited
+
+Enable tracemalloc to get traceback where the object was allocated.
+See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+  warnings.warn(pytest.PytestUnraisableExceptionWarning(msg))
+/workspace/Graphiti_fractal_lab/.venv/lib/python3.13/site-packages/_pytest/unraisableexception.py:67: PytestUnraisableExceptionWarning: Exception ignored in: <coroutine object AsyncManagementCommands.shutdown at 0x7f0eda23c9d0>
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/warnings.py", line 692, in _warn_unawaited_coroutine
+    warn(msg, category=RuntimeWarning, stacklevel=2, source=coro)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeWarning: coroutine 'AsyncManagementCommands.shutdown' was never awaited
+
+Enable tracemalloc to get traceback where the object was allocated.
+See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+  warnings.warn(pytest.PytestUnraisableExceptionWarning(msg))
+/workspace/Graphiti_fractal_lab/.venv/lib/python3.13/site-packages/_pytest/unraisableexception.py:67: PytestUnraisableExceptionWarning: Exception ignored in: <coroutine object AsyncManagementCommands.shutdown at 0x7f0eda23c7b0>
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/warnings.py", line 692, in _warn_unawaited_coroutine
+    warn(msg, category=RuntimeWarning, stacklevel=2, source=coro)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeWarning: coroutine 'AsyncManagementCommands.shutdown' was never awaited
+
+Enable tracemalloc to get traceback where the object was allocated.
+See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+  warnings.warn(pytest.PytestUnraisableExceptionWarning(msg))
+/workspace/Graphiti_fractal_lab/.venv/lib/python3.13/site-packages/_pytest/unraisableexception.py:67: PytestUnraisableExceptionWarning: Exception ignored in: <coroutine object AsyncManagementCommands.shutdown at 0x7f0eda23d360>
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/warnings.py", line 692, in _warn_unawaited_coroutine
+    warn(msg, category=RuntimeWarning, stacklevel=2, source=coro)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeWarning: coroutine 'AsyncManagementCommands.shutdown' was never awaited
+
+Enable tracemalloc to get traceback where the object was allocated.
+See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+  warnings.warn(pytest.PytestUnraisableExceptionWarning(msg))
+/workspace/Graphiti_fractal_lab/.venv/lib/python3.13/site-packages/_pytest/unraisableexception.py:67: PytestUnraisableExceptionWarning: Exception ignored in: <coroutine object AsyncManagementCommands.shutdown at 0x7f0eda3a1be0>
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/warnings.py", line 692, in _warn_unawaited_coroutine
+    warn(msg, category=RuntimeWarning, stacklevel=2, source=coro)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeWarning: coroutine 'AsyncManagementCommands.shutdown' was never awaited
+
+Enable tracemalloc to get traceback where the object was allocated.
+See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+  warnings.warn(pytest.PytestUnraisableExceptionWarning(msg))
+
+
+=================================== FAILURES ===================================
+E   AssertionError: A episodes must retrieve before B
+    assert False
+     +  where False = _marker_in_episodes([], 'A_ONLY_07b5a77f5d8d40489db9543458d0339b')
+/workspace/Graphiti_fractal_lab/tests/lab/test_falkordblite_p4_routing.py:162: AssertionError: A episodes must retrieve before B
+E   Failed: P4C retrieve_episodes multi-group found neither marker
+/workspace/Graphiti_fractal_lab/tests/lab/test_falkordblite_p4_routing.py:436: Failed: P4C retrieve_episodes multi-group found neither marker
+E   Failed: P4D last-write affinity failures: [{'sequence': 'A_then_B_read_A', 'surface': 'retrieve_episodes', 'driver_after_writes': 'p4d_B_6e94524a6f', 'requested_group': 'p4d_A_6e94524a6f'}, {'sequence': 'B_then_A_read_B', 'surface': 'retrieve_episodes', 'driver_after_writes': 'p4d_A_6e94524a6f', 'requested_group': 'p4d_B_6e94524a6f'}]
+/workspace/Graphiti_fractal_lab/tests/lab/test_falkordblite_p4_routing.py:578: Failed: P4D last-write affinity failures: [{'sequence': 'A_then_B_read_A', 'surface': 'retrieve_episodes', 'driver_after_writes': 'p4d_B_6e94524a6f', 'requested_group': 'p4d_A_6e94524a6f'}, {'sequence': 'B_then_A_read_B', 'surface': 'retrieve_episodes', 'driver_after_writes': 'p4d_A_6e94524a6f', 'requested_group': 'p4d_B_6e94524a6f'}]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/graphiti_core/driver/search_interface/search_interface.py:22
+  /workspace/Graphiti_fractal_lab/.venv/lib/python3.13/site-packages/graphiti_core/driver/search_interface/search_interface.py:22: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class SearchInterface(BaseModel):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/lab/test_falkordblite_p4_routing.py::test_p4a_last_write_routing_matrix
+FAILED tests/lab/test_falkordblite_p4_routing.py::test_p4c_multi_group_retrieve_episodes
+FAILED tests/lab/test_falkordblite_p4_routing.py::test_p4d_write_order_reversal
+==================== 3 failed, 2 passed, 1 warning in 2.43s ====================

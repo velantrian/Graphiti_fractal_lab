@@ -1,0 +1,156 @@
+{
+  "phases": [
+    {
+      "phase": "P4A",
+      "test_id": "last_write_routing_matrix",
+      "status": "FAIL",
+      "evidence": {
+        "error": "AssertionError(\"A episodes must retrieve before B\\nassert False\\n +  where False = _marker_in_episodes([], 'A_ONLY_7effb3524bca43179c6c44f53be01ad9')\")",
+        "matrix": []
+      },
+      "finding_id": "F-P4-LAST-WRITE-AFFINITY",
+      "recorded_at_utc": "2026-09-09T21:12:52.924341+00:00"
+    },
+    {
+      "phase": "P4B",
+      "test_id": "multi_group_search",
+      "status": "PASS",
+      "evidence": {
+        "marker_a": "A_ONLY_532feb164d22452da9d57bef41c6e443",
+        "marker_b": "B_ONLY_532feb164d22452da9d57bef41c6e443",
+        "group_a": "p4b_A_532feb164d",
+        "group_b": "p4b_B_532feb164d",
+        "query": "P4_MULTISCOPE_PROBE",
+        "group_ids": [
+          "p4b_A_532feb164d",
+          "p4b_B_532feb164d"
+        ],
+        "driver_database_before": "p4b_B_532feb164d",
+        "driver_database_after": "p4b_B_532feb164d",
+        "result_count": 10,
+        "found_a": true,
+        "found_b": true,
+        "facts": [
+          "Alpha is related to MarkerCorp in lab fixture mentioning A_ONLY_532feb164d22452da9d57bef41c6e443. Episode excerpt: Alice collaborated with Alpha at MarkerCorp on a synthetic lab project. The unique retrieval token is A_ONLY_532feb164d22452da9d57bef41c6e443. Shared probe token P4_MULTISCOPE_PROBE is present for multi-group recall. Alice confirmed the token A_ONLY_532feb164d22452da9d57bef41c6e443 must remain searchable via Graphiti.search.",
+          "MarkerCorp is related to Shared in lab fixture mentioning A_ONLY_532feb164d22452da9d57bef41c6e443. Episode excerpt: Alice collaborated with Alpha at MarkerCorp on a synthetic lab project. The unique retrieval token is A_ONLY_532feb164d22452da9d57bef41c6e443. Shared probe token P4_MULTISCOPE_PROBE is present for multi-group recall. Alice confirmed the token A_ONLY_532feb164d22452da9d57bef41c6e443 must remain searchable via Graphiti.search.",
+          "Alice is related to Alpha in lab fixture mentioning A_ONLY_532feb164d22452da9d57bef41c6e443. Episode excerpt: Alice collaborated with Alpha at MarkerCorp on a synthetic lab project. The unique retrieval token is A_ONLY_532feb164d22452da9d57bef41c6e443. Shared probe token P4_MULTISCOPE_PROBE is present for multi-group recall. Alice confirmed the token A_ONLY_532feb164d22452da9d57bef41c6e443 must remain searchable via Graphiti.search.",
+          "A_ONLY_532feb164d22452da9d57bef41c6e443 is related to Alice in lab fixture mentioning A_ONLY_532feb164d22452da9d57bef41c6e443. Episode excerpt: Alice collaborated with Alpha at MarkerCorp on a synthetic lab project. The unique retrieval token is A_ONLY_532feb164d22452da9d57bef41c6e443. Shared probe token P4_MULTISCOPE_PROBE is present for multi-group recall. Alice confirmed the token A_ONLY_532feb164d22452da9d57bef41c6e443 must remain searchable via Graphiti.search.",
+          "Shared is related to Graphiti in lab fixture mentioning A_ONLY_532feb164d22452da9d57bef41c6e443. Episode excerpt: Alice collaborated with Alpha at MarkerCorp on a synthetic lab project. The unique retrieval token is A_ONLY_532feb164d22452da9d57bef41c6e443. Shared probe token P4_MULTISCOPE_PROBE is present for multi-group recall. Alice confirmed the token A_ONLY_532feb164d22452da9d57bef41c6e443 must remain searchable via Graphiti.search.",
+          "Beta is related to MarkerCorp in lab fixture mentioning B_ONLY_532feb164d22452da9d57bef41c6e443. Episode excerpt: Bob collaborated with Beta at MarkerCorp on a synthetic lab project. The unique retrieval token is B_ONLY_532feb164d22452da9d57bef41c6e443. Shared probe token P4_MULTISCOPE_PROBE is present for multi-group recall. Bob confirmed the token B_ONLY_532feb164d22452da9d57bef41c6e443 must remain searchable via Graphiti.search.",
+          "MarkerCorp is related to Shared in lab fixture mentioning B_ONLY_532feb164d22452da9d57bef41c6e443. Episode excerpt: Bob collaborated with Beta at MarkerCorp on a synthetic lab project. The unique retrieval token is B_ONLY_532feb164d22452da9d57bef41c6e443. Shared probe token P4_MULTISCOPE_PROBE is present for multi-group recall. Bob confirmed the token B_ONLY_532feb164d22452da9d57bef41c6e443 must remain searchable via Graphiti.search.",
+          "Bob is related to Beta in lab fixture mentioning B_ONLY_532feb164d22452da9d57bef41c6e443. Episode excerpt: Bob collaborated with Beta at MarkerCorp on a synthetic lab project. The unique retrieval token is B_ONLY_532feb164d22452da9d57bef41c6e443. Shared probe token P4_MULTISCOPE_PROBE is present for multi-group recall. Bob confirmed the token B_ONLY_532feb164d22452da9d57bef41c6e443 must remain searchable via Graphiti.search.",
+          "B_ONLY_532feb164d22452da9d57bef41c6e443 is related to Bob in lab fixture mentioning B_ONLY_532feb164d22452da9d57bef41c6e443. Episode excerpt: Bob collaborated with Beta at MarkerCorp on a synthetic lab project. The unique retrieval token is B_ONLY_532feb164d22452da9d57bef41c6e443. Shared probe token P4_MULTISCOPE_PROBE is present for multi-group recall. Bob confirmed the token B_ONLY_532feb164d22452da9d57bef41c6e443 must remain searchable via Graphiti.search.",
+          "Shared is related to Graphiti in lab fixture mentioning B_ONLY_532feb164d22452da9d57bef41c6e443. Episode excerpt: Bob collaborated with Beta at MarkerCorp on a synthetic lab project. The unique retrieval token is B_ONLY_532feb164d22452da9d57bef41c6e443. Shared probe token P4_MULTISCOPE_PROBE is present for multi-group recall. Bob confirmed the token B_ONLY_532feb164d22452da9d57bef41c6e443 must remain searchable via Graphiti.search."
+        ]
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-09T22:03:32.580394+00:00"
+    },
+    {
+      "phase": "P4C",
+      "test_id": "multi_group_retrieve_episodes",
+      "status": "FAIL",
+      "evidence": {
+        "marker_a": "A_ONLY_e2f50a507f244126a2dde0fa98d6c8e3",
+        "marker_b": "B_ONLY_e2f50a507f244126a2dde0fa98d6c8e3",
+        "group_a": "p4c_A_e2f50a507f",
+        "group_b": "p4c_B_e2f50a507f",
+        "driver_database_before": "p4c_B_e2f50a507f",
+        "driver_database_after": "p4c_B_e2f50a507f",
+        "result_count": 0,
+        "found_a": false,
+        "found_b": false,
+        "episode_group_ids": [],
+        "group_ids_seen": [],
+        "episode_names": []
+      },
+      "finding_id": "F-P4-MULTISCOPE-PARTIAL",
+      "recorded_at_utc": "2026-09-09T22:03:32.820842+00:00"
+    },
+    {
+      "phase": "P4D",
+      "test_id": "write_order_reversal",
+      "status": "FAIL",
+      "evidence": {
+        "marker_a": "A_ONLY_6e94524a6ff7453792e4d0186ac791e1",
+        "marker_b": "B_ONLY_6e94524a6ff7453792e4d0186ac791e1",
+        "group_a": "p4d_A_6e94524a6f",
+        "group_b": "p4d_B_6e94524a6f",
+        "rows": [
+          {
+            "sequence": "A_then_B_read_A",
+            "driver_database_after_writes": "p4d_B_6e94524a6f",
+            "search": {
+              "requested_group": "p4d_A_6e94524a6f",
+              "driver_database_before": "p4d_B_6e94524a6f",
+              "driver_database_after": "p4d_B_6e94524a6f",
+              "result_count": 6,
+              "expected_marker_found": true,
+              "foreign_marker_found": false
+            },
+            "retrieve_episodes": {
+              "requested_group": "p4d_A_6e94524a6f",
+              "driver_database_before": "p4d_B_6e94524a6f",
+              "driver_database_after": "p4d_B_6e94524a6f",
+              "result_count": 0,
+              "expected_marker_found": false,
+              "foreign_marker_found": false
+            }
+          },
+          {
+            "sequence": "B_then_A_read_B",
+            "driver_database_after_writes": "p4d_A_6e94524a6f",
+            "search": {
+              "requested_group": "p4d_B_6e94524a6f",
+              "driver_database_before": "p4d_A_6e94524a6f",
+              "driver_database_after": "p4d_A_6e94524a6f",
+              "result_count": 6,
+              "expected_marker_found": true,
+              "foreign_marker_found": false
+            },
+            "retrieve_episodes": {
+              "requested_group": "p4d_B_6e94524a6f",
+              "driver_database_before": "p4d_A_6e94524a6f",
+              "driver_database_after": "p4d_A_6e94524a6f",
+              "result_count": 0,
+              "expected_marker_found": false,
+              "foreign_marker_found": false
+            }
+          }
+        ],
+        "affinity_failures": [
+          {
+            "sequence": "A_then_B_read_A",
+            "surface": "retrieve_episodes",
+            "driver_after_writes": "p4d_B_6e94524a6f",
+            "requested_group": "p4d_A_6e94524a6f"
+          },
+          {
+            "sequence": "B_then_A_read_B",
+            "surface": "retrieve_episodes",
+            "driver_after_writes": "p4d_A_6e94524a6f",
+            "requested_group": "p4d_B_6e94524a6f"
+          }
+        ],
+        "leaks": []
+      },
+      "finding_id": "F-P4-LAST-WRITE-AFFINITY",
+      "recorded_at_utc": "2026-09-09T22:03:33.449599+00:00"
+    },
+    {
+      "phase": "P4_CLEANUP",
+      "test_id": "shutdown_warning",
+      "status": "PASS",
+      "evidence": {
+        "warning_name": "coroutine 'AsyncManagementCommands.shutdown' was never awaited",
+        "severity_during_aclose_in_this_test": false,
+        "severity": "MINOR",
+        "category": "RESOURCE_CLEANUP",
+        "note": "Known redislite/FalkorDBLite teardown noise. Lab bootstrap prefers AsyncFalkorDB.close() over FalkorDriver.close()/aclose-only. No obvious one-line fix without invasive redislite changes; left as finding.",
+        "pytest_filter": "tests filterwarnings ignore this RuntimeWarning"
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-09T22:03:33.572244+00:00"
+    }
+  ]
+}
