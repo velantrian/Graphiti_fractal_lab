@@ -1,0 +1,16 @@
+{
+  "description": "P4R corrected retrieve_episodes temporal + multi-group routing",
+  "activate": "source .venv/bin/activate",
+  "env": {
+    "PYTHONPATH": "src",
+    "OPENAI_API_KEY": "unset"
+  },
+  "commands": [
+    "pytest -q tests/lab/test_falkordblite_p4r_retrieve_routing.py -vv --tb=short"
+  ],
+  "notes": [
+    "Do not run P5",
+    "Preserve artifacts/run_002",
+    "query_time captured AFTER add_episode writes"
+  ]
+}

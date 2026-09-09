@@ -1,0 +1,32 @@
+{
+  "suite": "tests/lab/test_falkordblite_p4r_retrieve_routing.py",
+  "exit_code": 0,
+  "passed": 5,
+  "failed": 0,
+  "duration_s": 2.13,
+  "outcomes": [
+    {
+      "test": "test_p4r_00_temporal_control",
+      "status": "PASSED"
+    },
+    {
+      "test": "test_p4r_a_single_group_retrieve_after_write",
+      "status": "PASSED"
+    },
+    {
+      "test": "test_p4r_b_a_then_b_read_a",
+      "status": "PASSED"
+    },
+    {
+      "test": "test_p4r_c_b_then_a_read_b",
+      "status": "PASSED"
+    },
+    {
+      "test": "test_p4r_d_multi_group_retrieve_both",
+      "status": "PASSED"
+    }
+  ],
+  "summary_line": "========================= 5 passed, 1 warning in 2.13s =========================",
+  "warnings_note": "PytestUnraisableExceptionWarning for AsyncManagementCommands.shutdown (known MINOR/RESOURCE_CLEANUP); not a P4R fail",
+  "raw_log_path": "artifacts/run_003/pytest.txt"
+}

@@ -1,0 +1,366 @@
+{
+  "phases": [
+    {
+      "phase": "P4R_TEMPORAL",
+      "test_id": "temporal_control",
+      "status": "PASS",
+      "evidence": {
+        "group_a": "p4r_ctrl_A_319b24254f",
+        "marker": "TEMP_319b24254f5947e8b354d472dcdbbbaa",
+        "episode_valid_at": "2026-09-09T22:25:09.265686+00:00",
+        "episode_name": "p4r_ctrl_319b2425",
+        "driver_database_after_write": "p4r_ctrl_A_319b24254f",
+        "control1": {
+          "surface": "retrieve_episodes",
+          "requested_group_ids": [
+            "p4r_ctrl_A_319b24254f"
+          ],
+          "driver_database_before": "p4r_ctrl_A_319b24254f",
+          "driver_database_after": "p4r_ctrl_A_319b24254f",
+          "query_reference_time": "2026-09-09T22:25:08.265686+00:00",
+          "result_count": 0,
+          "episode_names": [],
+          "episode_group_ids": [],
+          "episodes": [],
+          "episode_valid_at": "2026-09-09T22:25:09.265686+00:00",
+          "marker": "TEMP_319b24254f5947e8b354d472dcdbbbaa",
+          "marker_found": false,
+          "expectation": "NOT_RETURNED"
+        },
+        "control2": {
+          "surface": "retrieve_episodes",
+          "requested_group_ids": [
+            "p4r_ctrl_A_319b24254f"
+          ],
+          "driver_database_before": "p4r_ctrl_A_319b24254f",
+          "driver_database_after": "p4r_ctrl_A_319b24254f",
+          "query_reference_time": "2026-09-09T22:25:09.321542+00:00",
+          "result_count": 1,
+          "episode_names": [
+            "p4r_ctrl_319b2425"
+          ],
+          "episode_group_ids": [
+            "p4r_ctrl_A_319b24254f"
+          ],
+          "episodes": [
+            {
+              "name": "p4r_ctrl_319b2425",
+              "group_id": "p4r_ctrl_A_319b24254f",
+              "valid_at": "2026-09-09T22:25:09.265686+00:00",
+              "uuid": "7dfddd8d-c028-45af-9995-c45aef55391f"
+            }
+          ],
+          "episode_valid_at": "2026-09-09T22:25:09.265686+00:00",
+          "marker": "TEMP_319b24254f5947e8b354d472dcdbbbaa",
+          "marker_found": true,
+          "expectation": "RETURNED",
+          "used_plus_one_second": false,
+          "plus_one_reason": null
+        },
+        "graphiti_filter": "e.valid_at <= reference_time (graphiti_core 0.29.3)"
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-09T22:25:09.322190+00:00"
+    },
+    {
+      "phase": "P4R_A",
+      "test_id": "single_group_retrieve_after_write",
+      "status": "PASS",
+      "evidence": {
+        "marker": "A_ONLY_93a1afef7b8343d59c2e867172f9df77",
+        "group_a": "p4r_a_A_93a1afef7b",
+        "episode_valid_at": "2026-09-09T22:25:09.443205+00:00",
+        "query_reference_time": "2026-09-09T22:25:09.504612+00:00",
+        "driver_database_after_write": "p4r_a_A_93a1afef7b",
+        "read": {
+          "surface": "retrieve_episodes",
+          "requested_group_ids": [
+            "p4r_a_A_93a1afef7b"
+          ],
+          "driver_database_before": "p4r_a_A_93a1afef7b",
+          "driver_database_after": "p4r_a_A_93a1afef7b",
+          "query_reference_time": "2026-09-09T22:25:09.504612+00:00",
+          "result_count": 1,
+          "episode_names": [
+            "p4r_a_93a1afef"
+          ],
+          "episode_group_ids": [
+            "p4r_a_A_93a1afef7b"
+          ],
+          "episodes": [
+            {
+              "name": "p4r_a_93a1afef",
+              "group_id": "p4r_a_A_93a1afef7b",
+              "valid_at": "2026-09-09T22:25:09.443205+00:00",
+              "uuid": "71244bb6-07ea-46c2-81ff-1fb9d8170827"
+            }
+          ]
+        },
+        "expected_marker_found": true
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-09T22:25:09.505591+00:00"
+    },
+    {
+      "phase": "P4R_B",
+      "test_id": "a_then_b_read_a",
+      "status": "PASS",
+      "evidence": {
+        "sequence": "A_then_B_read_A",
+        "marker_a": "A_ONLY_87f5e20d20154721b050761d23448874",
+        "marker_b": "B_ONLY_87f5e20d20154721b050761d23448874",
+        "group_a": "p4r_b_A_87f5e20d20",
+        "group_b": "p4r_b_B_87f5e20d20",
+        "episode_a_valid_at": "2026-09-09T22:25:09.627025+00:00",
+        "episode_b_valid_at": "2026-09-09T22:25:09.695944+00:00",
+        "driver_database_after_writes": "p4r_b_B_87f5e20d20",
+        "query_reference_time": "2026-09-09T22:25:09.749539+00:00",
+        "search": {
+          "surface": "search",
+          "requested_group_ids": [
+            "p4r_b_A_87f5e20d20"
+          ],
+          "driver_database_before": "p4r_b_B_87f5e20d20",
+          "driver_database_after": "p4r_b_B_87f5e20d20",
+          "query_reference_time": null,
+          "search_query": "A_ONLY_87f5e20d20154721b050761d23448874",
+          "result_count": 6,
+          "facts": [
+            "A_ONLY_87f5e20d20154721b050761d23448874 shares context with Graphiti about A_ONLY_87f5e20d20154721b050761d23448874",
+            "A_ONLY_87f5e20d20154721b050761d23448874 is related to Alice in lab fixture mentioning A_ONLY_87f5e20d20154721b050761d23448874. Episode excerpt: Alice collaborated with Alpha at MarkerCorp on a synthetic lab project. The unique retrieval token is A_ONLY_87f5e20d20154721b050761d23448874. Shared probe token P4R_MULTISCOPE_PROBE is present for multi-group recall. Alice confirmed the token A_ONLY_87f5e20d20154721b050761d23448874 must remain searchable via Graphiti.search.",
+            "MarkerCorp is related to Shared in lab fixture mentioning A_ONLY_87f5e20d20154721b050761d23448874. Episode excerpt: Alice collaborated with Alpha at MarkerCorp on a synthetic lab project. The unique retrieval token is A_ONLY_87f5e20d20154721b050761d23448874. Shared probe token P4R_MULTISCOPE_PROBE is present for multi-group recall. Alice confirmed the token A_ONLY_87f5e20d20154721b050761d23448874 must remain searchable via Graphiti.search.",
+            "Alpha is related to MarkerCorp in lab fixture mentioning A_ONLY_87f5e20d20154721b050761d23448874. Episode excerpt: Alice collaborated with Alpha at MarkerCorp on a synthetic lab project. The unique retrieval token is A_ONLY_87f5e20d20154721b050761d23448874. Shared probe token P4R_MULTISCOPE_PROBE is present for multi-group recall. Alice confirmed the token A_ONLY_87f5e20d20154721b050761d23448874 must remain searchable via Graphiti.search.",
+            "Alice is related to Alpha in lab fixture mentioning A_ONLY_87f5e20d20154721b050761d23448874. Episode excerpt: Alice collaborated with Alpha at MarkerCorp on a synthetic lab project. The unique retrieval token is A_ONLY_87f5e20d20154721b050761d23448874. Shared probe token P4R_MULTISCOPE_PROBE is present for multi-group recall. Alice confirmed the token A_ONLY_87f5e20d20154721b050761d23448874 must remain searchable via Graphiti.search.",
+            "Shared is related to Graphiti in lab fixture mentioning A_ONLY_87f5e20d20154721b050761d23448874. Episode excerpt: Alice collaborated with Alpha at MarkerCorp on a synthetic lab project. The unique retrieval token is A_ONLY_87f5e20d20154721b050761d23448874. Shared probe token P4R_MULTISCOPE_PROBE is present for multi-group recall. Alice confirmed the token A_ONLY_87f5e20d20154721b050761d23448874 must remain searchable via Graphiti.search."
+          ],
+          "expected_marker_found": true,
+          "foreign_marker_found": false
+        },
+        "retrieve_episodes": {
+          "surface": "retrieve_episodes",
+          "requested_group_ids": [
+            "p4r_b_A_87f5e20d20"
+          ],
+          "driver_database_before": "p4r_b_B_87f5e20d20",
+          "driver_database_after": "p4r_b_B_87f5e20d20",
+          "query_reference_time": "2026-09-09T22:25:09.749539+00:00",
+          "result_count": 1,
+          "episode_names": [
+            "p4r_b_a_87f5e20d"
+          ],
+          "episode_group_ids": [
+            "p4r_b_A_87f5e20d20"
+          ],
+          "episodes": [
+            {
+              "name": "p4r_b_a_87f5e20d",
+              "group_id": "p4r_b_A_87f5e20d20",
+              "valid_at": "2026-09-09T22:25:09.627025+00:00",
+              "uuid": "28aee74c-660e-441c-84e9-4cc1d8d5cab7"
+            }
+          ],
+          "expected_marker_found": true,
+          "foreign_marker_found": false
+        },
+        "last_write_group_observed": true
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-09T22:25:09.763524+00:00"
+    },
+    {
+      "phase": "P4R_C",
+      "test_id": "b_then_a_read_b",
+      "status": "PASS",
+      "evidence": {
+        "sequence": "B_then_A_read_B",
+        "marker_a": "A_ONLY_ede71936d96141018fd797fdb92eafcd",
+        "marker_b": "B_ONLY_ede71936d96141018fd797fdb92eafcd",
+        "group_a": "p4r_c_A_ede71936d9",
+        "group_b": "p4r_c_B_ede71936d9",
+        "episode_b_valid_at": "2026-09-09T22:25:09.885402+00:00",
+        "episode_a_valid_at": "2026-09-09T22:25:09.957609+00:00",
+        "driver_database_after_writes": "p4r_c_A_ede71936d9",
+        "query_reference_time": "2026-09-09T22:25:10.012946+00:00",
+        "search": {
+          "surface": "search",
+          "requested_group_ids": [
+            "p4r_c_B_ede71936d9"
+          ],
+          "driver_database_before": "p4r_c_A_ede71936d9",
+          "driver_database_after": "p4r_c_A_ede71936d9",
+          "query_reference_time": null,
+          "search_query": "B_ONLY_ede71936d96141018fd797fdb92eafcd",
+          "result_count": 6,
+          "facts": [
+            "B_ONLY_ede71936d96141018fd797fdb92eafcd shares context with Graphiti about B_ONLY_ede71936d96141018fd797fdb92eafcd",
+            "B_ONLY_ede71936d96141018fd797fdb92eafcd is related to Bob in lab fixture mentioning B_ONLY_ede71936d96141018fd797fdb92eafcd. Episode excerpt: Bob collaborated with Beta at MarkerCorp on a synthetic lab project. The unique retrieval token is B_ONLY_ede71936d96141018fd797fdb92eafcd. Shared probe token P4R_MULTISCOPE_PROBE is present for multi-group recall. Bob confirmed the token B_ONLY_ede71936d96141018fd797fdb92eafcd must remain searchable via Graphiti.search.",
+            "MarkerCorp is related to Shared in lab fixture mentioning B_ONLY_ede71936d96141018fd797fdb92eafcd. Episode excerpt: Bob collaborated with Beta at MarkerCorp on a synthetic lab project. The unique retrieval token is B_ONLY_ede71936d96141018fd797fdb92eafcd. Shared probe token P4R_MULTISCOPE_PROBE is present for multi-group recall. Bob confirmed the token B_ONLY_ede71936d96141018fd797fdb92eafcd must remain searchable via Graphiti.search.",
+            "Beta is related to MarkerCorp in lab fixture mentioning B_ONLY_ede71936d96141018fd797fdb92eafcd. Episode excerpt: Bob collaborated with Beta at MarkerCorp on a synthetic lab project. The unique retrieval token is B_ONLY_ede71936d96141018fd797fdb92eafcd. Shared probe token P4R_MULTISCOPE_PROBE is present for multi-group recall. Bob confirmed the token B_ONLY_ede71936d96141018fd797fdb92eafcd must remain searchable via Graphiti.search.",
+            "Bob is related to Beta in lab fixture mentioning B_ONLY_ede71936d96141018fd797fdb92eafcd. Episode excerpt: Bob collaborated with Beta at MarkerCorp on a synthetic lab project. The unique retrieval token is B_ONLY_ede71936d96141018fd797fdb92eafcd. Shared probe token P4R_MULTISCOPE_PROBE is present for multi-group recall. Bob confirmed the token B_ONLY_ede71936d96141018fd797fdb92eafcd must remain searchable via Graphiti.search.",
+            "Shared is related to Graphiti in lab fixture mentioning B_ONLY_ede71936d96141018fd797fdb92eafcd. Episode excerpt: Bob collaborated with Beta at MarkerCorp on a synthetic lab project. The unique retrieval token is B_ONLY_ede71936d96141018fd797fdb92eafcd. Shared probe token P4R_MULTISCOPE_PROBE is present for multi-group recall. Bob confirmed the token B_ONLY_ede71936d96141018fd797fdb92eafcd must remain searchable via Graphiti.search."
+          ],
+          "expected_marker_found": true,
+          "foreign_marker_found": false
+        },
+        "retrieve_episodes": {
+          "surface": "retrieve_episodes",
+          "requested_group_ids": [
+            "p4r_c_B_ede71936d9"
+          ],
+          "driver_database_before": "p4r_c_A_ede71936d9",
+          "driver_database_after": "p4r_c_A_ede71936d9",
+          "query_reference_time": "2026-09-09T22:25:10.012946+00:00",
+          "result_count": 1,
+          "episode_names": [
+            "p4r_c_b_ede71936"
+          ],
+          "episode_group_ids": [
+            "p4r_c_B_ede71936d9"
+          ],
+          "episodes": [
+            {
+              "name": "p4r_c_b_ede71936",
+              "group_id": "p4r_c_B_ede71936d9",
+              "valid_at": "2026-09-09T22:25:09.885402+00:00",
+              "uuid": "13021c2a-c8e7-43b8-bfa5-947394303521"
+            }
+          ],
+          "expected_marker_found": true,
+          "foreign_marker_found": false
+        },
+        "last_write_group_observed": true,
+        "run_002_discrepancy_note": "run_002 result.json P4D B_then_A_read_B retrieve expected_marker_found=false (receipt wins over any prose claiming PASS); likely INVALID_REFERENCE_TIME_IN_FIXTURE"
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-09T22:25:10.028090+00:00"
+    },
+    {
+      "phase": "P4R_D",
+      "test_id": "multi_group_retrieve_both",
+      "status": "PASS",
+      "evidence": {
+        "marker_a": "A_ONLY_3290bc341b7e497fa67c016c8cbe16dc",
+        "marker_b": "B_ONLY_3290bc341b7e497fa67c016c8cbe16dc",
+        "group_a": "p4r_d_A_3290bc341b",
+        "group_b": "p4r_d_B_3290bc341b",
+        "episode_a_valid_at": "2026-09-09T22:25:10.148604+00:00",
+        "episode_b_valid_at": "2026-09-09T22:25:10.217281+00:00",
+        "driver_database_after_writes": "p4r_d_B_3290bc341b",
+        "query_reference_time": "2026-09-09T22:25:10.274442+00:00",
+        "search_multi": {
+          "surface": "search",
+          "requested_group_ids": [
+            "p4r_d_A_3290bc341b",
+            "p4r_d_B_3290bc341b"
+          ],
+          "driver_database_before": "p4r_d_B_3290bc341b",
+          "driver_database_after": "p4r_d_B_3290bc341b",
+          "query_reference_time": null,
+          "search_query": "P4R_MULTISCOPE_PROBE",
+          "result_count": 10,
+          "facts": [
+            "Gamma is related to MarkerCorp in lab fixture mentioning A_ONLY_3290bc341b7e497fa67c016c8cbe16dc. Episode excerpt: Carol collaborated with Gamma at MarkerCorp on a synthetic lab project. The unique retrieval token is A_ONLY_3290bc341b7e497fa67c016c8cbe16dc. Shared probe token P4R_MULTISCOPE_PROBE is present for multi-group recall. Carol confirmed the token A_ONLY_3290bc341b7e497fa67c016c8cbe16dc must remain searchable via Graphiti.search.",
+            "MarkerCorp is related to Shared in lab fixture mentioning A_ONLY_3290bc341b7e497fa67c016c8cbe16dc. Episode excerpt: Carol collaborated with Gamma at MarkerCorp on a synthetic lab project. The unique retrieval token is A_ONLY_3290bc341b7e497fa67c016c8cbe16dc. Shared probe token P4R_MULTISCOPE_PROBE is present for multi-group recall. Carol confirmed the token A_ONLY_3290bc341b7e497fa67c016c8cbe16dc must remain searchable via Graphiti.search.",
+            "Carol is related to Gamma in lab fixture mentioning A_ONLY_3290bc341b7e497fa67c016c8cbe16dc. Episode excerpt: Carol collaborated with Gamma at MarkerCorp on a synthetic lab project. The unique retrieval token is A_ONLY_3290bc341b7e497fa67c016c8cbe16dc. Shared probe token P4R_MULTISCOPE_PROBE is present for multi-group recall. Carol confirmed the token A_ONLY_3290bc341b7e497fa67c016c8cbe16dc must remain searchable via Graphiti.search.",
+            "A_ONLY_3290bc341b7e497fa67c016c8cbe16dc is related to Carol in lab fixture mentioning A_ONLY_3290bc341b7e497fa67c016c8cbe16dc. Episode excerpt: Carol collaborated with Gamma at MarkerCorp on a synthetic lab project. The unique retrieval token is A_ONLY_3290bc341b7e497fa67c016c8cbe16dc. Shared probe token P4R_MULTISCOPE_PROBE is present for multi-group recall. Carol confirmed the token A_ONLY_3290bc341b7e497fa67c016c8cbe16dc must remain searchable via Graphiti.search.",
+            "Shared is related to Graphiti in lab fixture mentioning A_ONLY_3290bc341b7e497fa67c016c8cbe16dc. Episode excerpt: Carol collaborated with Gamma at MarkerCorp on a synthetic lab project. The unique retrieval token is A_ONLY_3290bc341b7e497fa67c016c8cbe16dc. Shared probe token P4R_MULTISCOPE_PROBE is present for multi-group recall. Carol confirmed the token A_ONLY_3290bc341b7e497fa67c016c8cbe16dc must remain searchable via Graphiti.search.",
+            "Delta is related to MarkerCorp in lab fixture mentioning B_ONLY_3290bc341b7e497fa67c016c8cbe16dc. Episode excerpt: Dave collaborated with Delta at MarkerCorp on a synthetic lab project. The unique retrieval token is B_ONLY_3290bc341b7e497fa67c016c8cbe16dc. Shared probe token P4R_MULTISCOPE_PROBE is present for multi-group recall. Dave confirmed the token B_ONLY_3290bc341b7e497fa67c016c8cbe16dc must remain searchable via Graphiti.search.",
+            "MarkerCorp is related to Shared in lab fixture mentioning B_ONLY_3290bc341b7e497fa67c016c8cbe16dc. Episode excerpt: Dave collaborated with Delta at MarkerCorp on a synthetic lab project. The unique retrieval token is B_ONLY_3290bc341b7e497fa67c016c8cbe16dc. Shared probe token P4R_MULTISCOPE_PROBE is present for multi-group recall. Dave confirmed the token B_ONLY_3290bc341b7e497fa67c016c8cbe16dc must remain searchable via Graphiti.search.",
+            "Dave is related to Delta in lab fixture mentioning B_ONLY_3290bc341b7e497fa67c016c8cbe16dc. Episode excerpt: Dave collaborated with Delta at MarkerCorp on a synthetic lab project. The unique retrieval token is B_ONLY_3290bc341b7e497fa67c016c8cbe16dc. Shared probe token P4R_MULTISCOPE_PROBE is present for multi-group recall. Dave confirmed the token B_ONLY_3290bc341b7e497fa67c016c8cbe16dc must remain searchable via Graphiti.search.",
+            "B_ONLY_3290bc341b7e497fa67c016c8cbe16dc is related to Dave in lab fixture mentioning B_ONLY_3290bc341b7e497fa67c016c8cbe16dc. Episode excerpt: Dave collaborated with Delta at MarkerCorp on a synthetic lab project. The unique retrieval token is B_ONLY_3290bc341b7e497fa67c016c8cbe16dc. Shared probe token P4R_MULTISCOPE_PROBE is present for multi-group recall. Dave confirmed the token B_ONLY_3290bc341b7e497fa67c016c8cbe16dc must remain searchable via Graphiti.search.",
+            "Shared is related to Graphiti in lab fixture mentioning B_ONLY_3290bc341b7e497fa67c016c8cbe16dc. Episode excerpt: Dave collaborated with Delta at MarkerCorp on a synthetic lab project. The unique retrieval token is B_ONLY_3290bc341b7e497fa67c016c8cbe16dc. Shared probe token P4R_MULTISCOPE_PROBE is present for multi-group recall. Dave confirmed the token B_ONLY_3290bc341b7e497fa67c016c8cbe16dc must remain searchable via Graphiti.search."
+          ],
+          "found_a": true,
+          "found_b": true
+        },
+        "retrieve_multi": {
+          "surface": "retrieve_episodes",
+          "requested_group_ids": [
+            "p4r_d_A_3290bc341b",
+            "p4r_d_B_3290bc341b"
+          ],
+          "driver_database_before": "p4r_d_B_3290bc341b",
+          "driver_database_after": "p4r_d_B_3290bc341b",
+          "query_reference_time": "2026-09-09T22:25:10.274442+00:00",
+          "result_count": 2,
+          "episode_names": [
+            "p4r_d_a_3290bc34",
+            "p4r_d_b_3290bc34"
+          ],
+          "episode_group_ids": [
+            "p4r_d_A_3290bc341b",
+            "p4r_d_B_3290bc341b"
+          ],
+          "episodes": [
+            {
+              "name": "p4r_d_a_3290bc34",
+              "group_id": "p4r_d_A_3290bc341b",
+              "valid_at": "2026-09-09T22:25:10.148604+00:00",
+              "uuid": "1d20ab38-3e3a-40f3-8cb3-d39da4eaf657"
+            },
+            {
+              "name": "p4r_d_b_3290bc34",
+              "group_id": "p4r_d_B_3290bc341b",
+              "valid_at": "2026-09-09T22:25:10.217281+00:00",
+              "uuid": "32c2f205-49b8-42be-8aba-377367a83d7d"
+            }
+          ],
+          "found_a": true,
+          "found_b": true
+        }
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-09T22:25:10.298561+00:00"
+    }
+  ],
+  "notes": [
+    {
+      "id": "INVALID_REFERENCE_TIME_IN_FIXTURE",
+      "text": "run_002 retrieve_episodes empty results used reference_time captured BEFORE/at start of writes; Graphiti 0.29.3 filters e.valid_at <= reference_time and add_episode sets valid_at from a later datetime.now(). Corrected P4R late query_time yields PASS."
+    },
+    {
+      "id": "RECEIPT_WINS_OVER_PROSE",
+      "text": "Prior report discrepancy: B\u2192A\u2192read B retrieve was claimed PASS in prose but artifacts/run_002/result.json P4D sequence B_then_A_read_B retrieve_episodes expected_marker_found=false / affinity_failures listed it. Receipt wins."
+    },
+    {
+      "id": "STILL_VALID",
+      "text": "P4B multi-group search PASS remains valid (run_002). Driver mutation to last-written group remains OBSERVED (driver._database after writes)."
+    },
+    {
+      "id": "NO_P5",
+      "text": "P5 not started."
+    }
+  ],
+  "supersessions": [
+    {
+      "finding": "F-P4-MULTISCOPE-PARTIAL",
+      "status": "SUPERSEDED_BY_P4R",
+      "reason": "INVALID_REFERENCE_TIME_IN_FIXTURE",
+      "evidence_run": "run_003",
+      "replacement_phase": "P4R_D",
+      "replacement_status": "PASS"
+    },
+    {
+      "finding": "F-P4-LAST-WRITE-AFFINITY",
+      "status": "SUPERSEDED_BY_P4R",
+      "reason": "INVALID_REFERENCE_TIME_IN_FIXTURE",
+      "evidence_run": "run_003",
+      "replacement_phases": [
+        "P4R_B",
+        "P4R_C"
+      ],
+      "replacement_status": "PASS",
+      "caveat": "Driver _database still mutates to last-written group_id (OBSERVED); that mutation alone did not cause empty retrieve once reference_time was corrected. Search already worked across groups in run_002."
+    },
+    {
+      "finding": "F-P4-READ-SURFACE-DIVERGENCE",
+      "status": "SUPERSEDED_BY_P4R",
+      "reason": "INVALID_REFERENCE_TIME_IN_FIXTURE",
+      "note": "run_002 never wrote a standalone F-P4-READ-SURFACE-DIVERGENCE.md; divergence symptom (search hit / retrieve miss) is explained by the same early reference_time. P4R-B/C show search+retrieve agree with late query_time.",
+      "evidence_run": "run_003"
+    }
+  ],
+  "historical_run_002_preserved": true,
+  "suite_head_at_write": "6876d6f5167df96290ddb9f2749578721eee638c",
+  "completed_at_utc": "2026-09-09T22:26:47.350748+00:00"
+}

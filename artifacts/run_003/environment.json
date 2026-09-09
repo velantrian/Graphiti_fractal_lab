@@ -1,0 +1,17 @@
+{
+  "date_utc": "2026-09-09T22:25:07.941264+00:00",
+  "date_berlin": "2026-09-10T00:25:07.941264+02:00 Europe/Berlin",
+  "python": "Python 3.13.5",
+  "graphiti-core": "0.29.3",
+  "falkordblite": "0.10.0",
+  "FalkorDB": "1.7.1",
+  "redislite": "MISSING (No package metadata was found for redislite)",
+  "pytest": "9.1.1",
+  "pytest-asyncio": "1.4.0",
+  "OPENAI_API_KEY": "unset",
+  "branch": "experiment/falkordblite-deterministic-memory",
+  "head": "6876d6f5167df96290ddb9f2749578721eee638c",
+  "head_short": "6876d6f",
+  "cwd": "/workspace/Graphiti_fractal_lab",
+  "suite": "P4R retrieve_episodes temporal + routing"
+}
