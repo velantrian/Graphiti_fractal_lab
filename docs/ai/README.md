@@ -31,8 +31,6 @@ Do **not** begin by scanning upstream `Graphiti_fractal` narrative and inferring
 
 ## Lab lanes
 
-This repository currently contains more than one experimental lane:
-
 ```yaml
 lanes:
   graph_backend_smoke:
@@ -59,8 +57,6 @@ live exact repository state / exact branch or PR head
   > upstream / external donor docs as context only
 ```
 
-A pretty README diagram, donor audit, stub file, or upstream ACTIVE claim must not override lab code/tests/artifacts.
-
 ## Core invariants
 
 ```yaml
@@ -77,9 +73,11 @@ invariants:
   - upstream_active_is_not_lab_active
   - do_not_modify_or_push_upstream_Graphiti_fractal_from_lab_tasks
   - retrieved_is_not_relevant
+  - relevant_is_not_supports_positive_proposition
   - relevance_is_not_evidence
   - relevance_is_not_truth
   - no_relevant_result_is_not_entity_absent
+  - scorer_failure_is_not_honest_empty
   - unknown_is_not_false
 ```
 
@@ -92,14 +90,38 @@ retrieval_relevance:
   fm14: COMPLETED
   fm15: COMPLETED
   fm16: PLANNED_NOT_RUN
+  fm16_protocol_v1: REQUEST_CHANGES_BEFORE_SCORING_SUPERSEDED
+  fm16_preregistration: NOT_CREATED
+  fm16_run_007: NOT_CREATED
   pairwise_cross_encoder_signal: CONFIRMED_ON_FM15_FIXTURE
   global_threshold: NOT_ESTABLISHED
   runtime_gate: NOT_IMPLEMENTED
   production_authorized: false
-  next: FM16_HELD_OUT_GENERALIZATION_AND_CALIBRATION
+  next: REVISE_FM16_PROTOCOL_BEFORE_PREREGISTRATION_AND_SCORING
 ```
 
-Read [`../research/RETRIEVAL_RELEVANCE_TRACK.md`](../research/RETRIEVAL_RELEVANCE_TRACK.md) before making claims about why FM-13–FM-16 exist or what they establish.
+### FM-16 execution guard
+
+**Do not execute the previously drafted FM-16 protocol.** Independent pre-scoring review found methodological defects that must be fixed first.
+
+Required corrections before any scoring:
+
+- define retrieval relevance independently from whether a candidate supports a positive proposition;
+- repair negation / conditional / numeric yes-no gold examples;
+- add an explicit preregistered hard-negative rejection / returned-set quality gate for `GENERALIZATION_STRONG`;
+- if no feasible calibration threshold exists, use `threshold = null` and mark thresholded TEST metrics `NOT_APPLICABLE`;
+- freeze exact formulas, denominators, ties, comparator, verdict table, and systematic-inversion rule;
+- verify actually loaded model snapshot/weights/tokenizer/config/inference profile rather than trusting a cached revision string;
+- preserve the order: preregistration → model identity check → calibration scoring → threshold freeze → TEST scoring/reporting → anchor regression;
+- never count timeout/NaN/missing score as successful EMPTY.
+
+```text
+RELEVANT_ANSWER ≠ SUPPORTS_POSITIVE_PROPOSITION
+ALL_NON_GOLD_REJECTION ≠ HARD_NEGATIVE_REJECTION
+SCORER_FAILED ≠ NO_RELEVANT_CANDIDATES
+```
+
+Read [`../research/RETRIEVAL_RELEVANCE_TRACK.md`](../research/RETRIEVAL_RELEVANCE_TRACK.md) before making claims about FM-16 readiness.
 
 ## Research / stubs / non-active
 
@@ -145,7 +167,8 @@ Before changing adapters, experiment claims, or docs:
 5. use run-specific artifacts for experiment truth;
 6. do not push to `velantrian/Graphiti_fractal` from lab tasks;
 7. do not convert RESEARCH into Fractal runtime via documentation side effect;
-8. donor pattern ≠ adoption; external/cross-project authority must not leak into Fractal relevance semantics.
+8. donor pattern ≠ adoption; external/cross-project authority must not leak into Fractal relevance semantics;
+9. do not run superseded FM-16 v1; protocol hardening must precede preregistration/scoring.
 
 ## Human-facing docs
 
