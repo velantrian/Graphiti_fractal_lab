@@ -703,7 +703,9 @@
       "snapshot_pre": "/workspace/Graphiti_fractal_lab/artifacts/run_006/snapshot_pre.json",
       "snapshot_post": "/workspace/Graphiti_fractal_lab/artifacts/run_006/snapshot_post.json",
       "result": "/workspace/Graphiti_fractal_lab/artifacts/run_006/result.json"
-    }
+    },
+    "end_commit_pending_chore": true,
+    "pytest": "13 passed"
   },
   "matrix_rows": [
     {
