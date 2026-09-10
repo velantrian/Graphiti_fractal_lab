@@ -1,0 +1,810 @@
+{
+  "phases": [
+    {
+      "phase": "INVENTORY",
+      "test_id": "INVENTORY",
+      "status": "PASS",
+      "evidence": {
+        "inventory_path": "/workspace/Graphiti_fractal_lab/artifacts/run_006/findings/INVENTORY.md",
+        "surface_count": 14,
+        "checks": {
+          "edges.EntityEdge.save": true,
+          "edge_db_queries": true,
+          "bulk_utils": true,
+          "falkor_entity_edge_ops": true,
+          "namespaces_edges": true,
+          "graphiti.add_episode": true
+        },
+        "falkor_save_has_set_map": true,
+        "falkor_bulk_has_set_map": true
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T07:59:22.997452+00:00"
+    },
+    {
+      "phase": "BASELINE",
+      "test_id": "BASELINE",
+      "status": "PASS",
+      "evidence": {
+        "group_id": "p7_orion_1cbdc8f1aa",
+        "snapshot_pre_invalid_at": null,
+        "snapshot_pre_expired_at": null,
+        "snapshot_post_invalid_at": "2026-01-02T10:00:00+00:00",
+        "snapshot_post_expired_at": "2026-09-10T07:59:23.182823+00:00",
+        "same_uuid": true,
+        "new_edge": {
+          "uuid": "6b73cc45-750c-459e-81ff-6509851b89f0",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P7_NEW_1cbdc8f1aa7847d9b705ffb3d326f7e3.",
+          "group_id": "p7_orion_1cbdc8f1aa",
+          "valid_at": "2026-01-02T10:00:00+00:00",
+          "invalid_at": null,
+          "expired_at": null,
+          "reference_time": "2026-01-02T10:00:00+00:00",
+          "created_at": "2026-09-10T07:59:23.173762+00:00",
+          "source_node_uuid": "631c9959-6356-441b-a629-c5060a23093e",
+          "target_node_uuid": "16677b0c-483a-4e3f-97dc-eabe36574244",
+          "episodes": [
+            "d71ffe4a-3586-4847-8ed6-55caee021c8f"
+          ]
+        }
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T07:59:23.201758+00:00"
+    },
+    {
+      "phase": "P7-A",
+      "test_id": "P7-A",
+      "status": "PASS",
+      "evidence": {
+        "path": "Graphiti.add_episode late reference_time=T1",
+        "db": "/workspace/Graphiti_fractal_lab/data/falkor_e2e_p7/p7_a_1cbdc8f1aa7847d9b705ffb3d326f7e3.db",
+        "invalid_at_class": "PRESERVES_INVALIDATION",
+        "expired_at_class": "PRESERVES_EXPIRED_AT",
+        "classification": "PRESERVES_INVALIDATION",
+        "before": {
+          "uuid": "c64f4ac8-cc7e-42ed-b122-62019a678b5a",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P7_OLD_1cbdc8f1aa7847d9b705ffb3d326f7e3.",
+          "group_id": "p7_orion_1cbdc8f1aa",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": "2026-01-02T10:00:00+00:00",
+          "expired_at": "2026-09-10T07:59:23.182823+00:00",
+          "reference_time": "2026-01-01T10:00:00+00:00",
+          "created_at": "2026-09-10T07:59:23.132048+00:00",
+          "source_node_uuid": "631c9959-6356-441b-a629-c5060a23093e",
+          "target_node_uuid": "c64d7130-cc3d-4e9f-ac83-0842dd4f6ade",
+          "episodes": [
+            "80630ec4-0c4c-4244-b1c0-29ebda6dc804"
+          ]
+        },
+        "after": {
+          "uuid": "c64f4ac8-cc7e-42ed-b122-62019a678b5a",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P7_OLD_1cbdc8f1aa7847d9b705ffb3d326f7e3.",
+          "group_id": "p7_orion_1cbdc8f1aa",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": "2026-01-02T10:00:00+00:00",
+          "expired_at": "2026-09-10T07:59:23.182823+00:00",
+          "reference_time": "2026-01-01T10:00:00+00:00",
+          "created_at": "2026-09-10T07:59:23.132048+00:00",
+          "source_node_uuid": "631c9959-6356-441b-a629-c5060a23093e",
+          "target_node_uuid": "c64d7130-cc3d-4e9f-ac83-0842dd4f6ade",
+          "episodes": [
+            "80630ec4-0c4c-4244-b1c0-29ebda6dc804"
+          ]
+        },
+        "RESTORED_BYTES": false,
+        "RESTORED_CURRENT_APPLICABILITY": false,
+        "note": "Does not pass SNAPSHOT_PRE bytes; narrative re-entry via extract/resolve",
+        "provider_decisions_count": 2
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T07:59:23.578134+00:00"
+    },
+    {
+      "phase": "P7-B",
+      "test_id": "P7-B",
+      "status": "PASS",
+      "evidence": {
+        "path": "EntityEdge.save(SNAPSHOT_PRE)",
+        "db": "/workspace/Graphiti_fractal_lab/data/falkor_e2e_p7/p7_b_1cbdc8f1aa7847d9b705ffb3d326f7e3.db",
+        "invalid_at_class": "CLEARS_NEWER_INVALIDATION",
+        "expired_at_class": "CLEARS_EXPIRED_AT",
+        "classification": "CLEARS_NEWER_INVALIDATION",
+        "before": {
+          "uuid": "c64f4ac8-cc7e-42ed-b122-62019a678b5a",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P7_OLD_1cbdc8f1aa7847d9b705ffb3d326f7e3.",
+          "group_id": "p7_orion_1cbdc8f1aa",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": "2026-01-02T10:00:00+00:00",
+          "expired_at": "2026-09-10T07:59:23.182823+00:00",
+          "reference_time": "2026-01-01T10:00:00+00:00",
+          "created_at": "2026-09-10T07:59:23.132048+00:00",
+          "source_node_uuid": "631c9959-6356-441b-a629-c5060a23093e",
+          "target_node_uuid": "c64d7130-cc3d-4e9f-ac83-0842dd4f6ade",
+          "episodes": [
+            "80630ec4-0c4c-4244-b1c0-29ebda6dc804"
+          ]
+        },
+        "after": {
+          "uuid": "c64f4ac8-cc7e-42ed-b122-62019a678b5a",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P7_OLD_1cbdc8f1aa7847d9b705ffb3d326f7e3.",
+          "group_id": "p7_orion_1cbdc8f1aa",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": null,
+          "expired_at": null,
+          "reference_time": "2026-01-01T10:00:00+00:00",
+          "created_at": "2026-09-10T07:59:23.132048+00:00",
+          "source_node_uuid": "631c9959-6356-441b-a629-c5060a23093e",
+          "target_node_uuid": "c64d7130-cc3d-4e9f-ac83-0842dd4f6ade",
+          "episodes": [
+            "80630ec4-0c4c-4244-b1c0-29ebda6dc804"
+          ]
+        },
+        "RESTORED_BYTES": true,
+        "RESTORED_CURRENT_APPLICABILITY": true
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T07:59:23.913785+00:00"
+    },
+    {
+      "phase": "P7-C",
+      "test_id": "P7-C",
+      "status": "PASS",
+      "evidence": {
+        "path": "EntityEdge.save(SNAPSHOT_POST)",
+        "db": "/workspace/Graphiti_fractal_lab/data/falkor_e2e_p7/p7_c_1cbdc8f1aa7847d9b705ffb3d326f7e3.db",
+        "invalid_at_class": "PRESERVES_INVALIDATION",
+        "expired_at_class": "PRESERVES_EXPIRED_AT",
+        "classification": "PRESERVES_INVALIDATION",
+        "before": {
+          "uuid": "c64f4ac8-cc7e-42ed-b122-62019a678b5a",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P7_OLD_1cbdc8f1aa7847d9b705ffb3d326f7e3.",
+          "group_id": "p7_orion_1cbdc8f1aa",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": "2026-01-02T10:00:00+00:00",
+          "expired_at": "2026-09-10T07:59:23.182823+00:00",
+          "reference_time": "2026-01-01T10:00:00+00:00",
+          "created_at": "2026-09-10T07:59:23.132048+00:00",
+          "source_node_uuid": "631c9959-6356-441b-a629-c5060a23093e",
+          "target_node_uuid": "c64d7130-cc3d-4e9f-ac83-0842dd4f6ade",
+          "episodes": [
+            "80630ec4-0c4c-4244-b1c0-29ebda6dc804"
+          ]
+        },
+        "after": {
+          "uuid": "c64f4ac8-cc7e-42ed-b122-62019a678b5a",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P7_OLD_1cbdc8f1aa7847d9b705ffb3d326f7e3.",
+          "group_id": "p7_orion_1cbdc8f1aa",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": "2026-01-02T10:00:00+00:00",
+          "expired_at": "2026-09-10T07:59:23.182823+00:00",
+          "reference_time": "2026-01-01T10:00:00+00:00",
+          "created_at": "2026-09-10T07:59:23.132048+00:00",
+          "source_node_uuid": "631c9959-6356-441b-a629-c5060a23093e",
+          "target_node_uuid": "c64d7130-cc3d-4e9f-ac83-0842dd4f6ade",
+          "episodes": [
+            "80630ec4-0c4c-4244-b1c0-29ebda6dc804"
+          ]
+        },
+        "RESTORED_BYTES": false,
+        "RESTORED_CURRENT_APPLICABILITY": false
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T07:59:24.251534+00:00"
+    },
+    {
+      "phase": "P7-D",
+      "test_id": "P7-D",
+      "status": "PASS",
+      "evidence": {
+        "path": "add_nodes_and_edges_bulk([SNAPSHOT_PRE])",
+        "db": "/workspace/Graphiti_fractal_lab/data/falkor_e2e_p7/p7_d_1cbdc8f1aa7847d9b705ffb3d326f7e3.db",
+        "invalid_at_class": "CLEARS_NEWER_INVALIDATION",
+        "expired_at_class": "CLEARS_EXPIRED_AT",
+        "classification": "CLEARS_NEWER_INVALIDATION",
+        "before": {
+          "uuid": "c64f4ac8-cc7e-42ed-b122-62019a678b5a",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P7_OLD_1cbdc8f1aa7847d9b705ffb3d326f7e3.",
+          "group_id": "p7_orion_1cbdc8f1aa",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": "2026-01-02T10:00:00+00:00",
+          "expired_at": "2026-09-10T07:59:23.182823+00:00",
+          "reference_time": "2026-01-01T10:00:00+00:00",
+          "created_at": "2026-09-10T07:59:23.132048+00:00",
+          "source_node_uuid": "631c9959-6356-441b-a629-c5060a23093e",
+          "target_node_uuid": "c64d7130-cc3d-4e9f-ac83-0842dd4f6ade",
+          "episodes": [
+            "80630ec4-0c4c-4244-b1c0-29ebda6dc804"
+          ]
+        },
+        "after": {
+          "uuid": "c64f4ac8-cc7e-42ed-b122-62019a678b5a",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P7_OLD_1cbdc8f1aa7847d9b705ffb3d326f7e3.",
+          "group_id": "p7_orion_1cbdc8f1aa",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": null,
+          "expired_at": null,
+          "reference_time": "2026-01-01T10:00:00+00:00",
+          "created_at": "2026-09-10T07:59:23.132048+00:00",
+          "source_node_uuid": "631c9959-6356-441b-a629-c5060a23093e",
+          "target_node_uuid": "c64d7130-cc3d-4e9f-ac83-0842dd4f6ade",
+          "episodes": [
+            "80630ec4-0c4c-4244-b1c0-29ebda6dc804"
+          ]
+        },
+        "RESTORED_BYTES": true,
+        "RESTORED_CURRENT_APPLICABILITY": true
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T07:59:24.589783+00:00"
+    },
+    {
+      "phase": "P7-E",
+      "test_id": "P7-E",
+      "status": "PASS",
+      "evidence": {
+        "path": "EdgeNamespace(group_driver).entity.save(SNAPSHOT_PRE)",
+        "delegates_to": "FalkorEntityEdgeOperations.save",
+        "note_ops_omits_reference_time": true,
+        "db": "/workspace/Graphiti_fractal_lab/data/falkor_e2e_p7/p7_e_1cbdc8f1aa7847d9b705ffb3d326f7e3.db",
+        "invalid_at_class": "CLEARS_NEWER_INVALIDATION",
+        "expired_at_class": "CLEARS_EXPIRED_AT",
+        "classification": "CLEARS_NEWER_INVALIDATION",
+        "before": {
+          "uuid": "c64f4ac8-cc7e-42ed-b122-62019a678b5a",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P7_OLD_1cbdc8f1aa7847d9b705ffb3d326f7e3.",
+          "group_id": "p7_orion_1cbdc8f1aa",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": "2026-01-02T10:00:00+00:00",
+          "expired_at": "2026-09-10T07:59:23.182823+00:00",
+          "reference_time": "2026-01-01T10:00:00+00:00",
+          "created_at": "2026-09-10T07:59:23.132048+00:00",
+          "source_node_uuid": "631c9959-6356-441b-a629-c5060a23093e",
+          "target_node_uuid": "c64d7130-cc3d-4e9f-ac83-0842dd4f6ade",
+          "episodes": [
+            "80630ec4-0c4c-4244-b1c0-29ebda6dc804"
+          ]
+        },
+        "after": {
+          "uuid": "c64f4ac8-cc7e-42ed-b122-62019a678b5a",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P7_OLD_1cbdc8f1aa7847d9b705ffb3d326f7e3.",
+          "group_id": "p7_orion_1cbdc8f1aa",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": null,
+          "expired_at": null,
+          "reference_time": null,
+          "created_at": "2026-09-10T07:59:23.132048+00:00",
+          "source_node_uuid": "631c9959-6356-441b-a629-c5060a23093e",
+          "target_node_uuid": "c64d7130-cc3d-4e9f-ac83-0842dd4f6ade",
+          "episodes": [
+            "80630ec4-0c4c-4244-b1c0-29ebda6dc804"
+          ]
+        },
+        "RESTORED_BYTES": true,
+        "RESTORED_CURRENT_APPLICABILITY": true
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T07:59:24.923870+00:00"
+    },
+    {
+      "phase": "P7-F",
+      "test_id": "P7-F",
+      "status": "PASS",
+      "evidence": {
+        "path": "EdgeNamespace(group_driver).entity.save_bulk([SNAPSHOT_PRE])",
+        "delegates_to": "FalkorEntityEdgeOperations.save_bulk",
+        "db": "/workspace/Graphiti_fractal_lab/data/falkor_e2e_p7/p7_f_1cbdc8f1aa7847d9b705ffb3d326f7e3.db",
+        "invalid_at_class": "CLEARS_NEWER_INVALIDATION",
+        "expired_at_class": "CLEARS_EXPIRED_AT",
+        "classification": "CLEARS_NEWER_INVALIDATION",
+        "before": {
+          "uuid": "c64f4ac8-cc7e-42ed-b122-62019a678b5a",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P7_OLD_1cbdc8f1aa7847d9b705ffb3d326f7e3.",
+          "group_id": "p7_orion_1cbdc8f1aa",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": "2026-01-02T10:00:00+00:00",
+          "expired_at": "2026-09-10T07:59:23.182823+00:00",
+          "reference_time": "2026-01-01T10:00:00+00:00",
+          "created_at": "2026-09-10T07:59:23.132048+00:00",
+          "source_node_uuid": "631c9959-6356-441b-a629-c5060a23093e",
+          "target_node_uuid": "c64d7130-cc3d-4e9f-ac83-0842dd4f6ade",
+          "episodes": [
+            "80630ec4-0c4c-4244-b1c0-29ebda6dc804"
+          ]
+        },
+        "after": {
+          "uuid": "c64f4ac8-cc7e-42ed-b122-62019a678b5a",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P7_OLD_1cbdc8f1aa7847d9b705ffb3d326f7e3.",
+          "group_id": "p7_orion_1cbdc8f1aa",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": null,
+          "expired_at": null,
+          "reference_time": null,
+          "created_at": "2026-09-10T07:59:23.132048+00:00",
+          "source_node_uuid": "631c9959-6356-441b-a629-c5060a23093e",
+          "target_node_uuid": "c64d7130-cc3d-4e9f-ac83-0842dd4f6ade",
+          "episodes": [
+            "80630ec4-0c4c-4244-b1c0-29ebda6dc804"
+          ]
+        },
+        "RESTORED_BYTES": true,
+        "RESTORED_CURRENT_APPLICABILITY": true
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T07:59:25.260936+00:00"
+    },
+    {
+      "phase": "P7-G",
+      "test_id": "P7-G",
+      "status": "PASS",
+      "evidence": {
+        "path": "FalkorDriver.execute_query(get_entity_edge_save_query, edge_data=SNAPSHOT_PRE)",
+        "db": "/workspace/Graphiti_fractal_lab/data/falkor_e2e_p7/p7_g_1cbdc8f1aa7847d9b705ffb3d326f7e3.db",
+        "invalid_at_class": "CLEARS_NEWER_INVALIDATION",
+        "expired_at_class": "CLEARS_EXPIRED_AT",
+        "classification": "CLEARS_NEWER_INVALIDATION",
+        "before": {
+          "uuid": "c64f4ac8-cc7e-42ed-b122-62019a678b5a",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P7_OLD_1cbdc8f1aa7847d9b705ffb3d326f7e3.",
+          "group_id": "p7_orion_1cbdc8f1aa",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": "2026-01-02T10:00:00+00:00",
+          "expired_at": "2026-09-10T07:59:23.182823+00:00",
+          "reference_time": "2026-01-01T10:00:00+00:00",
+          "created_at": "2026-09-10T07:59:23.132048+00:00",
+          "source_node_uuid": "631c9959-6356-441b-a629-c5060a23093e",
+          "target_node_uuid": "c64d7130-cc3d-4e9f-ac83-0842dd4f6ade",
+          "episodes": [
+            "80630ec4-0c4c-4244-b1c0-29ebda6dc804"
+          ]
+        },
+        "after": {
+          "uuid": "c64f4ac8-cc7e-42ed-b122-62019a678b5a",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P7_OLD_1cbdc8f1aa7847d9b705ffb3d326f7e3.",
+          "group_id": "p7_orion_1cbdc8f1aa",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": null,
+          "expired_at": null,
+          "reference_time": "2026-01-01T10:00:00+00:00",
+          "created_at": "2026-09-10T07:59:23.132048+00:00",
+          "source_node_uuid": "631c9959-6356-441b-a629-c5060a23093e",
+          "target_node_uuid": "c64d7130-cc3d-4e9f-ac83-0842dd4f6ade",
+          "episodes": [
+            "80630ec4-0c4c-4244-b1c0-29ebda6dc804"
+          ]
+        },
+        "RESTORED_BYTES": true,
+        "RESTORED_CURRENT_APPLICABILITY": true
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T07:59:25.597737+00:00"
+    },
+    {
+      "phase": "P7-H",
+      "test_id": "P7-H",
+      "status": "PASS",
+      "evidence": {
+        "path": "Graphiti.add_episode_bulk([RawEpisode late T1])",
+        "db": "/workspace/Graphiti_fractal_lab/data/falkor_e2e_p7/p7_h_1cbdc8f1aa7847d9b705ffb3d326f7e3.db",
+        "invalid_at_class": "PRESERVES_INVALIDATION",
+        "expired_at_class": "PRESERVES_EXPIRED_AT",
+        "classification": "PRESERVES_INVALIDATION",
+        "before": {
+          "uuid": "c64f4ac8-cc7e-42ed-b122-62019a678b5a",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P7_OLD_1cbdc8f1aa7847d9b705ffb3d326f7e3.",
+          "group_id": "p7_orion_1cbdc8f1aa",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": "2026-01-02T10:00:00+00:00",
+          "expired_at": "2026-09-10T07:59:23.182823+00:00",
+          "reference_time": "2026-01-01T10:00:00+00:00",
+          "created_at": "2026-09-10T07:59:23.132048+00:00",
+          "source_node_uuid": "631c9959-6356-441b-a629-c5060a23093e",
+          "target_node_uuid": "c64d7130-cc3d-4e9f-ac83-0842dd4f6ade",
+          "episodes": [
+            "80630ec4-0c4c-4244-b1c0-29ebda6dc804"
+          ]
+        },
+        "after": {
+          "uuid": "c64f4ac8-cc7e-42ed-b122-62019a678b5a",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P7_OLD_1cbdc8f1aa7847d9b705ffb3d326f7e3.",
+          "group_id": "p7_orion_1cbdc8f1aa",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": "2026-01-02T10:00:00+00:00",
+          "expired_at": "2026-09-10T07:59:23.182823+00:00",
+          "reference_time": "2026-01-01T10:00:00+00:00",
+          "created_at": "2026-09-10T07:59:23.132048+00:00",
+          "source_node_uuid": "631c9959-6356-441b-a629-c5060a23093e",
+          "target_node_uuid": "c64d7130-cc3d-4e9f-ac83-0842dd4f6ade",
+          "episodes": [
+            "80630ec4-0c4c-4244-b1c0-29ebda6dc804"
+          ]
+        },
+        "RESTORED_BYTES": false,
+        "RESTORED_CURRENT_APPLICABILITY": false,
+        "provider_decisions_count": 2
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T07:59:25.985819+00:00"
+    },
+    {
+      "phase": "P7-I",
+      "test_id": "P7-I",
+      "status": "PASS",
+      "evidence": {
+        "path": "Graphiti.add_triplet(source, SNAPSHOT_PRE_edge, target)",
+        "db": "/workspace/Graphiti_fractal_lab/data/falkor_e2e_p7/p7_i_1cbdc8f1aa7847d9b705ffb3d326f7e3.db",
+        "result_edge_uuids": [
+          "c64f4ac8-cc7e-42ed-b122-62019a678b5a"
+        ],
+        "result_edge_invalid_ats": [
+          "2026-01-02T10:00:00+00:00"
+        ],
+        "invalid_at_class": "PRESERVES_INVALIDATION",
+        "expired_at_class": "PRESERVES_EXPIRED_AT",
+        "classification": "PRESERVES_INVALIDATION",
+        "before": {
+          "uuid": "c64f4ac8-cc7e-42ed-b122-62019a678b5a",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P7_OLD_1cbdc8f1aa7847d9b705ffb3d326f7e3.",
+          "group_id": "p7_orion_1cbdc8f1aa",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": "2026-01-02T10:00:00+00:00",
+          "expired_at": "2026-09-10T07:59:23.182823+00:00",
+          "reference_time": "2026-01-01T10:00:00+00:00",
+          "created_at": "2026-09-10T07:59:23.132048+00:00",
+          "source_node_uuid": "631c9959-6356-441b-a629-c5060a23093e",
+          "target_node_uuid": "c64d7130-cc3d-4e9f-ac83-0842dd4f6ade",
+          "episodes": [
+            "80630ec4-0c4c-4244-b1c0-29ebda6dc804"
+          ]
+        },
+        "after": {
+          "uuid": "c64f4ac8-cc7e-42ed-b122-62019a678b5a",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P7_OLD_1cbdc8f1aa7847d9b705ffb3d326f7e3.",
+          "group_id": "p7_orion_1cbdc8f1aa",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": "2026-01-02T10:00:00+00:00",
+          "expired_at": "2026-09-10T07:59:23.182823+00:00",
+          "reference_time": "2026-01-01T10:00:00+00:00",
+          "created_at": "2026-09-10T07:59:23.132048+00:00",
+          "source_node_uuid": "631c9959-6356-441b-a629-c5060a23093e",
+          "target_node_uuid": "c64d7130-cc3d-4e9f-ac83-0842dd4f6ade",
+          "episodes": [
+            "80630ec4-0c4c-4244-b1c0-29ebda6dc804",
+            "2280db19-e0be-4fb1-a628-fc324f1c6194"
+          ]
+        },
+        "RESTORED_BYTES": false,
+        "RESTORED_CURRENT_APPLICABILITY": false,
+        "note": "High-level resolve path \u2014 not raw RESTORED_BYTES guarantee",
+        "provider_decisions_count": 0
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T07:59:26.361560+00:00"
+    },
+    {
+      "phase": "P7-N/A",
+      "test_id": "P7-N/A",
+      "status": "PASS",
+      "evidence": {
+        "EpisodicEdge.save": "NOT_APPLICABLE \u2014 no invalid_at/expired_at fields",
+        "CommunityEdge.save": "NOT_APPLICABLE \u2014 no invalid_at/expired_at fields",
+        "HasEpisodeEdge.save": "NOT_APPLICABLE",
+        "NextEpisodeEdge.save": "NOT_APPLICABLE",
+        "RelatesToNode_": "NOT_RUN_ON_FALKOR \u2014 Kuzu-only intermediate modeling",
+        "remove_episode": "NOT_APPLICABLE \u2014 delete path, not snapshot restore",
+        "restore/import helpers": "NOT_APPLICABLE \u2014 none located in graphiti_core 0.29.3",
+        "classification": "NOT_APPLICABLE"
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T07:59:26.566809+00:00"
+    }
+  ],
+  "matrix": {
+    "INVENTORY": "PASS",
+    "BASELINE": "PASS",
+    "P7-A": "PASS",
+    "P7-A_class": "PRESERVES_INVALIDATION",
+    "P7-A_invalid_at": "PRESERVES_INVALIDATION",
+    "P7-A_expired_at": "PRESERVES_EXPIRED_AT",
+    "P7-B": "PASS",
+    "P7-B_class": "CLEARS_NEWER_INVALIDATION",
+    "P7-B_invalid_at": "CLEARS_NEWER_INVALIDATION",
+    "P7-B_expired_at": "CLEARS_EXPIRED_AT",
+    "P7-C": "PASS",
+    "P7-C_class": "PRESERVES_INVALIDATION",
+    "P7-C_invalid_at": "PRESERVES_INVALIDATION",
+    "P7-C_expired_at": "PRESERVES_EXPIRED_AT",
+    "P7-D": "PASS",
+    "P7-D_class": "CLEARS_NEWER_INVALIDATION",
+    "P7-D_invalid_at": "CLEARS_NEWER_INVALIDATION",
+    "P7-D_expired_at": "CLEARS_EXPIRED_AT",
+    "P7-E": "PASS",
+    "P7-E_class": "CLEARS_NEWER_INVALIDATION",
+    "P7-E_invalid_at": "CLEARS_NEWER_INVALIDATION",
+    "P7-E_expired_at": "CLEARS_EXPIRED_AT",
+    "P7-F": "PASS",
+    "P7-F_class": "CLEARS_NEWER_INVALIDATION",
+    "P7-F_invalid_at": "CLEARS_NEWER_INVALIDATION",
+    "P7-F_expired_at": "CLEARS_EXPIRED_AT",
+    "P7-G": "PASS",
+    "P7-G_class": "CLEARS_NEWER_INVALIDATION",
+    "P7-G_invalid_at": "CLEARS_NEWER_INVALIDATION",
+    "P7-G_expired_at": "CLEARS_EXPIRED_AT",
+    "P7-H": "PASS",
+    "P7-H_class": "PRESERVES_INVALIDATION",
+    "P7-H_invalid_at": "PRESERVES_INVALIDATION",
+    "P7-H_expired_at": "PRESERVES_EXPIRED_AT",
+    "P7-I": "PASS",
+    "P7-I_class": "PRESERVES_INVALIDATION",
+    "P7-I_invalid_at": "PRESERVES_INVALIDATION",
+    "P7-I_expired_at": "PRESERVES_EXPIRED_AT",
+    "P7-N/A": "PASS",
+    "P7-N/A_class": "NOT_APPLICABLE"
+  },
+  "summary": {
+    "suite": "P7_write_surface_inventory",
+    "graphiti": "0.29.3",
+    "backend": "FalkorDBLite",
+    "falkordblite": "0.10.0",
+    "branch": "experiment/falkordblite-deterministic-memory",
+    "claim_scope": "fixture-scoped ProjectOrion Python@T1\u2192Rust@T2 only",
+    "matrix_rows": [
+      {
+        "id": "P7-A",
+        "path": "Graphiti.add_episode late reference_time=T1",
+        "status": "PASS",
+        "classification": "PRESERVES_INVALIDATION",
+        "invalid_at_class": "PRESERVES_INVALIDATION",
+        "expired_at_class": "PRESERVES_EXPIRED_AT",
+        "RESTORED_BYTES": false,
+        "RESTORED_CURRENT_APPLICABILITY": false
+      },
+      {
+        "id": "P7-B",
+        "path": "EntityEdge.save(SNAPSHOT_PRE)",
+        "status": "PASS",
+        "classification": "CLEARS_NEWER_INVALIDATION",
+        "invalid_at_class": "CLEARS_NEWER_INVALIDATION",
+        "expired_at_class": "CLEARS_EXPIRED_AT",
+        "RESTORED_BYTES": true,
+        "RESTORED_CURRENT_APPLICABILITY": true
+      },
+      {
+        "id": "P7-C",
+        "path": "EntityEdge.save(SNAPSHOT_POST)",
+        "status": "PASS",
+        "classification": "PRESERVES_INVALIDATION",
+        "invalid_at_class": "PRESERVES_INVALIDATION",
+        "expired_at_class": "PRESERVES_EXPIRED_AT",
+        "RESTORED_BYTES": false,
+        "RESTORED_CURRENT_APPLICABILITY": false
+      },
+      {
+        "id": "P7-D",
+        "path": "add_nodes_and_edges_bulk([SNAPSHOT_PRE])",
+        "status": "PASS",
+        "classification": "CLEARS_NEWER_INVALIDATION",
+        "invalid_at_class": "CLEARS_NEWER_INVALIDATION",
+        "expired_at_class": "CLEARS_EXPIRED_AT",
+        "RESTORED_BYTES": true,
+        "RESTORED_CURRENT_APPLICABILITY": true
+      },
+      {
+        "id": "P7-E",
+        "path": "EdgeNamespace(group_driver).entity.save(SNAPSHOT_PRE)",
+        "status": "PASS",
+        "classification": "CLEARS_NEWER_INVALIDATION",
+        "invalid_at_class": "CLEARS_NEWER_INVALIDATION",
+        "expired_at_class": "CLEARS_EXPIRED_AT",
+        "RESTORED_BYTES": true,
+        "RESTORED_CURRENT_APPLICABILITY": true
+      },
+      {
+        "id": "P7-F",
+        "path": "EdgeNamespace(group_driver).entity.save_bulk([SNAPSHOT_PRE])",
+        "status": "PASS",
+        "classification": "CLEARS_NEWER_INVALIDATION",
+        "invalid_at_class": "CLEARS_NEWER_INVALIDATION",
+        "expired_at_class": "CLEARS_EXPIRED_AT",
+        "RESTORED_BYTES": true,
+        "RESTORED_CURRENT_APPLICABILITY": true
+      },
+      {
+        "id": "P7-G",
+        "path": "FalkorDriver.execute_query(get_entity_edge_save_query, edge_data=SNAPSHOT_PRE)",
+        "status": "PASS",
+        "classification": "CLEARS_NEWER_INVALIDATION",
+        "invalid_at_class": "CLEARS_NEWER_INVALIDATION",
+        "expired_at_class": "CLEARS_EXPIRED_AT",
+        "RESTORED_BYTES": true,
+        "RESTORED_CURRENT_APPLICABILITY": true
+      },
+      {
+        "id": "P7-H",
+        "path": "Graphiti.add_episode_bulk([RawEpisode late T1])",
+        "status": "PASS",
+        "classification": "PRESERVES_INVALIDATION",
+        "invalid_at_class": "PRESERVES_INVALIDATION",
+        "expired_at_class": "PRESERVES_EXPIRED_AT",
+        "RESTORED_BYTES": false,
+        "RESTORED_CURRENT_APPLICABILITY": false
+      },
+      {
+        "id": "P7-I",
+        "path": "Graphiti.add_triplet(source, SNAPSHOT_PRE_edge, target)",
+        "status": "PASS",
+        "classification": "PRESERVES_INVALIDATION",
+        "invalid_at_class": "PRESERVES_INVALIDATION",
+        "expired_at_class": "PRESERVES_EXPIRED_AT",
+        "RESTORED_BYTES": false,
+        "RESTORED_CURRENT_APPLICABILITY": false
+      },
+      {
+        "id": "P7-N/A",
+        "path": "P7-N/A",
+        "status": "PASS",
+        "classification": "NOT_APPLICABLE",
+        "invalid_at_class": null,
+        "expired_at_class": null,
+        "RESTORED_BYTES": null,
+        "RESTORED_CURRENT_APPLICABILITY": null
+      }
+    ],
+    "inventory_surfaces": 14,
+    "markers": {
+      "uid": "1cbdc8f1aa7847d9b705ffb3d326f7e3",
+      "old": "P7_OLD_1cbdc8f1aa7847d9b705ffb3d326f7e3",
+      "new": "P7_NEW_1cbdc8f1aa7847d9b705ffb3d326f7e3",
+      "late": "P7_LATE_OLD_1cbdc8f1aa7847d9b705ffb3d326f7e3",
+      "group_id": "p7_orion_1cbdc8f1aa",
+      "baseline_db": "/workspace/Graphiti_fractal_lab/data/falkor_e2e_p7/p7_baseline_1cbdc8f1aa7847d9b705ffb3d326f7e3.db"
+    },
+    "T1": "2026-01-01T10:00:00+00:00",
+    "T2": "2026-01-02T10:00:00+00:00",
+    "Q3": "2026-01-04T10:00:00+00:00",
+    "anti_hallucination": {
+      "RESTORED_BYTES": "snapshot temporal fields written back (invalid_at None)",
+      "RESTORED_CURRENT_APPLICABILITY": "valid_at<=Q3 and invalid_at is None",
+      "no_universal_claims": true
+    },
+    "not_started": [
+      "P8",
+      "fixes",
+      "Fractal MemoryOps",
+      "Crystal",
+      "SVL integration",
+      "Ladybug",
+      "real LLM",
+      "Graphiti upgrade",
+      "merge to main",
+      "upstream Graphiti_fractal edits"
+    ],
+    "artifacts": {
+      "inventory": "/workspace/Graphiti_fractal_lab/artifacts/run_006/findings/INVENTORY.md",
+      "matrix": "/workspace/Graphiti_fractal_lab/artifacts/run_006/findings/MATRIX.md",
+      "snapshot_pre": "/workspace/Graphiti_fractal_lab/artifacts/run_006/snapshot_pre.json",
+      "snapshot_post": "/workspace/Graphiti_fractal_lab/artifacts/run_006/snapshot_post.json",
+      "result": "/workspace/Graphiti_fractal_lab/artifacts/run_006/result.json"
+    }
+  },
+  "matrix_rows": [
+    {
+      "id": "P7-A",
+      "path": "Graphiti.add_episode late reference_time=T1",
+      "status": "PASS",
+      "classification": "PRESERVES_INVALIDATION",
+      "invalid_at_class": "PRESERVES_INVALIDATION",
+      "expired_at_class": "PRESERVES_EXPIRED_AT",
+      "RESTORED_BYTES": false,
+      "RESTORED_CURRENT_APPLICABILITY": false
+    },
+    {
+      "id": "P7-B",
+      "path": "EntityEdge.save(SNAPSHOT_PRE)",
+      "status": "PASS",
+      "classification": "CLEARS_NEWER_INVALIDATION",
+      "invalid_at_class": "CLEARS_NEWER_INVALIDATION",
+      "expired_at_class": "CLEARS_EXPIRED_AT",
+      "RESTORED_BYTES": true,
+      "RESTORED_CURRENT_APPLICABILITY": true
+    },
+    {
+      "id": "P7-C",
+      "path": "EntityEdge.save(SNAPSHOT_POST)",
+      "status": "PASS",
+      "classification": "PRESERVES_INVALIDATION",
+      "invalid_at_class": "PRESERVES_INVALIDATION",
+      "expired_at_class": "PRESERVES_EXPIRED_AT",
+      "RESTORED_BYTES": false,
+      "RESTORED_CURRENT_APPLICABILITY": false
+    },
+    {
+      "id": "P7-D",
+      "path": "add_nodes_and_edges_bulk([SNAPSHOT_PRE])",
+      "status": "PASS",
+      "classification": "CLEARS_NEWER_INVALIDATION",
+      "invalid_at_class": "CLEARS_NEWER_INVALIDATION",
+      "expired_at_class": "CLEARS_EXPIRED_AT",
+      "RESTORED_BYTES": true,
+      "RESTORED_CURRENT_APPLICABILITY": true
+    },
+    {
+      "id": "P7-E",
+      "path": "EdgeNamespace(group_driver).entity.save(SNAPSHOT_PRE)",
+      "status": "PASS",
+      "classification": "CLEARS_NEWER_INVALIDATION",
+      "invalid_at_class": "CLEARS_NEWER_INVALIDATION",
+      "expired_at_class": "CLEARS_EXPIRED_AT",
+      "RESTORED_BYTES": true,
+      "RESTORED_CURRENT_APPLICABILITY": true
+    },
+    {
+      "id": "P7-F",
+      "path": "EdgeNamespace(group_driver).entity.save_bulk([SNAPSHOT_PRE])",
+      "status": "PASS",
+      "classification": "CLEARS_NEWER_INVALIDATION",
+      "invalid_at_class": "CLEARS_NEWER_INVALIDATION",
+      "expired_at_class": "CLEARS_EXPIRED_AT",
+      "RESTORED_BYTES": true,
+      "RESTORED_CURRENT_APPLICABILITY": true
+    },
+    {
+      "id": "P7-G",
+      "path": "FalkorDriver.execute_query(get_entity_edge_save_query, edge_data=SNAPSHOT_PRE)",
+      "status": "PASS",
+      "classification": "CLEARS_NEWER_INVALIDATION",
+      "invalid_at_class": "CLEARS_NEWER_INVALIDATION",
+      "expired_at_class": "CLEARS_EXPIRED_AT",
+      "RESTORED_BYTES": true,
+      "RESTORED_CURRENT_APPLICABILITY": true
+    },
+    {
+      "id": "P7-H",
+      "path": "Graphiti.add_episode_bulk([RawEpisode late T1])",
+      "status": "PASS",
+      "classification": "PRESERVES_INVALIDATION",
+      "invalid_at_class": "PRESERVES_INVALIDATION",
+      "expired_at_class": "PRESERVES_EXPIRED_AT",
+      "RESTORED_BYTES": false,
+      "RESTORED_CURRENT_APPLICABILITY": false
+    },
+    {
+      "id": "P7-I",
+      "path": "Graphiti.add_triplet(source, SNAPSHOT_PRE_edge, target)",
+      "status": "PASS",
+      "classification": "PRESERVES_INVALIDATION",
+      "invalid_at_class": "PRESERVES_INVALIDATION",
+      "expired_at_class": "PRESERVES_EXPIRED_AT",
+      "RESTORED_BYTES": false,
+      "RESTORED_CURRENT_APPLICABILITY": false
+    },
+    {
+      "id": "P7-N/A",
+      "path": "P7-N/A",
+      "status": "PASS",
+      "classification": "NOT_APPLICABLE",
+      "invalid_at_class": null,
+      "expired_at_class": null,
+      "RESTORED_BYTES": null,
+      "RESTORED_CURRENT_APPLICABILITY": null
+    }
+  ]
+}

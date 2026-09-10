@@ -1,0 +1,3 @@
+source .venv/bin/activate
+export PYTHONPATH=src
+pytest -q tests/lab/test_falkordblite_p7_write_surfaces.py -o asyncio_mode=auto --tb=short 2>&1 | tee artifacts/run_006/pytest.txt

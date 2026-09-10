@@ -1,4 +1,4 @@
-"""Deterministic temporal LLM stub for P5 contradiction / EdgeTimestamps labs.
+"""Deterministic temporal LLM stub for P5/P6/P7 contradiction / EdgeTimestamps labs.
 
 Dedicated client — do NOT use DeterministicLLMClient for P5 conclusions:
 that stub returns contradicted_facts=[] and EdgeTimestamps valid_at/invalid_at None.
@@ -30,18 +30,18 @@ from fractal_lab.experiments.deterministic_providers import (
     _parse_json_list_block,
 )
 
-# P5 + P6 temporal markers (P6 reuses this client; keep P5 aliases)
+# P5 + P6 + P7 temporal markers (P6/P7 reuse this client; keep P5 aliases)
 P5_OLD_RE = re.compile(r"P5_OLD_[A-Za-z0-9_-]+")
 P5_NEW_RE = re.compile(r"P5_NEW_[A-Za-z0-9_-]+")
 P5_ANY_RE = re.compile(r"P5_(?:OLD|NEW)_[A-Za-z0-9_-]+")
-TEMPORAL_OLD_RE = re.compile(r"P[56]_OLD_[A-Za-z0-9_-]+")
-TEMPORAL_NEW_RE = re.compile(r"P[56]_NEW_[A-Za-z0-9_-]+")
-TEMPORAL_LATE_OLD_RE = re.compile(r"P6_LATE_OLD_[A-Za-z0-9_-]+")
-TEMPORAL_ANY_RE = re.compile(r"P[56]_(?:OLD|NEW|LATE_OLD)_[A-Za-z0-9_-]+")
+TEMPORAL_OLD_RE = re.compile(r"P[567]_OLD_[A-Za-z0-9_-]+")
+TEMPORAL_NEW_RE = re.compile(r"P[567]_NEW_[A-Za-z0-9_-]+")
+TEMPORAL_LATE_OLD_RE = re.compile(r"P[67]_LATE_OLD_[A-Za-z0-9_-]+")
+TEMPORAL_ANY_RE = re.compile(r"P[567]_(?:OLD|NEW|LATE_OLD)_[A-Za-z0-9_-]+")
 
 # Extend marker recognition used by shared helpers when blob scraping
 _EXTENDED_MARKER_RE = re.compile(
-    r"(?:VELANTRIM_FALKOR_E2E_|A_ONLY_|B_ONLY_|P5_OLD_|P5_NEW_|P6_OLD_|P6_NEW_|P6_LATE_OLD_)[A-Za-z0-9_-]+"
+    r"(?:VELANTRIM_FALKOR_E2E_|A_ONLY_|B_ONLY_|P5_OLD_|P5_NEW_|P6_OLD_|P6_NEW_|P6_LATE_OLD_|P7_OLD_|P7_NEW_|P7_LATE_OLD_)[A-Za-z0-9_-]+"
 )
 
 
@@ -594,9 +594,9 @@ class DeterministicTemporalLLMClient(LLMClient):
             "duplicate_facts": duplicate_facts,
             "contradicted_facts": contradicted,
             "selection_rule": (
-                "P6_LATE_OLD→contradict Rust/P6_NEW from context"
+                "P6/P7_LATE_OLD→contradict Rust/NEW from context"
                 if (new_has_late_old or TEMPORAL_LATE_OLD_RE.search(new_fact))
-                else "P5/P6_OLD marker index from context (else Python RUNTIME_LANGUAGE)"
+                else "P5/P6/P7_OLD marker index from context (else Python RUNTIME_LANGUAGE)"
             ),
         }
         self.decisions.append(receipt)
