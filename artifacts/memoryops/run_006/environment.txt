@@ -15,3 +15,5 @@ deepseek_extraction_rerun=False
 SECRET_LOGGED=NO
 CROSS_ENCODER_SIGNAL_EFFECT=STRONGLY_IMPROVED
 one_variable=pairwise BGERerankerClient scoring (no runtime search CE)
+implementation_commit=45ae0840a6a2898cc22de55ab8a987ffc1b6c92e
+end_commit=45ae0840a6a2898cc22de55ab8a987ffc1b6c92e
