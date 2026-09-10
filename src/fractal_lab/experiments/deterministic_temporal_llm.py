@@ -30,13 +30,18 @@ from fractal_lab.experiments.deterministic_providers import (
     _parse_json_list_block,
 )
 
+# P5 + P6 temporal markers (P6 reuses this client; keep P5 aliases)
 P5_OLD_RE = re.compile(r"P5_OLD_[A-Za-z0-9_-]+")
 P5_NEW_RE = re.compile(r"P5_NEW_[A-Za-z0-9_-]+")
 P5_ANY_RE = re.compile(r"P5_(?:OLD|NEW)_[A-Za-z0-9_-]+")
+TEMPORAL_OLD_RE = re.compile(r"P[56]_OLD_[A-Za-z0-9_-]+")
+TEMPORAL_NEW_RE = re.compile(r"P[56]_NEW_[A-Za-z0-9_-]+")
+TEMPORAL_LATE_OLD_RE = re.compile(r"P6_LATE_OLD_[A-Za-z0-9_-]+")
+TEMPORAL_ANY_RE = re.compile(r"P[56]_(?:OLD|NEW|LATE_OLD)_[A-Za-z0-9_-]+")
 
 # Extend marker recognition used by shared helpers when blob scraping
 _EXTENDED_MARKER_RE = re.compile(
-    r"(?:VELANTRIM_FALKOR_E2E_|A_ONLY_|B_ONLY_|P5_OLD_|P5_NEW_)[A-Za-z0-9_-]+"
+    r"(?:VELANTRIM_FALKOR_E2E_|A_ONLY_|B_ONLY_|P5_OLD_|P5_NEW_|P6_OLD_|P6_NEW_|P6_LATE_OLD_)[A-Za-z0-9_-]+"
 )
 
 
@@ -137,7 +142,7 @@ def _p5_entities_from_blob(blob: str) -> list[str]:
         if not key or key.lower() in seen:
             return
         # Skip markers / prompt junk as entity names
-        if P5_ANY_RE.fullmatch(key) or MARKER_RE.fullmatch(key):
+        if TEMPORAL_ANY_RE.fullmatch(key) or P5_ANY_RE.fullmatch(key) or MARKER_RE.fullmatch(key):
             return
         if key.lower() in {
             "current", "message", "entity", "entities", "runtime_language",
@@ -171,7 +176,7 @@ def _p5_entities_from_blob(blob: str) -> list[str]:
 
 
 class DeterministicTemporalLLMClient(LLMClient):
-    """Schema-aware stub for temporal contradiction + EdgeTimestamps (P5)."""
+    """Schema-aware stub for temporal contradiction + EdgeTimestamps (P5/P6)."""
 
     def __init__(self) -> None:
         super().__init__(
@@ -198,7 +203,7 @@ class DeterministicTemporalLLMClient(LLMClient):
         text_all = _messages_text(messages)
         blob = _extract_episode_blob(messages)
         # Prefer episode text that includes P5 markers even if tag scrape missed
-        if not P5_ANY_RE.search(blob):
+        if not TEMPORAL_ANY_RE.search(blob):
             markers = _EXTENDED_MARKER_RE.findall(text_all)
             if markers and ("ProjectOrion" in text_all or "Python" in text_all or "Rust" in text_all):
                 # Reconstruct a minimal blob from CURRENT_MESSAGE / TEXT if present
@@ -208,7 +213,7 @@ class DeterministicTemporalLLMClient(LLMClient):
                     ("<TEXT>", "</TEXT>"),
                 ):
                     inner = _tag_inner(text_all, start, end)
-                    if inner and (P5_ANY_RE.search(inner) or "ProjectOrion" in inner):
+                    if inner and (TEMPORAL_ANY_RE.search(inner) or "ProjectOrion" in inner):
                         blob = inner
                         break
 
@@ -333,21 +338,38 @@ class DeterministicTemporalLLMClient(LLMClient):
         subject = pick("ProjectOrion") or (uniq[0] if uniq else "ProjectOrion")
         ref = _reference_time_from_text(text_all)
 
-        old_markers = P5_OLD_RE.findall(blob) or P5_OLD_RE.findall(text_all)
-        new_markers = P5_NEW_RE.findall(blob) or P5_NEW_RE.findall(text_all)
+        # Prefer episode blob markers — text_all may contain EXISTING FACTS / prior
+        # markers from Graphiti context and must not pollute extraction (P6-A late).
         source_blob = blob or ""
+        late_markers = TEMPORAL_LATE_OLD_RE.findall(source_blob)
+        old_markers = TEMPORAL_OLD_RE.findall(source_blob)
+        new_markers = TEMPORAL_NEW_RE.findall(source_blob)
+        if not (late_markers or old_markers or new_markers):
+            late_markers = TEMPORAL_LATE_OLD_RE.findall(text_all)
+            old_markers = TEMPORAL_OLD_RE.findall(text_all)
+            new_markers = TEMPORAL_NEW_RE.findall(text_all)
 
         edges: list[dict[str, Any]] = []
 
-        # Language fact: Python (OLD) or Rust (NEW)
+        # Language fact: decide language from episode blob first (not marker pollution)
         lang = None
         marker_bit = None
-        if re.search(r"\bRust\b", source_blob) or new_markers:
+        if re.search(r"\bRust\b", source_blob):
             lang = pick("Rust") or "Rust"
             marker_bit = new_markers[0] if new_markers else "P5_NEW_MISSING"
-        elif re.search(r"\bPython\b", source_blob) or old_markers:
+        elif re.search(r"\bPython\b", source_blob):
             lang = pick("Python") or "Python"
-            marker_bit = old_markers[0] if old_markers else "P5_OLD_MISSING"
+            marker_bit = (
+                late_markers[0]
+                if late_markers
+                else (old_markers[0] if old_markers else "P5_OLD_MISSING")
+            )
+        elif new_markers:
+            lang = pick("Rust") or "Rust"
+            marker_bit = new_markers[0]
+        elif late_markers or old_markers:
+            lang = pick("Python") or "Python"
+            marker_bit = late_markers[0] if late_markers else old_markers[0]
 
         if lang is not None:
             # Ensure lang is in entity list for Graphiti validation — use listed name
@@ -492,7 +514,8 @@ class DeterministicTemporalLLMClient(LLMClient):
         contradicted: list[int] = []
         duplicate_facts: list[int] = []
 
-        new_has_new_marker = bool(P5_NEW_RE.search(new_fact))
+        new_has_new_marker = bool(TEMPORAL_NEW_RE.search(new_fact))
+        new_has_late_old = bool(TEMPORAL_LATE_OLD_RE.search(new_fact))
         new_is_language = bool(
             re.search(r"RUNTIME_LANGUAGE", new_fact, flags=re.IGNORECASE)
             or re.search(r"\b(uses|runtime)\b.*\b(Python|Rust)\b", new_fact, flags=re.IGNORECASE)
@@ -504,26 +527,50 @@ class DeterministicTemporalLLMClient(LLMClient):
         elif re.search(r"\bPython\b", new_fact):
             new_lang = "Python"
 
-        # Select OLD marker index from context when NEW introduces a language update
+        def _is_owner_fact(fact: str) -> bool:
+            return bool(re.search(r"\bOWNED_BY\b|\bowned by\b", fact, flags=re.IGNORECASE))
+
+        # P5 / baseline T2: Rust (NEW) contradicts Python (OLD) — select OLD idx from context
         if new_has_new_marker or (new_is_language and new_lang == "Rust"):
-            # Prefer exact P5_OLD_ marker match
             for item in all_items:
                 fact = str(item.get("fact", ""))
                 idx = int(item["idx"])
-                # Never invalidate owner facts
-                if re.search(r"\bOWNED_BY\b|\bowned by\b", fact, flags=re.IGNORECASE):
+                if _is_owner_fact(fact):
                     continue
-                if P5_OLD_RE.search(fact):
+                if TEMPORAL_OLD_RE.search(fact):
                     contradicted.append(idx)
                     break
             if not contradicted:
-                # Fallback: contradictory language fact (Python vs Rust)
                 for item in all_items:
                     fact = str(item.get("fact", ""))
                     idx = int(item["idx"])
-                    if re.search(r"\bOWNED_BY\b|\bowned by\b", fact, flags=re.IGNORECASE):
+                    if _is_owner_fact(fact):
                         continue
                     if new_lang == "Rust" and re.search(r"\bPython\b", fact) and (
+                        re.search(r"RUNTIME_LANGUAGE", fact, flags=re.IGNORECASE)
+                        or re.search(r"language", fact, flags=re.IGNORECASE)
+                    ):
+                        contradicted.append(idx)
+                        break
+
+        # P6-A late add_episode (reference_time=T1, Python + P6_LATE_OLD): identify Rust T2
+        # as contradiction candidate by parsing context (not hardcoded idx).
+        elif new_has_late_old or (new_is_language and new_lang == "Python" and TEMPORAL_LATE_OLD_RE.search(new_fact + text_all)):
+            for item in all_items:
+                fact = str(item.get("fact", ""))
+                idx = int(item["idx"])
+                if _is_owner_fact(fact):
+                    continue
+                if TEMPORAL_NEW_RE.search(fact):
+                    contradicted.append(idx)
+                    break
+            if not contradicted:
+                for item in all_items:
+                    fact = str(item.get("fact", ""))
+                    idx = int(item["idx"])
+                    if _is_owner_fact(fact):
+                        continue
+                    if re.search(r"\bRust\b", fact) and (
                         re.search(r"RUNTIME_LANGUAGE", fact, flags=re.IGNORECASE)
                         or re.search(r"language", fact, flags=re.IGNORECASE)
                     ):
@@ -546,7 +593,11 @@ class DeterministicTemporalLLMClient(LLMClient):
             "invalidation_candidates": invalidation_items,
             "duplicate_facts": duplicate_facts,
             "contradicted_facts": contradicted,
-            "selection_rule": "P5_OLD marker index from context (else Python RUNTIME_LANGUAGE)",
+            "selection_rule": (
+                "P6_LATE_OLD→contradict Rust/P6_NEW from context"
+                if (new_has_late_old or TEMPORAL_LATE_OLD_RE.search(new_fact))
+                else "P5/P6_OLD marker index from context (else Python RUNTIME_LANGUAGE)"
+            ),
         }
         self.decisions.append(receipt)
         return {"duplicate_facts": duplicate_facts, "contradicted_facts": contradicted}

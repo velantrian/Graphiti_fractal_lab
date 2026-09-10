@@ -1,0 +1,874 @@
+{
+  "phases": [
+    {
+      "phase": "BASELINE",
+      "test_id": "BASELINE",
+      "status": "PASS",
+      "evidence": {
+        "group_id": "p6_orion_b0db775ffc",
+        "old_marker": "P6_OLD_b0db775ffc5d4b91a4f346380c743427",
+        "new_marker": "P6_NEW_b0db775ffc5d4b91a4f346380c743427",
+        "snapshot_pre_uuid": "2af57b89-d50c-4f2c-abb8-e3bfccda8171",
+        "snapshot_pre_invalid_at": null,
+        "snapshot_post_uuid": "2af57b89-d50c-4f2c-abb8-e3bfccda8171",
+        "snapshot_post_invalid_at": "2026-01-02T10:00:00+00:00",
+        "same_uuid": true,
+        "new_edge": {
+          "uuid": "a6732591-d263-4e36-89ed-dbd18e93b1b0",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P6_NEW_b0db775ffc5d4b91a4f346380c743427.",
+          "group_id": "p6_orion_b0db775ffc",
+          "valid_at": "2026-01-02T10:00:00+00:00",
+          "invalid_at": null,
+          "expired_at": null,
+          "reference_time": "2026-01-02T10:00:00+00:00",
+          "created_at": "2026-09-10T06:21:32.404786+00:00",
+          "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+          "target_node_uuid": "70358587-279b-495b-a62a-bcfb3e405525",
+          "episodes": [
+            "1dea4d11-0794-4ad4-b5fa-e0b50ebfcfed"
+          ]
+        },
+        "owner_count": 1,
+        "artifact_pre": "/workspace/Graphiti_fractal_lab/artifacts/run_005/snapshot_pre.json",
+        "artifact_post": "/workspace/Graphiti_fractal_lab/artifacts/run_005/snapshot_post.json"
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T06:21:32.445429+00:00"
+    },
+    {
+      "phase": "P6-0",
+      "test_id": "P6-0",
+      "status": "PASS",
+      "evidence": {
+        "returncode": 0,
+        "payload": {
+          "old": [
+            {
+              "uuid": "2af57b89-d50c-4f2c-abb8-e3bfccda8171",
+              "name": "RUNTIME_LANGUAGE",
+              "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_OLD_b0db775ffc5d4b91a4f346380c743427.",
+              "valid_at": "2026-01-01T10:00:00+00:00",
+              "invalid_at": "2026-01-02T10:00:00+00:00",
+              "expired_at": "2026-09-10T06:21:32.419948+00:00"
+            }
+          ],
+          "new": [
+            {
+              "uuid": "a6732591-d263-4e36-89ed-dbd18e93b1b0",
+              "name": "RUNTIME_LANGUAGE",
+              "fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P6_NEW_b0db775ffc5d4b91a4f346380c743427.",
+              "valid_at": "2026-01-02T10:00:00+00:00",
+              "invalid_at": null,
+              "expired_at": null
+            }
+          ],
+          "owner": [
+            {
+              "uuid": "90ac21e6-cbf9-41fb-8592-279556321bae",
+              "name": "OWNED_BY",
+              "fact": "ProjectOrion is owned by Alice.",
+              "valid_at": "2026-01-01T10:00:00+00:00",
+              "invalid_at": null,
+              "expired_at": null
+            }
+          ],
+          "count": 3
+        },
+        "stderr_tail": "/workspace/Graphiti_fractal_lab/.venv/lib/python3.13/site-packages/redislite/client.py:112: RuntimeWarning: coroutine 'AsyncManagementCommands.shutdown' was never awaited\n  self.shutdown(save=True, now=True, force=True)\nRuntimeWarning: Enable tracemalloc to get the object allocation traceback\n",
+        "asserts": {
+          "old_invalid_at_T2": true,
+          "new_invalid_at_none": true,
+          "owner_invalid_at_none": true
+        }
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T06:21:49.384641+00:00"
+    },
+    {
+      "phase": "P6-A",
+      "test_id": "P6-A",
+      "status": "PASS",
+      "evidence": {
+        "path": "A_add_episode_late_T1",
+        "reference_time": "2026-01-01T10:00:00+00:00",
+        "late_marker": "P6_LATE_OLD_b0db775ffc5d4b91a4f346380c743427",
+        "provider_selected_rust_t2": true,
+        "dup_receipts": [
+          {
+            "model": "EdgeDuplicate",
+            "new_fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_LATE_OLD_b0db775ffc5d4b91a4f346380c743427.",
+            "existing_facts": [
+              {
+                "idx": 0,
+                "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_OLD_b0db775ffc5d4b91a4f346380c743427."
+              }
+            ],
+            "invalidation_candidates": [
+              {
+                "idx": 1,
+                "fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P6_NEW_b0db775ffc5d4b91a4f346380c743427."
+              },
+              {
+                "idx": 2,
+                "fact": "ProjectOrion is owned by Alice."
+              }
+            ],
+            "duplicate_facts": [],
+            "contradicted_facts": [
+              1
+            ],
+            "selection_rule": "P6_LATE_OLD\u2192contradict Rust/P6_NEW from context"
+          }
+        ],
+        "old_before": [
+          {
+            "uuid": "2af57b89-d50c-4f2c-abb8-e3bfccda8171",
+            "name": "RUNTIME_LANGUAGE",
+            "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_OLD_b0db775ffc5d4b91a4f346380c743427.",
+            "group_id": "p6_orion_b0db775ffc",
+            "valid_at": "2026-01-01T10:00:00+00:00",
+            "invalid_at": "2026-01-02T10:00:00+00:00",
+            "expired_at": "2026-09-10T06:21:32.419948+00:00",
+            "reference_time": "2026-01-01T10:00:00+00:00",
+            "created_at": "2026-09-10T06:21:32.366266+00:00",
+            "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+            "target_node_uuid": "2d5262a4-c98c-4f38-9dd9-14d62c4ca6b8",
+            "episodes": [
+              "b6275f03-abd1-4f42-9916-eea5c4e52eb0"
+            ]
+          }
+        ],
+        "old_after": [
+          {
+            "uuid": "2af57b89-d50c-4f2c-abb8-e3bfccda8171",
+            "name": "RUNTIME_LANGUAGE",
+            "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_OLD_b0db775ffc5d4b91a4f346380c743427.",
+            "group_id": "p6_orion_b0db775ffc",
+            "valid_at": "2026-01-01T10:00:00+00:00",
+            "invalid_at": "2026-01-02T10:00:00+00:00",
+            "expired_at": "2026-09-10T06:21:32.419948+00:00",
+            "reference_time": "2026-01-01T10:00:00+00:00",
+            "created_at": "2026-09-10T06:21:32.366266+00:00",
+            "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+            "target_node_uuid": "2d5262a4-c98c-4f38-9dd9-14d62c4ca6b8",
+            "episodes": [
+              "b6275f03-abd1-4f42-9916-eea5c4e52eb0"
+            ]
+          }
+        ],
+        "new_after": [
+          {
+            "uuid": "a6732591-d263-4e36-89ed-dbd18e93b1b0",
+            "name": "RUNTIME_LANGUAGE",
+            "fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P6_NEW_b0db775ffc5d4b91a4f346380c743427.",
+            "group_id": "p6_orion_b0db775ffc",
+            "valid_at": "2026-01-02T10:00:00+00:00",
+            "invalid_at": null,
+            "expired_at": null,
+            "reference_time": "2026-01-02T10:00:00+00:00",
+            "created_at": "2026-09-10T06:21:32.404786+00:00",
+            "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+            "target_node_uuid": "70358587-279b-495b-a62a-bcfb3e405525",
+            "episodes": [
+              "1dea4d11-0794-4ad4-b5fa-e0b50ebfcfed"
+            ]
+          }
+        ],
+        "late_after": [
+          {
+            "uuid": "630b1709-d8ac-4989-87f7-ad749e3fcdd2",
+            "name": "RUNTIME_LANGUAGE",
+            "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_LATE_OLD_b0db775ffc5d4b91a4f346380c743427.",
+            "group_id": "p6_orion_b0db775ffc",
+            "valid_at": "2026-01-01T10:00:00+00:00",
+            "invalid_at": "2026-01-02T10:00:00+00:00",
+            "expired_at": "2026-09-10T06:21:49.538904+00:00",
+            "reference_time": "2026-01-01T10:00:00+00:00",
+            "created_at": "2026-09-10T06:21:49.523107+00:00",
+            "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+            "target_node_uuid": "2d5262a4-c98c-4f38-9dd9-14d62c4ca6b8",
+            "episodes": [
+              "99b6fd27-911d-44c3-8cd5-c58bc27b1e3c"
+            ]
+          }
+        ],
+        "episode_edges": [
+          {
+            "uuid": "630b1709-d8ac-4989-87f7-ad749e3fcdd2",
+            "name": "RUNTIME_LANGUAGE",
+            "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_LATE_OLD_b0db775ffc5d4b91a4f346380c743427.",
+            "group_id": "p6_orion_b0db775ffc",
+            "valid_at": "2026-01-01T10:00:00+00:00",
+            "invalid_at": "2026-01-02T10:00:00+00:00",
+            "expired_at": "2026-09-10T06:21:49.538904+00:00",
+            "reference_time": "2026-01-01T10:00:00+00:00",
+            "created_at": "2026-09-10T06:21:49.523107+00:00",
+            "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+            "target_node_uuid": "2d5262a4-c98c-4f38-9dd9-14d62c4ca6b8",
+            "episodes": [
+              "99b6fd27-911d-44c3-8cd5-c58bc27b1e3c"
+            ]
+          }
+        ],
+        "classification": "SAFE_HIGH_LEVEL",
+        "anti_hallucination": {
+          "RESTORED_BYTES": "not claimed for path A (no snapshot save)",
+          "RESTORED_CURRENT_APPLICABILITY": "true iff OLD uuid TEMPORALLY_CURRENT at Q3 after late episode",
+          "note": "searchable \u2260 temporally current; classify from invalid_at/valid_at"
+        },
+        "old_at_Q3": [
+          "STORED",
+          "TEMPORALLY_EXPIRED"
+        ],
+        "observed_class": "SAFE_HIGH_LEVEL"
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T06:21:49.558356+00:00"
+    },
+    {
+      "phase": "P6-B",
+      "test_id": "P6-B",
+      "status": "PASS",
+      "evidence": {
+        "path": "B_EntityEdge_save_SNAPSHOT_PRE",
+        "distinct_from": "A_add_episode_late_T1",
+        "before_old": {
+          "uuid": "2af57b89-d50c-4f2c-abb8-e3bfccda8171",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_OLD_b0db775ffc5d4b91a4f346380c743427.",
+          "group_id": "p6_orion_b0db775ffc",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": "2026-01-02T10:00:00+00:00",
+          "expired_at": "2026-09-10T06:21:32.419948+00:00",
+          "reference_time": "2026-01-01T10:00:00+00:00",
+          "created_at": "2026-09-10T06:21:32.366266+00:00",
+          "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+          "target_node_uuid": "2d5262a4-c98c-4f38-9dd9-14d62c4ca6b8",
+          "episodes": [
+            "b6275f03-abd1-4f42-9916-eea5c4e52eb0"
+          ]
+        },
+        "after_old": [
+          {
+            "uuid": "2af57b89-d50c-4f2c-abb8-e3bfccda8171",
+            "name": "RUNTIME_LANGUAGE",
+            "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_OLD_b0db775ffc5d4b91a4f346380c743427.",
+            "group_id": "p6_orion_b0db775ffc",
+            "valid_at": "2026-01-01T10:00:00+00:00",
+            "invalid_at": null,
+            "expired_at": null,
+            "reference_time": "2026-01-01T10:00:00+00:00",
+            "created_at": "2026-09-10T06:21:32.366266+00:00",
+            "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+            "target_node_uuid": "2d5262a4-c98c-4f38-9dd9-14d62c4ca6b8",
+            "episodes": [
+              "b6275f03-abd1-4f42-9916-eea5c4e52eb0"
+            ]
+          }
+        ],
+        "after_new": [
+          {
+            "uuid": "a6732591-d263-4e36-89ed-dbd18e93b1b0",
+            "name": "RUNTIME_LANGUAGE",
+            "fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P6_NEW_b0db775ffc5d4b91a4f346380c743427.",
+            "group_id": "p6_orion_b0db775ffc",
+            "valid_at": "2026-01-02T10:00:00+00:00",
+            "invalid_at": null,
+            "expired_at": null,
+            "reference_time": "2026-01-02T10:00:00+00:00",
+            "created_at": "2026-09-10T06:21:32.404786+00:00",
+            "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+            "target_node_uuid": "70358587-279b-495b-a62a-bcfb3e405525",
+            "episodes": [
+              "1dea4d11-0794-4ad4-b5fa-e0b50ebfcfed"
+            ]
+          }
+        ],
+        "classification": "STALE_RESURRECTION_OBSERVED",
+        "RESTORED_BYTES": true,
+        "RESTORED_CURRENT_APPLICABILITY": true,
+        "note": "RESTORED_BYTES means SNAPSHOT_PRE fields written (invalid_at None). RESTORED_CURRENT_APPLICABILITY means metadata classifies TEMPORALLY_CURRENT at Q3. These are not the same claim.",
+        "artifacts": {
+          "before": "/workspace/Graphiti_fractal_lab/artifacts/run_005/before_restore_edges.json",
+          "after": "/workspace/Graphiti_fractal_lab/artifacts/run_005/after_restore_edges.json"
+        }
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T06:21:49.895095+00:00"
+    },
+    {
+      "phase": "P6-C",
+      "test_id": "P6-C",
+      "status": "PASS",
+      "evidence": {
+        "path": "C_EntityEdge_save_SNAPSHOT_POST",
+        "before_old": [
+          {
+            "uuid": "2af57b89-d50c-4f2c-abb8-e3bfccda8171",
+            "name": "RUNTIME_LANGUAGE",
+            "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_OLD_b0db775ffc5d4b91a4f346380c743427.",
+            "group_id": "p6_orion_b0db775ffc",
+            "valid_at": "2026-01-01T10:00:00+00:00",
+            "invalid_at": "2026-01-02T10:00:00+00:00",
+            "expired_at": "2026-09-10T06:21:32.419948+00:00",
+            "reference_time": "2026-01-01T10:00:00+00:00",
+            "created_at": "2026-09-10T06:21:32.366266+00:00",
+            "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+            "target_node_uuid": "2d5262a4-c98c-4f38-9dd9-14d62c4ca6b8",
+            "episodes": [
+              "b6275f03-abd1-4f42-9916-eea5c4e52eb0"
+            ]
+          }
+        ],
+        "after_old": [
+          {
+            "uuid": "2af57b89-d50c-4f2c-abb8-e3bfccda8171",
+            "name": "RUNTIME_LANGUAGE",
+            "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_OLD_b0db775ffc5d4b91a4f346380c743427.",
+            "group_id": "p6_orion_b0db775ffc",
+            "valid_at": "2026-01-01T10:00:00+00:00",
+            "invalid_at": "2026-01-02T10:00:00+00:00",
+            "expired_at": "2026-09-10T06:21:32.419948+00:00",
+            "reference_time": "2026-01-01T10:00:00+00:00",
+            "created_at": "2026-09-10T06:21:32.366266+00:00",
+            "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+            "target_node_uuid": "2d5262a4-c98c-4f38-9dd9-14d62c4ca6b8",
+            "episodes": [
+              "b6275f03-abd1-4f42-9916-eea5c4e52eb0"
+            ]
+          }
+        ],
+        "expect": "OLD remains historical (invalid_at\u2248T2)",
+        "ok": true,
+        "at_Q3": [
+          "STORED",
+          "TEMPORALLY_EXPIRED"
+        ]
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T06:21:50.231481+00:00"
+    },
+    {
+      "phase": "P6-D",
+      "test_id": "P6-D",
+      "status": "PASS",
+      "evidence": {
+        "returncode": 4,
+        "payload": {
+          "old": [
+            {
+              "uuid": "2af57b89-d50c-4f2c-abb8-e3bfccda8171",
+              "name": "RUNTIME_LANGUAGE",
+              "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_OLD_b0db775ffc5d4b91a4f346380c743427.",
+              "valid_at": "2026-01-01T10:00:00+00:00",
+              "invalid_at": null,
+              "expired_at": null
+            }
+          ],
+          "new": [
+            {
+              "uuid": "a6732591-d263-4e36-89ed-dbd18e93b1b0",
+              "name": "RUNTIME_LANGUAGE",
+              "fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P6_NEW_b0db775ffc5d4b91a4f346380c743427.",
+              "valid_at": "2026-01-02T10:00:00+00:00",
+              "invalid_at": null,
+              "expired_at": null
+            }
+          ],
+          "owner": [
+            {
+              "uuid": "90ac21e6-cbf9-41fb-8592-279556321bae",
+              "name": "OWNED_BY",
+              "fact": "ProjectOrion is owned by Alice.",
+              "valid_at": "2026-01-01T10:00:00+00:00",
+              "invalid_at": null,
+              "expired_at": null
+            }
+          ],
+          "count": 3
+        },
+        "expected_class_from_B": "STALE_RESURRECTION_OBSERVED",
+        "persisted_consistent_with_B": true,
+        "artifact": "/workspace/Graphiti_fractal_lab/artifacts/run_005/reopen_after_restore.json"
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T06:22:07.160810+00:00"
+    },
+    {
+      "phase": "P6-E",
+      "test_id": "P6-E",
+      "status": "PASS",
+      "evidence": {
+        "Q3": "2026-01-04T10:00:00+00:00",
+        "language_edges": [
+          {
+            "edge": {
+              "uuid": "a6732591-d263-4e36-89ed-dbd18e93b1b0",
+              "name": "RUNTIME_LANGUAGE",
+              "fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P6_NEW_b0db775ffc5d4b91a4f346380c743427.",
+              "group_id": "p6_orion_b0db775ffc",
+              "valid_at": "2026-01-02T10:00:00+00:00",
+              "invalid_at": null,
+              "expired_at": null,
+              "reference_time": "2026-01-02T10:00:00+00:00",
+              "created_at": "2026-09-10T06:21:32.404786+00:00",
+              "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+              "target_node_uuid": "70358587-279b-495b-a62a-bcfb3e405525",
+              "episodes": [
+                "1dea4d11-0794-4ad4-b5fa-e0b50ebfcfed"
+              ]
+            },
+            "at_Q3": [
+              "STORED",
+              "TEMPORALLY_CURRENT"
+            ]
+          },
+          {
+            "edge": {
+              "uuid": "2af57b89-d50c-4f2c-abb8-e3bfccda8171",
+              "name": "RUNTIME_LANGUAGE",
+              "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_OLD_b0db775ffc5d4b91a4f346380c743427.",
+              "group_id": "p6_orion_b0db775ffc",
+              "valid_at": "2026-01-01T10:00:00+00:00",
+              "invalid_at": null,
+              "expired_at": null,
+              "reference_time": "2026-01-01T10:00:00+00:00",
+              "created_at": "2026-09-10T06:21:32.366266+00:00",
+              "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+              "target_node_uuid": "2d5262a4-c98c-4f38-9dd9-14d62c4ca6b8",
+              "episodes": [
+                "b6275f03-abd1-4f42-9916-eea5c4e52eb0"
+              ]
+            },
+            "at_Q3": [
+              "STORED",
+              "TEMPORALLY_CURRENT"
+            ]
+          }
+        ],
+        "current_python_uuids": [
+          "2af57b89-d50c-4f2c-abb8-e3bfccda8171"
+        ],
+        "current_rust_uuids": [
+          "a6732591-d263-4e36-89ed-dbd18e93b1b0"
+        ],
+        "observation": "CONCURRENT_CONTRADICTORY_CURRENT_EDGES",
+        "note": "Observation scoped to this fixture/post-P6-B state only. searchable \u2260 temporally current; labels from valid_at/invalid_at."
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T06:22:07.283798+00:00"
+    }
+  ],
+  "matrix": {
+    "BASELINE": "PASS",
+    "P6-0": "PASS",
+    "P6-A": "PASS",
+    "P6-A_class": "SAFE_HIGH_LEVEL",
+    "P6-B": "PASS",
+    "P6-B_class": "STALE_RESURRECTION_OBSERVED",
+    "P6-B_RESTORED_BYTES": true,
+    "P6-B_RESTORED_CURRENT_APPLICABILITY": true,
+    "P6-C": "PASS",
+    "P6-D": "PASS",
+    "P6-E": "PASS",
+    "P6-E_observation": "CONCURRENT_CONTRADICTORY_CURRENT_EDGES"
+  },
+  "summary": {
+    "suite": "P6_stale_restore_resurrection_boundary",
+    "graphiti": "0.29.3",
+    "backend": "FalkorDBLite",
+    "branch": "experiment/falkordblite-deterministic-memory",
+    "start_commit": "cc0e864",
+    "matrix": {
+      "BASELINE": "PASS",
+      "P6-0": "PASS",
+      "P6-A": "PASS",
+      "P6-B": "PASS",
+      "P6-C": "PASS",
+      "P6-D": "PASS",
+      "P6-E": "PASS"
+    },
+    "class_observations": {
+      "P6-A_class": "SAFE_HIGH_LEVEL",
+      "P6-B_class": "STALE_RESURRECTION_OBSERVED",
+      "P6-B_RESTORED_BYTES": true,
+      "P6-B_RESTORED_CURRENT_APPLICABILITY": true,
+      "P6-E_observation": "CONCURRENT_CONTRADICTORY_CURRENT_EDGES"
+    },
+    "full_pass": true,
+    "claim_if_full_pass": "Graphiti 0.29.3 + FalkorDBLite exercised this deterministic stale-restore fixture (A high-level late episode vs B low-level SNAPSHOT_PRE save) with recorded classifications. Fixture-scoped only.",
+    "markers": {
+      "uid": "b0db775ffc5d4b91a4f346380c743427",
+      "old": "P6_OLD_b0db775ffc5d4b91a4f346380c743427",
+      "new": "P6_NEW_b0db775ffc5d4b91a4f346380c743427",
+      "late": "P6_LATE_OLD_b0db775ffc5d4b91a4f346380c743427",
+      "group_id": "p6_orion_b0db775ffc",
+      "baseline_db": "/workspace/Graphiti_fractal_lab/data/falkor_e2e_p6/p6_baseline_b0db775ffc5d4b91a4f346380c743427.db"
+    },
+    "p6_a": {
+      "path": "A_add_episode_late_T1",
+      "reference_time": "2026-01-01T10:00:00+00:00",
+      "late_marker": "P6_LATE_OLD_b0db775ffc5d4b91a4f346380c743427",
+      "provider_selected_rust_t2": true,
+      "dup_receipts": [
+        {
+          "model": "EdgeDuplicate",
+          "new_fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_LATE_OLD_b0db775ffc5d4b91a4f346380c743427.",
+          "existing_facts": [
+            {
+              "idx": 0,
+              "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_OLD_b0db775ffc5d4b91a4f346380c743427."
+            }
+          ],
+          "invalidation_candidates": [
+            {
+              "idx": 1,
+              "fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P6_NEW_b0db775ffc5d4b91a4f346380c743427."
+            },
+            {
+              "idx": 2,
+              "fact": "ProjectOrion is owned by Alice."
+            }
+          ],
+          "duplicate_facts": [],
+          "contradicted_facts": [
+            1
+          ],
+          "selection_rule": "P6_LATE_OLD\u2192contradict Rust/P6_NEW from context"
+        }
+      ],
+      "old_before": [
+        {
+          "uuid": "2af57b89-d50c-4f2c-abb8-e3bfccda8171",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_OLD_b0db775ffc5d4b91a4f346380c743427.",
+          "group_id": "p6_orion_b0db775ffc",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": "2026-01-02T10:00:00+00:00",
+          "expired_at": "2026-09-10T06:21:32.419948+00:00",
+          "reference_time": "2026-01-01T10:00:00+00:00",
+          "created_at": "2026-09-10T06:21:32.366266+00:00",
+          "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+          "target_node_uuid": "2d5262a4-c98c-4f38-9dd9-14d62c4ca6b8",
+          "episodes": [
+            "b6275f03-abd1-4f42-9916-eea5c4e52eb0"
+          ]
+        }
+      ],
+      "old_after": [
+        {
+          "uuid": "2af57b89-d50c-4f2c-abb8-e3bfccda8171",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_OLD_b0db775ffc5d4b91a4f346380c743427.",
+          "group_id": "p6_orion_b0db775ffc",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": "2026-01-02T10:00:00+00:00",
+          "expired_at": "2026-09-10T06:21:32.419948+00:00",
+          "reference_time": "2026-01-01T10:00:00+00:00",
+          "created_at": "2026-09-10T06:21:32.366266+00:00",
+          "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+          "target_node_uuid": "2d5262a4-c98c-4f38-9dd9-14d62c4ca6b8",
+          "episodes": [
+            "b6275f03-abd1-4f42-9916-eea5c4e52eb0"
+          ]
+        }
+      ],
+      "new_after": [
+        {
+          "uuid": "a6732591-d263-4e36-89ed-dbd18e93b1b0",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P6_NEW_b0db775ffc5d4b91a4f346380c743427.",
+          "group_id": "p6_orion_b0db775ffc",
+          "valid_at": "2026-01-02T10:00:00+00:00",
+          "invalid_at": null,
+          "expired_at": null,
+          "reference_time": "2026-01-02T10:00:00+00:00",
+          "created_at": "2026-09-10T06:21:32.404786+00:00",
+          "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+          "target_node_uuid": "70358587-279b-495b-a62a-bcfb3e405525",
+          "episodes": [
+            "1dea4d11-0794-4ad4-b5fa-e0b50ebfcfed"
+          ]
+        }
+      ],
+      "late_after": [
+        {
+          "uuid": "630b1709-d8ac-4989-87f7-ad749e3fcdd2",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_LATE_OLD_b0db775ffc5d4b91a4f346380c743427.",
+          "group_id": "p6_orion_b0db775ffc",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": "2026-01-02T10:00:00+00:00",
+          "expired_at": "2026-09-10T06:21:49.538904+00:00",
+          "reference_time": "2026-01-01T10:00:00+00:00",
+          "created_at": "2026-09-10T06:21:49.523107+00:00",
+          "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+          "target_node_uuid": "2d5262a4-c98c-4f38-9dd9-14d62c4ca6b8",
+          "episodes": [
+            "99b6fd27-911d-44c3-8cd5-c58bc27b1e3c"
+          ]
+        }
+      ],
+      "episode_edges": [
+        {
+          "uuid": "630b1709-d8ac-4989-87f7-ad749e3fcdd2",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_LATE_OLD_b0db775ffc5d4b91a4f346380c743427.",
+          "group_id": "p6_orion_b0db775ffc",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": "2026-01-02T10:00:00+00:00",
+          "expired_at": "2026-09-10T06:21:49.538904+00:00",
+          "reference_time": "2026-01-01T10:00:00+00:00",
+          "created_at": "2026-09-10T06:21:49.523107+00:00",
+          "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+          "target_node_uuid": "2d5262a4-c98c-4f38-9dd9-14d62c4ca6b8",
+          "episodes": [
+            "99b6fd27-911d-44c3-8cd5-c58bc27b1e3c"
+          ]
+        }
+      ],
+      "classification": "SAFE_HIGH_LEVEL",
+      "anti_hallucination": {
+        "RESTORED_BYTES": "not claimed for path A (no snapshot save)",
+        "RESTORED_CURRENT_APPLICABILITY": "true iff OLD uuid TEMPORALLY_CURRENT at Q3 after late episode",
+        "note": "searchable \u2260 temporally current; classify from invalid_at/valid_at"
+      },
+      "old_at_Q3": [
+        "STORED",
+        "TEMPORALLY_EXPIRED"
+      ]
+    },
+    "p6_b": {
+      "path": "B_EntityEdge_save_SNAPSHOT_PRE",
+      "distinct_from": "A_add_episode_late_T1",
+      "before_old": {
+        "uuid": "2af57b89-d50c-4f2c-abb8-e3bfccda8171",
+        "name": "RUNTIME_LANGUAGE",
+        "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_OLD_b0db775ffc5d4b91a4f346380c743427.",
+        "group_id": "p6_orion_b0db775ffc",
+        "valid_at": "2026-01-01T10:00:00+00:00",
+        "invalid_at": "2026-01-02T10:00:00+00:00",
+        "expired_at": "2026-09-10T06:21:32.419948+00:00",
+        "reference_time": "2026-01-01T10:00:00+00:00",
+        "created_at": "2026-09-10T06:21:32.366266+00:00",
+        "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+        "target_node_uuid": "2d5262a4-c98c-4f38-9dd9-14d62c4ca6b8",
+        "episodes": [
+          "b6275f03-abd1-4f42-9916-eea5c4e52eb0"
+        ]
+      },
+      "after_old": [
+        {
+          "uuid": "2af57b89-d50c-4f2c-abb8-e3bfccda8171",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_OLD_b0db775ffc5d4b91a4f346380c743427.",
+          "group_id": "p6_orion_b0db775ffc",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": null,
+          "expired_at": null,
+          "reference_time": "2026-01-01T10:00:00+00:00",
+          "created_at": "2026-09-10T06:21:32.366266+00:00",
+          "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+          "target_node_uuid": "2d5262a4-c98c-4f38-9dd9-14d62c4ca6b8",
+          "episodes": [
+            "b6275f03-abd1-4f42-9916-eea5c4e52eb0"
+          ]
+        }
+      ],
+      "after_new": [
+        {
+          "uuid": "a6732591-d263-4e36-89ed-dbd18e93b1b0",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P6_NEW_b0db775ffc5d4b91a4f346380c743427.",
+          "group_id": "p6_orion_b0db775ffc",
+          "valid_at": "2026-01-02T10:00:00+00:00",
+          "invalid_at": null,
+          "expired_at": null,
+          "reference_time": "2026-01-02T10:00:00+00:00",
+          "created_at": "2026-09-10T06:21:32.404786+00:00",
+          "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+          "target_node_uuid": "70358587-279b-495b-a62a-bcfb3e405525",
+          "episodes": [
+            "1dea4d11-0794-4ad4-b5fa-e0b50ebfcfed"
+          ]
+        }
+      ],
+      "classification": "STALE_RESURRECTION_OBSERVED",
+      "RESTORED_BYTES": true,
+      "RESTORED_CURRENT_APPLICABILITY": true,
+      "note": "RESTORED_BYTES means SNAPSHOT_PRE fields written (invalid_at None). RESTORED_CURRENT_APPLICABILITY means metadata classifies TEMPORALLY_CURRENT at Q3. These are not the same claim.",
+      "artifacts": {
+        "before": "/workspace/Graphiti_fractal_lab/artifacts/run_005/before_restore_edges.json",
+        "after": "/workspace/Graphiti_fractal_lab/artifacts/run_005/after_restore_edges.json"
+      }
+    },
+    "p6_c": {
+      "path": "C_EntityEdge_save_SNAPSHOT_POST",
+      "before_old": [
+        {
+          "uuid": "2af57b89-d50c-4f2c-abb8-e3bfccda8171",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_OLD_b0db775ffc5d4b91a4f346380c743427.",
+          "group_id": "p6_orion_b0db775ffc",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": "2026-01-02T10:00:00+00:00",
+          "expired_at": "2026-09-10T06:21:32.419948+00:00",
+          "reference_time": "2026-01-01T10:00:00+00:00",
+          "created_at": "2026-09-10T06:21:32.366266+00:00",
+          "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+          "target_node_uuid": "2d5262a4-c98c-4f38-9dd9-14d62c4ca6b8",
+          "episodes": [
+            "b6275f03-abd1-4f42-9916-eea5c4e52eb0"
+          ]
+        }
+      ],
+      "after_old": [
+        {
+          "uuid": "2af57b89-d50c-4f2c-abb8-e3bfccda8171",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_OLD_b0db775ffc5d4b91a4f346380c743427.",
+          "group_id": "p6_orion_b0db775ffc",
+          "valid_at": "2026-01-01T10:00:00+00:00",
+          "invalid_at": "2026-01-02T10:00:00+00:00",
+          "expired_at": "2026-09-10T06:21:32.419948+00:00",
+          "reference_time": "2026-01-01T10:00:00+00:00",
+          "created_at": "2026-09-10T06:21:32.366266+00:00",
+          "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+          "target_node_uuid": "2d5262a4-c98c-4f38-9dd9-14d62c4ca6b8",
+          "episodes": [
+            "b6275f03-abd1-4f42-9916-eea5c4e52eb0"
+          ]
+        }
+      ],
+      "expect": "OLD remains historical (invalid_at\u2248T2)",
+      "ok": true,
+      "at_Q3": [
+        "STORED",
+        "TEMPORALLY_EXPIRED"
+      ]
+    },
+    "p6_d": {
+      "returncode": 4,
+      "payload": {
+        "old": [
+          {
+            "uuid": "2af57b89-d50c-4f2c-abb8-e3bfccda8171",
+            "name": "RUNTIME_LANGUAGE",
+            "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_OLD_b0db775ffc5d4b91a4f346380c743427.",
+            "valid_at": "2026-01-01T10:00:00+00:00",
+            "invalid_at": null,
+            "expired_at": null
+          }
+        ],
+        "new": [
+          {
+            "uuid": "a6732591-d263-4e36-89ed-dbd18e93b1b0",
+            "name": "RUNTIME_LANGUAGE",
+            "fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P6_NEW_b0db775ffc5d4b91a4f346380c743427.",
+            "valid_at": "2026-01-02T10:00:00+00:00",
+            "invalid_at": null,
+            "expired_at": null
+          }
+        ],
+        "owner": [
+          {
+            "uuid": "90ac21e6-cbf9-41fb-8592-279556321bae",
+            "name": "OWNED_BY",
+            "fact": "ProjectOrion is owned by Alice.",
+            "valid_at": "2026-01-01T10:00:00+00:00",
+            "invalid_at": null,
+            "expired_at": null
+          }
+        ],
+        "count": 3
+      },
+      "expected_class_from_B": "STALE_RESURRECTION_OBSERVED",
+      "persisted_consistent_with_B": true,
+      "artifact": "/workspace/Graphiti_fractal_lab/artifacts/run_005/reopen_after_restore.json"
+    },
+    "p6_e": {
+      "Q3": "2026-01-04T10:00:00+00:00",
+      "language_edges": [
+        {
+          "edge": {
+            "uuid": "a6732591-d263-4e36-89ed-dbd18e93b1b0",
+            "name": "RUNTIME_LANGUAGE",
+            "fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P6_NEW_b0db775ffc5d4b91a4f346380c743427.",
+            "group_id": "p6_orion_b0db775ffc",
+            "valid_at": "2026-01-02T10:00:00+00:00",
+            "invalid_at": null,
+            "expired_at": null,
+            "reference_time": "2026-01-02T10:00:00+00:00",
+            "created_at": "2026-09-10T06:21:32.404786+00:00",
+            "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+            "target_node_uuid": "70358587-279b-495b-a62a-bcfb3e405525",
+            "episodes": [
+              "1dea4d11-0794-4ad4-b5fa-e0b50ebfcfed"
+            ]
+          },
+          "at_Q3": [
+            "STORED",
+            "TEMPORALLY_CURRENT"
+          ]
+        },
+        {
+          "edge": {
+            "uuid": "2af57b89-d50c-4f2c-abb8-e3bfccda8171",
+            "name": "RUNTIME_LANGUAGE",
+            "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_OLD_b0db775ffc5d4b91a4f346380c743427.",
+            "group_id": "p6_orion_b0db775ffc",
+            "valid_at": "2026-01-01T10:00:00+00:00",
+            "invalid_at": null,
+            "expired_at": null,
+            "reference_time": "2026-01-01T10:00:00+00:00",
+            "created_at": "2026-09-10T06:21:32.366266+00:00",
+            "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+            "target_node_uuid": "2d5262a4-c98c-4f38-9dd9-14d62c4ca6b8",
+            "episodes": [
+              "b6275f03-abd1-4f42-9916-eea5c4e52eb0"
+            ]
+          },
+          "at_Q3": [
+            "STORED",
+            "TEMPORALLY_CURRENT"
+          ]
+        }
+      ],
+      "current_python_uuids": [
+        "2af57b89-d50c-4f2c-abb8-e3bfccda8171"
+      ],
+      "current_rust_uuids": [
+        "a6732591-d263-4e36-89ed-dbd18e93b1b0"
+      ],
+      "observation": "CONCURRENT_CONTRADICTORY_CURRENT_EDGES",
+      "note": "Observation scoped to this fixture/post-P6-B state only. searchable \u2260 temporally current; labels from valid_at/invalid_at."
+    },
+    "T1": "2026-01-01T10:00:00+00:00",
+    "T2": "2026-01-02T10:00:00+00:00",
+    "Q3": "2026-01-04T10:00:00+00:00",
+    "svl_comparison_discussion": {
+      "source": "velantrian/-Velantrim-State-Validation-Lab-/src/state_validation_lab/model.py",
+      "read_only": true,
+      "imported_into_graphiti": false,
+      "svl_invariant": "SVL ResearchStateModel.restore() writes RESTORED_STALE_CANDIDATE with applicable=False into a quarantined candidate store; it never overwrites current disposition. reconcile() cannot clear later revoke/erase/supersede.",
+      "graphiti_p6_b_contrast_this_fixture_only": "P6-B EntityEdge.save(SNAPSHOT_PRE) on Falkor MERGE SET e=$edge_data can overwrite the live edge's invalid_at when classification is STALE_RESURRECTION_OBSERVED. That is RESTORED_BYTES onto the live graph row, not an SVL-style quarantined candidate. This does NOT imply 'Falkor unsafe' universally nor 'SVL must integrate'.",
+      "graphiti_p6_a_contrast": "P6-A uses add_episode (high-level). Classification SAFE_HIGH_LEVEL vs RESURRECTION_HIGH_LEVEL is separate from B's low-level save path.",
+      "forbidden_claims_not_made": [
+        "Graphiti prevents resurrection universally",
+        "Falkor unsafe",
+        "SVL must integrate"
+      ]
+    },
+    "p7_recommendation_only": {
+      "start_p7": false,
+      "bounded_recommendation_only": "If P6 full PASS: a bounded P7 could inventory which Graphiti write surfaces (add_episode vs EntityEdge.save vs bulk load) accept pre-invalidation snapshots on FalkorDBLite for this fixture family \u2014 still lab-only, still no Fractal MemoryOps / Crystal / SVL integration / Ladybug / real LLM. Do not start P7 here."
+    },
+    "anti_hallucination": {
+      "RESTORED_BYTES": "snapshot fields written back to store",
+      "RESTORED_CURRENT_APPLICABILITY": "metadata says TEMPORALLY_CURRENT at query time",
+      "searchable_ne_temporally_current": true,
+      "A_ne_B": "add_episode late-T1 \u2260 EntityEdge.save(SNAPSHOT_PRE)"
+    }
+  }
+}

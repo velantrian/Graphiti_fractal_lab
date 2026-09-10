@@ -1,0 +1,90 @@
+{
+  "baseline": [
+    {
+      "model": "ExtractedEdges",
+      "reference_time": "2026-01-01T10:00:00Z",
+      "edges": [
+        {
+          "relation_type": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_OLD_b0db775ffc5d4b91a4f346380c743427.",
+          "valid_at": "2026-01-01T10:00:00Z"
+        },
+        {
+          "relation_type": "OWNED_BY",
+          "fact": "ProjectOrion is owned by Alice.",
+          "valid_at": "2026-01-01T10:00:00Z"
+        }
+      ]
+    },
+    {
+      "model": "ExtractedEdges",
+      "reference_time": "2026-01-02T10:00:00Z",
+      "edges": [
+        {
+          "relation_type": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P6_NEW_b0db775ffc5d4b91a4f346380c743427.",
+          "valid_at": "2026-01-02T10:00:00Z"
+        }
+      ]
+    },
+    {
+      "model": "EdgeDuplicate",
+      "new_fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P6_NEW_b0db775ffc5d4b91a4f346380c743427.",
+      "existing_facts": [],
+      "invalidation_candidates": [
+        {
+          "idx": 0,
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_OLD_b0db775ffc5d4b91a4f346380c743427."
+        },
+        {
+          "idx": 1,
+          "fact": "ProjectOrion is owned by Alice."
+        }
+      ],
+      "duplicate_facts": [],
+      "contradicted_facts": [
+        0
+      ],
+      "selection_rule": "P5/P6_OLD marker index from context (else Python RUNTIME_LANGUAGE)"
+    }
+  ],
+  "note": "P6 provider decisions accumulate per phase",
+  "p6_a": [
+    {
+      "model": "ExtractedEdges",
+      "reference_time": "2026-01-01T10:00:00Z",
+      "edges": [
+        {
+          "relation_type": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_LATE_OLD_b0db775ffc5d4b91a4f346380c743427.",
+          "valid_at": "2026-01-01T10:00:00Z"
+        }
+      ]
+    },
+    {
+      "model": "EdgeDuplicate",
+      "new_fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_LATE_OLD_b0db775ffc5d4b91a4f346380c743427.",
+      "existing_facts": [
+        {
+          "idx": 0,
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_OLD_b0db775ffc5d4b91a4f346380c743427."
+        }
+      ],
+      "invalidation_candidates": [
+        {
+          "idx": 1,
+          "fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P6_NEW_b0db775ffc5d4b91a4f346380c743427."
+        },
+        {
+          "idx": 2,
+          "fact": "ProjectOrion is owned by Alice."
+        }
+      ],
+      "duplicate_facts": [],
+      "contradicted_facts": [
+        1
+      ],
+      "selection_rule": "P6_LATE_OLD\u2192contradict Rust/P6_NEW from context"
+    }
+  ]
+}

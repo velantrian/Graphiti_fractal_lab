@@ -1,0 +1,55 @@
+{
+  "phase": "P6-B_before",
+  "edges": [
+    {
+      "uuid": "a6732591-d263-4e36-89ed-dbd18e93b1b0",
+      "name": "RUNTIME_LANGUAGE",
+      "fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P6_NEW_b0db775ffc5d4b91a4f346380c743427.",
+      "group_id": "p6_orion_b0db775ffc",
+      "valid_at": "2026-01-02T10:00:00+00:00",
+      "invalid_at": null,
+      "expired_at": null,
+      "reference_time": "2026-01-02T10:00:00+00:00",
+      "created_at": "2026-09-10T06:21:32.404786+00:00",
+      "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+      "target_node_uuid": "70358587-279b-495b-a62a-bcfb3e405525",
+      "episodes": [
+        "1dea4d11-0794-4ad4-b5fa-e0b50ebfcfed"
+      ]
+    },
+    {
+      "uuid": "90ac21e6-cbf9-41fb-8592-279556321bae",
+      "name": "OWNED_BY",
+      "fact": "ProjectOrion is owned by Alice.",
+      "group_id": "p6_orion_b0db775ffc",
+      "valid_at": "2026-01-01T10:00:00+00:00",
+      "invalid_at": null,
+      "expired_at": null,
+      "reference_time": "2026-01-01T10:00:00+00:00",
+      "created_at": "2026-09-10T06:21:32.366305+00:00",
+      "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+      "target_node_uuid": "44914db3-836b-4ea6-9767-5f8a09b3c284",
+      "episodes": [
+        "b6275f03-abd1-4f42-9916-eea5c4e52eb0"
+      ]
+    },
+    {
+      "uuid": "2af57b89-d50c-4f2c-abb8-e3bfccda8171",
+      "name": "RUNTIME_LANGUAGE",
+      "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_OLD_b0db775ffc5d4b91a4f346380c743427.",
+      "group_id": "p6_orion_b0db775ffc",
+      "valid_at": "2026-01-01T10:00:00+00:00",
+      "invalid_at": "2026-01-02T10:00:00+00:00",
+      "expired_at": "2026-09-10T06:21:32.419948+00:00",
+      "reference_time": "2026-01-01T10:00:00+00:00",
+      "created_at": "2026-09-10T06:21:32.366266+00:00",
+      "source_node_uuid": "2e86ef16-a21f-43af-8cda-bd2003bd94e6",
+      "target_node_uuid": "2d5262a4-c98c-4f38-9dd9-14d62c4ca6b8",
+      "episodes": [
+        "b6275f03-abd1-4f42-9916-eea5c4e52eb0"
+      ]
+    }
+  ],
+  "hypothesis": "EntityEdge.save of SNAPSHOT_PRE on same UUID may overwrite invalid_at T2\u2192None (stale resurrection of bytes).",
+  "anti_hallucination": "RESTORED_BYTES \u2260 RESTORED_CURRENT_APPLICABILITY; observation only after save executes."
+}

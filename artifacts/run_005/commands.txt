@@ -1,0 +1,3 @@
+source .venv/bin/activate
+export PYTHONPATH=src
+pytest -q tests/lab/test_falkordblite_p6_stale_restore.py -o asyncio_mode=auto --tb=short 2>&1 | tee artifacts/run_005/pytest.txt

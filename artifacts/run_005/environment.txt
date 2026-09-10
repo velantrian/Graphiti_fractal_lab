@@ -1,0 +1,12 @@
+date_utc=2026-09-10T06:22:30Z
+date_berlin=2026-09-10T08:22:30+0200
+branch=experiment/falkordblite-deterministic-memory
+start_commit=cc0e864
+end_commit_pending=yes
+Python 3.13.5
+Name: graphiti-core
+Version: 0.29.3
+Name: falkordblite
+Version: 0.10.0
+pytest=tests/lab/test_falkordblite_p6_stale_restore.py
+result=8 passed

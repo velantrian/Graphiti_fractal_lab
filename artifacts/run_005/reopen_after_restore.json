@@ -1,0 +1,33 @@
+{
+  "old": [
+    {
+      "uuid": "2af57b89-d50c-4f2c-abb8-e3bfccda8171",
+      "name": "RUNTIME_LANGUAGE",
+      "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P6_OLD_b0db775ffc5d4b91a4f346380c743427.",
+      "valid_at": "2026-01-01T10:00:00+00:00",
+      "invalid_at": null,
+      "expired_at": null
+    }
+  ],
+  "new": [
+    {
+      "uuid": "a6732591-d263-4e36-89ed-dbd18e93b1b0",
+      "name": "RUNTIME_LANGUAGE",
+      "fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P6_NEW_b0db775ffc5d4b91a4f346380c743427.",
+      "valid_at": "2026-01-02T10:00:00+00:00",
+      "invalid_at": null,
+      "expired_at": null
+    }
+  ],
+  "owner": [
+    {
+      "uuid": "90ac21e6-cbf9-41fb-8592-279556321bae",
+      "name": "OWNED_BY",
+      "fact": "ProjectOrion is owned by Alice.",
+      "valid_at": "2026-01-01T10:00:00+00:00",
+      "invalid_at": null,
+      "expired_at": null
+    }
+  ],
+  "count": 3
+}
