@@ -1,0 +1,187 @@
+{
+  "phase": "FM-13",
+  "status": "COMPLETED",
+  "classification": "REAL_LLM_EXTRACTION_REUSED+DETERMINISTIC_EMBEDDING+INSTRUMENTATION",
+  "VARIANCE_VS_RUN_003": "NO_MATERIAL_VARIANCE",
+  "baseline_compare": {
+    "Q1": {
+      "query": "Who works on Project Orion?",
+      "run_003_facts": [
+        "Alice works on Project Orion.",
+        "Bob works on Project Nova.",
+        "Project Orion uses Python.",
+        "Project Nova uses Rust."
+      ],
+      "run_004_facts": [
+        "Alice works on Project Orion.",
+        "Bob works on Project Nova.",
+        "Project Orion uses Python.",
+        "Project Nova uses Rust."
+      ],
+      "match": true
+    },
+    "Q2": {
+      "query": "What language does Project Orion use?",
+      "run_003_facts": [
+        "Project Orion uses Python.",
+        "Project Nova uses Rust.",
+        "Alice works on Project Orion.",
+        "Bob works on Project Nova."
+      ],
+      "run_004_facts": [
+        "Project Orion uses Python.",
+        "Project Nova uses Rust.",
+        "Alice works on Project Orion.",
+        "Bob works on Project Nova."
+      ],
+      "match": true
+    },
+    "Q3": {
+      "query": "What is related to Project Nova?",
+      "run_003_facts": [
+        "Project Nova uses Rust.",
+        "Bob works on Project Nova.",
+        "Project Orion uses Python.",
+        "Alice works on Project Orion."
+      ],
+      "run_004_facts": [
+        "Project Nova uses Rust.",
+        "Bob works on Project Nova.",
+        "Project Orion uses Python.",
+        "Alice works on Project Orion."
+      ],
+      "match": true
+    },
+    "Q4": {
+      "query": "Who works on Project Zephyr?",
+      "run_003_facts": [
+        "Alice works on Project Orion.",
+        "Bob works on Project Nova.",
+        "Project Orion uses Python.",
+        "Project Nova uses Rust."
+      ],
+      "run_004_facts": [
+        "Alice works on Project Orion.",
+        "Bob works on Project Nova.",
+        "Project Orion uses Python.",
+        "Project Nova uses Rust."
+      ],
+      "match": true
+    },
+    "Q5": {
+      "query": "Does Alice use Python?",
+      "run_003_facts": [
+        "Alice works on Project Orion.",
+        "Project Orion uses Python.",
+        "Project Nova uses Rust."
+      ],
+      "run_004_facts": [
+        "Alice works on Project Orion.",
+        "Project Orion uses Python.",
+        "Project Nova uses Rust."
+      ],
+      "match": true
+    }
+  },
+  "extraction_control": "PASS",
+  "graph_reuse": {
+    "source": "artifacts/memoryops/run_003 + data/memoryops_fm11/fm11_9de953981e60.db",
+    "deepseek_spend": "NONE"
+  },
+  "matrix": {
+    "FM-13A_search_path_map": "PASS",
+    "FM-13B_search_config_json": "PASS",
+    "FM-13C_baseline_reproduced": "PASS",
+    "FM-13D_embedding_digest": "PASS",
+    "FM-13E_channel_raw_candidates": "PASS",
+    "FM-13F_fusion_trace": "PASS",
+    "FM-13G_rerank_trace_cross_encoder_N_A": "PASS",
+    "FM-13H_Q4_zephyr_first_entry": "PASS",
+    "FM-13I_metrics_Q1_Q5": "PASS",
+    "FM-13J_hypotheses_findings": "PASS"
+  },
+  "FIRST_DEGRADATION_LAYER": "BM25_CANDIDATE_GENERATION",
+  "H-EMBED": "Query vectors are DETERMINISTIC_EMBEDDING (hash\u2192L2), dim=1024. Cosine channel uses sim_min_score=0.6; surviving candidates are real channel hits, not Neo4j artifacts. Deterministic embeddings lack semantic geometry \u2014 cosine neighbors are hash-space accidents filtered only by min_score.",
+  "H-RERANK": {
+    "label": "H-RERANK",
+    "cross_encoder_verdict": "N/A",
+    "cross_encoder_calls_total": 0,
+    "finding": "DeterministicCrossEncoder is constructed on LabGraphitiStack but Graphiti.search selects EDGE_HYBRID_SEARCH_RRF whose edge reranker is reciprocal_rank_fusion \u2014 cross_encoder.rank is NOT invoked. RERANK_IMPROVES/NEUTRAL/DEGRADES for cross-encoder = N/A (NOT_OBSERVED). The effective ranker is RRF fusion over BM25+cosine lists."
+  },
+  "H-CONFIG": "Material retrieval behavior is explained by SearchConfig recipe EDGE_HYBRID_SEARCH_RRF: hybrid BM25+cosine, RRF fusion, sim_min_score=0.6, limit=num_results (10), no cross-encoder, no node/community scope, no Zephyr entity gate. MemoryOps passes group_ids and num_results through unchanged.",
+  "NEO4J_CAUSAL_EVIDENCE": "NO",
+  "Q5_classification": {
+    "classification": "MULTI_HOP",
+    "has_alice_works_on_orion": true,
+    "has_orion_uses_python": true,
+    "has_direct_alice_uses_python_edge": false,
+    "note": "No Alice-USES-Python edge in corpus; retrieving both Alice\u2192Orion and Orion\u2192Python is MULTI_HOP evidence co-retrieval, not a stored direct fact.",
+    "facts": [
+      "Alice works on Project Orion.",
+      "Project Orion uses Python.",
+      "Project Nova uses Rust."
+    ],
+    "blob_preview": "alice works on project orion. project orion uses python. project nova uses rust."
+  },
+  "metrics_summary": {
+    "macro_Q1_Q3": {
+      "Precision@1": 1.0,
+      "Precision@3": 0.4444444444444444,
+      "Precision@4": 0.3333333333333333,
+      "Recall@1": 0.8333333333333334,
+      "Recall@3": 1.0,
+      "Recall@4": 1.0,
+      "MRR": 1.0
+    },
+    "Q4": {
+      "retrieved": [
+        "Alice works on Project Orion.",
+        "Bob works on Project Nova.",
+        "Project Orion uses Python.",
+        "Project Nova uses Rust."
+      ],
+      "relevant": [],
+      "Precision@1": 0.0,
+      "Precision@3": 0.0,
+      "Precision@4": 0.0,
+      "Recall@1": null,
+      "Recall@3": null,
+      "Recall@4": null,
+      "MRR": 0.0
+    }
+  },
+  "memoryops_vs_graphiti": {
+    "Q1": {
+      "relation": "PASS_THROUGH",
+      "note": "MemoryOps.query edge order/facts match Graphiti.search (plus lab temporal classify fields only).",
+      "n_memoryops": 4,
+      "n_graphiti": 4
+    },
+    "Q2": {
+      "relation": "PASS_THROUGH",
+      "note": "MemoryOps.query edge order/facts match Graphiti.search (plus lab temporal classify fields only).",
+      "n_memoryops": 4,
+      "n_graphiti": 4
+    },
+    "Q3": {
+      "relation": "PASS_THROUGH",
+      "note": "MemoryOps.query edge order/facts match Graphiti.search (plus lab temporal classify fields only).",
+      "n_memoryops": 4,
+      "n_graphiti": 4
+    },
+    "Q4": {
+      "relation": "PASS_THROUGH",
+      "note": "MemoryOps.query edge order/facts match Graphiti.search (plus lab temporal classify fields only).",
+      "n_memoryops": 4,
+      "n_graphiti": 4
+    },
+    "Q5": {
+      "relation": "PASS_THROUGH",
+      "note": "MemoryOps.query edge order/facts match Graphiti.search (plus lab temporal classify fields only).",
+      "n_memoryops": 3,
+      "n_graphiti": 3
+    }
+  },
+  "cross_encoder_verdict": "N/A",
+  "SECRET_LOGGED": "NO"
+}

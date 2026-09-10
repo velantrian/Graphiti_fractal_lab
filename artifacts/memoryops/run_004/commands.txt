@@ -1,0 +1,3 @@
+git rev-parse HEAD
+LabMemoryOps.open(/workspace/Graphiti_fractal_lab/data/memoryops_fm13/fm11_9de953981e60.db, group=fm11_main_9de953981e60, deterministic llm/embedder/cross-encoder, build_indices=True)
+pytest tests/lab/test_memoryops_fm13_retrieval_instrumentation.py -v

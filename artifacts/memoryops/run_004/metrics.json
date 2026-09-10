@@ -1,0 +1,101 @@
+{
+  "Q1_Q4": {
+    "Q1": {
+      "retrieved": [
+        "Alice works on Project Orion.",
+        "Bob works on Project Nova.",
+        "Project Orion uses Python.",
+        "Project Nova uses Rust."
+      ],
+      "relevant": [
+        "Alice works on Project Orion."
+      ],
+      "Precision@1": 1.0,
+      "Precision@3": 0.3333333333333333,
+      "Precision@4": 0.25,
+      "Recall@1": 1.0,
+      "Recall@3": 1.0,
+      "Recall@4": 1.0,
+      "MRR": 1.0
+    },
+    "Q2": {
+      "retrieved": [
+        "Project Orion uses Python.",
+        "Project Nova uses Rust.",
+        "Alice works on Project Orion.",
+        "Bob works on Project Nova."
+      ],
+      "relevant": [
+        "Project Orion uses Python."
+      ],
+      "Precision@1": 1.0,
+      "Precision@3": 0.3333333333333333,
+      "Precision@4": 0.25,
+      "Recall@1": 1.0,
+      "Recall@3": 1.0,
+      "Recall@4": 1.0,
+      "MRR": 1.0
+    },
+    "Q3": {
+      "retrieved": [
+        "Project Nova uses Rust.",
+        "Bob works on Project Nova.",
+        "Project Orion uses Python.",
+        "Alice works on Project Orion."
+      ],
+      "relevant": [
+        "Bob works on Project Nova.",
+        "Project Nova uses Rust."
+      ],
+      "Precision@1": 1.0,
+      "Precision@3": 0.6666666666666666,
+      "Precision@4": 0.5,
+      "Recall@1": 0.5,
+      "Recall@3": 1.0,
+      "Recall@4": 1.0,
+      "MRR": 1.0
+    },
+    "Q4": {
+      "retrieved": [
+        "Alice works on Project Orion.",
+        "Bob works on Project Nova.",
+        "Project Orion uses Python.",
+        "Project Nova uses Rust."
+      ],
+      "relevant": [],
+      "Precision@1": 0.0,
+      "Precision@3": 0.0,
+      "Precision@4": 0.0,
+      "Recall@1": null,
+      "Recall@3": null,
+      "Recall@4": null,
+      "MRR": 0.0
+    }
+  },
+  "Q5": {
+    "classification": "MULTI_HOP",
+    "has_alice_works_on_orion": true,
+    "has_orion_uses_python": true,
+    "has_direct_alice_uses_python_edge": false,
+    "note": "No Alice-USES-Python edge in corpus; retrieving both Alice\u2192Orion and Orion\u2192Python is MULTI_HOP evidence co-retrieval, not a stored direct fact.",
+    "facts": [
+      "Alice works on Project Orion.",
+      "Project Orion uses Python.",
+      "Project Nova uses Rust."
+    ],
+    "blob_preview": "alice works on project orion. project orion uses python. project nova uses rust."
+  },
+  "macro_Q1_Q3": {
+    "Precision@1": 1.0,
+    "Precision@3": 0.4444444444444444,
+    "Precision@4": 0.3333333333333333,
+    "Recall@1": 0.8333333333333334,
+    "Recall@3": 1.0,
+    "Recall@4": 1.0,
+    "MRR": 1.0
+  },
+  "notes": {
+    "Q4_empty_gold": "Recall@k is null (undefined) when relevant set empty; MRR=0; Precision reflects false-positive rate among retrieved.",
+    "ranking_source": "Graphiti.search edge order (RRF)"
+  }
+}

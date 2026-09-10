@@ -1,0 +1,126 @@
+{
+  "Q1": [
+    {
+      "rank": 0,
+      "uuid": "091c8acc-cc5f-4f2d-89b2-a7333f778a49",
+      "name": "WORKS_ON",
+      "fact": "Alice works on Project Orion."
+    },
+    {
+      "rank": 1,
+      "uuid": "e2282d3f-879e-42b6-9e24-b1a7c9ea550e",
+      "name": "WORKS_ON",
+      "fact": "Bob works on Project Nova."
+    },
+    {
+      "rank": 2,
+      "uuid": "e7608a9b-489d-4536-9135-77ecbdac8d26",
+      "name": "USES",
+      "fact": "Project Orion uses Python."
+    },
+    {
+      "rank": 3,
+      "uuid": "cf7fbae4-7962-4109-8821-e95f5b20baa9",
+      "name": "USES",
+      "fact": "Project Nova uses Rust."
+    }
+  ],
+  "Q2": [
+    {
+      "rank": 0,
+      "uuid": "e7608a9b-489d-4536-9135-77ecbdac8d26",
+      "name": "USES",
+      "fact": "Project Orion uses Python."
+    },
+    {
+      "rank": 1,
+      "uuid": "cf7fbae4-7962-4109-8821-e95f5b20baa9",
+      "name": "USES",
+      "fact": "Project Nova uses Rust."
+    },
+    {
+      "rank": 2,
+      "uuid": "091c8acc-cc5f-4f2d-89b2-a7333f778a49",
+      "name": "WORKS_ON",
+      "fact": "Alice works on Project Orion."
+    },
+    {
+      "rank": 3,
+      "uuid": "e2282d3f-879e-42b6-9e24-b1a7c9ea550e",
+      "name": "WORKS_ON",
+      "fact": "Bob works on Project Nova."
+    }
+  ],
+  "Q3": [
+    {
+      "rank": 0,
+      "uuid": "cf7fbae4-7962-4109-8821-e95f5b20baa9",
+      "name": "USES",
+      "fact": "Project Nova uses Rust."
+    },
+    {
+      "rank": 1,
+      "uuid": "e2282d3f-879e-42b6-9e24-b1a7c9ea550e",
+      "name": "WORKS_ON",
+      "fact": "Bob works on Project Nova."
+    },
+    {
+      "rank": 2,
+      "uuid": "e7608a9b-489d-4536-9135-77ecbdac8d26",
+      "name": "USES",
+      "fact": "Project Orion uses Python."
+    },
+    {
+      "rank": 3,
+      "uuid": "091c8acc-cc5f-4f2d-89b2-a7333f778a49",
+      "name": "WORKS_ON",
+      "fact": "Alice works on Project Orion."
+    }
+  ],
+  "Q4": [
+    {
+      "rank": 0,
+      "uuid": "091c8acc-cc5f-4f2d-89b2-a7333f778a49",
+      "name": "WORKS_ON",
+      "fact": "Alice works on Project Orion."
+    },
+    {
+      "rank": 1,
+      "uuid": "e2282d3f-879e-42b6-9e24-b1a7c9ea550e",
+      "name": "WORKS_ON",
+      "fact": "Bob works on Project Nova."
+    },
+    {
+      "rank": 2,
+      "uuid": "e7608a9b-489d-4536-9135-77ecbdac8d26",
+      "name": "USES",
+      "fact": "Project Orion uses Python."
+    },
+    {
+      "rank": 3,
+      "uuid": "cf7fbae4-7962-4109-8821-e95f5b20baa9",
+      "name": "USES",
+      "fact": "Project Nova uses Rust."
+    }
+  ],
+  "Q5": [
+    {
+      "rank": 0,
+      "uuid": "091c8acc-cc5f-4f2d-89b2-a7333f778a49",
+      "name": "WORKS_ON",
+      "fact": "Alice works on Project Orion."
+    },
+    {
+      "rank": 1,
+      "uuid": "e7608a9b-489d-4536-9135-77ecbdac8d26",
+      "name": "USES",
+      "fact": "Project Orion uses Python."
+    },
+    {
+      "rank": 2,
+      "uuid": "cf7fbae4-7962-4109-8821-e95f5b20baa9",
+      "name": "USES",
+      "fact": "Project Nova uses Rust."
+    }
+  ]
+}
