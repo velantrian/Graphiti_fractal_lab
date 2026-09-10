@@ -23,3 +23,7 @@ extraction_control=PASS
 NEO4J_CAUSAL_EVIDENCE=NO
 one_variable=DeterministicEmbedder→LocalSemanticEmbedder
 pipeline_note=EMBEDDING_IMPROVEMENT_CONFIRMED BUT SEARCH_PIPELINE_FILTERING_STILL_INSUFFICIENT
+
+end_commit=43e405c30dddc5d4eb94bc456314dd32b27d1534
+origin_main=c1c401fe56e089ae5fe54403cbe7b025ce08fe41
+upstream_note=no merge; upstream pin 2437244149baeb0c645e2e942125be92bba3a96b preserved as branch history ancestor intent; origin/main untouched
