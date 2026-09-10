@@ -1,0 +1,19 @@
+{
+  "starting_head": "41ad8cae96cbcc8b0f26be2d094bdc0286af0b6b",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "graphiti_core": "0.29.3",
+  "falkordblite": "0.10.0",
+  "db_path": "/workspace/Graphiti_fractal_lab/data/memoryops_fm9/fm9_86b4c02a7865.db",
+  "group": "fm9_main_86b4c02a7865",
+  "invariants": [
+    "RETRIEVED\u2260CURRENT",
+    "STORED\u2260CURRENT",
+    "MEMORY\u2260CANON",
+    "Graphiti.search unchanged \u2014 classify AFTER retrieval"
+  ],
+  "upstream_graphiti_fractal": "2437244149baeb0c645e2e942125be92bba3a96b",
+  "p8_started": false,
+  "fm11_started": false,
+  "real_llm": "NOT_STARTED",
+  "merge_to_main": false
+}

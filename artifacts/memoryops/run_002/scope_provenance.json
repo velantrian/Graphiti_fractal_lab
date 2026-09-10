@@ -1,0 +1,240 @@
+{
+  "evidence": {
+    "scope_a": "fm9_scope_a_86b4c02a7865",
+    "scope_b": "fm9_scope_b_86b4c02a7865",
+    "a_finds_alpha": true,
+    "b_finds_beta": true,
+    "a_leaks_beta": false,
+    "b_leaks_alpha": false,
+    "a_provenance_groups": [
+      "fm9_scope_a_86b4c02a7865"
+    ],
+    "b_provenance_groups": [
+      "fm9_scope_b_86b4c02a7865"
+    ],
+    "qa_hit_count": 1,
+    "qb_hit_count": 1,
+    "a_group_clean": true,
+    "b_group_clean": true
+  },
+  "qa": {
+    "operation": "MEMORY_QUERY",
+    "timestamp": "2026-09-10T08:45:49.422563+00:00",
+    "group_id": "fm9_scope_a_86b4c02a7865",
+    "episode_uuid": null,
+    "entities": [],
+    "edges": [
+      {
+        "uuid": "17f79c06-2b23-463b-a914-118b7d353d7b",
+        "fact": "Scope is related to LabObject mentioning A_ONLY_SECRET_ALPHA. Episode excerpt: Scope A secret A_ONLY_SECRET_ALPHA must remain isolated.",
+        "group_id": "fm9_scope_a_86b4c02a7865",
+        "retrieved": true,
+        "temporal_status": "TEMPORALLY_CURRENT",
+        "valid_at": "2026-04-01T10:00:00+00:00",
+        "invalid_at": null,
+        "expired_at": null,
+        "name": "RELATED_TO",
+        "source_node_uuid": "992062c8-ce69-408f-8d66-bc37d7d458ce",
+        "target_node_uuid": "69219e11-e8c8-4f11-b966-5ab3ca0accc5",
+        "episodes": [
+          "8938ba52-f009-46c3-8311-5bd15570bb84"
+        ]
+      }
+    ],
+    "episodes": [],
+    "query": "A_ONLY_SECRET_ALPHA",
+    "db_path": "/workspace/Graphiti_fractal_lab/data/memoryops_fm9/fm9_scope_86b4c02a7865.db",
+    "notes": {
+      "hit_count": 1,
+      "query_time_explicit": false,
+      "invariant": "RETRIEVED\u2260CURRENT \u2014 search hits may include expired facts",
+      "classification_layer": "LabMemoryOps after Graphiti.search",
+      "historical_results_hidden": false
+    },
+    "query_time": "2026-09-10T08:45:49.417823+00:00",
+    "temporal_summary": {
+      "retrieved_count": 1,
+      "current_count": 1,
+      "expired_count": 0,
+      "not_yet_valid_count": 0,
+      "unknown_count": 0
+    },
+    "provenance": [
+      {
+        "edge_uuid": "17f79c06-2b23-463b-a914-118b7d353d7b",
+        "fact": "Scope is related to LabObject mentioning A_ONLY_SECRET_ALPHA. Episode excerpt: Scope A secret A_ONLY_SECRET_ALPHA must remain isolated.",
+        "relation": "RELATED_TO",
+        "name": "RELATED_TO",
+        "group_id": "fm9_scope_a_86b4c02a7865",
+        "source_node_uuid": "992062c8-ce69-408f-8d66-bc37d7d458ce",
+        "target_node_uuid": "69219e11-e8c8-4f11-b966-5ab3ca0accc5",
+        "valid_at": "2026-04-01T10:00:00+00:00",
+        "invalid_at": "UNKNOWN",
+        "expired_at": "UNKNOWN",
+        "episode_uuids": [
+          "8938ba52-f009-46c3-8311-5bd15570bb84"
+        ],
+        "chain": [
+          "INPUT",
+          "EPISODE",
+          "ENTITY_EDGE",
+          "QUERY_HIT"
+        ],
+        "episodes": [
+          {
+            "episode_uuid": "8938ba52-f009-46c3-8311-5bd15570bb84",
+            "episode_name": "fm10d_a",
+            "content_preview": "Scope A secret A_ONLY_SECRET_ALPHA must remain isolated.",
+            "source_description": "fractal_lab_memoryops",
+            "group_id": "fm9_scope_a_86b4c02a7865",
+            "valid_at": "2026-04-01T10:00:00+00:00",
+            "reference_time": "UNKNOWN",
+            "created_at": "2026-09-10T08:45:49.373151+00:00",
+            "load_status": "LOADED"
+          }
+        ],
+        "query_text": "A_ONLY_SECRET_ALPHA",
+        "input_preview": "A_ONLY_SECRET_ALPHA",
+        "retrieved": true,
+        "temporal_status": "TEMPORALLY_CURRENT"
+      }
+    ]
+  },
+  "qb": {
+    "operation": "MEMORY_QUERY",
+    "timestamp": "2026-09-10T08:45:49.428682+00:00",
+    "group_id": "fm9_scope_b_86b4c02a7865",
+    "episode_uuid": null,
+    "entities": [],
+    "edges": [
+      {
+        "uuid": "a384045a-9474-4e35-b88d-ab0043f7489b",
+        "fact": "Scope is related to LabObject mentioning B_ONLY_SECRET_BETA. Episode excerpt: Scope B secret B_ONLY_SECRET_BETA must remain isolated.",
+        "group_id": "fm9_scope_b_86b4c02a7865",
+        "retrieved": true,
+        "temporal_status": "TEMPORALLY_CURRENT",
+        "valid_at": "2026-04-01T10:00:00+00:00",
+        "invalid_at": null,
+        "expired_at": null,
+        "name": "RELATED_TO",
+        "source_node_uuid": "379b1f4d-6f71-44ae-a6a5-61b1b9845ce7",
+        "target_node_uuid": "084c554d-75a8-45ef-8cf1-b8cd79503bb2",
+        "episodes": [
+          "e5e3752b-8dc4-4fa6-9b65-27af20bec7da"
+        ]
+      }
+    ],
+    "episodes": [],
+    "query": "B_ONLY_SECRET_BETA",
+    "db_path": "/workspace/Graphiti_fractal_lab/data/memoryops_fm9/fm9_scope_86b4c02a7865.db",
+    "notes": {
+      "hit_count": 1,
+      "query_time_explicit": false,
+      "invariant": "RETRIEVED\u2260CURRENT \u2014 search hits may include expired facts",
+      "classification_layer": "LabMemoryOps after Graphiti.search",
+      "historical_results_hidden": false
+    },
+    "query_time": "2026-09-10T08:45:49.422579+00:00",
+    "temporal_summary": {
+      "retrieved_count": 1,
+      "current_count": 1,
+      "expired_count": 0,
+      "not_yet_valid_count": 0,
+      "unknown_count": 0
+    },
+    "provenance": [
+      {
+        "edge_uuid": "a384045a-9474-4e35-b88d-ab0043f7489b",
+        "fact": "Scope is related to LabObject mentioning B_ONLY_SECRET_BETA. Episode excerpt: Scope B secret B_ONLY_SECRET_BETA must remain isolated.",
+        "relation": "RELATED_TO",
+        "name": "RELATED_TO",
+        "group_id": "fm9_scope_b_86b4c02a7865",
+        "source_node_uuid": "379b1f4d-6f71-44ae-a6a5-61b1b9845ce7",
+        "target_node_uuid": "084c554d-75a8-45ef-8cf1-b8cd79503bb2",
+        "valid_at": "2026-04-01T10:00:00+00:00",
+        "invalid_at": "UNKNOWN",
+        "expired_at": "UNKNOWN",
+        "episode_uuids": [
+          "e5e3752b-8dc4-4fa6-9b65-27af20bec7da"
+        ],
+        "chain": [
+          "INPUT",
+          "EPISODE",
+          "ENTITY_EDGE",
+          "QUERY_HIT"
+        ],
+        "episodes": [
+          {
+            "episode_uuid": "e5e3752b-8dc4-4fa6-9b65-27af20bec7da",
+            "episode_name": "fm10d_b",
+            "content_preview": "Scope B secret B_ONLY_SECRET_BETA must remain isolated.",
+            "source_description": "fractal_lab_memoryops",
+            "group_id": "fm9_scope_b_86b4c02a7865",
+            "valid_at": "2026-04-01T10:00:00+00:00",
+            "reference_time": "UNKNOWN",
+            "created_at": "2026-09-10T08:45:49.397122+00:00",
+            "load_status": "LOADED"
+          }
+        ],
+        "query_text": "B_ONLY_SECRET_BETA",
+        "input_preview": "B_ONLY_SECRET_BETA",
+        "retrieved": true,
+        "temporal_status": "TEMPORALLY_CURRENT"
+      }
+    ]
+  },
+  "leak_b_in_a": {
+    "operation": "MEMORY_QUERY",
+    "timestamp": "2026-09-10T08:45:49.432957+00:00",
+    "group_id": "fm9_scope_a_86b4c02a7865",
+    "episode_uuid": null,
+    "entities": [],
+    "edges": [],
+    "episodes": [],
+    "query": "B_ONLY_SECRET_BETA",
+    "db_path": "/workspace/Graphiti_fractal_lab/data/memoryops_fm9/fm9_scope_86b4c02a7865.db",
+    "notes": {
+      "hit_count": 0,
+      "query_time_explicit": false,
+      "invariant": "RETRIEVED\u2260CURRENT \u2014 search hits may include expired facts",
+      "classification_layer": "LabMemoryOps after Graphiti.search",
+      "historical_results_hidden": false
+    },
+    "query_time": "2026-09-10T08:45:49.428699+00:00",
+    "temporal_summary": {
+      "retrieved_count": 0,
+      "current_count": 0,
+      "expired_count": 0,
+      "not_yet_valid_count": 0,
+      "unknown_count": 0
+    },
+    "provenance": []
+  },
+  "leak_a_in_b": {
+    "operation": "MEMORY_QUERY",
+    "timestamp": "2026-09-10T08:45:49.435830+00:00",
+    "group_id": "fm9_scope_b_86b4c02a7865",
+    "episode_uuid": null,
+    "entities": [],
+    "edges": [],
+    "episodes": [],
+    "query": "A_ONLY_SECRET_ALPHA",
+    "db_path": "/workspace/Graphiti_fractal_lab/data/memoryops_fm9/fm9_scope_86b4c02a7865.db",
+    "notes": {
+      "hit_count": 0,
+      "query_time_explicit": false,
+      "invariant": "RETRIEVED\u2260CURRENT \u2014 search hits may include expired facts",
+      "classification_layer": "LabMemoryOps after Graphiti.search",
+      "historical_results_hidden": false
+    },
+    "query_time": "2026-09-10T08:45:49.432977+00:00",
+    "temporal_summary": {
+      "retrieved_count": 0,
+      "current_count": 0,
+      "expired_count": 0,
+      "not_yet_valid_count": 0,
+      "unknown_count": 0
+    },
+    "provenance": []
+  }
+}

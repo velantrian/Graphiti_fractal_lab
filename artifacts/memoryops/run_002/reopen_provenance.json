@@ -1,0 +1,25 @@
+{
+  "db_path": "/workspace/Graphiti_fractal_lab/data/memoryops_fm9/fm9_reopen_86b4c02a7865.db",
+  "group_id": "fm10c_86b4c02a7865",
+  "marker": "FM5_MARKER_FM10C_86b4c02a7865",
+  "process1_edge_uuids": [
+    "c2993686-785b-4f4b-9c8f-d396a94914d2"
+  ],
+  "process1_episode_uuids": [
+    "bebecc28-29ba-45d4-96f8-883bbaeaf6a1"
+  ],
+  "process2_returncode": 0,
+  "process2_edge_uuids": [
+    "c2993686-785b-4f4b-9c8f-d396a94914d2"
+  ],
+  "process2_episode_uuids": [
+    "bebecc28-29ba-45d4-96f8-883bbaeaf6a1"
+  ],
+  "overlap_edge_uuids": [
+    "c2993686-785b-4f4b-9c8f-d396a94914d2"
+  ],
+  "overlap_episode_uuids": [
+    "bebecc28-29ba-45d4-96f8-883bbaeaf6a1"
+  ],
+  "process2_stderr_tail": ""
+}

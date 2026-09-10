@@ -1,0 +1,4 @@
+# FM-9 / FM-10 temporal query + provenance
+cd /workspace/Graphiti_fractal_lab
+git rev-parse HEAD  # expect 41ad8cae96cbcc8b0f26be2d094bdc0286af0b6b at start
+PYTHONPATH=src .venv/bin/pytest tests/lab/test_memoryops_fm9_fm10.py -v --tb=short

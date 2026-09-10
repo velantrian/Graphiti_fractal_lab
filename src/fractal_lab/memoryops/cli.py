@@ -3,8 +3,8 @@
 
 Usage (from repo root, with .venv active / PYTHONPATH=src):
   python -m fractal_lab.memoryops.cli ingest --db PATH --group GID --text "..."
-  python -m fractal_lab.memoryops.cli query  --db PATH --group GID --text "..."
-  python -m fractal_lab.memoryops.cli inspect --db PATH --group GID
+  python -m fractal_lab.memoryops.cli query  --db PATH --group GID --text "..." [--query-time ISO] [--provenance]
+  python -m fractal_lab.memoryops.cli inspect --db PATH --group GID [--provenance]
   python -m fractal_lab.memoryops.cli demo --db PATH
 """
 
@@ -43,12 +43,26 @@ async def _run(args: argparse.Namespace) -> int:
                 name=args.name,
             )
         elif args.command == "query":
-            receipt = await mem.query(args.text, group_id=args.group, num_results=args.limit)
+            receipt = await mem.query(
+                args.text,
+                group_id=args.group,
+                num_results=args.limit,
+                query_time=_parse_dt(getattr(args, "query_time", None)),
+                with_provenance=bool(getattr(args, "provenance", False)),
+            )
         elif args.command == "inspect":
-            receipt = await mem.inspect(group_id=args.group)
+            receipt = await mem.inspect(
+                group_id=args.group,
+                with_provenance=bool(getattr(args, "provenance", False)),
+            )
         elif args.command == "reopen-query":
-            # Open already happened on same DB path — query without ingest
-            receipt = await mem.reopen_query(args.text, group_id=args.group, num_results=args.limit)
+            receipt = await mem.reopen_query(
+                args.text,
+                group_id=args.group,
+                num_results=args.limit,
+                query_time=_parse_dt(getattr(args, "query_time", None)),
+                with_provenance=bool(getattr(args, "provenance", False)),
+            )
         elif args.command == "demo":
             g = args.group or "fm_demo"
             t1 = datetime(2026, 1, 1, 10, 0, 0, tzinfo=timezone.utc)
@@ -100,12 +114,17 @@ def build_parser() -> argparse.ArgumentParser:
     q = sub.add_parser("query", help="MEMORY QUERY")
     q.add_argument("--text", required=True)
     q.add_argument("--limit", type=int, default=10)
+    q.add_argument("--query-time", default=None, help="ISO evaluation time for FM-9 classify")
+    q.add_argument("--provenance", action="store_true", help="Attach FM-10 provenance receipts")
 
-    sub.add_parser("inspect", help="MEMORY INSPECT")
+    insp = sub.add_parser("inspect", help="MEMORY INSPECT")
+    insp.add_argument("--provenance", action="store_true")
 
     rq = sub.add_parser("reopen-query", help="MEMORY REOPEN query (no ingest)")
     rq.add_argument("--text", required=True)
     rq.add_argument("--limit", type=int, default=10)
+    rq.add_argument("--query-time", default=None)
+    rq.add_argument("--provenance", action="store_true")
 
     sub.add_parser("demo", help="Small ingest+query+inspect demo")
     return p
