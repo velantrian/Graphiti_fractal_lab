@@ -1,0 +1,37 @@
+{
+  "graphiti_core_version": "0.29.3",
+  "package_path": "/workspace/Graphiti_fractal_lab/.venv/lib/python3.13/site-packages/graphiti_core/__init__.py",
+  "entry": "Graphiti.search",
+  "DEFAULT_SEARCH_LIMIT": 10,
+  "recipe_when_center_node_uuid_is_None": "EDGE_HYBRID_SEARCH_RRF",
+  "EDGE_HYBRID_SEARCH_RRF": {
+    "limit_default_before_override": 10,
+    "reranker_min_score": 0,
+    "node_config": null,
+    "episode_config": null,
+    "community_config": null,
+    "edge_config": {
+      "search_methods": [
+        "bm25",
+        "cosine_similarity"
+      ],
+      "reranker": "reciprocal_rank_fusion",
+      "sim_min_score": 0.6,
+      "mmr_lambda": 0.5,
+      "bfs_max_depth": 3
+    }
+  },
+  "channels_real_separation": true,
+  "channels": [
+    "bm25",
+    "cosine_similarity"
+  ],
+  "fusion": "reciprocal_rank_fusion",
+  "cross_encoder_on_default_path": false,
+  "EMBEDDING_DIM": 1024,
+  "lab_embedder": "DeterministicEmbedder",
+  "lab_cross_encoder": "DeterministicCrossEncoder (wired but unused by Graphiti.search default)",
+  "memoryops_num_results_used_in_fm11_fm13": 10,
+  "neo4j": false,
+  "backend": "FalkorDBLite"
+}

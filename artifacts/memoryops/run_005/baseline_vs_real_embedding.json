@@ -1,0 +1,252 @@
+{
+  "per_query": {
+    "Q1": {
+      "run_004_deterministic": {
+        "retrieved": [
+          "Alice works on Project Orion.",
+          "Bob works on Project Nova.",
+          "Project Orion uses Python.",
+          "Project Nova uses Rust."
+        ],
+        "Precision@1": 1.0,
+        "Precision@3": 0.3333333333333333,
+        "Precision@4": 0.25,
+        "Recall@1": 1.0,
+        "Recall@3": 1.0,
+        "Recall@4": 1.0,
+        "MRR": 1.0
+      },
+      "run_005_real_embedding": {
+        "retrieved": [
+          "Alice works on Project Orion.",
+          "Bob works on Project Nova.",
+          "Project Orion uses Python.",
+          "Project Nova uses Rust."
+        ],
+        "Precision@1": 1.0,
+        "Precision@3": 0.3333333333333333,
+        "Precision@4": 0.25,
+        "Recall@1": 1.0,
+        "Recall@3": 1.0,
+        "Recall@4": 1.0,
+        "MRR": 1.0
+      },
+      "retrieved_order_changed": false,
+      "P1_delta": 0.0,
+      "MRR_delta": 0.0
+    },
+    "Q2": {
+      "run_004_deterministic": {
+        "retrieved": [
+          "Project Orion uses Python.",
+          "Project Nova uses Rust.",
+          "Alice works on Project Orion.",
+          "Bob works on Project Nova."
+        ],
+        "Precision@1": 1.0,
+        "Precision@3": 0.3333333333333333,
+        "Precision@4": 0.25,
+        "Recall@1": 1.0,
+        "Recall@3": 1.0,
+        "Recall@4": 1.0,
+        "MRR": 1.0
+      },
+      "run_005_real_embedding": {
+        "retrieved": [
+          "Project Orion uses Python.",
+          "Project Nova uses Rust.",
+          "Alice works on Project Orion.",
+          "Bob works on Project Nova."
+        ],
+        "Precision@1": 1.0,
+        "Precision@3": 0.3333333333333333,
+        "Precision@4": 0.25,
+        "Recall@1": 1.0,
+        "Recall@3": 1.0,
+        "Recall@4": 1.0,
+        "MRR": 1.0
+      },
+      "retrieved_order_changed": false,
+      "P1_delta": 0.0,
+      "MRR_delta": 0.0
+    },
+    "Q3": {
+      "run_004_deterministic": {
+        "retrieved": [
+          "Project Nova uses Rust.",
+          "Bob works on Project Nova.",
+          "Project Orion uses Python.",
+          "Alice works on Project Orion."
+        ],
+        "Precision@1": 1.0,
+        "Precision@3": 0.6666666666666666,
+        "Precision@4": 0.5,
+        "Recall@1": 0.5,
+        "Recall@3": 1.0,
+        "Recall@4": 1.0,
+        "MRR": 1.0
+      },
+      "run_005_real_embedding": {
+        "retrieved": [
+          "Project Nova uses Rust.",
+          "Bob works on Project Nova.",
+          "Project Orion uses Python.",
+          "Alice works on Project Orion."
+        ],
+        "Precision@1": 1.0,
+        "Precision@3": 0.6666666666666666,
+        "Precision@4": 0.5,
+        "Recall@1": 0.5,
+        "Recall@3": 1.0,
+        "Recall@4": 1.0,
+        "MRR": 1.0
+      },
+      "retrieved_order_changed": false,
+      "P1_delta": 0.0,
+      "MRR_delta": 0.0
+    },
+    "Q4": {
+      "run_004_deterministic": {
+        "retrieved": [
+          "Alice works on Project Orion.",
+          "Bob works on Project Nova.",
+          "Project Orion uses Python.",
+          "Project Nova uses Rust."
+        ],
+        "Precision@1": 0.0,
+        "Precision@3": 0.0,
+        "Precision@4": 0.0,
+        "Recall@1": null,
+        "Recall@3": null,
+        "Recall@4": null,
+        "MRR": 0.0
+      },
+      "run_005_real_embedding": {
+        "retrieved": [
+          "Project Orion uses Python.",
+          "Alice works on Project Orion.",
+          "Bob works on Project Nova.",
+          "Project Nova uses Rust."
+        ],
+        "Precision@1": 0.0,
+        "Precision@3": 0.0,
+        "Precision@4": 0.0,
+        "Recall@1": null,
+        "Recall@3": null,
+        "Recall@4": null,
+        "MRR": 0.0
+      },
+      "retrieved_order_changed": true,
+      "P1_delta": 0,
+      "MRR_delta": 0
+    }
+  },
+  "macro_Q1_Q3": {
+    "Precision@1": {
+      "run_004": 1.0,
+      "run_005": 1.0,
+      "delta": 0.0
+    },
+    "Precision@3": {
+      "run_004": 0.4444444444444444,
+      "run_005": 0.4444444444444444,
+      "delta": 0.0
+    },
+    "Precision@4": {
+      "run_004": 0.3333333333333333,
+      "run_005": 0.3333333333333333,
+      "delta": 0.0
+    },
+    "Recall@1": {
+      "run_004": 0.8333333333333334,
+      "run_005": 0.8333333333333334,
+      "delta": 0.0
+    },
+    "Recall@3": {
+      "run_004": 1.0,
+      "run_005": 1.0,
+      "delta": 0.0
+    },
+    "Recall@4": {
+      "run_004": 1.0,
+      "run_005": 1.0,
+      "delta": 0.0
+    },
+    "MRR": {
+      "run_004": 1.0,
+      "run_005": 1.0,
+      "delta": 0.0
+    }
+  },
+  "Q5": {
+    "run_004": {
+      "classification": "MULTI_HOP",
+      "has_alice_works_on_orion": true,
+      "has_orion_uses_python": true,
+      "has_direct_alice_uses_python_edge": false,
+      "note": "No Alice-USES-Python edge in corpus; retrieving both Alice\u2192Orion and Orion\u2192Python is MULTI_HOP evidence co-retrieval, not a stored direct fact.",
+      "facts": [
+        "Alice works on Project Orion.",
+        "Project Orion uses Python.",
+        "Project Nova uses Rust."
+      ],
+      "blob_preview": "alice works on project orion. project orion uses python. project nova uses rust."
+    },
+    "run_005": {
+      "classification": "MULTI_HOP",
+      "has_alice_works_on_orion": true,
+      "has_orion_uses_python": true,
+      "has_direct_alice_uses_python_edge": false,
+      "facts": [
+        "Alice works on Project Orion.",
+        "Project Orion uses Python.",
+        "Project Nova uses Rust.",
+        "Bob works on Project Nova."
+      ]
+    }
+  },
+  "relevance_defs": "Same GOLD as FM-13: Q1 Alice\u2192Orion; Q2 Orion\u2192Python; Q3 Nova Bob/Rust; Q4 empty; Q5 multi-hop co-retrieval.",
+  "classifications": {
+    "COSINE_CHANNEL_EFFECT": {
+      "label": "COSINE_CHANNEL_EFFECT",
+      "Q1_cosine_count": 4,
+      "Q4_cosine_count": 4,
+      "Q4_run004_cosine_was": 0,
+      "Q4_cosine_now_nonempty": true,
+      "matrix_Q1_vs_N1": 0.8512866051764023,
+      "matrix_Q4_vs_N1": 0.637605444232953,
+      "above_sim_min_for_Q4_any_fact": true,
+      "verdict": "COSINE_CHANNEL_EFFECT"
+    },
+    "BM25_NOISE_PERSISTS": {
+      "label": "BM25_NOISE_PERSISTS",
+      "Q4_bm25_count": 4,
+      "Q4_bm25_facts": [
+        "Alice works on Project Orion.",
+        "Bob works on Project Nova.",
+        "Project Orion uses Python.",
+        "Project Nova uses Rust."
+      ],
+      "verdict": "BM25_NOISE_PERSISTS",
+      "detail": "Q4 Zephyr absent: BM25 still returns corpus edges via lexical overlap on works/Project tokens \u2014 unchanged by real embeddings."
+    },
+    "FINAL_HYBRID_EFFECT": {
+      "label": "FINAL_HYBRID_EFFECT",
+      "Q1_order_changed": false,
+      "Q4_order_changed": true,
+      "Q4_still_returns_false_positives": true,
+      "Q4_empty_ideal": false,
+      "macro_MRR_delta": 0.0,
+      "macro_P1_delta": 0.0,
+      "verdict": "FINAL_HYBRID_EFFECT"
+    },
+    "REAL_EMBEDDINGS_SUFFICIENT_FOR_Q4": {
+      "label": "REAL_EMBEDDINGS_SUFFICIENT_FOR_Q4",
+      "Q4_final_empty": false,
+      "Q4_bm25_still_feeds_rrf": true,
+      "Q4_cosine_count": 4,
+      "verdict": "REAL_EMBEDDINGS_NOT_SUFFICIENT_FOR_Q4"
+    },
+    "pipeline_note": "EMBEDDING_IMPROVEMENT_CONFIRMED BUT SEARCH_PIPELINE_FILTERING_STILL_INSUFFICIENT"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "entities": [
+    "Alice",
+    "Bob",
+    "Project Nova",
+    "Project Orion",
+    "Python",
+    "Rust"
+  ],
+  "edges": [
+    [
+      "USES",
+      "Project Nova uses Rust."
+    ],
+    [
+      "USES",
+      "Project Orion uses Python."
+    ],
+    [
+      "WORKS_ON",
+      "Alice works on Project Orion."
+    ],
+    [
+      "WORKS_ON",
+      "Bob works on Project Nova."
+    ]
+  ]
+}

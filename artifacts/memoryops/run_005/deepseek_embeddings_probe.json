@@ -1,0 +1,25 @@
+{
+  "probed": true,
+  "base_url": "https://api.deepseek.com",
+  "paths": [
+    {
+      "path": "/embeddings",
+      "model_attempted": "deepseek-embedding",
+      "status": 404,
+      "body_preview": "",
+      "error": "HTTPError 404"
+    },
+    {
+      "path": "/v1/embeddings",
+      "model_attempted": "text-embedding-3-small",
+      "status": 404,
+      "body_preview": "",
+      "error": "HTTPError 404"
+    }
+  ],
+  "usable": false,
+  "SECRET_LOGGED": "NO",
+  "DEEPSEEK_KEY_MISUSED_FOR_OTHER_PROVIDER": false,
+  "decision": "USE_LOCAL_FASTEMBED",
+  "note": "DeepSeek /embeddings returned non-200 (typically 404). Do not put DEEPSEEK_API_KEY into another provider embedding endpoint."
+}

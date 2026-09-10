@@ -27,12 +27,14 @@ def _edge_brief(edge: Any) -> dict[str, Any]:
     }
 
 
-def _digest_vector(vec: list[float] | None) -> dict[str, Any]:
+def _digest_vector(
+    vec: list[float] | None, *, label: str = "DETERMINISTIC_EMBEDDING"
+) -> dict[str, Any]:
     if vec is None:
         return {"label": "MISSING", "dim": None, "sha256_hex": None}
     raw = ",".join(f"{x:.8f}" for x in vec).encode("utf-8")
     return {
-        "label": "DETERMINISTIC_EMBEDDING",
+        "label": label,
         "dim": len(vec),
         "sha256_hex": hashlib.sha256(raw).hexdigest(),
         "embedding_dim_constant": EMBEDDING_DIM,
@@ -340,10 +342,14 @@ class RetrievalInstrumenter:
                             else str(input_data)
                         )
                     )
+                    emb_label = getattr(
+                        embedder, "embedding_label", "DETERMINISTIC_EMBEDDING"
+                    )
                     store.embedding = {
-                        **_digest_vector(vec),
+                        **_digest_vector(vec, label=str(emb_label)),
                         "input_text": text,
                         "input_text_sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
+                        "embedder_class": type(embedder).__name__,
                     }
                 return vec
 

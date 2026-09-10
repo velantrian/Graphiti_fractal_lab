@@ -1,0 +1,72 @@
+{
+  "model": {
+    "provider": "local_fastembed",
+    "framework": "fastembed+onnxruntime",
+    "model_name": "BAAI/bge-small-en-v1.5",
+    "hf_source_repo": "qdrant/bge-small-en-v1.5-onnx-q",
+    "model_revision": "52398278842ec682c6f32300af41344b1c0b0bb2",
+    "model_file": "model_optimized.onnx",
+    "embedding_dim": 384,
+    "normalization": "L2_unit_norm_from_model",
+    "device": "cpu",
+    "dtype": "float32",
+    "package_versions": {
+      "fastembed": "0.8.0",
+      "onnxruntime": "1.29.0",
+      "numpy": "2.5.3"
+    },
+    "API_COST_USD": 0,
+    "LOCAL_COMPUTE_COST": "NOT_MEASURED",
+    "embedding_label": "REAL_SEMANTIC_EMBEDDING",
+    "NOT_hash_random_lexical_fixture": true
+  },
+  "sim_min_score_reference": 0.6,
+  "matrix": {
+    "Q1": {
+      "query": "Who works on Project Orion?",
+      "cosine_vs_facts": {
+        "Alice works on Project Orion.": 0.8512866051764023,
+        "Project Orion uses Python.": 0.8252127369987534,
+        "Bob works on Project Nova.": 0.6917384515758852,
+        "Project Nova uses Rust.": 0.635563197620144
+      }
+    },
+    "Q2": {
+      "query": "What language does Project Orion use?",
+      "cosine_vs_facts": {
+        "Alice works on Project Orion.": 0.7284137209919167,
+        "Project Orion uses Python.": 0.8643760682379081,
+        "Bob works on Project Nova.": 0.5807237412423384,
+        "Project Nova uses Rust.": 0.6205590308257027
+      }
+    },
+    "Q3": {
+      "query": "What is related to Project Nova?",
+      "cosine_vs_facts": {
+        "Alice works on Project Orion.": 0.6232380869442549,
+        "Project Orion uses Python.": 0.6436543600709499,
+        "Bob works on Project Nova.": 0.752946422278065,
+        "Project Nova uses Rust.": 0.7927600700269779
+      }
+    },
+    "Q4": {
+      "query": "Who works on Project Zephyr?",
+      "cosine_vs_facts": {
+        "Alice works on Project Orion.": 0.637605444232953,
+        "Project Orion uses Python.": 0.6630608780228715,
+        "Bob works on Project Nova.": 0.6606814752666372,
+        "Project Nova uses Rust.": 0.6534129907444763
+      }
+    },
+    "Q5": {
+      "query": "Does Alice use Python?",
+      "cosine_vs_facts": {
+        "Alice works on Project Orion.": 0.7033423588334894,
+        "Project Orion uses Python.": 0.7710475222911171,
+        "Bob works on Project Nova.": 0.48546997283119775,
+        "Project Nova uses Rust.": 0.532215655330419
+      }
+    }
+  },
+  "note": "Cosine on REAL local embeddings of raw query/fact strings (not Graphiti-normalized)."
+}

@@ -5,3 +5,4 @@ ladybug==0.20.3
 # kuzu  # HISTORICAL / optional experiment only
 # psycopg[binary]  # postgres stub only
 # duckdb  # duckdb stub only
+fastembed>=0.4

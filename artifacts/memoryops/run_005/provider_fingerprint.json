@@ -1,0 +1,95 @@
+{
+  "provider": "DeepSeek",
+  "REQUESTED_MODEL": "deepseek-v4-pro",
+  "EXPECTED_VERSION_LABEL": "DeepSeek-V4-Pro-0813",
+  "ACTUAL_MODEL": "PENDING_LIVE_RESPONSE",
+  "model": "deepseek-v4-pro",
+  "client": "OpenAIGenericClient",
+  "client_wrapper": "CountingOpenAIGenericClient",
+  "structured_output_mode": "json_object",
+  "base_url": "https://api.deepseek.com",
+  "temperature": 0.0,
+  "embedder": {
+    "provider": "local_fastembed",
+    "framework": "fastembed+onnxruntime",
+    "model_name": "BAAI/bge-small-en-v1.5",
+    "hf_source_repo": "qdrant/bge-small-en-v1.5-onnx-q",
+    "model_revision": "52398278842ec682c6f32300af41344b1c0b0bb2",
+    "model_file": "model_optimized.onnx",
+    "embedding_dim": 384,
+    "normalization": "L2_unit_norm_from_model",
+    "device": "cpu",
+    "dtype": "float32",
+    "package_versions": {
+      "fastembed": "0.8.0",
+      "onnxruntime": "1.29.0",
+      "numpy": "2.5.3"
+    },
+    "API_COST_USD": 0,
+    "LOCAL_COMPUTE_COST": "NOT_MEASURED",
+    "embedding_label": "REAL_SEMANTIC_EMBEDDING",
+    "NOT_hash_random_lexical_fixture": true,
+    "recorded_at_utc": "2026-09-10T10:09:05.273029+00:00",
+    "smoke_probes": [
+      {
+        "text": "Alice works on Project Orion.",
+        "dim": 384,
+        "sha256_hex": "6efac068d8ddbe8ee0f98d2a86cea621e90564bc39b2696465b1948279aa5883",
+        "l2_norm": 1.0000000132746933,
+        "head8": [
+          -0.043500013649463654,
+          0.014571433886885643,
+          0.03701787069439888,
+          0.018723221495747566,
+          0.010633932426571846,
+          -0.007091520354151726,
+          -0.04647323116660118,
+          0.019955364987254143
+        ]
+      },
+      {
+        "text": "Who works on Project Orion?",
+        "dim": 384,
+        "sha256_hex": "d80f8925c853480a9258a266bba51f13950fcad8e3b53de5e91c8077c25b921f",
+        "l2_norm": 1.000000005338174,
+        "head8": [
+          -0.04560080170631409,
+          0.01801794208586216,
+          -0.0021149313542991877,
+          -0.04720835015177727,
+          0.029766444116830826,
+          -0.03793815150856972,
+          -0.045225705951452255,
+          0.06339100748300552
+        ]
+      },
+      {
+        "text": "Who works on Project Zephyr?",
+        "dim": 384,
+        "sha256_hex": "28f53c89157ae69167341e0c20081ee38837b69726da95735b436a39a2b1a7ce",
+        "l2_norm": 0.9999999930023533,
+        "head8": [
+          -0.04902787134051323,
+          0.07672996073961258,
+          -0.011486721225082874,
+          -0.031667184084653854,
+          -0.011272392235696316,
+          -0.06601348519325256,
+          -0.03196188434958458,
+          0.0024446959141641855
+        ]
+      }
+    ],
+    "SECRET_LOGGED": "NO",
+    "DEEPSEEK_KEY_USED_FOR_EMBEDDINGS": false
+  },
+  "cross_encoder": "deterministic",
+  "classification": "REAL_LLM_EXTRACTION+REAL_SEMANTIC_EMBEDDING",
+  "CACHE": "ENABLED_BY_PROVIDER_DEFAULT",
+  "custom_kv_cache": false,
+  "api_key_source": "env:DEEPSEEK_API_KEY",
+  "api_key": "REDACTED",
+  "SECRET_LOGGED": "NO",
+  "openai_api_key_set": false,
+  "note": "OPENAI_API_KEY must remain unset/unused. deepseek-v4-pro may route to V4.1 Flash from 2026-09-14 12:00 Beijing \u2014 record UTC timestamps for reproducibility; still request deepseek-v4-pro."
+}

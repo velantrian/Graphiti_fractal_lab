@@ -1,0 +1,12 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-9.1.1, pluggy-1.6.0 -- /workspace/Graphiti_fractal_lab/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /workspace/Graphiti_fractal_lab
+configfile: pytest.ini
+plugins: asyncio-1.4.0, anyio-4.15.1
+collected 2 items
+
+tests/lab/test_memoryops_fm14_real_embedding.py::test_fm14a_real_embedder_smoke PASSED [ 50%]
+tests/lab/test_memoryops_fm14_real_embedding.py::test_fm14b_j_ingest_instrument_differential PASSED [100%]
+
+=================== 2 passed, 1 warning in 70.17s (0:01:10) ====================

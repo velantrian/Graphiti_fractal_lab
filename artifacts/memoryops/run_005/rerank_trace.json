@@ -1,0 +1,37 @@
+{
+  "Q1": {
+    "reranker_type": "reciprocal_rank_fusion",
+    "cross_encoder_calls": 0,
+    "cross_encoder_verdict": "N/A",
+    "note": "Default Graphiti.search uses EDGE_HYBRID_SEARCH_RRF; EdgeReranker.cross_encoder is NOT invoked on this path. Fusion RRF scores are in fusion.fused[].rrf_score.",
+    "observed_fusion_as_rerank_slot": "reciprocal_rank_fusion"
+  },
+  "Q2": {
+    "reranker_type": "reciprocal_rank_fusion",
+    "cross_encoder_calls": 0,
+    "cross_encoder_verdict": "N/A",
+    "note": "Default Graphiti.search uses EDGE_HYBRID_SEARCH_RRF; EdgeReranker.cross_encoder is NOT invoked on this path. Fusion RRF scores are in fusion.fused[].rrf_score.",
+    "observed_fusion_as_rerank_slot": "reciprocal_rank_fusion"
+  },
+  "Q3": {
+    "reranker_type": "reciprocal_rank_fusion",
+    "cross_encoder_calls": 0,
+    "cross_encoder_verdict": "N/A",
+    "note": "Default Graphiti.search uses EDGE_HYBRID_SEARCH_RRF; EdgeReranker.cross_encoder is NOT invoked on this path. Fusion RRF scores are in fusion.fused[].rrf_score.",
+    "observed_fusion_as_rerank_slot": "reciprocal_rank_fusion"
+  },
+  "Q4": {
+    "reranker_type": "reciprocal_rank_fusion",
+    "cross_encoder_calls": 0,
+    "cross_encoder_verdict": "N/A",
+    "note": "Default Graphiti.search uses EDGE_HYBRID_SEARCH_RRF; EdgeReranker.cross_encoder is NOT invoked on this path. Fusion RRF scores are in fusion.fused[].rrf_score.",
+    "observed_fusion_as_rerank_slot": "reciprocal_rank_fusion"
+  },
+  "Q5": {
+    "reranker_type": "reciprocal_rank_fusion",
+    "cross_encoder_calls": 0,
+    "cross_encoder_verdict": "N/A",
+    "note": "Default Graphiti.search uses EDGE_HYBRID_SEARCH_RRF; EdgeReranker.cross_encoder is NOT invoked on this path. Fusion RRF scores are in fusion.fused[].rrf_score.",
+    "observed_fusion_as_rerank_slot": "reciprocal_rank_fusion"
+  }
+}

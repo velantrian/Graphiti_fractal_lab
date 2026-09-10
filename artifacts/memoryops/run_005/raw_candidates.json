@@ -1,0 +1,273 @@
+{
+  "Q1": [
+    {
+      "uuid": "3afbc731-3004-40e1-86fe-f3dae57a125f",
+      "name": "WORKS_ON",
+      "fact": "Alice works on Project Orion.",
+      "group_id": "fm14_main_5accdaadf974",
+      "source_node_uuid": "b7991384-0f0e-4e9d-826b-ed37831b641a",
+      "target_node_uuid": "91259591-d51d-4b60-97e4-9ad29d71d17e",
+      "channel": "bm25",
+      "rank": 0,
+      "score": "NOT_EXPOSED_ON_ENTITY_EDGE",
+      "earliest_channel": "bm25",
+      "earliest_rank": 0
+    },
+    {
+      "uuid": "d9fffc7d-23d6-4f6f-a6f5-3bac663aeae2",
+      "name": "WORKS_ON",
+      "fact": "Bob works on Project Nova.",
+      "group_id": "fm14_main_5accdaadf974",
+      "source_node_uuid": "8f29f1af-da56-457a-8352-bb3faec94cb2",
+      "target_node_uuid": "946a3b60-db5e-4de2-9a7a-fdaca63f881d",
+      "channel": "bm25",
+      "rank": 1,
+      "score": "NOT_EXPOSED_ON_ENTITY_EDGE",
+      "earliest_channel": "bm25",
+      "earliest_rank": 1
+    },
+    {
+      "uuid": "b95993f7-a2ca-4d12-a5b5-02dca76f8777",
+      "name": "USES",
+      "fact": "Project Orion uses Python.",
+      "group_id": "fm14_main_5accdaadf974",
+      "source_node_uuid": "91259591-d51d-4b60-97e4-9ad29d71d17e",
+      "target_node_uuid": "95c3fd2c-4a38-43b7-8768-96a086cccef5",
+      "channel": "bm25",
+      "rank": 2,
+      "score": "NOT_EXPOSED_ON_ENTITY_EDGE",
+      "earliest_channel": "bm25",
+      "earliest_rank": 2
+    },
+    {
+      "uuid": "1bdf4037-8d3d-449f-af9e-f3f264cddef1",
+      "name": "USES",
+      "fact": "Project Nova uses Rust.",
+      "group_id": "fm14_main_5accdaadf974",
+      "source_node_uuid": "946a3b60-db5e-4de2-9a7a-fdaca63f881d",
+      "target_node_uuid": "95d7ae09-c09a-428b-9cb5-91c74fa02ef7",
+      "channel": "bm25",
+      "rank": 3,
+      "score": "NOT_EXPOSED_ON_ENTITY_EDGE",
+      "earliest_channel": "bm25",
+      "earliest_rank": 3
+    }
+  ],
+  "Q2": [
+    {
+      "uuid": "b95993f7-a2ca-4d12-a5b5-02dca76f8777",
+      "name": "USES",
+      "fact": "Project Orion uses Python.",
+      "group_id": "fm14_main_5accdaadf974",
+      "source_node_uuid": "91259591-d51d-4b60-97e4-9ad29d71d17e",
+      "target_node_uuid": "95c3fd2c-4a38-43b7-8768-96a086cccef5",
+      "channel": "bm25",
+      "rank": 0,
+      "score": "NOT_EXPOSED_ON_ENTITY_EDGE",
+      "earliest_channel": "bm25",
+      "earliest_rank": 0
+    },
+    {
+      "uuid": "1bdf4037-8d3d-449f-af9e-f3f264cddef1",
+      "name": "USES",
+      "fact": "Project Nova uses Rust.",
+      "group_id": "fm14_main_5accdaadf974",
+      "source_node_uuid": "946a3b60-db5e-4de2-9a7a-fdaca63f881d",
+      "target_node_uuid": "95d7ae09-c09a-428b-9cb5-91c74fa02ef7",
+      "channel": "bm25",
+      "rank": 1,
+      "score": "NOT_EXPOSED_ON_ENTITY_EDGE",
+      "earliest_channel": "bm25",
+      "earliest_rank": 1
+    },
+    {
+      "uuid": "3afbc731-3004-40e1-86fe-f3dae57a125f",
+      "name": "WORKS_ON",
+      "fact": "Alice works on Project Orion.",
+      "group_id": "fm14_main_5accdaadf974",
+      "source_node_uuid": "b7991384-0f0e-4e9d-826b-ed37831b641a",
+      "target_node_uuid": "91259591-d51d-4b60-97e4-9ad29d71d17e",
+      "channel": "bm25",
+      "rank": 2,
+      "score": "NOT_EXPOSED_ON_ENTITY_EDGE",
+      "earliest_channel": "bm25",
+      "earliest_rank": 2
+    },
+    {
+      "uuid": "d9fffc7d-23d6-4f6f-a6f5-3bac663aeae2",
+      "name": "WORKS_ON",
+      "fact": "Bob works on Project Nova.",
+      "group_id": "fm14_main_5accdaadf974",
+      "source_node_uuid": "8f29f1af-da56-457a-8352-bb3faec94cb2",
+      "target_node_uuid": "946a3b60-db5e-4de2-9a7a-fdaca63f881d",
+      "channel": "bm25",
+      "rank": 3,
+      "score": "NOT_EXPOSED_ON_ENTITY_EDGE",
+      "earliest_channel": "bm25",
+      "earliest_rank": 3
+    }
+  ],
+  "Q3": [
+    {
+      "uuid": "1bdf4037-8d3d-449f-af9e-f3f264cddef1",
+      "name": "USES",
+      "fact": "Project Nova uses Rust.",
+      "group_id": "fm14_main_5accdaadf974",
+      "source_node_uuid": "946a3b60-db5e-4de2-9a7a-fdaca63f881d",
+      "target_node_uuid": "95d7ae09-c09a-428b-9cb5-91c74fa02ef7",
+      "channel": "bm25",
+      "rank": 0,
+      "score": "NOT_EXPOSED_ON_ENTITY_EDGE",
+      "earliest_channel": "bm25",
+      "earliest_rank": 0
+    },
+    {
+      "uuid": "d9fffc7d-23d6-4f6f-a6f5-3bac663aeae2",
+      "name": "WORKS_ON",
+      "fact": "Bob works on Project Nova.",
+      "group_id": "fm14_main_5accdaadf974",
+      "source_node_uuid": "8f29f1af-da56-457a-8352-bb3faec94cb2",
+      "target_node_uuid": "946a3b60-db5e-4de2-9a7a-fdaca63f881d",
+      "channel": "bm25",
+      "rank": 1,
+      "score": "NOT_EXPOSED_ON_ENTITY_EDGE",
+      "earliest_channel": "bm25",
+      "earliest_rank": 1
+    },
+    {
+      "uuid": "b95993f7-a2ca-4d12-a5b5-02dca76f8777",
+      "name": "USES",
+      "fact": "Project Orion uses Python.",
+      "group_id": "fm14_main_5accdaadf974",
+      "source_node_uuid": "91259591-d51d-4b60-97e4-9ad29d71d17e",
+      "target_node_uuid": "95c3fd2c-4a38-43b7-8768-96a086cccef5",
+      "channel": "bm25",
+      "rank": 2,
+      "score": "NOT_EXPOSED_ON_ENTITY_EDGE",
+      "earliest_channel": "bm25",
+      "earliest_rank": 2
+    },
+    {
+      "uuid": "3afbc731-3004-40e1-86fe-f3dae57a125f",
+      "name": "WORKS_ON",
+      "fact": "Alice works on Project Orion.",
+      "group_id": "fm14_main_5accdaadf974",
+      "source_node_uuid": "b7991384-0f0e-4e9d-826b-ed37831b641a",
+      "target_node_uuid": "91259591-d51d-4b60-97e4-9ad29d71d17e",
+      "channel": "bm25",
+      "rank": 3,
+      "score": "NOT_EXPOSED_ON_ENTITY_EDGE",
+      "earliest_channel": "bm25",
+      "earliest_rank": 3
+    }
+  ],
+  "Q4": [
+    {
+      "uuid": "3afbc731-3004-40e1-86fe-f3dae57a125f",
+      "name": "WORKS_ON",
+      "fact": "Alice works on Project Orion.",
+      "group_id": "fm14_main_5accdaadf974",
+      "source_node_uuid": "b7991384-0f0e-4e9d-826b-ed37831b641a",
+      "target_node_uuid": "91259591-d51d-4b60-97e4-9ad29d71d17e",
+      "channel": "bm25",
+      "rank": 0,
+      "score": "NOT_EXPOSED_ON_ENTITY_EDGE",
+      "earliest_channel": "bm25",
+      "earliest_rank": 0
+    },
+    {
+      "uuid": "d9fffc7d-23d6-4f6f-a6f5-3bac663aeae2",
+      "name": "WORKS_ON",
+      "fact": "Bob works on Project Nova.",
+      "group_id": "fm14_main_5accdaadf974",
+      "source_node_uuid": "8f29f1af-da56-457a-8352-bb3faec94cb2",
+      "target_node_uuid": "946a3b60-db5e-4de2-9a7a-fdaca63f881d",
+      "channel": "bm25",
+      "rank": 1,
+      "score": "NOT_EXPOSED_ON_ENTITY_EDGE",
+      "earliest_channel": "bm25",
+      "earliest_rank": 1
+    },
+    {
+      "uuid": "b95993f7-a2ca-4d12-a5b5-02dca76f8777",
+      "name": "USES",
+      "fact": "Project Orion uses Python.",
+      "group_id": "fm14_main_5accdaadf974",
+      "source_node_uuid": "91259591-d51d-4b60-97e4-9ad29d71d17e",
+      "target_node_uuid": "95c3fd2c-4a38-43b7-8768-96a086cccef5",
+      "channel": "bm25",
+      "rank": 2,
+      "score": "NOT_EXPOSED_ON_ENTITY_EDGE",
+      "earliest_channel": "bm25",
+      "earliest_rank": 2
+    },
+    {
+      "uuid": "1bdf4037-8d3d-449f-af9e-f3f264cddef1",
+      "name": "USES",
+      "fact": "Project Nova uses Rust.",
+      "group_id": "fm14_main_5accdaadf974",
+      "source_node_uuid": "946a3b60-db5e-4de2-9a7a-fdaca63f881d",
+      "target_node_uuid": "95d7ae09-c09a-428b-9cb5-91c74fa02ef7",
+      "channel": "bm25",
+      "rank": 3,
+      "score": "NOT_EXPOSED_ON_ENTITY_EDGE",
+      "earliest_channel": "bm25",
+      "earliest_rank": 3
+    }
+  ],
+  "Q5": [
+    {
+      "uuid": "3afbc731-3004-40e1-86fe-f3dae57a125f",
+      "name": "WORKS_ON",
+      "fact": "Alice works on Project Orion.",
+      "group_id": "fm14_main_5accdaadf974",
+      "source_node_uuid": "b7991384-0f0e-4e9d-826b-ed37831b641a",
+      "target_node_uuid": "91259591-d51d-4b60-97e4-9ad29d71d17e",
+      "channel": "bm25",
+      "rank": 0,
+      "score": "NOT_EXPOSED_ON_ENTITY_EDGE",
+      "earliest_channel": "bm25",
+      "earliest_rank": 0
+    },
+    {
+      "uuid": "b95993f7-a2ca-4d12-a5b5-02dca76f8777",
+      "name": "USES",
+      "fact": "Project Orion uses Python.",
+      "group_id": "fm14_main_5accdaadf974",
+      "source_node_uuid": "91259591-d51d-4b60-97e4-9ad29d71d17e",
+      "target_node_uuid": "95c3fd2c-4a38-43b7-8768-96a086cccef5",
+      "channel": "bm25",
+      "rank": 1,
+      "score": "NOT_EXPOSED_ON_ENTITY_EDGE",
+      "earliest_channel": "bm25",
+      "earliest_rank": 1
+    },
+    {
+      "uuid": "1bdf4037-8d3d-449f-af9e-f3f264cddef1",
+      "name": "USES",
+      "fact": "Project Nova uses Rust.",
+      "group_id": "fm14_main_5accdaadf974",
+      "source_node_uuid": "946a3b60-db5e-4de2-9a7a-fdaca63f881d",
+      "target_node_uuid": "95d7ae09-c09a-428b-9cb5-91c74fa02ef7",
+      "channel": "bm25",
+      "rank": 2,
+      "score": "NOT_EXPOSED_ON_ENTITY_EDGE",
+      "earliest_channel": "bm25",
+      "earliest_rank": 2
+    },
+    {
+      "uuid": "d9fffc7d-23d6-4f6f-a6f5-3bac663aeae2",
+      "name": "WORKS_ON",
+      "fact": "Bob works on Project Nova.",
+      "group_id": "fm14_main_5accdaadf974",
+      "source_node_uuid": "8f29f1af-da56-457a-8352-bb3faec94cb2",
+      "target_node_uuid": "946a3b60-db5e-4de2-9a7a-fdaca63f881d",
+      "channel": "cosine_similarity",
+      "rank": 3,
+      "score": "NOT_EXPOSED_ON_ENTITY_EDGE",
+      "sim_min_score_config": 0.6,
+      "earliest_channel": "cosine_similarity",
+      "earliest_rank": 3
+    }
+  ]
+}

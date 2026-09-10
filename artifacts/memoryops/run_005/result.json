@@ -1,0 +1,72 @@
+{
+  "phase": "FM-14",
+  "status": "COMPLETED",
+  "classification": "REAL_LLM_EXTRACTION+REAL_SEMANTIC_EMBEDDING",
+  "one_variable": "DeterministicEmbedder \u2192 LocalSemanticEmbedder",
+  "extraction_control": "PASS",
+  "fresh_db": "/workspace/Graphiti_fractal_lab/data/memoryops_fm14/fm14_5accdaadf974.db",
+  "matrix": {
+    "FM-14A_real_embedder_smoke_fingerprint": "PASS",
+    "FM-14B_deepseek_embeddings_probe_local_path": "PASS",
+    "FM-14C_extraction_parity": "PASS",
+    "FM-14D_similarity_matrix": "PASS",
+    "FM-14E_channel_instrumentation": "PASS",
+    "FM-14F_baseline_vs_real_embedding": "PASS",
+    "FM-14G_classifications": "PASS",
+    "FM-14H_Q4_zephyr_trace": "PASS",
+    "FM-14I_findings_docs": "PASS",
+    "FM-14J_real_embedder_asserted_no_final_improve_required": "PASS"
+  },
+  "classifications": {
+    "COSINE_CHANNEL_EFFECT": "COSINE_CHANNEL_EFFECT",
+    "BM25_NOISE_PERSISTS": "BM25_NOISE_PERSISTS",
+    "FINAL_HYBRID_EFFECT": "FINAL_HYBRID_EFFECT",
+    "REAL_EMBEDDINGS_SUFFICIENT_FOR_Q4": "REAL_EMBEDDINGS_NOT_SUFFICIENT_FOR_Q4",
+    "pipeline_note": "EMBEDDING_IMPROVEMENT_CONFIRMED BUT SEARCH_PIPELINE_FILTERING_STILL_INSUFFICIENT"
+  },
+  "metrics_summary": {
+    "macro_Q1_Q3": {
+      "Precision@1": 1.0,
+      "Precision@3": 0.4444444444444444,
+      "Precision@4": 0.3333333333333333,
+      "Recall@1": 0.8333333333333334,
+      "Recall@3": 1.0,
+      "Recall@4": 1.0,
+      "MRR": 1.0
+    },
+    "Q4": {
+      "retrieved": [
+        "Project Orion uses Python.",
+        "Alice works on Project Orion.",
+        "Bob works on Project Nova.",
+        "Project Nova uses Rust."
+      ],
+      "relevant": [],
+      "Precision@1": 0.0,
+      "Precision@3": 0.0,
+      "Precision@4": 0.0,
+      "Recall@1": null,
+      "Recall@3": null,
+      "Recall@4": null,
+      "MRR": 0.0
+    }
+  },
+  "Q5_classification": {
+    "classification": "MULTI_HOP",
+    "has_alice_works_on_orion": true,
+    "has_orion_uses_python": true,
+    "has_direct_alice_uses_python_edge": false,
+    "facts": [
+      "Alice works on Project Orion.",
+      "Project Orion uses Python.",
+      "Project Nova uses Rust.",
+      "Bob works on Project Nova."
+    ]
+  },
+  "SECRET_LOGGED": "NO",
+  "API_COST_EMBEDDINGS_USD": 0,
+  "LOCAL_COMPUTE_COST": "NOT_MEASURED",
+  "NEO4J_CAUSAL_EVIDENCE": "NO",
+  "start_head": "dbcf2fd0638695c437e78cbce8f4adbfc6bc58b1",
+  "start_head_match": true
+}

@@ -68,6 +68,7 @@ class LabMemoryOps:
         build_indices: bool = True,
         temporal: bool = True,
         llm_client: Any | None = None,
+        embedder: Any | None = None,
     ) -> LabMemoryOps:
         """Open lab Graphiti stack.
 
@@ -75,6 +76,9 @@ class LabMemoryOps:
           - If provided, used as-is (REAL_LLM path / custom stubs).
           - Else DeterministicTemporalLLMClient when temporal=True.
           - Else DeterministicLLMClient via open_lab_graphiti default.
+        embedder:
+          - If provided, used as-is (FM-14 REAL semantic path).
+          - Else DeterministicEmbedder via open_lab_graphiti default.
         """
         if llm_client is not None:
             llm = llm_client
@@ -87,6 +91,7 @@ class LabMemoryOps:
             database="default_db",
             build_indices=build_indices,
             llm_client=llm,
+            embedder=embedder,
         )
         return cls(stack, default_group_id=default_group_id)
 

@@ -1,0 +1,6 @@
+git rev-parse HEAD
+expected_start=dbcf2fd0638695c437e78cbce8f4adbfc6bc58b1
+start_head_match=True
+LabMemoryOps.open(/workspace/Graphiti_fractal_lab/data/memoryops_fm14/fm14_5accdaadf974.db, DeepSeek LLM + LocalSemanticEmbedder, fresh DB)
+ingest N1..N4 via graphiti.add_episode
+pytest tests/lab/test_memoryops_fm14_real_embedding.py -v
