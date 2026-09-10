@@ -40,17 +40,16 @@ This is a **query-time relevance** problem. It is not a storage, provenance, Can
 | FM-13 | Where does measured retrieval noise first enter? | BM25 introduces broad candidates; RRF preserves them; CE was not invoked. | ✅ COMPLETED |
 | FM-14 | Are real semantic embeddings alone sufficient? | Real BGE geometry improves, but final hybrid filtering remains insufficient; Zephyr still returns four false positives. | ✅ COMPLETED |
 | FM-15 | Does a real pairwise Cross-Encoder provide a useful query↔fact signal? | Yes on the frozen 4-fact fixture. Strong pairwise discrimination observed; no threshold/runtime gate authorized. | ✅ COMPLETED |
-| FM-16 | Does the CE signal generalize to unseen entities/adversarial hard negatives, and can one calibration-only global threshold survive held-out test? | Not run yet. | ⏳ PLANNED / NOT_RUN |
+| FM-16 v1 protocol | Does the signal generalize under held-out calibration + adversarial negatives? | Independent pre-scoring audit found methodological defects in gold semantics and success criteria. No scorer was run. | 🔴 REQUEST_CHANGES_BEFORE_SCORING / SUPERSEDED |
+| FM-16 hardened protocol | Same scientific question, with corrected relevance labels, explicit hard-negative rejection gates, exact metric rules, and stricter model identity checks. | Not yet written/executed. | ⏳ NEXT / NOT_RUN |
 
-**Current next question:** FM-16 generalization + calibration. Do not skip directly to runtime integration.
+**Current next action:** revise FM-16 before preregistration or scoring. Do not run the superseded protocol text.
 
 ---
 
 ## FM-13 — Search-path diagnosis
 
 **Evidence:** `artifacts/memoryops/run_004/`
-
-Primary receipt: [`../../artifacts/memoryops/run_004/result.json`](../../artifacts/memoryops/run_004/result.json)
 
 Observed on the frozen Q1–Q5 fixture:
 
@@ -64,15 +63,13 @@ Interpretation ceiling:
 
 > Broad BM25 candidate generation is not itself a defect; the observed failure is that later fusion/selection did not reject query-irrelevant candidates on this fixture.
 
-The artifact labels Q5 as `MULTI_HOP`; this research ledger uses the stricter interpretation **CO_RETRIEVAL_ONLY / MULTI_HOP_REASONING_NOT_PROVEN** because no direct Alice→Python fact or executed reasoning proof was established.
+The artifact labels Q5 as `MULTI_HOP`; this research ledger uses the stricter interpretation **CO_RETRIEVAL_ONLY / MULTI_HOP_REASONING_NOT_PROVEN**.
 
 ---
 
 ## FM-14 — Real embedding differential
 
 **Evidence:** `artifacts/memoryops/run_005/`
-
-Primary receipt: [`../../artifacts/memoryops/run_005/result.json`](../../artifacts/memoryops/run_005/result.json)
 
 One experimental variable changed from deterministic embeddings to a real local semantic embedder (`BAAI/bge-small-en-v1.5`). Extraction control passed.
 
@@ -84,15 +81,13 @@ Result:
 - artifact conclusion: `EMBEDDING_IMPROVEMENT_CONFIRMED BUT SEARCH_PIPELINE_FILTERING_STILL_INSUFFICIENT`;
 - `NEO4J_CAUSAL_EVIDENCE = NO`.
 
-Claim boundary:
-
 ```text
 REAL EMBEDDINGS IMPROVED GEOMETRY
 ≠
 REAL EMBEDDINGS SOLVED FINAL RELEVANCE FILTERING
 ```
 
-The full FM-14 pairwise cosine matrix happened to be separable for the tiny fixture, so later CE work must not claim that embeddings had zero separability. The problem was the active hybrid retrieval result and generalization, not merely existence of a possible toy threshold.
+The full FM-14 pairwise cosine matrix happened to be separable for the tiny fixture, so later CE work must not claim that embeddings had zero separability.
 
 ---
 
@@ -100,14 +95,7 @@ The full FM-14 pairwise cosine matrix happened to be separable for the tiny fixt
 
 **Evidence:** `artifacts/memoryops/run_006/`
 
-Primary artifacts:
-
-- [`../../artifacts/memoryops/run_006/result.json`](../../artifacts/memoryops/run_006/result.json)
-- [`../../artifacts/memoryops/run_006/cross_encoder_score_matrix.json`](../../artifacts/memoryops/run_006/cross_encoder_score_matrix.json)
-- [`../../artifacts/memoryops/run_006/model_fingerprint.json`](../../artifacts/memoryops/run_006/model_fingerprint.json)
-- [`../../artifacts/memoryops/run_006/pytest.txt`](../../artifacts/memoryops/run_006/pytest.txt)
-
-Real local scorer:
+Recorded scorer:
 
 ```text
 model: BAAI/bge-reranker-v2-m3
@@ -128,74 +116,132 @@ Observed CE matrix highlights:
 | Q3 `What is related to Project Nova?` | F3 `0.049960`, F4 `0.032244` | best non-gold ≈ `0.000021` |
 | Q4 `Who works on Project Zephyr?` | gold = ∅ | max candidate `0.007880` |
 
-FM-15 therefore established a **useful pairwise query↔fact relevance signal on this frozen fixture**. Q4 candidates were below every Q1–Q3 gold positive, but the observed interval is fixture-only and not a production threshold.
+FM-15 established a **useful pairwise query↔fact relevance signal on this frozen fixture**. It did not establish generalization or a production threshold.
 
-Important correction / non-claim:
+Important non-claims:
 
 - FM-14 embeddings were also mathematically separable on this tiny pair matrix;
-- CE gave much sharper Q1/Q2 discrimination, while Q3 valid broad-query scores were low in absolute terms;
-- cosine and CE sigmoid scores live on different scales, so raw margin magnitude must not be compared as if directly commensurate;
+- cosine and CE sigmoid scores are different scales;
 - `NEW_SEPARABILITY_VS_EMBEDDINGS = NOT_ESTABLISHED`;
 - `PAIRWISE_CE_SIGNAL = CONFIRMED_ON_FIXTURE`.
 
-FM-15 test receipt: **14 passed, 1 warning** in the recorded run.
+---
 
-### FM-15 bookkeeping note
+## 🔴 FM-16 v1 — Independent protocol audit before scoring
 
-Implementation commit and later bookkeeping HEAD are different concepts. Do not create self-referential `END_SHA` bookkeeping. Future runs should report an externally observed `FINAL_HEAD_SHA` rather than attempting to write a commit's own SHA into itself.
+**Status:** `REQUEST_CHANGES_BEFORE_SCORING / SUPERSEDED_FOR_EXECUTION`.
+
+The independent audit was read-only. It verified the then-live branch had advanced only by documentation commits, `run_006` artifacts remained intact, `run_007` did not exist, and FM-16 had not run.
+
+### Critical finding 1 — relevance ≠ positive support
+
+The superseded protocol incorrectly allowed examples where a direct negative answer was labelled as a hard negative merely because it negated a proposition.
+
+Example:
+
+```text
+Q: Does X support Y?
+F1: X supports Y.      → relevant answer: YES
+F2: X does not support Y. → relevant answer: NO
+```
+
+Both can be relevant to the information need. A query↔fact relevance scorer should not be punished for recognizing a direct negative answer.
+
+New invariant:
+
+```text
+RELEVANT_ANSWER
+≠
+SUPPORTS_POSITIVE_PROPOSITION
+```
+
+The same issue affects conditional and numeric yes/no examples. Gold relevance must be defined by whether the candidate directly answers or contributes an allowed answer to the query, while preserving polarity/scope/conditions/attribution.
+
+### Critical finding 2 — `GENERALIZATION_STRONG` could pass with zero useful filtering
+
+The old success criteria allowed a counterexample where:
+
+- all answerable queries retain gold;
+- all no-answer queries become EMPTY;
+- no semantic inversion occurs;
+- yet every answerable query still returns all 40 candidates;
+- hard-negative rejection = 0%.
+
+Therefore `GENERALIZATION_STRONG` must include an explicit preregistered **hard-negative rejection / returned-set quality** requirement, not only recall and no-answer EMPTY.
+
+Also distinguish:
+
+```text
+ALL_NON_GOLD_REJECTION
+≠
+HARD_NEGATIVE_REJECTION
+```
+
+Easy unrelated negatives must not hide failure on adversarial near-misses.
+
+### Additional mandatory hardening
+
+Before scoring, the revised protocol must also define:
+
+1. **No feasible calibration threshold:** `threshold = null`; thresholded test metrics = `NOT_APPLICABLE`; no fallback threshold.
+2. **Model identity:** verify the actually loaded snapshot/weights/tokenizer/config/inference profile, not only a cached revision string.
+3. **Exact metric definitions:** denominators, tie handling, threshold comparator (`>=` vs `>`), candidate threshold set, selected-set precision, and verdict precedence.
+4. **Exact verdict table:** `BETTER`, `MIXED`, `NO_MATERIAL_GAIN`, `WORSE`, `GENERALIZATION_PARTIAL`, `FAILED`, and systematic inversion must be defined before scoring.
+5. **Leakage-safe ordering:** preregistration → model fingerprint verification → calibration scoring → threshold freeze → test scoring/reporting → anchor regression.
+6. **Claim ceiling:** 800 query×fact pairs are matrix entries, not 800 independent statistical observations. Success is bounded to the synthetic held-out design.
+7. **Scorer failure semantics:** timeout/NaN/missing score ≠ successful EMPTY.
+
+### Adversarial strata need semantic repair, not removal
+
+Negation, temporal/version, scope, conditions, attribution, and numeric/unit contrasts remain useful. But labels must follow the query's information need.
+
+Examples:
+
+- historical fact may be irrelevant to a narrow “currently” query but relevant to a broad history query;
+- conditional fact may directly answer “is it enabled by default?” with NO rather than being irrelevant;
+- numeric opposite can answer a yes/no threshold question rather than being a retrieval negative;
+- attributed uncertainty can be relevant context without proving the asserted event occurred.
+
+This is an **evaluation-design correction**, not a new architecture component.
 
 ---
 
-## FM-16 — Generalization + calibration plan
+## 🧪 FM-16 hardened protocol — required shape
 
-**Status:** `PLANNED / NOT_RUN`.
-
-The planned experiment must not simply re-run FM-15. It is intended to test whether the CE signal survives a larger, entity-disjoint held-out corpus and adversarial semantic near-misses.
-
-Core design:
+The scientific intent is retained:
 
 - FM-15 anchor for regression only;
 - calibration: 40 facts / 20 queries;
 - held-out test: 40 different facts / 20 different queries;
-- calibration and test entities disjoint;
-- each split: 12 answerable + 8 no-answer queries;
-- compare exactly two score families: real BGE embedding cosine vs real BGE Cross-Encoder;
-- threshold may be selected **only** on calibration and frozen before held-out test;
-- no forced refill after all candidates fail qualification;
-- no runtime integration in FM-16.
+- calibration and test entity-disjoint;
+- 12 answerable + 8 no-answer per split;
+- CE vs real embedding baseline;
+- one global threshold per score family, calibrated only on calibration data;
+- honest EMPTY with no forced refill;
+- adversarial hard negatives;
+- no runtime integration.
 
-Required adversarial hard-negative families include:
+But execution is blocked until the protocol is rewritten with the audit fixes above.
 
-1. same entity / wrong predicate;
-2. same predicate / wrong entity;
-3. lexical overlap / wrong answer;
-4. semantically related / wrong relation;
-5. near-name entity collision;
-6. unrelated;
-7. negation / polarity;
-8. temporal or version mismatch in text;
-9. scope mismatch;
-10. condition mismatch;
-11. attribution/source mismatch;
-12. numeric/unit/direction mismatch.
+The revised gold definition should be explicit, e.g.:
 
-This design is meant to attack the scorer with facts that look similar but are semantically wrong, not merely random negatives.
+> `gold_relevant = candidate contains a direct answer or a preregistered admissible contribution to the answer for the query's information need, while preserving polarity, scope, temporal wording, conditions, attribution, and quantity semantics.`
+
+Optional diagnostic labels may include support/refute/uncertain/scope mismatch/etc., but those must not silently replace the primary relevance definition.
 
 ---
 
 ## 🧩 Donor map — research context only
 
-These references inform **tests, interfaces, or failure modes**. They are not adopted Fractal runtime components.
-
 | Donor | Useful lesson | Boundary |
 |---|---|---|
-| 🗿 Titan | `selected/discarded + reason`, thresholded attention shape, typed no-signal precedent, narrow FactsPack negative-control guard | Titan trust/confidence/risk/epistemic policy must not become Fractal relevance authority. |
+| 🗿 Titan | `selected/discarded + reason`, thresholded attention shape, typed no-signal precedent | Titan trust/confidence/risk/epistemic policy must not become Fractal relevance authority. |
 | 💠 Crystal | preregistered hard-negative/no-recall-loss evaluation discipline; adversarial strata | Canon/evidence admission is not query relevance. |
 | 🧬 Native Kernel | relevance/similarity/rank must not independently establish epistemic validity; UNKNOWN ≠ FALSE | invariant donor only. |
-| 🦞 OpenClaw | broad candidate window, separate ranking signals, index identity; real recall-vs-threshold tension | lexical fallback after a failed strict score can defeat honest EMPTY; do not copy thresholds. |
+| 🦞 OpenClaw | broad candidate window, separate ranking signals, index identity; threshold-vs-recall tension | lexical fallback after failed strict score can defeat honest EMPTY; do not copy thresholds. |
 | 🔬 SVL | applicability/UNKNOWN/fail-closed validation pattern | temporal applicability ≠ semantic query relevance. |
-| EITI | small empty-capable selectors and forced-top-k/fallback as a negative example | never refill rejected candidates merely to guarantee output count. |
-| 🕸 Fractal experience applicability | already demonstrates `retrieved ≠ applicable`, per-candidate receipt and all-rejected output inside Fractal | tool/environment compatibility predicate ≠ general semantic relevance predicate. |
+| EITI | empty-capable selectors and forced-top-k/fallback as a negative example | never refill rejected candidates merely to guarantee output count. |
+| 🕸 Fractal experience applicability | `retrieved ≠ applicable`, per-candidate receipt, all-rejected output inside Fractal | tool/environment compatibility ≠ general semantic relevance. |
 
 ```text
 DONOR_REFERENCE ≠ ADOPTED_RUNTIME
@@ -208,6 +254,7 @@ SIMILAR GATE SHAPE ≠ SHARED OWNER
 RESEARCH ≠ RUNTIME
 TESTED ≠ PRODUCTION AUTHORIZED
 RETRIEVED ≠ RELEVANT
+RELEVANT ≠ SUPPORTS_POSITIVE_PROPOSITION
 RELEVANCE ≠ EVIDENCE
 RELEVANCE ≠ TRUTH
 EVIDENCE ≠ BELIEF
@@ -217,11 +264,10 @@ NO_RELEVANT_RESULT ≠ FACT FALSE
 NO_RELEVANT_RESULT ≠ ENTITY ABSENT
 NOT RETRIEVED ≠ ABSENT
 TEMPORAL APPLICABILITY ≠ SEMANTIC RELEVANCE
+SCORER_FAILURE ≠ HONEST_EMPTY
 ```
 
 ## 📚 Evidence routing
-
-For this research family use this order:
 
 ```text
 exact branch / exact commit
@@ -231,8 +277,6 @@ exact branch / exact commit
   > this explanatory track
   > external/cross-project donor summaries
 ```
-
-Never reverse this order because a narrative is easier to read.
 
 ## 🤖 Machine-readable current summary
 
@@ -245,22 +289,24 @@ architecture_change: false
 new_relevance_module_justified: false
 fm13:
   status: COMPLETED
-  finding: BM25_BROAD_CANDIDATES_PLUS_RRF_NO_REJECTION_ON_FIXTURE
 fm14:
   status: COMPLETED
-  finding: REAL_EMBEDDINGS_IMPROVED_GEOMETRY_BUT_FINAL_FILTERING_INSUFFICIENT
 fm15:
   status: COMPLETED
   pairwise_ce_signal: CONFIRMED_ON_FIXTURE
   new_separability_vs_embeddings: NOT_ESTABLISHED
-  runtime_gate: NOT_IMPLEMENTED
-  threshold_authorized: false
 fm16:
   status: PLANNED_NOT_RUN
-  question: HELD_OUT_GENERALIZATION_AND_GLOBAL_THRESHOLD_FEASIBILITY
-current_next_action: RUN_FM16_AFTER_RESOURCES_AVAILABLE_THEN_STOP_FOR_INDEPENDENT_REVIEW
+  protocol_v1: REQUEST_CHANGES_BEFORE_SCORING_SUPERSEDED
+  preregistration: NOT_CREATED
+  run_007: NOT_CREATED
+  scorer_run: false
+  generalization: INCONCLUSIVE
+  next: REVISE_PROTOCOL_BEFORE_PREREGISTRATION_AND_SCORING
+runtime_gate: NOT_IMPLEMENTED
+global_threshold: NOT_ESTABLISHED
 ```
 
 ## ⛔ Stop boundary
 
-Until FM-16 evidence exists, do not infer that a Cross-Encoder should be activated in Fractal runtime, do not choose a production `reranker_min_score`, do not implement `NO_RELEVANT_MEMORY`, and do not create a new relevance subsystem merely from FM-15.
+Do not execute the superseded FM-16 v1 protocol. Until a hardened preregistered version exists and is independently reviewable, do not run scoring, choose a runtime threshold, activate Cross-Encoder in Fractal search, implement `NO_RELEVANT_MEMORY`, or create a new relevance subsystem.
