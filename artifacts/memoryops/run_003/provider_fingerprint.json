@@ -1,0 +1,42 @@
+{
+  "status": "BLOCKED_NO_REAL_PROVIDER",
+  "checked_at_utc": "2026-09-10T08:54:06.179604+00:00",
+  "providers_checked": [
+    "OPENAI_API_KEY",
+    "ANTHROPIC_API_KEY",
+    "GOOGLE_API_KEY",
+    "GEMINI_API_KEY",
+    "AZURE_OPENAI_API_KEY",
+    "GROQ_API_KEY",
+    "XAI_API_KEY",
+    "GROK_API_KEY",
+    "OPENROUTER_API_KEY",
+    "VOYAGE_API_KEY",
+    "MISTRAL_API_KEY",
+    "COHERE_API_KEY",
+    "TOGETHER_API_KEY"
+  ],
+  "present_credentials": [],
+  "box_secrets_names": [
+    "GH_TOKEN",
+    "GITHUB_TOKEN",
+    "GITHUB_PERSONAL_ACCESS_TOKEN"
+  ],
+  "graphiti_llm_clients_installed": [
+    "openai_client",
+    "anthropic_client",
+    "azure_openai_client",
+    "gemini_client",
+    "groq_client",
+    "openai_generic_client"
+  ],
+  "python_packages": {
+    "openai": "3.11.0",
+    "anthropic": null
+  },
+  "graphiti_core": "0.29.3",
+  "falkordblite": "0.10.0",
+  "secrets": "REDACTED",
+  "deterministic_substitution": false,
+  "note": "No real LLM API credentials available in process env or box-secrets. FM-11/FM-12 not executed."
+}

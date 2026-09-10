@@ -1,0 +1,26 @@
+{
+  "phase": "FM-11/FM-12",
+  "status": "BLOCKED_NO_REAL_PROVIDER",
+  "start_sha": "c4433a72ef799f9827e5c546db31feae7938ca44",
+  "end_sha": "c4433a72ef799f9827e5c546db31feae7938ca44",
+  "fm11": {
+    "FM-11A": "BLOCKED",
+    "FM-11B": "NOT_RUN",
+    "FM-11C": "NOT_RUN",
+    "FM-11D": "NOT_RUN",
+    "FM-11E": "NOT_RUN",
+    "FM-11F": "NOT_RUN",
+    "FM-11G": "NOT_RUN",
+    "FM-11H": "NOT_RUN"
+  },
+  "fm12": {
+    "FM-12A": "NOT_RUN",
+    "FM-12B": "NOT_RUN",
+    "FM-12C": "NOT_RUN",
+    "FM-12D": "NOT_RUN",
+    "FM-12E": "NOT_RUN",
+    "FM-12F": "NOT_RUN"
+  },
+  "reason": "No real LLM credentials in environment or box-secrets (only GitHub tokens). Deterministic provider was NOT substituted.",
+  "next": "Provide OPENAI_API_KEY (or other Graphiti-supported provider key) via secure secret input, then resume FM-11/FM-12."
+}
