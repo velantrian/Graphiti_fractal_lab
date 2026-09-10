@@ -1,0 +1,281 @@
+{
+  "model": "BAAI/bge-reranker-v2-m3",
+  "RAW_SCORE_definition": "BGERerankerClient.rank / CrossEncoder.predict official output (activation_fn=Sigmoid)",
+  "NORMALIZED_SCORE_definition": "null \u2014 no additional lab normalization",
+  "LOGIT_SCORE_definition": "Identity activation transparency only",
+  "pair_count": 20,
+  "rows": [
+    {
+      "query_id": "Q1",
+      "query_text": "Who works on Project Orion?",
+      "fact_id": "F1",
+      "fact_text": "Alice works on Project Orion.",
+      "gold_relevant": true,
+      "RAW_SCORE": 0.9741688370704651,
+      "NORMALIZED_SCORE": null,
+      "LOGIT_SCORE": 3.6300032138824463,
+      "rank_within_query": 1,
+      "note": "RAW_SCORE is BGERerankerClient.rank / CrossEncoder.predict official output (model activation_fn=Sigmoid). No additional lab normalization. LOGIT_SCORE is Identity activation for transparency only."
+    },
+    {
+      "query_id": "Q1",
+      "query_text": "Who works on Project Orion?",
+      "fact_id": "F2",
+      "fact_text": "Project Orion uses Python.",
+      "gold_relevant": false,
+      "RAW_SCORE": 0.03027625009417534,
+      "NORMALIZED_SCORE": null,
+      "LOGIT_SCORE": -3.4666476249694824,
+      "rank_within_query": 2,
+      "note": "RAW_SCORE is BGERerankerClient.rank / CrossEncoder.predict official output (model activation_fn=Sigmoid). No additional lab normalization. LOGIT_SCORE is Identity activation for transparency only."
+    },
+    {
+      "query_id": "Q1",
+      "query_text": "Who works on Project Orion?",
+      "fact_id": "F3",
+      "fact_text": "Bob works on Project Nova.",
+      "gold_relevant": false,
+      "RAW_SCORE": 0.0073229726403951645,
+      "NORMALIZED_SCORE": null,
+      "LOGIT_SCORE": -4.909389019012451,
+      "rank_within_query": 3,
+      "note": "RAW_SCORE is BGERerankerClient.rank / CrossEncoder.predict official output (model activation_fn=Sigmoid). No additional lab normalization. LOGIT_SCORE is Identity activation for transparency only."
+    },
+    {
+      "query_id": "Q1",
+      "query_text": "Who works on Project Orion?",
+      "fact_id": "F4",
+      "fact_text": "Project Nova uses Rust.",
+      "gold_relevant": false,
+      "RAW_SCORE": 2.0570820197463036e-05,
+      "NORMALIZED_SCORE": null,
+      "LOGIT_SCORE": -10.791616439819336,
+      "rank_within_query": 4,
+      "note": "RAW_SCORE is BGERerankerClient.rank / CrossEncoder.predict official output (model activation_fn=Sigmoid). No additional lab normalization. LOGIT_SCORE is Identity activation for transparency only."
+    },
+    {
+      "query_id": "Q2",
+      "query_text": "What language does Project Orion use?",
+      "fact_id": "F1",
+      "fact_text": "Alice works on Project Orion.",
+      "gold_relevant": false,
+      "RAW_SCORE": 0.0025138286873698235,
+      "NORMALIZED_SCORE": null,
+      "LOGIT_SCORE": -5.983431339263916,
+      "rank_within_query": 3,
+      "note": "RAW_SCORE is BGERerankerClient.rank / CrossEncoder.predict official output (model activation_fn=Sigmoid). No additional lab normalization. LOGIT_SCORE is Identity activation for transparency only."
+    },
+    {
+      "query_id": "Q2",
+      "query_text": "What language does Project Orion use?",
+      "fact_id": "F2",
+      "fact_text": "Project Orion uses Python.",
+      "gold_relevant": true,
+      "RAW_SCORE": 0.9972037076950073,
+      "NORMALIZED_SCORE": null,
+      "LOGIT_SCORE": 5.876667022705078,
+      "rank_within_query": 1,
+      "note": "RAW_SCORE is BGERerankerClient.rank / CrossEncoder.predict official output (model activation_fn=Sigmoid). No additional lab normalization. LOGIT_SCORE is Identity activation for transparency only."
+    },
+    {
+      "query_id": "Q2",
+      "query_text": "What language does Project Orion use?",
+      "fact_id": "F3",
+      "fact_text": "Bob works on Project Nova.",
+      "gold_relevant": false,
+      "RAW_SCORE": 1.7932947230292484e-05,
+      "NORMALIZED_SCORE": null,
+      "LOGIT_SCORE": -10.928853034973145,
+      "rank_within_query": 4,
+      "note": "RAW_SCORE is BGERerankerClient.rank / CrossEncoder.predict official output (model activation_fn=Sigmoid). No additional lab normalization. LOGIT_SCORE is Identity activation for transparency only."
+    },
+    {
+      "query_id": "Q2",
+      "query_text": "What language does Project Orion use?",
+      "fact_id": "F4",
+      "fact_text": "Project Nova uses Rust.",
+      "gold_relevant": false,
+      "RAW_SCORE": 0.013467635959386826,
+      "NORMALIZED_SCORE": null,
+      "LOGIT_SCORE": -4.2939066886901855,
+      "rank_within_query": 2,
+      "note": "RAW_SCORE is BGERerankerClient.rank / CrossEncoder.predict official output (model activation_fn=Sigmoid). No additional lab normalization. LOGIT_SCORE is Identity activation for transparency only."
+    },
+    {
+      "query_id": "Q3",
+      "query_text": "What is related to Project Nova?",
+      "fact_id": "F1",
+      "fact_text": "Alice works on Project Orion.",
+      "gold_relevant": false,
+      "RAW_SCORE": 2.03070230782032e-05,
+      "NORMALIZED_SCORE": null,
+      "LOGIT_SCORE": -10.804523468017578,
+      "rank_within_query": 4,
+      "note": "RAW_SCORE is BGERerankerClient.rank / CrossEncoder.predict official output (model activation_fn=Sigmoid). No additional lab normalization. LOGIT_SCORE is Identity activation for transparency only."
+    },
+    {
+      "query_id": "Q3",
+      "query_text": "What is related to Project Nova?",
+      "fact_id": "F2",
+      "fact_text": "Project Orion uses Python.",
+      "gold_relevant": false,
+      "RAW_SCORE": 2.0758210666826926e-05,
+      "NORMALIZED_SCORE": null,
+      "LOGIT_SCORE": -10.782547950744629,
+      "rank_within_query": 3,
+      "note": "RAW_SCORE is BGERerankerClient.rank / CrossEncoder.predict official output (model activation_fn=Sigmoid). No additional lab normalization. LOGIT_SCORE is Identity activation for transparency only."
+    },
+    {
+      "query_id": "Q3",
+      "query_text": "What is related to Project Nova?",
+      "fact_id": "F3",
+      "fact_text": "Bob works on Project Nova.",
+      "gold_relevant": true,
+      "RAW_SCORE": 0.049960434436798096,
+      "NORMALIZED_SCORE": null,
+      "LOGIT_SCORE": -2.945272207260132,
+      "rank_within_query": 1,
+      "note": "RAW_SCORE is BGERerankerClient.rank / CrossEncoder.predict official output (model activation_fn=Sigmoid). No additional lab normalization. LOGIT_SCORE is Identity activation for transparency only."
+    },
+    {
+      "query_id": "Q3",
+      "query_text": "What is related to Project Nova?",
+      "fact_id": "F4",
+      "fact_text": "Project Nova uses Rust.",
+      "gold_relevant": true,
+      "RAW_SCORE": 0.03224395960569382,
+      "NORMALIZED_SCORE": null,
+      "LOGIT_SCORE": -3.401649236679077,
+      "rank_within_query": 2,
+      "note": "RAW_SCORE is BGERerankerClient.rank / CrossEncoder.predict official output (model activation_fn=Sigmoid). No additional lab normalization. LOGIT_SCORE is Identity activation for transparency only."
+    },
+    {
+      "query_id": "Q4",
+      "query_text": "Who works on Project Zephyr?",
+      "fact_id": "F1",
+      "fact_text": "Alice works on Project Orion.",
+      "gold_relevant": false,
+      "RAW_SCORE": 0.007880358956754208,
+      "NORMALIZED_SCORE": null,
+      "LOGIT_SCORE": -4.835470199584961,
+      "rank_within_query": 1,
+      "note": "RAW_SCORE is BGERerankerClient.rank / CrossEncoder.predict official output (model activation_fn=Sigmoid). No additional lab normalization. LOGIT_SCORE is Identity activation for transparency only."
+    },
+    {
+      "query_id": "Q4",
+      "query_text": "Who works on Project Zephyr?",
+      "fact_id": "F2",
+      "fact_text": "Project Orion uses Python.",
+      "gold_relevant": false,
+      "RAW_SCORE": 2.956380194518715e-05,
+      "NORMALIZED_SCORE": null,
+      "LOGIT_SCORE": -10.428930282592773,
+      "rank_within_query": 3,
+      "note": "RAW_SCORE is BGERerankerClient.rank / CrossEncoder.predict official output (model activation_fn=Sigmoid). No additional lab normalization. LOGIT_SCORE is Identity activation for transparency only."
+    },
+    {
+      "query_id": "Q4",
+      "query_text": "Who works on Project Zephyr?",
+      "fact_id": "F3",
+      "fact_text": "Bob works on Project Nova.",
+      "gold_relevant": false,
+      "RAW_SCORE": 0.005133460741490126,
+      "NORMALIZED_SCORE": null,
+      "LOGIT_SCORE": -5.266828536987305,
+      "rank_within_query": 2,
+      "note": "RAW_SCORE is BGERerankerClient.rank / CrossEncoder.predict official output (model activation_fn=Sigmoid). No additional lab normalization. LOGIT_SCORE is Identity activation for transparency only."
+    },
+    {
+      "query_id": "Q4",
+      "query_text": "Who works on Project Zephyr?",
+      "fact_id": "F4",
+      "fact_text": "Project Nova uses Rust.",
+      "gold_relevant": false,
+      "RAW_SCORE": 1.866598177002743e-05,
+      "NORMALIZED_SCORE": null,
+      "LOGIT_SCORE": -10.888789176940918,
+      "rank_within_query": 4,
+      "note": "RAW_SCORE is BGERerankerClient.rank / CrossEncoder.predict official output (model activation_fn=Sigmoid). No additional lab normalization. LOGIT_SCORE is Identity activation for transparency only."
+    },
+    {
+      "query_id": "Q5",
+      "query_text": "Does Alice use Python?",
+      "fact_id": "F1",
+      "fact_text": "Alice works on Project Orion.",
+      "gold_relevant": false,
+      "RAW_SCORE": 0.02313617803156376,
+      "NORMALIZED_SCORE": null,
+      "LOGIT_SCORE": -3.7429497241973877,
+      "rank_within_query": 1,
+      "note": "RAW_SCORE is BGERerankerClient.rank / CrossEncoder.predict official output (model activation_fn=Sigmoid). No additional lab normalization. LOGIT_SCORE is Identity activation for transparency only."
+    },
+    {
+      "query_id": "Q5",
+      "query_text": "Does Alice use Python?",
+      "fact_id": "F2",
+      "fact_text": "Project Orion uses Python.",
+      "gold_relevant": false,
+      "RAW_SCORE": 0.005334360525012016,
+      "NORMALIZED_SCORE": null,
+      "LOGIT_SCORE": -5.228237628936768,
+      "rank_within_query": 2,
+      "note": "RAW_SCORE is BGERerankerClient.rank / CrossEncoder.predict official output (model activation_fn=Sigmoid). No additional lab normalization. LOGIT_SCORE is Identity activation for transparency only."
+    },
+    {
+      "query_id": "Q5",
+      "query_text": "Does Alice use Python?",
+      "fact_id": "F3",
+      "fact_text": "Bob works on Project Nova.",
+      "gold_relevant": false,
+      "RAW_SCORE": 1.647881799726747e-05,
+      "NORMALIZED_SCORE": null,
+      "LOGIT_SCORE": -11.013418197631836,
+      "rank_within_query": 4,
+      "note": "RAW_SCORE is BGERerankerClient.rank / CrossEncoder.predict official output (model activation_fn=Sigmoid). No additional lab normalization. LOGIT_SCORE is Identity activation for transparency only."
+    },
+    {
+      "query_id": "Q5",
+      "query_text": "Does Alice use Python?",
+      "fact_id": "F4",
+      "fact_text": "Project Nova uses Rust.",
+      "gold_relevant": false,
+      "RAW_SCORE": 0.0001265511818928644,
+      "NORMALIZED_SCORE": null,
+      "LOGIT_SCORE": -8.974737167358398,
+      "rank_within_query": 3,
+      "note": "RAW_SCORE is BGERerankerClient.rank / CrossEncoder.predict official output (model activation_fn=Sigmoid). No additional lab normalization. LOGIT_SCORE is Identity activation for transparency only."
+    }
+  ],
+  "grid_raw": {
+    "Q1": {
+      "F1": 0.9741688370704651,
+      "F2": 0.03027625009417534,
+      "F3": 0.0073229726403951645,
+      "F4": 2.0570820197463036e-05
+    },
+    "Q2": {
+      "F1": 0.0025138286873698235,
+      "F2": 0.9972037076950073,
+      "F3": 1.7932947230292484e-05,
+      "F4": 0.013467635959386826
+    },
+    "Q3": {
+      "F1": 2.03070230782032e-05,
+      "F2": 2.0758210666826926e-05,
+      "F3": 0.049960434436798096,
+      "F4": 0.03224395960569382
+    },
+    "Q4": {
+      "F1": 0.007880358956754208,
+      "F2": 2.956380194518715e-05,
+      "F3": 0.005133460741490126,
+      "F4": 1.866598177002743e-05
+    },
+    "Q5": {
+      "F1": 0.02313617803156376,
+      "F2": 0.005334360525012016,
+      "F3": 1.647881799726747e-05,
+      "F4": 0.0001265511818928644
+    }
+  }
+}

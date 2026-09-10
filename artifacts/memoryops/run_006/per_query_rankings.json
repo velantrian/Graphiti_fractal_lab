@@ -1,0 +1,152 @@
+{
+  "Q1": [
+    {
+      "fact_id": "F1",
+      "fact_text": "Alice works on Project Orion.",
+      "RAW_SCORE": 0.9741688370704651,
+      "gold_relevant": true,
+      "rank": 1
+    },
+    {
+      "fact_id": "F2",
+      "fact_text": "Project Orion uses Python.",
+      "RAW_SCORE": 0.03027625009417534,
+      "gold_relevant": false,
+      "rank": 2
+    },
+    {
+      "fact_id": "F3",
+      "fact_text": "Bob works on Project Nova.",
+      "RAW_SCORE": 0.0073229726403951645,
+      "gold_relevant": false,
+      "rank": 3
+    },
+    {
+      "fact_id": "F4",
+      "fact_text": "Project Nova uses Rust.",
+      "RAW_SCORE": 2.0570820197463036e-05,
+      "gold_relevant": false,
+      "rank": 4
+    }
+  ],
+  "Q2": [
+    {
+      "fact_id": "F2",
+      "fact_text": "Project Orion uses Python.",
+      "RAW_SCORE": 0.9972037076950073,
+      "gold_relevant": true,
+      "rank": 1
+    },
+    {
+      "fact_id": "F4",
+      "fact_text": "Project Nova uses Rust.",
+      "RAW_SCORE": 0.013467635959386826,
+      "gold_relevant": false,
+      "rank": 2
+    },
+    {
+      "fact_id": "F1",
+      "fact_text": "Alice works on Project Orion.",
+      "RAW_SCORE": 0.0025138286873698235,
+      "gold_relevant": false,
+      "rank": 3
+    },
+    {
+      "fact_id": "F3",
+      "fact_text": "Bob works on Project Nova.",
+      "RAW_SCORE": 1.7932947230292484e-05,
+      "gold_relevant": false,
+      "rank": 4
+    }
+  ],
+  "Q3": [
+    {
+      "fact_id": "F3",
+      "fact_text": "Bob works on Project Nova.",
+      "RAW_SCORE": 0.049960434436798096,
+      "gold_relevant": true,
+      "rank": 1
+    },
+    {
+      "fact_id": "F4",
+      "fact_text": "Project Nova uses Rust.",
+      "RAW_SCORE": 0.03224395960569382,
+      "gold_relevant": true,
+      "rank": 2
+    },
+    {
+      "fact_id": "F2",
+      "fact_text": "Project Orion uses Python.",
+      "RAW_SCORE": 2.0758210666826926e-05,
+      "gold_relevant": false,
+      "rank": 3
+    },
+    {
+      "fact_id": "F1",
+      "fact_text": "Alice works on Project Orion.",
+      "RAW_SCORE": 2.03070230782032e-05,
+      "gold_relevant": false,
+      "rank": 4
+    }
+  ],
+  "Q4": [
+    {
+      "fact_id": "F1",
+      "fact_text": "Alice works on Project Orion.",
+      "RAW_SCORE": 0.007880358956754208,
+      "gold_relevant": false,
+      "rank": 1
+    },
+    {
+      "fact_id": "F3",
+      "fact_text": "Bob works on Project Nova.",
+      "RAW_SCORE": 0.005133460741490126,
+      "gold_relevant": false,
+      "rank": 2
+    },
+    {
+      "fact_id": "F2",
+      "fact_text": "Project Orion uses Python.",
+      "RAW_SCORE": 2.956380194518715e-05,
+      "gold_relevant": false,
+      "rank": 3
+    },
+    {
+      "fact_id": "F4",
+      "fact_text": "Project Nova uses Rust.",
+      "RAW_SCORE": 1.866598177002743e-05,
+      "gold_relevant": false,
+      "rank": 4
+    }
+  ],
+  "Q5": [
+    {
+      "fact_id": "F1",
+      "fact_text": "Alice works on Project Orion.",
+      "RAW_SCORE": 0.02313617803156376,
+      "gold_relevant": false,
+      "rank": 1
+    },
+    {
+      "fact_id": "F2",
+      "fact_text": "Project Orion uses Python.",
+      "RAW_SCORE": 0.005334360525012016,
+      "gold_relevant": false,
+      "rank": 2
+    },
+    {
+      "fact_id": "F4",
+      "fact_text": "Project Nova uses Rust.",
+      "RAW_SCORE": 0.0001265511818928644,
+      "gold_relevant": false,
+      "rank": 3
+    },
+    {
+      "fact_id": "F3",
+      "fact_text": "Bob works on Project Nova.",
+      "RAW_SCORE": 1.647881799726747e-05,
+      "gold_relevant": false,
+      "rank": 4
+    }
+  ]
+}

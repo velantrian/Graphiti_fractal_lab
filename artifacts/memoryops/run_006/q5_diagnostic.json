@@ -1,0 +1,22 @@
+{
+  "query_id": "Q5",
+  "query_text": "Does Alice use Python?",
+  "scores": {
+    "F1": 0.02313617803156376,
+    "F2": 0.005334360525012016,
+    "F3": 1.647881799726747e-05,
+    "F4": 0.0001265511818928644
+  },
+  "F1_score": 0.02313617803156376,
+  "F2_score": 0.005334360525012016,
+  "F3_score": 1.647881799726747e-05,
+  "F4_score": 0.0001265511818928644,
+  "F1_scores_strongly_relative": true,
+  "F2_scores_strongly_relative": true,
+  "both_F1_F2_appear_supportive": true,
+  "DIRECT_SUPPORT": "NO",
+  "DIRECT_SUPPORT_BOOL": false,
+  "CO_RETRIEVAL": "YES",
+  "MULTI_HOP_REASONING": "NOT_PROVEN",
+  "note": "High pairwise scores must not be converted into reasoning proof."
+}

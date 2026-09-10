@@ -1,0 +1,15 @@
+{
+  "model_load_time_s": 10.566708309001115,
+  "twenty_pair_scoring_time_s": 1.1297658569965279,
+  "per_pair_average_s": 0.05648829284982639,
+  "batch_scoring": "per-query batch of 4 via CrossEncoder.predict",
+  "device": "cpu",
+  "peak_rss_kb_approx": 2340292,
+  "LATENCY_NE_QUALITY": true,
+  "model_weight_size_bytes": 2271071852,
+  "repeatability": {
+    "DETERMINISM": "EXACT",
+    "max_absolute_score_delta": 0.0,
+    "REPEATABILITY": "RUN"
+  }
+}

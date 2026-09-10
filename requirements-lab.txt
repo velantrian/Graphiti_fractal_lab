@@ -6,3 +6,4 @@ ladybug==0.20.3
 # psycopg[binary]  # postgres stub only
 # duckdb  # duckdb stub only
 fastembed>=0.4
+sentence-transformers>=3.0

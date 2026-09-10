@@ -1,0 +1,13 @@
+{
+  "CROSS_ENCODER_REAL": "YES",
+  "client": "graphiti_core.cross_encoder.bge_reranker_client.BGERerankerClient",
+  "model": "BAAI/bge-reranker-v2-m3",
+  "load_time_s": 10.566708309001115,
+  "device": "cpu",
+  "activation_fn": "Sigmoid()",
+  "NETWORK_REQUIRED_FOR_MODEL_FETCH": "NO_IF_CACHED",
+  "API_COST": 0,
+  "fallback_used": false,
+  "SECRET_LOGGED": "NO",
+  "recorded_at_utc": "2026-09-10T14:15:24.113111+00:00"
+}

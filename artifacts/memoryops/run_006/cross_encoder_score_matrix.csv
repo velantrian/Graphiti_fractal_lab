@@ -1,0 +1,21 @@
+query_id,query_text,fact_id,fact_text,gold_relevant,RAW_SCORE,NORMALIZED_SCORE,LOGIT_SCORE,rank_within_query
+Q1,Who works on Project Orion?,F1,Alice works on Project Orion.,True,0.9741688370704651,,3.6300032138824463,1
+Q1,Who works on Project Orion?,F2,Project Orion uses Python.,False,0.03027625009417534,,-3.4666476249694824,2
+Q1,Who works on Project Orion?,F3,Bob works on Project Nova.,False,0.0073229726403951645,,-4.909389019012451,3
+Q1,Who works on Project Orion?,F4,Project Nova uses Rust.,False,2.0570820197463036e-05,,-10.791616439819336,4
+Q2,What language does Project Orion use?,F1,Alice works on Project Orion.,False,0.0025138286873698235,,-5.983431339263916,3
+Q2,What language does Project Orion use?,F2,Project Orion uses Python.,True,0.9972037076950073,,5.876667022705078,1
+Q2,What language does Project Orion use?,F3,Bob works on Project Nova.,False,1.7932947230292484e-05,,-10.928853034973145,4
+Q2,What language does Project Orion use?,F4,Project Nova uses Rust.,False,0.013467635959386826,,-4.2939066886901855,2
+Q3,What is related to Project Nova?,F1,Alice works on Project Orion.,False,2.03070230782032e-05,,-10.804523468017578,4
+Q3,What is related to Project Nova?,F2,Project Orion uses Python.,False,2.0758210666826926e-05,,-10.782547950744629,3
+Q3,What is related to Project Nova?,F3,Bob works on Project Nova.,True,0.049960434436798096,,-2.945272207260132,1
+Q3,What is related to Project Nova?,F4,Project Nova uses Rust.,True,0.03224395960569382,,-3.401649236679077,2
+Q4,Who works on Project Zephyr?,F1,Alice works on Project Orion.,False,0.007880358956754208,,-4.835470199584961,1
+Q4,Who works on Project Zephyr?,F2,Project Orion uses Python.,False,2.956380194518715e-05,,-10.428930282592773,3
+Q4,Who works on Project Zephyr?,F3,Bob works on Project Nova.,False,0.005133460741490126,,-5.266828536987305,2
+Q4,Who works on Project Zephyr?,F4,Project Nova uses Rust.,False,1.866598177002743e-05,,-10.888789176940918,4
+Q5,Does Alice use Python?,F1,Alice works on Project Orion.,False,0.02313617803156376,,-3.7429497241973877,1
+Q5,Does Alice use Python?,F2,Project Orion uses Python.,False,0.005334360525012016,,-5.228237628936768,2
+Q5,Does Alice use Python?,F3,Bob works on Project Nova.,False,1.647881799726747e-05,,-11.013418197631836,4
+Q5,Does Alice use Python?,F4,Project Nova uses Rust.,False,0.0001265511818928644,,-8.974737167358398,3

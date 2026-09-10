@@ -1,0 +1,31 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-9.1.1, pluggy-1.6.0 -- /workspace/Graphiti_fractal_lab/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /workspace/Graphiti_fractal_lab
+configfile: pytest.ini (WARNING: ignoring pytest config in pyproject.toml!)
+plugins: asyncio-1.4.0, anyio-4.15.1
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 14 items
+
+tests/lab/test_memoryops_fm15_cross_encoder_separability.py::test_fm15_a_real_cross_encoder_initialized PASSED [  7%]
+tests/lab/test_memoryops_fm15_cross_encoder_separability.py::test_fm15_b_model_identity_recorded PASSED [ 14%]
+tests/lab/test_memoryops_fm15_cross_encoder_separability.py::test_fm15_c_all_twenty_pairs_scored PASSED [ 21%]
+tests/lab/test_memoryops_fm15_cross_encoder_separability.py::test_fm15_d_no_deterministic_fake_ce PASSED [ 28%]
+tests/lab/test_memoryops_fm15_cross_encoder_separability.py::test_fm15_e_raw_scores_preserved PASSED [ 35%]
+tests/lab/test_memoryops_fm15_cross_encoder_separability.py::test_fm15_f_gold_mapping_preserved PASSED [ 42%]
+tests/lab/test_memoryops_fm15_cross_encoder_separability.py::test_fm15_g_hard_negative_margins_computed PASSED [ 50%]
+tests/lab/test_memoryops_fm15_cross_encoder_separability.py::test_fm15_h_q4_no_result_separability_computed PASSED [ 57%]
+tests/lab/test_memoryops_fm15_cross_encoder_separability.py::test_fm15_i_q5_co_retrieval_not_proven PASSED [ 64%]
+tests/lab/test_memoryops_fm15_cross_encoder_separability.py::test_fm15_j_no_search_configuration_changed PASSED [ 71%]
+tests/lab/test_memoryops_fm15_cross_encoder_separability.py::test_fm15_k_no_threshold_tuning PASSED [ 78%]
+tests/lab/test_memoryops_fm15_cross_encoder_separability.py::test_fm15_l_upstream_unchanged PASSED [ 85%]
+tests/lab/test_memoryops_fm15_cross_encoder_separability.py::test_fm15_artifacts_exist PASSED [ 92%]
+tests/lab/test_memoryops_fm15_cross_encoder_separability.py::test_fm15_no_predetermined_pass_on_improvement PASSED [100%]
+
+=============================== warnings summary ===============================
+tests/lab/test_memoryops_fm15_cross_encoder_separability.py::test_fm15_a_real_cross_encoder_initialized
+  /workspace/Graphiti_fractal_lab/.venv/lib/python3.13/site-packages/graphiti_core/driver/search_interface/search_interface.py:22: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class SearchInterface(BaseModel):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 14 passed, 1 warning in 16.46s ========================

@@ -1,0 +1,22 @@
+{
+  "GOLD": {
+    "Q1": [
+      "Alice works on Project Orion."
+    ],
+    "Q2": [
+      "Project Orion uses Python."
+    ],
+    "Q3": [
+      "Bob works on Project Nova.",
+      "Project Nova uses Rust."
+    ],
+    "Q4": [],
+    "Q5": []
+  },
+  "Q5": {
+    "DIRECT_SUPPORT": "NO",
+    "CO_RETRIEVAL_SUPPORT": "YES",
+    "MULTI_HOP_REASONING": "NOT_PROVEN",
+    "note": "diagnostic only"
+  }
+}

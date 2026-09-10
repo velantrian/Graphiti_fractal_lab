@@ -1,0 +1,9 @@
+{
+  "EXPECTED_START_SHA": "253c9c6a5722f82b838d2503d0da83ab7a42287d",
+  "ACTUAL_START_SHA": "253c9c6a5722f82b838d2503d0da83ab7a42287d",
+  "start_head_match": true,
+  "DIFF_SUMMARY": null,
+  "run_005_still_valid": true,
+  "UPSTREAM_PIN": "2437244149baeb0c645e2e942125be92bba3a96b",
+  "upstream_present": false
+}

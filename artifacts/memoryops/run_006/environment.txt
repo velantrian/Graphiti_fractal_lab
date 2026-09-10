@@ -1,0 +1,17 @@
+date_utc=2026-09-10T14:15:24Z
+branch=experiment/falkordblite-deterministic-memory
+start_commit=253c9c6a5722f82b838d2503d0da83ab7a42287d
+expected_start_head=253c9c6a5722f82b838d2503d0da83ab7a42287d
+start_head_match=True
+upstream_pin=2437244149baeb0c645e2e942125be92bba3a96b
+cross_encoder=local:BAAI/bge-reranker-v2-m3
+cross_encoder_revision=953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e
+device=cpu
+graphiti-core=0.29.3
+search_recipe_changed=False
+bfs_enabled=False
+threshold_selected=False
+deepseek_extraction_rerun=False
+SECRET_LOGGED=NO
+CROSS_ENCODER_SIGNAL_EFFECT=STRONGLY_IMPROVED
+one_variable=pairwise BGERerankerClient scoring (no runtime search CE)

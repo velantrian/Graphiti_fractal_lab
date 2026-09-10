@@ -1,0 +1,6 @@
+graphiti-core=0.29.3
+graphiti_core=UNKNOWN
+numpy=2.5.3
+sentence_transformers=6.0.1
+torch=2.14.0+cu130
+transformers=5.17.0

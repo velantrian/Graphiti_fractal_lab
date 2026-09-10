@@ -1,0 +1,11 @@
+# FM-15 REAL CROSS-ENCODER RELEVANCE SEPARABILITY
+# Branch: experiment/falkordblite-deterministic-memory
+# START_SHA: 253c9c6a5722f82b838d2503d0da83ab7a42287d
+
+pip install sentence-transformers   # lab dependency for Graphiti BGERerankerClient
+pytest tests/lab/test_memoryops_fm15_cross_encoder_separability.py -v --tb=short
+
+# Artifacts written under artifacts/memoryops/run_006/
+# Frozen baseline: artifacts/memoryops/run_005/similarity_matrix.json
+# Model: BAAI/bge-reranker-v2-m3 via graphiti_core.cross_encoder.bge_reranker_client.BGERerankerClient
+# No EDGE_HYBRID_SEARCH_CROSS_ENCODER / BFS / threshold / DeepSeek re-extraction

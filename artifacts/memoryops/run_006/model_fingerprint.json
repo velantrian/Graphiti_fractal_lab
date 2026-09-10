@@ -1,0 +1,42 @@
+{
+  "CROSS_ENCODER_PROVIDER": "local",
+  "CROSS_ENCODER_MODEL": "BAAI/bge-reranker-v2-m3",
+  "MODEL_REVISION": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+  "MODEL_WEIGHT_FINGERPRINT": "d9e3e081faff1eefb84019509b2f5558fd74c1a05a2c7db22f74174fcedb5286",
+  "MODEL_WEIGHT_FILE": "model.safetensors",
+  "MODEL_WEIGHT_SIZE_BYTES": 2271071852,
+  "FRAMEWORK": "sentence-transformers CrossEncoder via graphiti_core.BGERerankerClient",
+  "FRAMEWORK_VERSION": "6.0.1",
+  "DEVICE": "CPU",
+  "device": "cpu",
+  "DTYPE": "torch.float32",
+  "ACTIVATION_FN": "Sigmoid()",
+  "NETWORK_REQUIRED_FOR_MODEL_FETCH": "NO_IF_CACHED",
+  "API_COST": 0,
+  "load_time_s": 10.566708309001115,
+  "package_versions": {
+    "sentence_transformers": "6.0.1",
+    "transformers": "5.17.0",
+    "torch": "2.14.0+cu130",
+    "numpy": "2.5.3",
+    "graphiti_core": "UNKNOWN",
+    "graphiti-core": "0.29.3"
+  },
+  "CROSS_ENCODER_REAL": "YES",
+  "NOT_DeterministicCrossEncoder": true,
+  "NOT_LLM_judge": true,
+  "NOT_OpenAI_reranker": true,
+  "NOT_DeepSeek_judge": true,
+  "graphiti_native_client": "BGERerankerClient",
+  "graphiti_version_expected": "0.29.3",
+  "SECRET_LOGGED": "NO",
+  "recorded_at_utc": "2026-09-10T14:15:20.567338Z",
+  "weight": {
+    "model": "BAAI/bge-reranker-v2-m3",
+    "revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+    "weight_file": "model.safetensors",
+    "sha256": "d9e3e081faff1eefb84019509b2f5558fd74c1a05a2c7db22f74174fcedb5286",
+    "size_bytes": 2271071852
+  },
+  "revision_resolved": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e"
+}

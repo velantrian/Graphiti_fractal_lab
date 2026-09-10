@@ -1,0 +1,10 @@
+CROSS_ENCODER_MODEL=BAAI/bge-reranker-v2-m3
+MODEL_REVISION=953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e
+MODEL_WEIGHT_FINGERPRINT=d9e3e081faff1eefb84019509b2f5558fd74c1a05a2c7db22f74174fcedb5286
+FRAMEWORK=sentence-transformers CrossEncoder via graphiti_core.BGERerankerClient
+FRAMEWORK_VERSION=6.0.1
+DEVICE=CPU
+DTYPE=torch.float32
+ACTIVATION_FN=Sigmoid()
+graphiti_native_client=BGERerankerClient
+CROSS_ENCODER_REAL=YES
