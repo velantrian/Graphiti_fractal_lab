@@ -22,10 +22,11 @@ migration_authorized: false
 2. `AGENTS.md` — one-pager agent contract (points here).
 3. `RESEARCH_STATUS.md` — current honest research/validation ledger across lab lanes.
 4. `docs/research/RETRIEVAL_RELEVANCE_TRACK.md` — FM-13 → FM-16 retrieval-relevance research narrative and current frontier.
-5. `docs/GRAPH_BACKEND_CAPABILITY_MATRIX.md` — backend roles; NOT VALIDATED honesty.
-6. `README.md` — human landing; do not treat prose as live runtime evidence.
-7. `SYSTEM_OVERVIEW.md` — human architecture explanation and explicit non-claims.
-8. Relevant experiment code + `artifacts/memoryops/run_00X/` + local pytest/CI for the exact head under review.
+5. `docs/research/RETRIEVAL_RELEVANCE_REASONING_LOG.md` — **long-form decision history explaining how and why the research question changed**. Read this before redesigning FM-16 or proposing a new relevance layer.
+6. `docs/GRAPH_BACKEND_CAPABILITY_MATRIX.md` — backend roles; NOT VALIDATED honesty.
+7. `README.md` — human landing; do not treat prose as live runtime evidence.
+8. `SYSTEM_OVERVIEW.md` — human architecture explanation and explicit non-claims.
+9. Relevant experiment code + `artifacts/memoryops/run_00X/` + local pytest/CI for the exact head under review.
 
 Do **not** begin by scanning upstream `Graphiti_fractal` narrative and inferring that this lab implements or authorizes it.
 
@@ -38,7 +39,7 @@ lanes:
     evidence: tests + capability matrix
   retrieval_relevance:
     examples: [FM-13, FM-14, FM-15, planned FM-16]
-    evidence: artifacts/memoryops/run_00X + experiment tests + retrieval relevance track
+    evidence: artifacts/memoryops/run_00X + experiment tests + retrieval relevance track + reasoning log
 ```
 
 A statement valid in one lane must not be generalized to another.
@@ -53,7 +54,7 @@ live exact repository state / exact branch or PR head
   > active lab experiment code
   > RESEARCH_STATUS.md
   > lane-specific research track
-  > human README / SYSTEM_OVERVIEW narrative
+  > long-form reasoning log / human explanatory docs
   > upstream / external donor docs as context only
 ```
 
@@ -141,7 +142,7 @@ ALL_NON_GOLD_REJECTION ≠ HARD_NEGATIVE_REJECTION
 SCORER_FAILED ≠ NO_RELEVANT_CANDIDATES
 ```
 
-Read [`../research/RETRIEVAL_RELEVANCE_TRACK.md`](../research/RETRIEVAL_RELEVANCE_TRACK.md) before making claims about FM-16 readiness.
+Read [`../research/RETRIEVAL_RELEVANCE_TRACK.md`](../research/RETRIEVAL_RELEVANCE_TRACK.md) **and** [`../research/RETRIEVAL_RELEVANCE_REASONING_LOG.md`](../research/RETRIEVAL_RELEVANCE_REASONING_LOG.md) before making claims about FM-16 readiness or changing the task definition.
 
 ## Research / stubs / non-active
 
@@ -189,7 +190,8 @@ Before changing adapters, experiment claims, or docs:
 7. do not convert RESEARCH into Fractal runtime via documentation side effect;
 8. donor pattern ≠ adoption; external/cross-project authority must not leak into Fractal relevance semantics;
 9. do not run superseded FM-16 v1; protocol hardening must precede preregistration/scoring;
-10. do not silently change the target from direct-answer relevance to multi-hop component retrieval.
+10. do not silently change the target from direct-answer relevance to multi-hop component retrieval;
+11. preserve the reasoning chain: if changing H1/H2/H3 boundaries, explain why and cite new evidence rather than only editing the current-status table.
 
 ## Human-facing docs
 
@@ -197,6 +199,7 @@ Before changing adapters, experiment claims, or docs:
 - `SYSTEM_OVERVIEW.md` — deep human overview;
 - `RESEARCH_STATUS.md` — current lab ledger;
 - `docs/research/RETRIEVAL_RELEVANCE_TRACK.md` — retrieval relevance research history/current frontier;
+- `docs/research/RETRIEVAL_RELEVANCE_REASONING_LOG.md` — long-form reasoning, rejected interpretations, review synthesis and why the current frontier exists;
 - `docs/GRAPH_BACKEND_CAPABILITY_MATRIX.md` — backend matrix.
 
 Exact acceptance evidence belongs in tests, CI, run artifacts, exact commits, or explicit research ledgers — not inferred from narrative alone.
