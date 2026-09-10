@@ -74,10 +74,14 @@ invariants:
   - do_not_modify_or_push_upstream_Graphiti_fractal_from_lab_tasks
   - retrieved_is_not_relevant
   - relevant_is_not_supports_positive_proposition
+  - direct_answer_is_not_multi_hop_component
+  - multi_hop_component_is_not_related_context
+  - narrow_factoid_relevance_is_not_broad_associative_relevance
   - relevance_is_not_evidence
   - relevance_is_not_truth
   - no_relevant_result_is_not_entity_absent
   - scorer_failure_is_not_honest_empty
+  - gold_label_is_not_training_target
   - unknown_is_not_false
 ```
 
@@ -94,29 +98,45 @@ retrieval_relevance:
   fm16_preregistration: NOT_CREATED
   fm16_run_007: NOT_CREATED
   pairwise_cross_encoder_signal: CONFIRMED_ON_FM15_FIXTURE
+  q5_direct_support: false
+  q5_co_retrieval: YES
+  q5_multi_hop_reasoning: NOT_PROVEN
+  fm16_primary_target: DIRECT_ANSWER_RELEVANCE
+  h1_direct_ranking: TO_TEST
+  h2_global_absolute_gate: TO_TEST
+  h3_multi_hop_component_retrieval: SEPARATE_HYPOTHESIS
   global_threshold: NOT_ESTABLISHED
+  hard_negative_rejection_floor: TO_BE_PREREGISTERED
   runtime_gate: NOT_IMPLEMENTED
   production_authorized: false
-  next: REVISE_FM16_PROTOCOL_BEFORE_PREREGISTRATION_AND_SCORING
+  next: FINALIZE_HARDENED_FM16_PROTOCOL_BEFORE_PREREGISTRATION_AND_SCORING
 ```
 
 ### FM-16 execution guard
 
-**Do not execute the previously drafted FM-16 protocol.** Independent pre-scoring review found methodological defects that must be fixed first.
+**Do not execute the previously drafted FM-16 protocol.** Independent pre-scoring review plus later synthesis found methodological defects and task-definition ambiguity that must be fixed first.
 
 Required corrections before any scoring:
 
-- define retrieval relevance independently from whether a candidate supports a positive proposition;
-- repair negation / conditional / numeric yes-no gold examples;
+- primary evaluation gold = **direct-answer relevance**, not positive entailment and not generic usefulness;
+- `DIRECT ANSWER ≠ MULTI-HOP COMPONENT ≠ RELATED CONTEXT`;
+- Q5-like required multi-hop components must not silently enter the same primary global-threshold gold; treat them as a separate diagnostic/future hypothesis unless a new protocol explicitly changes the task;
+- broad associative queries remain a challenge stratum and require explicit gold semantics;
+- repair negation / conditional / numeric / temporal / scope / attribution examples according to the query's information need;
 - add an explicit preregistered hard-negative rejection / returned-set quality gate for `GENERALIZATION_STRONG`;
+- do **not** adopt a concrete floor such as `0.85` without preregistered rationale;
 - if no feasible calibration threshold exists, use `threshold = null` and mark thresholded TEST metrics `NOT_APPLICABLE`;
+- after a null threshold decision is frozen/hashed, threshold-free held-out ranking metrics may still be computed;
 - freeze exact formulas, denominators, ties, comparator, verdict table, and systematic-inversion rule;
-- verify actually loaded model snapshot/weights/tokenizer/config/inference profile rather than trusting a cached revision string;
-- preserve the order: preregistration → model identity check → calibration scoring → threshold freeze → TEST scoring/reporting → anchor regression;
-- never count timeout/NaN/missing score as successful EMPTY.
+- verify actually loaded CE/embedding snapshot/weights/tokenizer/config/inference profile rather than trusting a cached revision string;
+- preserve the order: preregistration → model identity check → calibration scoring → threshold/null freeze → TEST scoring/reporting → anchor regression;
+- never count timeout/NaN/missing score as successful EMPTY;
+- treat `GLOBAL_THRESHOLD_NOT_FEASIBLE` as a possible/predicted outcome, not a known result before FM-16.
 
 ```text
 RELEVANT_ANSWER ≠ SUPPORTS_POSITIVE_PROPOSITION
+DIRECT_ANSWER ≠ MULTI_HOP_COMPONENT ≠ RELATED_CONTEXT
+NARROW_FACTOID_RELEVANCE ≠ BROAD_ASSOCIATIVE_RELEVANCE
 ALL_NON_GOLD_REJECTION ≠ HARD_NEGATIVE_REJECTION
 SCORER_FAILED ≠ NO_RELEVANT_CANDIDATES
 ```
@@ -168,7 +188,8 @@ Before changing adapters, experiment claims, or docs:
 6. do not push to `velantrian/Graphiti_fractal` from lab tasks;
 7. do not convert RESEARCH into Fractal runtime via documentation side effect;
 8. donor pattern ≠ adoption; external/cross-project authority must not leak into Fractal relevance semantics;
-9. do not run superseded FM-16 v1; protocol hardening must precede preregistration/scoring.
+9. do not run superseded FM-16 v1; protocol hardening must precede preregistration/scoring;
+10. do not silently change the target from direct-answer relevance to multi-hop component retrieval.
 
 ## Human-facing docs
 
