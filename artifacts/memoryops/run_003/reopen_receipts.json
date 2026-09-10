@@ -1,0 +1,12 @@
+{
+  "process1_hit_count": 1,
+  "process1_facts": [
+    "Alice works on Project Orion."
+  ],
+  "process2_returncode": 0,
+  "process2_hit_count": 1,
+  "process2_facts": [
+    "Alice works on Project Orion."
+  ],
+  "stderr_tail": ""
+}

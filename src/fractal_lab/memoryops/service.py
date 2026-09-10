@@ -67,8 +67,21 @@ class LabMemoryOps:
         default_group_id: str = "fm_default",
         build_indices: bool = True,
         temporal: bool = True,
+        llm_client: Any | None = None,
     ) -> LabMemoryOps:
-        llm = DeterministicTemporalLLMClient() if temporal else None
+        """Open lab Graphiti stack.
+
+        llm_client:
+          - If provided, used as-is (REAL_LLM path / custom stubs).
+          - Else DeterministicTemporalLLMClient when temporal=True.
+          - Else DeterministicLLMClient via open_lab_graphiti default.
+        """
+        if llm_client is not None:
+            llm = llm_client
+        elif temporal:
+            llm = DeterministicTemporalLLMClient()
+        else:
+            llm = None
         stack = await open_lab_graphiti(
             db_path,
             database="default_db",

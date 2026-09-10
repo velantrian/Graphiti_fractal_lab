@@ -1,26 +1,989 @@
 {
   "phase": "FM-11/FM-12",
-  "status": "BLOCKED_NO_REAL_PROVIDER",
-  "start_sha": "c4433a72ef799f9827e5c546db31feae7938ca44",
-  "end_sha": "c4433a72ef799f9827e5c546db31feae7938ca44",
-  "fm11": {
-    "FM-11A": "BLOCKED",
-    "FM-11B": "NOT_RUN",
-    "FM-11C": "NOT_RUN",
-    "FM-11D": "NOT_RUN",
-    "FM-11E": "NOT_RUN",
-    "FM-11F": "NOT_RUN",
-    "FM-11G": "NOT_RUN",
-    "FM-11H": "NOT_RUN"
+  "status": "COMPLETED",
+  "classification": "REAL_LLM_EXTRACTION+DETERMINISTIC_EMBEDDING",
+  "REQUESTED_MODEL": "deepseek-v4-pro",
+  "ACTUAL_MODEL": "deepseek-v4-pro",
+  "CACHE": "ENABLED_BY_PROVIDER_DEFAULT",
+  "CACHE_HIT_TOKENS": 7552,
+  "CACHE_MISS_TOKENS": 25152,
+  "CACHE_EFFECT": "observed",
+  "TOKEN_USAGE": {
+    "prompt_tokens": 32704,
+    "completion_tokens": 10572,
+    "total_tokens": 43276
   },
-  "fm12": {
-    "FM-12A": "NOT_RUN",
-    "FM-12B": "NOT_RUN",
-    "FM-12C": "NOT_RUN",
-    "FM-12D": "NOT_RUN",
-    "FM-12E": "NOT_RUN",
-    "FM-12F": "NOT_RUN"
+  "COST": {
+    "ACTUAL_BILLED_COST": "NOT_RETURNED_BY_API",
+    "ESTIMATED_COST": {
+      "ESTIMATED_COST_USD": 0.03769902,
+      "label": "ESTIMATED_COST \u2260 ACTUAL_BILLED_COST",
+      "pricing_table": {
+        "input_cache_hit_offpeak": 0.022,
+        "input_cache_miss_offpeak": 0.66,
+        "output_offpeak": 1.98,
+        "input_cache_hit_peak": 0.044,
+        "input_cache_miss_peak": 1.32,
+        "output_peak": 3.96,
+        "input_cache_hit": 0.022,
+        "input_cache_miss": 0.66,
+        "output": 1.98,
+        "source": "https://api-docs.deepseek.com/quick_start/pricing (fetched 2026-09-10)",
+        "model_version_label": "DeepSeek-V4-Pro-0813",
+        "label": "ESTIMATED_COST \u2260 ACTUAL_BILLED_COST",
+        "note": "From 2026-09-14 12:00 Beijing, deepseek-v4-pro routes to V4.1 Flash pricing"
+      },
+      "ACTUAL_BILLED_COST": "NOT_RETURNED_BY_API"
+    }
   },
-  "reason": "No real LLM credentials in environment or box-secrets (only GitHub tokens). Deterministic provider was NOT substituted.",
-  "next": "Provide OPENAI_API_KEY (or other Graphiti-supported provider key) via secure secret input, then resume FM-11/FM-12."
+  "matrix": {
+    "FM-11A": "PASS",
+    "FM-11B": "PASS",
+    "FM-11C": "PASS",
+    "FM-11D": "PASS",
+    "FM-11E": "PASS",
+    "FM-11F": "PASS",
+    "FM-11G": "PASS",
+    "FM-11H": "PASS",
+    "FM-12A": "PASS",
+    "FM-12B": "PASS",
+    "FM-12C": "PASS",
+    "FM-12D": "PASS",
+    "FM-12E": "PASS",
+    "FM-12F": "PASS"
+  },
+  "QUERY_EVALUATION": {
+    "Q1": {
+      "query": "Who works on Project Orion?",
+      "judgment": "RELEVANT",
+      "hit_count": 4,
+      "facts": [
+        "Alice works on Project Orion.",
+        "Bob works on Project Nova.",
+        "Project Orion uses Python.",
+        "Project Nova uses Rust."
+      ],
+      "temporal_summary": {
+        "retrieved_count": 4,
+        "current_count": 4,
+        "expired_count": 0,
+        "not_yet_valid_count": 0,
+        "unknown_count": 0
+      }
+    },
+    "Q2": {
+      "query": "What language does Project Orion use?",
+      "judgment": "RELEVANT",
+      "hit_count": 4,
+      "facts": [
+        "Project Orion uses Python.",
+        "Project Nova uses Rust.",
+        "Alice works on Project Orion.",
+        "Bob works on Project Nova."
+      ],
+      "temporal_summary": {
+        "retrieved_count": 4,
+        "current_count": 4,
+        "expired_count": 0,
+        "not_yet_valid_count": 0,
+        "unknown_count": 0
+      }
+    },
+    "Q3": {
+      "query": "What is related to Project Nova?",
+      "judgment": "RELEVANT",
+      "hit_count": 4,
+      "facts": [
+        "Project Nova uses Rust.",
+        "Bob works on Project Nova.",
+        "Project Orion uses Python.",
+        "Alice works on Project Orion."
+      ],
+      "temporal_summary": {
+        "retrieved_count": 4,
+        "current_count": 4,
+        "expired_count": 0,
+        "not_yet_valid_count": 0,
+        "unknown_count": 0
+      }
+    },
+    "Q4": {
+      "query": "Who works on Project Zephyr?",
+      "judgment": "IRRELEVANT",
+      "hit_count": 4,
+      "facts": [
+        "Alice works on Project Orion.",
+        "Bob works on Project Nova.",
+        "Project Orion uses Python.",
+        "Project Nova uses Rust."
+      ],
+      "temporal_summary": {
+        "retrieved_count": 4,
+        "current_count": 4,
+        "expired_count": 0,
+        "not_yet_valid_count": 0,
+        "unknown_count": 0
+      }
+    },
+    "Q5": {
+      "query": "Does Alice use Python?",
+      "judgment": "RELEVANT",
+      "hit_count": 3,
+      "facts": [
+        "Alice works on Project Orion.",
+        "Project Orion uses Python.",
+        "Project Nova uses Rust."
+      ],
+      "temporal_summary": {
+        "retrieved_count": 3,
+        "current_count": 3,
+        "expired_count": 0,
+        "not_yet_valid_count": 0,
+        "unknown_count": 0
+      }
+    }
+  },
+  "ENTITIES_actual": [
+    {
+      "name": "Project Orion",
+      "uuid": "fb3adab1-fcd5-473a-97d6-dcdf0059bb33",
+      "labels": null
+    },
+    {
+      "name": "Project Nova",
+      "uuid": "d9d467cf-9f1d-4f07-b579-2c4eac11dee0",
+      "labels": null
+    },
+    {
+      "name": "Rust",
+      "uuid": "cc082c52-01c1-4e14-932b-7f56a432ff5f",
+      "labels": null
+    },
+    {
+      "name": "Python",
+      "uuid": "c2d95010-fb8d-4048-bd20-7c585d5c5372",
+      "labels": null
+    },
+    {
+      "name": "Bob",
+      "uuid": "a0c97f6a-83e9-4a34-a3bd-d1994136940f",
+      "labels": null
+    },
+    {
+      "name": "Alice",
+      "uuid": "6421d0f9-dd9d-4d95-89eb-9d26e684a81e",
+      "labels": null
+    }
+  ],
+  "RELATIONSHIPS_actual": [
+    {
+      "fact": "Project Orion uses Python.",
+      "name": "USES",
+      "uuid": "e7608a9b-489d-4536-9135-77ecbdac8d26",
+      "valid_at": "2026-05-01T10:05:00+00:00",
+      "invalid_at": null,
+      "group_id": "fm11_main_9de953981e60"
+    },
+    {
+      "fact": "Bob works on Project Nova.",
+      "name": "WORKS_ON",
+      "uuid": "e2282d3f-879e-42b6-9e24-b1a7c9ea550e",
+      "valid_at": "2026-05-01T10:10:00+00:00",
+      "invalid_at": null,
+      "group_id": "fm11_main_9de953981e60"
+    },
+    {
+      "fact": "Project Nova uses Rust.",
+      "name": "USES",
+      "uuid": "cf7fbae4-7962-4109-8821-e95f5b20baa9",
+      "valid_at": "2026-05-01T10:15:00+00:00",
+      "invalid_at": null,
+      "group_id": "fm11_main_9de953981e60"
+    },
+    {
+      "fact": "Alice works on Project Orion.",
+      "name": "WORKS_ON",
+      "uuid": "091c8acc-cc5f-4f2d-89b2-a7333f778a49",
+      "valid_at": "2026-05-01T10:00:00+00:00",
+      "invalid_at": null,
+      "group_id": "fm11_main_9de953981e60"
+    }
+  ],
+  "REOPEN": {
+    "process1_hit_count": 1,
+    "process1_facts": [
+      "Alice works on Project Orion."
+    ],
+    "process2_returncode": 0,
+    "process2_hit_count": 1,
+    "process2_facts": [
+      "Alice works on Project Orion."
+    ],
+    "stderr_tail": ""
+  },
+  "TEMPORAL_OUTCOME": "PYTHON_EXPIRED_RUST_CURRENT",
+  "PYTHON": "EXPIRED",
+  "RUST": "CURRENT",
+  "HISTORICAL_QUERY": {
+    "query_time": "2026-05-01T11:00:00+00:00",
+    "note": "metadata classification at historical time \u2014 not time-travel retrieval API",
+    "search_hit_count": 2,
+    "search_facts": [
+      "Project Orion uses Rust.",
+      "Project Orion uses Python."
+    ],
+    "stored_classifications_at_hist": [
+      {
+        "fact": "Project Orion uses Rust.",
+        "temporal_status_at_T_HIST": "TEMPORALLY_NOT_YET_VALID",
+        "valid_at": "2026-05-01T12:00:00+00:00",
+        "invalid_at": null,
+        "uuid": "d253af9b-7c52-45e9-96fb-036393dec1dd"
+      },
+      {
+        "fact": "Project Orion uses Python.",
+        "temporal_status_at_T_HIST": "TEMPORALLY_CURRENT",
+        "valid_at": "2026-05-01T10:00:00+00:00",
+        "invalid_at": "2026-05-01T12:00:00+00:00",
+        "uuid": "a4299b44-fa7c-4f7d-9470-6006e7e7aeb1"
+      }
+    ]
+  },
+  "PROVENANCE": {
+    "hit_count": 2,
+    "provenance_count": 2,
+    "sample": {
+      "edge_uuid": "d253af9b-7c52-45e9-96fb-036393dec1dd",
+      "fact": "Project Orion uses Rust.",
+      "relation": "USES",
+      "name": "USES",
+      "group_id": "fm12_temporal_9de953981e60",
+      "source_node_uuid": "f734990a-6254-41d4-a694-ab2481d00fac",
+      "target_node_uuid": "6e500326-c485-4209-a705-9bbec4a3c18f",
+      "valid_at": "2026-05-01T12:00:00+00:00",
+      "invalid_at": "UNKNOWN",
+      "expired_at": "UNKNOWN",
+      "episode_uuids": [
+        "40352ba8-ee31-4f7b-b8e8-94167b146293"
+      ],
+      "chain": [
+        "INPUT",
+        "EPISODE",
+        "ENTITY_EDGE",
+        "QUERY_HIT"
+      ],
+      "episodes": [
+        {
+          "episode_uuid": "40352ba8-ee31-4f7b-b8e8-94167b146293",
+          "episode_name": "fm12_rust",
+          "content_preview": "Project Orion now uses Rust.",
+          "source_description": "fractal_lab_memoryops",
+          "group_id": "fm12_temporal_9de953981e60",
+          "valid_at": "2026-05-01T12:00:00+00:00",
+          "reference_time": "UNKNOWN",
+          "created_at": "2026-09-10T09:17:29.889312+00:00",
+          "load_status": "LOADED"
+        }
+      ],
+      "query_text": "What language does Project Orion use?",
+      "input_preview": "What language does Project Orion use?",
+      "retrieved": true,
+      "temporal_status": "TEMPORALLY_CURRENT"
+    }
+  },
+  "VARIANCE": {
+    "entity_set_equal": true,
+    "fact_set_equal": true
+  },
+  "SCOPE": {
+    "scope_a_hits": 2,
+    "scope_b_hits": 2,
+    "scope_a_facts": [
+      "Alice works on Project Orion.",
+      "Project Orion is in scope Alpha."
+    ],
+    "scope_b_facts": [
+      "Bob works on Project Nova.",
+      "Project Nova has scope Beta."
+    ],
+    "leak_facts": [
+      "Project Orion is in scope Alpha.",
+      "Alice works on Project Orion."
+    ],
+    "a_mentions_bob": false,
+    "leak_mentions_bob_or_nova": false
+  },
+  "WARNINGS": [],
+  "SECRET_LOGGED": "NO",
+  "supersedes": "BLOCKED_NO_REAL_PROVIDER (kept as history in findings/)",
+  "NEXT_ACTION": "STOP_AND_AWAIT_REVIEW",
+  "MERGE": "NO",
+  "UPSTREAM_FRACTAL": "2437244149baeb0c645e2e942125be92bba3a96b untouched",
+  "phases": [
+    {
+      "phase": "FM-11",
+      "test_id": "FM-11A",
+      "status": "PASS",
+      "evidence": {
+        "fingerprint_keys": [
+          "ACTUAL_MODEL",
+          "ACTUAL_MODELS_SEEN",
+          "CACHE",
+          "CACHE_EFFECT",
+          "CACHE_HIT_TOKENS",
+          "CACHE_MISS_TOKENS",
+          "COST",
+          "EXPECTED_VERSION_LABEL",
+          "REQUESTED_MODEL",
+          "SECRET_LOGGED",
+          "TOKEN_USAGE",
+          "api_key",
+          "api_key_source",
+          "base_url",
+          "classification",
+          "client",
+          "client_wrapper",
+          "cross_encoder",
+          "custom_kv_cache",
+          "embedder",
+          "first_request_utc",
+          "last_request_utc",
+          "model",
+          "note",
+          "openai_api_key_set",
+          "provider",
+          "request_count",
+          "secrets",
+          "structured_output_mode",
+          "system_fingerprints",
+          "temperature"
+        ],
+        "ACTUAL_MODEL": "deepseek-v4-pro",
+        "smoke_out": {
+          "person": "Alice",
+          "project": "Project Orion"
+        },
+        "CACHE": "ENABLED_BY_PROVIDER_DEFAULT",
+        "first_request_utc": "2026-09-10T09:14:53.954011+00:00"
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T09:14:58.567337+00:00"
+    },
+    {
+      "phase": "FM-11",
+      "test_id": "FM-11B",
+      "status": "PASS",
+      "evidence": {
+        "episode_count": 4,
+        "entity_counts": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "edge_counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "texts": [
+          "Alice works on Project Orion.",
+          "Project Orion uses Python.",
+          "Bob works on Project Nova.",
+          "Project Nova uses Rust."
+        ],
+        "no_markers": true
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T09:15:53.126676+00:00"
+    },
+    {
+      "phase": "FM-11",
+      "test_id": "FM-11C",
+      "status": "PASS",
+      "evidence": {
+        "ENTITIES_actual": [
+          {
+            "name": "Project Orion",
+            "uuid": "fb3adab1-fcd5-473a-97d6-dcdf0059bb33",
+            "labels": null
+          },
+          {
+            "name": "Project Nova",
+            "uuid": "d9d467cf-9f1d-4f07-b579-2c4eac11dee0",
+            "labels": null
+          },
+          {
+            "name": "Rust",
+            "uuid": "cc082c52-01c1-4e14-932b-7f56a432ff5f",
+            "labels": null
+          },
+          {
+            "name": "Python",
+            "uuid": "c2d95010-fb8d-4048-bd20-7c585d5c5372",
+            "labels": null
+          },
+          {
+            "name": "Bob",
+            "uuid": "a0c97f6a-83e9-4a34-a3bd-d1994136940f",
+            "labels": null
+          },
+          {
+            "name": "Alice",
+            "uuid": "6421d0f9-dd9d-4d95-89eb-9d26e684a81e",
+            "labels": null
+          }
+        ],
+        "RELATIONSHIPS_actual": [
+          {
+            "fact": "Project Orion uses Python.",
+            "name": "USES",
+            "uuid": "e7608a9b-489d-4536-9135-77ecbdac8d26",
+            "valid_at": "2026-05-01T10:05:00+00:00",
+            "invalid_at": null,
+            "group_id": "fm11_main_9de953981e60"
+          },
+          {
+            "fact": "Bob works on Project Nova.",
+            "name": "WORKS_ON",
+            "uuid": "e2282d3f-879e-42b6-9e24-b1a7c9ea550e",
+            "valid_at": "2026-05-01T10:10:00+00:00",
+            "invalid_at": null,
+            "group_id": "fm11_main_9de953981e60"
+          },
+          {
+            "fact": "Project Nova uses Rust.",
+            "name": "USES",
+            "uuid": "cf7fbae4-7962-4109-8821-e95f5b20baa9",
+            "valid_at": "2026-05-01T10:15:00+00:00",
+            "invalid_at": null,
+            "group_id": "fm11_main_9de953981e60"
+          },
+          {
+            "fact": "Alice works on Project Orion.",
+            "name": "WORKS_ON",
+            "uuid": "091c8acc-cc5f-4f2d-89b2-a7333f778a49",
+            "valid_at": "2026-05-01T10:00:00+00:00",
+            "invalid_at": null,
+            "group_id": "fm11_main_9de953981e60"
+          }
+        ],
+        "episode_count": 4,
+        "entity_count": 6,
+        "edge_count": 4,
+        "note": "STRUCTURAL vs SEMANTIC kept separate \u2014 actual Graphiti output only"
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T09:15:53.162660+00:00"
+    },
+    {
+      "phase": "FM-11",
+      "test_id": "FM-11D",
+      "status": "PASS",
+      "evidence": {
+        "Q1": {
+          "query": "Who works on Project Orion?",
+          "judgment": "RELEVANT",
+          "hit_count": 4,
+          "facts": [
+            "Alice works on Project Orion.",
+            "Bob works on Project Nova.",
+            "Project Orion uses Python.",
+            "Project Nova uses Rust."
+          ],
+          "temporal_summary": {
+            "retrieved_count": 4,
+            "current_count": 4,
+            "expired_count": 0,
+            "not_yet_valid_count": 0,
+            "unknown_count": 0
+          }
+        },
+        "Q2": {
+          "query": "What language does Project Orion use?",
+          "judgment": "RELEVANT",
+          "hit_count": 4,
+          "facts": [
+            "Project Orion uses Python.",
+            "Project Nova uses Rust.",
+            "Alice works on Project Orion.",
+            "Bob works on Project Nova."
+          ],
+          "temporal_summary": {
+            "retrieved_count": 4,
+            "current_count": 4,
+            "expired_count": 0,
+            "not_yet_valid_count": 0,
+            "unknown_count": 0
+          }
+        },
+        "Q3": {
+          "query": "What is related to Project Nova?",
+          "judgment": "RELEVANT",
+          "hit_count": 4,
+          "facts": [
+            "Project Nova uses Rust.",
+            "Bob works on Project Nova.",
+            "Project Orion uses Python.",
+            "Alice works on Project Orion."
+          ],
+          "temporal_summary": {
+            "retrieved_count": 4,
+            "current_count": 4,
+            "expired_count": 0,
+            "not_yet_valid_count": 0,
+            "unknown_count": 0
+          }
+        },
+        "Q4": {
+          "query": "Who works on Project Zephyr?",
+          "judgment": "IRRELEVANT",
+          "hit_count": 4,
+          "facts": [
+            "Alice works on Project Orion.",
+            "Bob works on Project Nova.",
+            "Project Orion uses Python.",
+            "Project Nova uses Rust."
+          ],
+          "temporal_summary": {
+            "retrieved_count": 4,
+            "current_count": 4,
+            "expired_count": 0,
+            "not_yet_valid_count": 0,
+            "unknown_count": 0
+          }
+        },
+        "Q5": {
+          "query": "Does Alice use Python?",
+          "judgment": "RELEVANT",
+          "hit_count": 3,
+          "facts": [
+            "Alice works on Project Orion.",
+            "Project Orion uses Python.",
+            "Project Nova uses Rust."
+          ],
+          "temporal_summary": {
+            "retrieved_count": 3,
+            "current_count": 3,
+            "expired_count": 0,
+            "not_yet_valid_count": 0,
+            "unknown_count": 0
+          }
+        }
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T09:15:53.226167+00:00"
+    },
+    {
+      "phase": "FM-11",
+      "test_id": "FM-11E",
+      "status": "PASS",
+      "evidence": {
+        "process1_hit_count": 1,
+        "process1_facts": [
+          "Alice works on Project Orion."
+        ],
+        "process2_returncode": 0,
+        "process2_hit_count": 1,
+        "process2_facts": [
+          "Alice works on Project Orion."
+        ],
+        "stderr_tail": ""
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T09:16:02.598758+00:00"
+    },
+    {
+      "phase": "FM-11",
+      "test_id": "FM-11F",
+      "status": "PASS",
+      "evidence": {
+        "generate_calls": 14,
+        "TOKEN_USAGE": {
+          "prompt_tokens": 19003,
+          "completion_tokens": 3652,
+          "total_tokens": 22655,
+          "observed": true
+        },
+        "CACHE_HIT_TOKENS": {
+          "total": 4608,
+          "per_request": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            512,
+            0,
+            0,
+            512,
+            256,
+            256,
+            1152,
+            1920
+          ]
+        },
+        "CACHE_MISS_TOKENS": {
+          "total": 14395,
+          "per_request": [
+            230,
+            1259,
+            1934,
+            1258,
+            1965,
+            858,
+            747,
+            1996,
+            875,
+            746,
+            1771,
+            635,
+            107,
+            14
+          ]
+        },
+        "CACHE_EFFECT": "observed",
+        "COST": {
+          "ACTUAL_BILLED_COST": "NOT_RETURNED_BY_API",
+          "ESTIMATED_COST": {
+            "ESTIMATED_COST_USD": 0.01683304,
+            "label": "ESTIMATED_COST \u2260 ACTUAL_BILLED_COST",
+            "pricing_table": {
+              "input_cache_hit_offpeak": 0.022,
+              "input_cache_miss_offpeak": 0.66,
+              "output_offpeak": 1.98,
+              "input_cache_hit_peak": 0.044,
+              "input_cache_miss_peak": 1.32,
+              "output_peak": 3.96,
+              "input_cache_hit": 0.022,
+              "input_cache_miss": 0.66,
+              "output": 1.98,
+              "source": "https://api-docs.deepseek.com/quick_start/pricing (fetched 2026-09-10)",
+              "model_version_label": "DeepSeek-V4-Pro-0813",
+              "label": "ESTIMATED_COST \u2260 ACTUAL_BILLED_COST",
+              "note": "From 2026-09-14 12:00 Beijing, deepseek-v4-pro routes to V4.1 Flash pricing"
+            },
+            "ACTUAL_BILLED_COST": "NOT_RETURNED_BY_API"
+          }
+        },
+        "ACTUAL_MODELS_SEEN": [
+          "deepseek-v4-pro"
+        ]
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T09:16:02.602168+00:00"
+    },
+    {
+      "phase": "FM-11",
+      "test_id": "FM-11G",
+      "status": "PASS",
+      "evidence": {
+        "warnings": []
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T09:16:02.604022+00:00"
+    },
+    {
+      "phase": "FM-11",
+      "test_id": "FM-11H",
+      "status": "PASS",
+      "evidence": {
+        "scope_a_hits": 2,
+        "scope_b_hits": 2,
+        "scope_a_facts": [
+          "Alice works on Project Orion.",
+          "Project Orion is in scope Alpha."
+        ],
+        "scope_b_facts": [
+          "Bob works on Project Nova.",
+          "Project Nova has scope Beta."
+        ],
+        "leak_facts": [
+          "Project Orion is in scope Alpha.",
+          "Alice works on Project Orion."
+        ],
+        "a_mentions_bob": false,
+        "leak_mentions_bob_or_nova": false
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T09:17:22.740639+00:00"
+    },
+    {
+      "phase": "FM-12",
+      "test_id": "FM-12A",
+      "status": "PASS",
+      "evidence": {
+        "t1_episode": "4a5d0167-9658-4ffe-83d8-338b6c407863",
+        "t2_episode": "40352ba8-ee31-4f7b-b8e8-94167b146293",
+        "python_edges": [
+          {
+            "uuid": "a4299b44-fa7c-4f7d-9470-6006e7e7aeb1",
+            "name": "USES",
+            "fact": "Project Orion uses Python.",
+            "group_id": "fm12_temporal_9de953981e60",
+            "source_node_uuid": "f734990a-6254-41d4-a694-ab2481d00fac",
+            "target_node_uuid": "b5b67216-c6d8-4739-a033-1fa43e61adcb",
+            "valid_at": "2026-05-01T10:00:00+00:00",
+            "invalid_at": "2026-05-01T12:00:00+00:00",
+            "expired_at": "2026-09-10T09:17:47.473738+00:00",
+            "created_at": "2026-09-10T09:17:29.874063+00:00",
+            "episodes": [
+              "4a5d0167-9658-4ffe-83d8-338b6c407863"
+            ]
+          }
+        ],
+        "rust_edges": [
+          {
+            "uuid": "d253af9b-7c52-45e9-96fb-036393dec1dd",
+            "name": "USES",
+            "fact": "Project Orion uses Rust.",
+            "group_id": "fm12_temporal_9de953981e60",
+            "source_node_uuid": "f734990a-6254-41d4-a694-ab2481d00fac",
+            "target_node_uuid": "6e500326-c485-4209-a705-9bbec4a3c18f",
+            "valid_at": "2026-05-01T12:00:00+00:00",
+            "invalid_at": null,
+            "expired_at": null,
+            "created_at": "2026-09-10T09:17:45.138055+00:00",
+            "episodes": [
+              "40352ba8-ee31-4f7b-b8e8-94167b146293"
+            ]
+          }
+        ],
+        "all_facts": [
+          "Project Orion uses Rust.",
+          "Project Orion uses Python."
+        ]
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T09:17:47.500494+00:00"
+    },
+    {
+      "phase": "FM-12",
+      "test_id": "FM-12B",
+      "status": "PASS",
+      "evidence": {
+        "query_time": "2026-05-01T14:00:00+00:00",
+        "search_facts": [
+          "Project Orion uses Rust.",
+          "Project Orion uses Python."
+        ],
+        "python_hit": {
+          "uuid": "a4299b44-fa7c-4f7d-9470-6006e7e7aeb1",
+          "fact": "Project Orion uses Python.",
+          "group_id": "fm12_temporal_9de953981e60",
+          "retrieved": true,
+          "temporal_status": "TEMPORALLY_EXPIRED",
+          "valid_at": "2026-05-01T10:00:00+00:00",
+          "invalid_at": "2026-05-01T12:00:00+00:00",
+          "expired_at": "2026-09-10T09:17:47.473738+00:00",
+          "name": "USES",
+          "source_node_uuid": "f734990a-6254-41d4-a694-ab2481d00fac",
+          "target_node_uuid": "b5b67216-c6d8-4739-a033-1fa43e61adcb",
+          "episodes": [
+            "4a5d0167-9658-4ffe-83d8-338b6c407863"
+          ]
+        },
+        "rust_hit": {
+          "uuid": "d253af9b-7c52-45e9-96fb-036393dec1dd",
+          "fact": "Project Orion uses Rust.",
+          "group_id": "fm12_temporal_9de953981e60",
+          "retrieved": true,
+          "temporal_status": "TEMPORALLY_CURRENT",
+          "valid_at": "2026-05-01T12:00:00+00:00",
+          "invalid_at": null,
+          "expired_at": null,
+          "name": "USES",
+          "source_node_uuid": "f734990a-6254-41d4-a694-ab2481d00fac",
+          "target_node_uuid": "6e500326-c485-4209-a705-9bbec4a3c18f",
+          "episodes": [
+            "40352ba8-ee31-4f7b-b8e8-94167b146293"
+          ]
+        },
+        "classifications": [
+          {
+            "fact": "Project Orion uses Rust.",
+            "valid_at": "2026-05-01T12:00:00+00:00",
+            "invalid_at": null,
+            "temporal_status": "TEMPORALLY_CURRENT",
+            "retrieved_in_search": true
+          },
+          {
+            "fact": "Project Orion uses Python.",
+            "valid_at": "2026-05-01T10:00:00+00:00",
+            "invalid_at": "2026-05-01T12:00:00+00:00",
+            "temporal_status": "TEMPORALLY_EXPIRED",
+            "retrieved_in_search": true
+          }
+        ],
+        "retrieved_expired_observed": true,
+        "invariant": "RETRIEVED\u2260CURRENT",
+        "TEMPORAL_OUTCOME": "PYTHON_EXPIRED_RUST_CURRENT",
+        "PYTHON": "EXPIRED",
+        "RUST": "CURRENT"
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T09:17:47.531879+00:00"
+    },
+    {
+      "phase": "FM-12",
+      "test_id": "FM-12C",
+      "status": "PASS",
+      "evidence": {
+        "query_time": "2026-05-01T11:00:00+00:00",
+        "note": "metadata classification at historical time \u2014 not time-travel retrieval API",
+        "search_hit_count": 2,
+        "search_facts": [
+          "Project Orion uses Rust.",
+          "Project Orion uses Python."
+        ],
+        "stored_classifications_at_hist": [
+          {
+            "fact": "Project Orion uses Rust.",
+            "temporal_status_at_T_HIST": "TEMPORALLY_NOT_YET_VALID",
+            "valid_at": "2026-05-01T12:00:00+00:00",
+            "invalid_at": null,
+            "uuid": "d253af9b-7c52-45e9-96fb-036393dec1dd"
+          },
+          {
+            "fact": "Project Orion uses Python.",
+            "temporal_status_at_T_HIST": "TEMPORALLY_CURRENT",
+            "valid_at": "2026-05-01T10:00:00+00:00",
+            "invalid_at": "2026-05-01T12:00:00+00:00",
+            "uuid": "a4299b44-fa7c-4f7d-9470-6006e7e7aeb1"
+          }
+        ]
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T09:17:47.560038+00:00"
+    },
+    {
+      "phase": "FM-12",
+      "test_id": "FM-12D",
+      "status": "PASS",
+      "evidence": {
+        "hit_count": 2,
+        "provenance_count": 2,
+        "sample": {
+          "edge_uuid": "d253af9b-7c52-45e9-96fb-036393dec1dd",
+          "fact": "Project Orion uses Rust.",
+          "relation": "USES",
+          "name": "USES",
+          "group_id": "fm12_temporal_9de953981e60",
+          "source_node_uuid": "f734990a-6254-41d4-a694-ab2481d00fac",
+          "target_node_uuid": "6e500326-c485-4209-a705-9bbec4a3c18f",
+          "valid_at": "2026-05-01T12:00:00+00:00",
+          "invalid_at": "UNKNOWN",
+          "expired_at": "UNKNOWN",
+          "episode_uuids": [
+            "40352ba8-ee31-4f7b-b8e8-94167b146293"
+          ],
+          "chain": [
+            "INPUT",
+            "EPISODE",
+            "ENTITY_EDGE",
+            "QUERY_HIT"
+          ],
+          "episodes": [
+            {
+              "episode_uuid": "40352ba8-ee31-4f7b-b8e8-94167b146293",
+              "episode_name": "fm12_rust",
+              "content_preview": "Project Orion now uses Rust.",
+              "source_description": "fractal_lab_memoryops",
+              "group_id": "fm12_temporal_9de953981e60",
+              "valid_at": "2026-05-01T12:00:00+00:00",
+              "reference_time": "UNKNOWN",
+              "created_at": "2026-09-10T09:17:29.889312+00:00",
+              "load_status": "LOADED"
+            }
+          ],
+          "query_text": "What language does Project Orion use?",
+          "input_preview": "What language does Project Orion use?",
+          "retrieved": true,
+          "temporal_status": "TEMPORALLY_CURRENT"
+        }
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T09:17:47.579241+00:00"
+    },
+    {
+      "phase": "FM-12",
+      "test_id": "FM-12E",
+      "status": "PASS",
+      "evidence": {
+        "runs": [
+          "run_a",
+          "run_b",
+          "run_c"
+        ],
+        "entity_sets": {
+          "run_a": [
+            "alice",
+            "project orion",
+            "python"
+          ],
+          "run_b": [
+            "alice",
+            "project orion",
+            "python"
+          ],
+          "run_c": [
+            "alice",
+            "project orion",
+            "python"
+          ]
+        },
+        "fact_sets": {
+          "run_a": [
+            "alice works on project orion.",
+            "project orion uses python."
+          ],
+          "run_b": [
+            "alice works on project orion.",
+            "project orion uses python."
+          ],
+          "run_c": [
+            "alice works on project orion.",
+            "project orion uses python."
+          ]
+        },
+        "entity_set_equal": true,
+        "fact_set_equal": true,
+        "cache_totals": {
+          "run_a": {
+            "hit": 5248,
+            "miss": 2026
+          },
+          "run_b": {
+            "hit": 6912,
+            "miss": 362
+          },
+          "run_c": {
+            "hit": 6912,
+            "miss": 362
+          }
+        },
+        "note": "Variance across REAL_LLM extraction with deterministic embeddings"
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T09:19:36.368054+00:00"
+    },
+    {
+      "phase": "FM-12",
+      "test_id": "FM-12F",
+      "status": "PASS",
+      "evidence": {
+        "finalized": true,
+        "TEMPORAL_OUTCOME": "PYTHON_EXPIRED_RUST_CURRENT"
+      },
+      "finding_id": null,
+      "recorded_at_utc": "2026-09-10T09:19:36.375771+00:00"
+    }
+  ],
+  "warnings": [],
+  "start_sha": "f401d90c77ce722add33bdc51ab3e1968c3fd66c",
+  "end_sha": "757b5a94b44b591e6e3cf36b72a8cc32e203df3c",
+  "START_SHA": "f401d90c77ce722add33bdc51ab3e1968c3fd66c",
+  "END_SHA": "757b5a94b44b591e6e3cf36b72a8cc32e203df3c"
 }

@@ -1,0 +1,199 @@
+{
+  "run": "run_b",
+  "REQUESTED_MODEL": "deepseek-v4-pro",
+  "ACTUAL_MODELS_SEEN": [
+    "deepseek-v4-pro"
+  ],
+  "entities": [
+    "Project Orion",
+    "Python",
+    "Alice"
+  ],
+  "facts": [
+    "Alice works on Project Orion.",
+    "Project Orion uses Python."
+  ],
+  "query_facts": [
+    "Alice works on Project Orion.",
+    "Project Orion uses Python."
+  ],
+  "ingest": [
+    {
+      "entities": [
+        "Alice",
+        "Project Orion"
+      ],
+      "facts": [
+        "Alice works on Project Orion."
+      ]
+    },
+    {
+      "entities": [
+        "Project Orion",
+        "Python"
+      ],
+      "facts": [
+        "Project Orion uses Python."
+      ]
+    }
+  ],
+  "usage": {
+    "generate_calls": 5,
+    "TOKEN_USAGE": {
+      "prompt_tokens": 7274,
+      "completion_tokens": 1264,
+      "total_tokens": 8538,
+      "observed": true
+    },
+    "CACHE_HIT_TOKENS": {
+      "total": 6912,
+      "per_request": [
+        1152,
+        1920,
+        1152,
+        1920,
+        768
+      ]
+    },
+    "CACHE_MISS_TOKENS": {
+      "total": 362,
+      "per_request": [
+        107,
+        14,
+        106,
+        45,
+        90
+      ]
+    },
+    "CACHE_EFFECT": "observed",
+    "CACHE": "ENABLED_BY_PROVIDER_DEFAULT",
+    "ACTUAL_MODELS_SEEN": [
+      "deepseek-v4-pro"
+    ],
+    "system_fingerprints": [
+      "a307abda487cd1b463329ccb945ce396"
+    ],
+    "COST": {
+      "ACTUAL_BILLED_COST": "NOT_RETURNED_BY_API",
+      "ESTIMATED_COST": {
+        "ESTIMATED_COST_USD": 0.0028937,
+        "label": "ESTIMATED_COST \u2260 ACTUAL_BILLED_COST",
+        "pricing_table": {
+          "input_cache_hit_offpeak": 0.022,
+          "input_cache_miss_offpeak": 0.66,
+          "output_offpeak": 1.98,
+          "input_cache_hit_peak": 0.044,
+          "input_cache_miss_peak": 1.32,
+          "output_peak": 3.96,
+          "input_cache_hit": 0.022,
+          "input_cache_miss": 0.66,
+          "output": 1.98,
+          "source": "https://api-docs.deepseek.com/quick_start/pricing (fetched 2026-09-10)",
+          "model_version_label": "DeepSeek-V4-Pro-0813",
+          "label": "ESTIMATED_COST \u2260 ACTUAL_BILLED_COST",
+          "note": "From 2026-09-14 12:00 Beijing, deepseek-v4-pro routes to V4.1 Flash pricing"
+        },
+        "ACTUAL_BILLED_COST": "NOT_RETURNED_BY_API"
+      }
+    },
+    "per_request": [
+      {
+        "request_index": 0,
+        "REQUESTED_MODEL": "deepseek-v4-pro",
+        "ACTUAL_MODEL": "deepseek-v4-pro",
+        "request_utc_start": "2026-09-10T09:18:57.241425+00:00",
+        "request_utc_end": "2026-09-10T09:19:03.875033+00:00",
+        "latency_ms": 6633.62,
+        "prompt_tokens": 1259,
+        "completion_tokens": 455,
+        "total_tokens": 1714,
+        "cache_hit_tokens": 1152,
+        "cache_miss_tokens": 107,
+        "hit_miss": "PARTIAL_CACHE_HIT",
+        "cold_or_warm": "WARM/CACHE_HIT",
+        "system_fingerprint": "a307abda487cd1b463329ccb945ce396",
+        "prompt_name": "extract_nodes.extract_text",
+        "note": "CACHE_HIT \u2260 better semantic result; cache is cost/latency only"
+      },
+      {
+        "request_index": 1,
+        "REQUESTED_MODEL": "deepseek-v4-pro",
+        "ACTUAL_MODEL": "deepseek-v4-pro",
+        "request_utc_start": "2026-09-10T09:19:03.879636+00:00",
+        "request_utc_end": "2026-09-10T09:19:06.771537+00:00",
+        "latency_ms": 2891.92,
+        "prompt_tokens": 1934,
+        "completion_tokens": 177,
+        "total_tokens": 2111,
+        "cache_hit_tokens": 1920,
+        "cache_miss_tokens": 14,
+        "hit_miss": "PARTIAL_CACHE_HIT",
+        "cold_or_warm": "WARM/CACHE_HIT",
+        "system_fingerprint": "a307abda487cd1b463329ccb945ce396",
+        "prompt_name": "extract_edges.edge",
+        "note": "CACHE_HIT \u2260 better semantic result; cache is cost/latency only"
+      },
+      {
+        "request_index": 2,
+        "REQUESTED_MODEL": "deepseek-v4-pro",
+        "ACTUAL_MODEL": "deepseek-v4-pro",
+        "request_utc_start": "2026-09-10T09:19:06.789869+00:00",
+        "request_utc_end": "2026-09-10T09:19:11.497210+00:00",
+        "latency_ms": 4707.35,
+        "prompt_tokens": 1258,
+        "completion_tokens": 268,
+        "total_tokens": 1526,
+        "cache_hit_tokens": 1152,
+        "cache_miss_tokens": 106,
+        "hit_miss": "PARTIAL_CACHE_HIT",
+        "cold_or_warm": "WARM/CACHE_HIT",
+        "system_fingerprint": "a307abda487cd1b463329ccb945ce396",
+        "prompt_name": "extract_nodes.extract_text",
+        "note": "CACHE_HIT \u2260 better semantic result; cache is cost/latency only"
+      },
+      {
+        "request_index": 3,
+        "REQUESTED_MODEL": "deepseek-v4-pro",
+        "ACTUAL_MODEL": "deepseek-v4-pro",
+        "request_utc_start": "2026-09-10T09:19:11.503581+00:00",
+        "request_utc_end": "2026-09-10T09:19:14.780732+00:00",
+        "latency_ms": 3277.17,
+        "prompt_tokens": 1965,
+        "completion_tokens": 250,
+        "total_tokens": 2215,
+        "cache_hit_tokens": 1920,
+        "cache_miss_tokens": 45,
+        "hit_miss": "PARTIAL_CACHE_HIT",
+        "cold_or_warm": "WARM/CACHE_HIT",
+        "system_fingerprint": "a307abda487cd1b463329ccb945ce396",
+        "prompt_name": "extract_edges.edge",
+        "note": "CACHE_HIT \u2260 better semantic result; cache is cost/latency only"
+      },
+      {
+        "request_index": 4,
+        "REQUESTED_MODEL": "deepseek-v4-pro",
+        "ACTUAL_MODEL": "deepseek-v4-pro",
+        "request_utc_start": "2026-09-10T09:19:14.789061+00:00",
+        "request_utc_end": "2026-09-10T09:19:16.945777+00:00",
+        "latency_ms": 2156.73,
+        "prompt_tokens": 858,
+        "completion_tokens": 114,
+        "total_tokens": 972,
+        "cache_hit_tokens": 768,
+        "cache_miss_tokens": 90,
+        "hit_miss": "PARTIAL_CACHE_HIT",
+        "cold_or_warm": "WARM/CACHE_HIT",
+        "system_fingerprint": "a307abda487cd1b463329ccb945ce396",
+        "prompt_name": "dedupe_edges.resolve_edge",
+        "note": "CACHE_HIT \u2260 better semantic result; cache is cost/latency only"
+      }
+    ],
+    "errors": [],
+    "SECRET_LOGGED": "NO"
+  },
+  "CACHE_HIT_TOKENS_total": 6912,
+  "CACHE_MISS_TOKENS_total": 362,
+  "first_request_utc": "2026-09-10T09:18:57.241425+00:00",
+  "last_request_utc": "2026-09-10T09:19:16.945777+00:00",
+  "note": "identical natural prefixes; cache counters independent per run; CACHE_HIT \u2260 better semantics"
+}

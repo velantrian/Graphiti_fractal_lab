@@ -1,0 +1,79 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.5, pytest-9.1.1, pluggy-1.6.0 -- /workspace/Graphiti_fractal_lab/.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /workspace/Graphiti_fractal_lab
+configfile: pytest.ini (WARNING: ignoring pytest config in pyproject.toml!)
+plugins: asyncio-1.4.0, anyio-4.15.1
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 14 items
+
+tests/lab/test_memoryops_fm11_fm12_real_llm.py::test_fm11a_provider_fingerprint PASSED [  7%]
+tests/lab/test_memoryops_fm11_fm12_real_llm.py::test_fm11b_natural_ingest PASSED [ 14%]
+tests/lab/test_memoryops_fm11_fm12_real_llm.py::test_fm11c_inspect_graph PASSED [ 21%]
+tests/lab/test_memoryops_fm11_fm12_real_llm.py::test_fm11d_queries_q1_q5 PASSED [ 28%]
+tests/lab/test_memoryops_fm11_fm12_real_llm.py::test_fm11e_process_reopen PASSED [ 35%]
+tests/lab/test_memoryops_fm11_fm12_real_llm.py::test_fm11f_usage_receipt PASSED [ 42%]
+tests/lab/test_memoryops_fm11_fm12_real_llm.py::test_fm11g_warnings_recorded PASSED [ 50%]
+tests/lab/test_memoryops_fm11_fm12_real_llm.py::test_fm11h_optional_scope PASSED [ 57%]
+tests/lab/test_memoryops_fm11_fm12_real_llm.py::test_fm12a_natural_python_rust_contradiction PASSED [ 64%]
+tests/lab/test_memoryops_fm11_fm12_real_llm.py::test_fm12b_retrieved_ne_current PASSED [ 71%]
+tests/lab/test_memoryops_fm11_fm12_real_llm.py::test_fm12c_historical_query PASSED [ 78%]
+tests/lab/test_memoryops_fm11_fm12_real_llm.py::test_fm12d_provenance PASSED [ 85%]
+tests/lab/test_memoryops_fm11_fm12_real_llm.py::test_fm12e_variance_abc PASSED [ 92%]
+tests/lab/test_memoryops_fm11_fm12_real_llm.py::test_fm12f_finalize_artifacts PASSED [100%]/workspace/Graphiti_fractal_lab/.venv/lib/python3.13/site-packages/_pytest/unraisableexception.py:67: PytestUnraisableExceptionWarning: Exception ignored in: <coroutine object AsyncManagementCommands.shutdown at 0x7f4916b41250>
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/warnings.py", line 692, in _warn_unawaited_coroutine
+    warn(msg, category=RuntimeWarning, stacklevel=2, source=coro)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeWarning: coroutine 'AsyncManagementCommands.shutdown' was never awaited
+
+Enable tracemalloc to get traceback where the object was allocated.
+See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+  warnings.warn(pytest.PytestUnraisableExceptionWarning(msg))
+/workspace/Graphiti_fractal_lab/.venv/lib/python3.13/site-packages/_pytest/unraisableexception.py:67: PytestUnraisableExceptionWarning: Exception ignored in: <coroutine object ConnectionPool.disconnect at 0x7f48fbac25c0>
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/warnings.py", line 692, in _warn_unawaited_coroutine
+    warn(msg, category=RuntimeWarning, stacklevel=2, source=coro)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeWarning: coroutine 'ConnectionPool.disconnect' was never awaited
+
+Enable tracemalloc to get traceback where the object was allocated.
+See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+  warnings.warn(pytest.PytestUnraisableExceptionWarning(msg))
+
+
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/graphiti_core/driver/search_interface/search_interface.py:22
+  /workspace/Graphiti_fractal_lab/.venv/lib/python3.13/site-packages/graphiti_core/driver/search_interface/search_interface.py:22: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class SearchInterface(BaseModel):
+
+tests/lab/test_memoryops_fm11_fm12_real_llm.py::test_fm11c_inspect_graph
+  /workspace/Graphiti_fractal_lab/.venv/lib/python3.13/site-packages/_pytest/unraisableexception.py:67: PytestUnraisableExceptionWarning: Exception ignored in: <coroutine object ConnectionPool.disconnect at 0x7f48fbac34c0>
+  
+  Traceback (most recent call last):
+    File "/usr/lib/python3.13/warnings.py", line 692, in _warn_unawaited_coroutine
+      warn(msg, category=RuntimeWarning, stacklevel=2, source=coro)
+      ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  RuntimeWarning: coroutine 'ConnectionPool.disconnect' was never awaited
+  
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+    warnings.warn(pytest.PytestUnraisableExceptionWarning(msg))
+
+tests/lab/test_memoryops_fm11_fm12_real_llm.py::test_fm12e_variance_abc
+  /workspace/Graphiti_fractal_lab/.venv/lib/python3.13/site-packages/_pytest/unraisableexception.py:67: PytestUnraisableExceptionWarning: Exception ignored in: <coroutine object ConnectionPool.disconnect at 0x7f48fa9ed4e0>
+  
+  Traceback (most recent call last):
+    File "/usr/lib/python3.13/warnings.py", line 692, in _warn_unawaited_coroutine
+      warn(msg, category=RuntimeWarning, stacklevel=2, source=coro)
+      ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  RuntimeWarning: coroutine 'ConnectionPool.disconnect' was never awaited
+  
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+    warnings.warn(pytest.PytestUnraisableExceptionWarning(msg))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+================== 14 passed, 3 warnings in 283.51s (0:04:43) ==================

@@ -1,42 +1,63 @@
 {
-  "status": "BLOCKED_NO_REAL_PROVIDER",
-  "checked_at_utc": "2026-09-10T08:54:06.179604+00:00",
-  "providers_checked": [
-    "OPENAI_API_KEY",
-    "ANTHROPIC_API_KEY",
-    "GOOGLE_API_KEY",
-    "GEMINI_API_KEY",
-    "AZURE_OPENAI_API_KEY",
-    "GROQ_API_KEY",
-    "XAI_API_KEY",
-    "GROK_API_KEY",
-    "OPENROUTER_API_KEY",
-    "VOYAGE_API_KEY",
-    "MISTRAL_API_KEY",
-    "COHERE_API_KEY",
-    "TOGETHER_API_KEY"
+  "provider": "DeepSeek",
+  "REQUESTED_MODEL": "deepseek-v4-pro",
+  "EXPECTED_VERSION_LABEL": "DeepSeek-V4-Pro-0813",
+  "ACTUAL_MODEL": "deepseek-v4-pro",
+  "model": "deepseek-v4-pro",
+  "client": "OpenAIGenericClient",
+  "client_wrapper": "CountingOpenAIGenericClient",
+  "structured_output_mode": "json_object",
+  "base_url": "https://api.deepseek.com",
+  "temperature": 0.0,
+  "embedder": "deterministic",
+  "cross_encoder": "deterministic",
+  "classification": "REAL_LLM_EXTRACTION+DETERMINISTIC_EMBEDDING",
+  "CACHE": "ENABLED_BY_PROVIDER_DEFAULT",
+  "custom_kv_cache": false,
+  "api_key_source": "env:DEEPSEEK_API_KEY",
+  "api_key": "REDACTED",
+  "SECRET_LOGGED": "NO",
+  "openai_api_key_set": false,
+  "note": "OPENAI_API_KEY must remain unset/unused. deepseek-v4-pro may route to V4.1 Flash from 2026-09-14 12:00 Beijing \u2014 record UTC timestamps for reproducibility; still request deepseek-v4-pro.",
+  "ACTUAL_MODELS_SEEN": [
+    "deepseek-v4-pro"
   ],
-  "present_credentials": [],
-  "box_secrets_names": [
-    "GH_TOKEN",
-    "GITHUB_TOKEN",
-    "GITHUB_PERSONAL_ACCESS_TOKEN"
+  "system_fingerprints": [
+    "a307abda487cd1b463329ccb945ce396"
   ],
-  "graphiti_llm_clients_installed": [
-    "openai_client",
-    "anthropic_client",
-    "azure_openai_client",
-    "gemini_client",
-    "groq_client",
-    "openai_generic_client"
-  ],
-  "python_packages": {
-    "openai": "3.11.0",
-    "anthropic": null
+  "CACHE_HIT_TOKENS": 7552,
+  "CACHE_MISS_TOKENS": 25152,
+  "CACHE_EFFECT": "observed",
+  "TOKEN_USAGE": {
+    "prompt_tokens": 32704,
+    "completion_tokens": 10572,
+    "total_tokens": 43276
   },
-  "graphiti_core": "0.29.3",
-  "falkordblite": "0.10.0",
-  "secrets": "REDACTED",
-  "deterministic_substitution": false,
-  "note": "No real LLM API credentials available in process env or box-secrets. FM-11/FM-12 not executed."
+  "COST": {
+    "ACTUAL_BILLED_COST": "NOT_RETURNED_BY_API",
+    "ESTIMATED_COST": {
+      "ESTIMATED_COST_USD": 0.03769902,
+      "label": "ESTIMATED_COST \u2260 ACTUAL_BILLED_COST",
+      "pricing_table": {
+        "input_cache_hit_offpeak": 0.022,
+        "input_cache_miss_offpeak": 0.66,
+        "output_offpeak": 1.98,
+        "input_cache_hit_peak": 0.044,
+        "input_cache_miss_peak": 1.32,
+        "output_peak": 3.96,
+        "input_cache_hit": 0.022,
+        "input_cache_miss": 0.66,
+        "output": 1.98,
+        "source": "https://api-docs.deepseek.com/quick_start/pricing (fetched 2026-09-10)",
+        "model_version_label": "DeepSeek-V4-Pro-0813",
+        "label": "ESTIMATED_COST \u2260 ACTUAL_BILLED_COST",
+        "note": "From 2026-09-14 12:00 Beijing, deepseek-v4-pro routes to V4.1 Flash pricing"
+      },
+      "ACTUAL_BILLED_COST": "NOT_RETURNED_BY_API"
+    }
+  },
+  "request_count": 23,
+  "first_request_utc": "2026-09-10T09:14:53.954011+00:00",
+  "last_request_utc": "2026-09-10T09:17:47.473430+00:00",
+  "secrets": "REDACTED"
 }

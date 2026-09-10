@@ -1,0 +1,55 @@
+{
+  "runs": [
+    "run_a",
+    "run_b",
+    "run_c"
+  ],
+  "entity_sets": {
+    "run_a": [
+      "alice",
+      "project orion",
+      "python"
+    ],
+    "run_b": [
+      "alice",
+      "project orion",
+      "python"
+    ],
+    "run_c": [
+      "alice",
+      "project orion",
+      "python"
+    ]
+  },
+  "fact_sets": {
+    "run_a": [
+      "alice works on project orion.",
+      "project orion uses python."
+    ],
+    "run_b": [
+      "alice works on project orion.",
+      "project orion uses python."
+    ],
+    "run_c": [
+      "alice works on project orion.",
+      "project orion uses python."
+    ]
+  },
+  "entity_set_equal": true,
+  "fact_set_equal": true,
+  "cache_totals": {
+    "run_a": {
+      "hit": 5248,
+      "miss": 2026
+    },
+    "run_b": {
+      "hit": 6912,
+      "miss": 362
+    },
+    "run_c": {
+      "hit": 6912,
+      "miss": 362
+    }
+  },
+  "note": "Variance across REAL_LLM extraction with deterministic embeddings"
+}

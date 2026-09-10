@@ -1,0 +1,18 @@
+{
+  "scope_a_hits": 2,
+  "scope_b_hits": 2,
+  "scope_a_facts": [
+    "Alice works on Project Orion.",
+    "Project Orion is in scope Alpha."
+  ],
+  "scope_b_facts": [
+    "Bob works on Project Nova.",
+    "Project Nova has scope Beta."
+  ],
+  "leak_facts": [
+    "Project Orion is in scope Alpha.",
+    "Alice works on Project Orion."
+  ],
+  "a_mentions_bob": false,
+  "leak_mentions_bob_or_nova": false
+}

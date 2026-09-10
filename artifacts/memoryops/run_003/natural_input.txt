@@ -1,0 +1,5 @@
+Alice works on Project Orion.
+Project Orion uses Python.
+Bob works on Project Nova.
+Project Nova uses Rust.
+Project Orion now uses Rust.

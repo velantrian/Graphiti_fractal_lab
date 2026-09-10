@@ -9,3 +9,8 @@ Checked process environment and box-secrets.json.
 - DeterministicTemporalLLMClient was NOT used as a stand-in
 
 FM-11/FM-12 matrix: NOT_RUN except FM-11A=BLOCKED.
+
+
+---
+SUPERSEDED_BY: FM-11/FM-12 REAL_LLM DeepSeek run (same run_003).
+Prior BLOCKED_NO_REAL_PROVIDER kept as history.

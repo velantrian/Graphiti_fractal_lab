@@ -1,0 +1,25 @@
+{
+  "query_time": "2026-05-01T11:00:00+00:00",
+  "note": "metadata classification at historical time \u2014 not time-travel retrieval API",
+  "search_hit_count": 2,
+  "search_facts": [
+    "Project Orion uses Rust.",
+    "Project Orion uses Python."
+  ],
+  "stored_classifications_at_hist": [
+    {
+      "fact": "Project Orion uses Rust.",
+      "temporal_status_at_T_HIST": "TEMPORALLY_NOT_YET_VALID",
+      "valid_at": "2026-05-01T12:00:00+00:00",
+      "invalid_at": null,
+      "uuid": "d253af9b-7c52-45e9-96fb-036393dec1dd"
+    },
+    {
+      "fact": "Project Orion uses Python.",
+      "temporal_status_at_T_HIST": "TEMPORALLY_CURRENT",
+      "valid_at": "2026-05-01T10:00:00+00:00",
+      "invalid_at": "2026-05-01T12:00:00+00:00",
+      "uuid": "a4299b44-fa7c-4f7d-9470-6006e7e7aeb1"
+    }
+  ]
+}

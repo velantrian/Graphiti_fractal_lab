@@ -1,0 +1,159 @@
+{
+  "operation": "MEMORY_INSPECT",
+  "timestamp": "2026-09-10T09:15:53.161915+00:00",
+  "group_id": "fm11_main_9de953981e60",
+  "episode_uuid": null,
+  "entities": [
+    {
+      "uuid": "fb3adab1-fcd5-473a-97d6-dcdf0059bb33",
+      "name": "Project Orion",
+      "summary": "Alice works on Project Orion.\nProject Orion uses Python.",
+      "group_id": "fm11_main_9de953981e60",
+      "created_at": "2026-09-10T09:15:03.263055+00:00"
+    },
+    {
+      "uuid": "d9d467cf-9f1d-4f07-b579-2c4eac11dee0",
+      "name": "Project Nova",
+      "summary": "Bob works on Project Nova.\nProject Nova uses Rust.",
+      "group_id": "fm11_main_9de953981e60",
+      "created_at": "2026-09-10T09:15:29.439381+00:00"
+    },
+    {
+      "uuid": "cc082c52-01c1-4e14-932b-7f56a432ff5f",
+      "name": "Rust",
+      "summary": "Project Nova uses Rust.",
+      "group_id": "fm11_main_9de953981e60",
+      "created_at": "2026-09-10T09:15:43.343448+00:00"
+    },
+    {
+      "uuid": "c2d95010-fb8d-4048-bd20-7c585d5c5372",
+      "name": "Python",
+      "summary": "Project Orion uses Python.",
+      "group_id": "fm11_main_9de953981e60",
+      "created_at": "2026-09-10T09:15:13.362761+00:00"
+    },
+    {
+      "uuid": "a0c97f6a-83e9-4a34-a3bd-d1994136940f",
+      "name": "Bob",
+      "summary": "Bob works on Project Nova.",
+      "group_id": "fm11_main_9de953981e60",
+      "created_at": "2026-09-10T09:15:29.439333+00:00"
+    },
+    {
+      "uuid": "6421d0f9-dd9d-4d95-89eb-9d26e684a81e",
+      "name": "Alice",
+      "summary": "Alice works on Project Orion.",
+      "group_id": "fm11_main_9de953981e60",
+      "created_at": "2026-09-10T09:15:03.262984+00:00"
+    }
+  ],
+  "edges": [
+    {
+      "uuid": "e7608a9b-489d-4536-9135-77ecbdac8d26",
+      "name": "USES",
+      "fact": "Project Orion uses Python.",
+      "group_id": "fm11_main_9de953981e60",
+      "source_node_uuid": "fb3adab1-fcd5-473a-97d6-dcdf0059bb33",
+      "target_node_uuid": "c2d95010-fb8d-4048-bd20-7c585d5c5372",
+      "valid_at": "2026-05-01T10:05:00+00:00",
+      "invalid_at": null,
+      "expired_at": null,
+      "created_at": "2026-09-10T09:15:21.270525+00:00",
+      "episodes": [
+        "dd3c6b18-6381-4d97-9ef0-f8c85fcdb80a"
+      ]
+    },
+    {
+      "uuid": "e2282d3f-879e-42b6-9e24-b1a7c9ea550e",
+      "name": "WORKS_ON",
+      "fact": "Bob works on Project Nova.",
+      "group_id": "fm11_main_9de953981e60",
+      "source_node_uuid": "a0c97f6a-83e9-4a34-a3bd-d1994136940f",
+      "target_node_uuid": "d9d467cf-9f1d-4f07-b579-2c4eac11dee0",
+      "valid_at": "2026-05-01T10:10:00+00:00",
+      "invalid_at": null,
+      "expired_at": null,
+      "created_at": "2026-09-10T09:15:36.769345+00:00",
+      "episodes": [
+        "79a27bcc-d6b0-4312-b97e-3a0163dbdfac"
+      ]
+    },
+    {
+      "uuid": "cf7fbae4-7962-4109-8821-e95f5b20baa9",
+      "name": "USES",
+      "fact": "Project Nova uses Rust.",
+      "group_id": "fm11_main_9de953981e60",
+      "source_node_uuid": "d9d467cf-9f1d-4f07-b579-2c4eac11dee0",
+      "target_node_uuid": "cc082c52-01c1-4e14-932b-7f56a432ff5f",
+      "valid_at": "2026-05-01T10:15:00+00:00",
+      "invalid_at": null,
+      "expired_at": null,
+      "created_at": "2026-09-10T09:15:49.397237+00:00",
+      "episodes": [
+        "b79f9509-c8c4-45fe-961c-4512c42ca8e7"
+      ]
+    },
+    {
+      "uuid": "091c8acc-cc5f-4f2d-89b2-a7333f778a49",
+      "name": "WORKS_ON",
+      "fact": "Alice works on Project Orion.",
+      "group_id": "fm11_main_9de953981e60",
+      "source_node_uuid": "6421d0f9-dd9d-4d95-89eb-9d26e684a81e",
+      "target_node_uuid": "fb3adab1-fcd5-473a-97d6-dcdf0059bb33",
+      "valid_at": "2026-05-01T10:00:00+00:00",
+      "invalid_at": null,
+      "expired_at": null,
+      "created_at": "2026-09-10T09:15:08.313184+00:00",
+      "episodes": [
+        "678ff05a-0cb2-4439-9e9a-9bdcc6b2b50e"
+      ]
+    }
+  ],
+  "episodes": [
+    {
+      "uuid": "dd3c6b18-6381-4d97-9ef0-f8c85fcdb80a",
+      "name": "fm11_N2",
+      "content": "Project Orion uses Python.",
+      "source_description": "fm11_natural_text",
+      "group_id": "fm11_main_9de953981e60",
+      "valid_at": "2026-05-01T10:05:00+00:00",
+      "created_at": "2026-09-10T09:15:08.332932+00:00"
+    },
+    {
+      "uuid": "b79f9509-c8c4-45fe-961c-4512c42ca8e7",
+      "name": "fm11_N4",
+      "content": "Project Nova uses Rust.",
+      "source_description": "fm11_natural_text",
+      "group_id": "fm11_main_9de953981e60",
+      "valid_at": "2026-05-01T10:15:00+00:00",
+      "created_at": "2026-09-10T09:15:40.254005+00:00"
+    },
+    {
+      "uuid": "79a27bcc-d6b0-4312-b97e-3a0163dbdfac",
+      "name": "fm11_N3",
+      "content": "Bob works on Project Nova.",
+      "source_description": "fm11_natural_text",
+      "group_id": "fm11_main_9de953981e60",
+      "valid_at": "2026-05-01T10:10:00+00:00",
+      "created_at": "2026-09-10T09:15:23.927513+00:00"
+    },
+    {
+      "uuid": "678ff05a-0cb2-4439-9e9a-9bdcc6b2b50e",
+      "name": "fm11_N1",
+      "content": "Alice works on Project Orion.",
+      "source_description": "fm11_natural_text",
+      "group_id": "fm11_main_9de953981e60",
+      "valid_at": "2026-05-01T10:00:00+00:00",
+      "created_at": "2026-09-10T09:14:58.693178+00:00"
+    }
+  ],
+  "query": null,
+  "db_path": "/workspace/Graphiti_fractal_lab/data/memoryops_fm11/fm11_9de953981e60.db",
+  "notes": {
+    "driver_database": "fm11_main_9de953981e60",
+    "invariant": "STORED\u2260CURRENT; inspect dumps stored graph state"
+  },
+  "query_time": null,
+  "temporal_summary": null,
+  "provenance": []
+}

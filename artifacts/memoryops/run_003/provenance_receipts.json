@@ -1,0 +1,137 @@
+{
+  "operation": "MEMORY_QUERY",
+  "timestamp": "2026-09-10T09:17:47.578690+00:00",
+  "group_id": "fm12_temporal_9de953981e60",
+  "episode_uuid": null,
+  "entities": [],
+  "edges": [
+    {
+      "uuid": "d253af9b-7c52-45e9-96fb-036393dec1dd",
+      "fact": "Project Orion uses Rust.",
+      "group_id": "fm12_temporal_9de953981e60",
+      "retrieved": true,
+      "temporal_status": "TEMPORALLY_CURRENT",
+      "valid_at": "2026-05-01T12:00:00+00:00",
+      "invalid_at": null,
+      "expired_at": null,
+      "name": "USES",
+      "source_node_uuid": "f734990a-6254-41d4-a694-ab2481d00fac",
+      "target_node_uuid": "6e500326-c485-4209-a705-9bbec4a3c18f",
+      "episodes": [
+        "40352ba8-ee31-4f7b-b8e8-94167b146293"
+      ]
+    },
+    {
+      "uuid": "a4299b44-fa7c-4f7d-9470-6006e7e7aeb1",
+      "fact": "Project Orion uses Python.",
+      "group_id": "fm12_temporal_9de953981e60",
+      "retrieved": true,
+      "temporal_status": "TEMPORALLY_EXPIRED",
+      "valid_at": "2026-05-01T10:00:00+00:00",
+      "invalid_at": "2026-05-01T12:00:00+00:00",
+      "expired_at": "2026-09-10T09:17:47.473738+00:00",
+      "name": "USES",
+      "source_node_uuid": "f734990a-6254-41d4-a694-ab2481d00fac",
+      "target_node_uuid": "b5b67216-c6d8-4739-a033-1fa43e61adcb",
+      "episodes": [
+        "4a5d0167-9658-4ffe-83d8-338b6c407863"
+      ]
+    }
+  ],
+  "episodes": [],
+  "query": "What language does Project Orion use?",
+  "db_path": "/workspace/Graphiti_fractal_lab/data/memoryops_fm11/fm11_temporal_9de953981e60.db",
+  "notes": {
+    "hit_count": 2,
+    "query_time_explicit": true,
+    "invariant": "RETRIEVED\u2260CURRENT \u2014 search hits may include expired facts",
+    "classification_layer": "LabMemoryOps after Graphiti.search",
+    "historical_results_hidden": false
+  },
+  "query_time": "2026-05-01T14:00:00+00:00",
+  "temporal_summary": {
+    "retrieved_count": 2,
+    "current_count": 1,
+    "expired_count": 1,
+    "not_yet_valid_count": 0,
+    "unknown_count": 0
+  },
+  "provenance": [
+    {
+      "edge_uuid": "d253af9b-7c52-45e9-96fb-036393dec1dd",
+      "fact": "Project Orion uses Rust.",
+      "relation": "USES",
+      "name": "USES",
+      "group_id": "fm12_temporal_9de953981e60",
+      "source_node_uuid": "f734990a-6254-41d4-a694-ab2481d00fac",
+      "target_node_uuid": "6e500326-c485-4209-a705-9bbec4a3c18f",
+      "valid_at": "2026-05-01T12:00:00+00:00",
+      "invalid_at": "UNKNOWN",
+      "expired_at": "UNKNOWN",
+      "episode_uuids": [
+        "40352ba8-ee31-4f7b-b8e8-94167b146293"
+      ],
+      "chain": [
+        "INPUT",
+        "EPISODE",
+        "ENTITY_EDGE",
+        "QUERY_HIT"
+      ],
+      "episodes": [
+        {
+          "episode_uuid": "40352ba8-ee31-4f7b-b8e8-94167b146293",
+          "episode_name": "fm12_rust",
+          "content_preview": "Project Orion now uses Rust.",
+          "source_description": "fractal_lab_memoryops",
+          "group_id": "fm12_temporal_9de953981e60",
+          "valid_at": "2026-05-01T12:00:00+00:00",
+          "reference_time": "UNKNOWN",
+          "created_at": "2026-09-10T09:17:29.889312+00:00",
+          "load_status": "LOADED"
+        }
+      ],
+      "query_text": "What language does Project Orion use?",
+      "input_preview": "What language does Project Orion use?",
+      "retrieved": true,
+      "temporal_status": "TEMPORALLY_CURRENT"
+    },
+    {
+      "edge_uuid": "a4299b44-fa7c-4f7d-9470-6006e7e7aeb1",
+      "fact": "Project Orion uses Python.",
+      "relation": "USES",
+      "name": "USES",
+      "group_id": "fm12_temporal_9de953981e60",
+      "source_node_uuid": "f734990a-6254-41d4-a694-ab2481d00fac",
+      "target_node_uuid": "b5b67216-c6d8-4739-a033-1fa43e61adcb",
+      "valid_at": "2026-05-01T10:00:00+00:00",
+      "invalid_at": "2026-05-01T12:00:00+00:00",
+      "expired_at": "2026-09-10T09:17:47.473738+00:00",
+      "episode_uuids": [
+        "4a5d0167-9658-4ffe-83d8-338b6c407863"
+      ],
+      "chain": [
+        "INPUT",
+        "EPISODE",
+        "ENTITY_EDGE",
+        "QUERY_HIT"
+      ],
+      "episodes": [
+        {
+          "episode_uuid": "4a5d0167-9658-4ffe-83d8-338b6c407863",
+          "episode_name": "fm12_python",
+          "content_preview": "Project Orion uses Python.",
+          "source_description": "fractal_lab_memoryops",
+          "group_id": "fm12_temporal_9de953981e60",
+          "valid_at": "2026-05-01T10:00:00+00:00",
+          "reference_time": "UNKNOWN",
+          "created_at": "2026-09-10T09:17:22.861615+00:00",
+          "load_status": "LOADED"
+        }
+      ],
+      "query_text": "What language does Project Orion use?",
+      "input_preview": "What language does Project Orion use?",
+      "retrieved": true,
+      "temporal_status": "TEMPORALLY_EXPIRED"
+    }
+  ]
+}

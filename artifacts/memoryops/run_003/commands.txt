@@ -1,3 +1,6 @@
-# Provider discovery only — no ingest executed
-printenv | sed 's/=.*/=REDACTED/' | grep -Ei 'OPENAI|ANTHROPIC|XAI|GEMINI|GROQ|VOYAGE|OPENROUTER' || true
-python -c 'import os; print({k:(bool(os.getenv(k))) for k in ["OPENAI_API_KEY","ANTHROPIC_API_KEY"]})'
+# FM-11/FM-12 REAL_LLM commands (secrets redacted)
+python -c 'from fractal_lab.experiments.real_llm_deepseek import build_deepseek_llm_client; ...'
+pytest -q tests/lab/test_memoryops_fm11_fm12_real_llm.py
+REQUESTED_MODEL=deepseek-v4-pro
+OPENAI_API_KEY=UNSET_BY_POLICY
+SECRET_LOGGED=NO
