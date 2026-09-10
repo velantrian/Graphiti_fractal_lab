@@ -19,4 +19,5 @@ extraction_control=PASS
 VARIANCE_VS_RUN_003=NO_MATERIAL_VARIANCE
 NEO4J_CAUSAL_EVIDENCE=NO
 upstream_note=origin/main remains untouched this run; expected upstream pin 2437244149baeb0c645e2e942125be92bba3a96b not present as local object; no merge / no upstream edits performed
-end_commit=PENDING_COMMIT
+end_commit=b26652c934596fbd6ed3097853db104b1ba6825f
+origin_main=c1c401fe56e089ae5fe54403cbe7b025ce08fe41
