@@ -41,7 +41,7 @@ TEMPORAL_ANY_RE = re.compile(r"P[567]_(?:OLD|NEW|LATE_OLD)_[A-Za-z0-9_-]+")
 
 # Extend marker recognition used by shared helpers when blob scraping
 _EXTENDED_MARKER_RE = re.compile(
-    r"(?:VELANTRIM_FALKOR_E2E_|A_ONLY_|B_ONLY_|P5_OLD_|P5_NEW_|P6_OLD_|P6_NEW_|P6_LATE_OLD_|P7_OLD_|P7_NEW_|P7_LATE_OLD_)[A-Za-z0-9_-]+"
+    r"(?:VELANTRIM_FALKOR_E2E_|A_ONLY_|B_ONLY_|ALPHA_ONLY|BETA_ONLY|FM5_MARKER_|P5_OLD_|P5_NEW_|P6_OLD_|P6_NEW_|P6_LATE_OLD_|P7_OLD_|P7_NEW_|P7_LATE_OLD_)[A-Za-z0-9_-]*"
 )
 
 
@@ -154,7 +154,7 @@ def _p5_entities_from_blob(blob: str) -> list[str]:
         names.append(key)
 
     # Prefer known fixture nouns in stable order
-    for preferred in ("ProjectOrion", "Python", "Rust", "Alice", "Bob"):
+    for preferred in ("ProjectOrion", "ProjectNova", "Python", "Rust", "Alice", "Bob"):
         if re.search(rf"\b{re.escape(preferred)}\b", blob):
             add(preferred)
 
@@ -166,10 +166,29 @@ def _p5_entities_from_blob(blob: str) -> list[str]:
         if re.search(r"project\s*orion", blob, flags=re.IGNORECASE):
             add("ProjectOrion")
 
+    if "ProjectNova" not in seen and "projectnova" not in seen:
+        if re.search(r"project\s*nova", blob, flags=re.IGNORECASE):
+            add("ProjectNova")
+
+    # Carry explicit lab markers as entity-ish tokens for BM25 (scope isolation)
+    for m in _EXTENDED_MARKER_RE.findall(blob):
+        add(m)
+
     if len(names) < 2:
-        # Ensure extractable pair
-        if "ProjectOrion" not in {n for n in names}:
+        # Ensure extractable pair — prefer project mentioned in blob; do NOT invent
+        # ProjectOrion for unrelated scope/secret fixtures.
+        project_names = set(names)
+        mentions_orion = bool(re.search(r"project\s*orion|ProjectOrion", blob, flags=re.IGNORECASE))
+        mentions_nova = bool(re.search(r"project\s*nova|ProjectNova", blob, flags=re.IGNORECASE))
+        if mentions_nova and "ProjectNova" not in {n for n in names}:
+            names.insert(0, "ProjectNova")
+        elif mentions_orion and "ProjectOrion" not in {n for n in names}:
             names.insert(0, "ProjectOrion")
+        elif not mentions_orion and not mentions_nova:
+            if len(names) == 0:
+                add("LabSubject")
+            if len(names) < 2:
+                add("LabObject")
         if len(names) < 2:
             names.append("LabObject")
     return names
@@ -335,7 +354,13 @@ class DeterministicTemporalLLMClient(LLMClient):
                             return u
             return None
 
-        subject = pick("ProjectOrion") or (uniq[0] if uniq else "ProjectOrion")
+        # Prefer the project actually mentioned in the episode blob
+        if re.search(r"\bProjectNova\b", blob or text_all) and not re.search(
+            r"\bProjectOrion\b", blob or ""
+        ):
+            subject = pick("ProjectNova") or pick("ProjectOrion") or (uniq[0] if uniq else "ProjectNova")
+        else:
+            subject = pick("ProjectOrion") or pick("ProjectNova") or (uniq[0] if uniq else "ProjectOrion")
         ref = _reference_time_from_text(text_all)
 
         # Prefer episode blob markers — text_all may contain EXISTING FACTS / prior
@@ -411,16 +436,53 @@ class DeterministicTemporalLLMClient(LLMClient):
                 }
             )
 
+        # WORKS_ON (FM MemoryOps fixtures): "Alice works on ProjectOrion"
+        for person_name in ("Alice", "Bob"):
+            person = pick(person_name)
+            if not person:
+                continue
+            if not re.search(rf"\b{re.escape(person_name)}\b", source_blob):
+                continue
+            if not re.search(r"\bworks\s+on\b", source_blob, flags=re.IGNORECASE):
+                continue
+            proj = pick("ProjectOrion", "ProjectNova") or subject
+            # Person is source for WORKS_ON
+            ext_m = _EXTENDED_MARKER_RE.findall(source_blob)
+            marker_suffix = f" Persistence token {ext_m[0]}." if ext_m else ""
+            edges.append(
+                {
+                    "source_entity_name": person,
+                    "target_entity_name": proj,
+                    "relation_type": "WORKS_ON",
+                    "fact": f"{person} works on {proj}.{marker_suffix}",
+                    "valid_at": ref,
+                    "invalid_at": None,
+                    "episode_indices": [0],
+                }
+            )
+
         if not edges:
             # Fallback minimal edge so extraction does not no-op
             tgt = uniq[1] if len(uniq) > 1 else "LabObject"
-            marker = (old_markers or new_markers or ["NO_MARKER"])[0]
+            ext = _EXTENDED_MARKER_RE.findall(source_blob) or _EXTENDED_MARKER_RE.findall(text_all)
+            marker = (ext or old_markers or new_markers or ["NO_MARKER"])[0]
+            # Prefer LabSubject as source when no project in blob
+            src = subject
+            if subject in {"ProjectOrion", "ProjectNova"} and not re.search(
+                r"ProjectOrion|ProjectNova", source_blob
+            ):
+                src = pick("LabSubject") or (uniq[0] if uniq else "LabSubject")
+                if src == subject and len(uniq) >= 1:
+                    src = uniq[0]
             edges.append(
                 {
-                    "source_entity_name": subject,
-                    "target_entity_name": tgt,
+                    "source_entity_name": src,
+                    "target_entity_name": tgt if tgt != src else (uniq[-1] if uniq else "LabObject"),
                     "relation_type": "RELATED_TO",
-                    "fact": f"{subject} is related to {tgt} mentioning {marker}.",
+                    "fact": (
+                        f"{src} is related to {tgt} mentioning {marker}. "
+                        f"Episode excerpt: {source_blob[:400]}"
+                    ),
                     "valid_at": ref,
                     "invalid_at": None,
                     "episode_indices": [0],
@@ -530,12 +592,28 @@ class DeterministicTemporalLLMClient(LLMClient):
         def _is_owner_fact(fact: str) -> bool:
             return bool(re.search(r"\bOWNED_BY\b|\bowned by\b", fact, flags=re.IGNORECASE))
 
+        def _project_subject(fact: str) -> str | None:
+            for name in ("ProjectOrion", "ProjectNova"):
+                if re.search(rf"\b{re.escape(name)}\b", fact):
+                    return name
+            return None
+
+        new_subject = _project_subject(new_fact)
+
+        def _same_subject(fact: str) -> bool:
+            # When new fact names a project, only contradict same-project language facts.
+            # Prevents ProjectNova/Rust from invalidating ProjectOrion/Python (FM multi-project).
+            if new_subject is None:
+                return True
+            subj = _project_subject(fact)
+            return subj is None or subj == new_subject
+
         # P5 / baseline T2: Rust (NEW) contradicts Python (OLD) — select OLD idx from context
         if new_has_new_marker or (new_is_language and new_lang == "Rust"):
             for item in all_items:
                 fact = str(item.get("fact", ""))
                 idx = int(item["idx"])
-                if _is_owner_fact(fact):
+                if _is_owner_fact(fact) or not _same_subject(fact):
                     continue
                 if TEMPORAL_OLD_RE.search(fact):
                     contradicted.append(idx)
@@ -544,7 +622,7 @@ class DeterministicTemporalLLMClient(LLMClient):
                 for item in all_items:
                     fact = str(item.get("fact", ""))
                     idx = int(item["idx"])
-                    if _is_owner_fact(fact):
+                    if _is_owner_fact(fact) or not _same_subject(fact):
                         continue
                     if new_lang == "Rust" and re.search(r"\bPython\b", fact) and (
                         re.search(r"RUNTIME_LANGUAGE", fact, flags=re.IGNORECASE)

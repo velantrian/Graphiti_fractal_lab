@@ -1,0 +1,44 @@
+{
+  "scope_a": "fm_scope_a_9bb6beab3da3",
+  "scope_b": "fm_scope_b_9bb6beab3da3",
+  "a_finds_alpha": true,
+  "b_finds_beta": true,
+  "a_leaks_beta": false,
+  "b_leaks_alpha": false,
+  "qa_edges": [
+    {
+      "uuid": "61fb6c61-18c5-4092-a749-463bcebf488c",
+      "name": "RELATED_TO",
+      "fact": "Scope is related to LabObject mentioning A_ONLY_SECRET_ALPHA. Episode excerpt: Scope A secret A_ONLY_SECRET_ALPHA must remain isolated.",
+      "group_id": "fm_scope_a_9bb6beab3da3",
+      "source_node_uuid": "712174a4-3541-44f7-9685-43ab273e4f03",
+      "target_node_uuid": "93cc21af-4749-4d95-88df-a4fb7abe1613",
+      "valid_at": "2026-03-01T10:00:00+00:00",
+      "invalid_at": null,
+      "expired_at": null,
+      "created_at": "2026-09-10T08:22:52.385538+00:00",
+      "episodes": [
+        "73575407-189d-4b7d-abca-b14f0f7a0cec"
+      ]
+    }
+  ],
+  "qb_edges": [
+    {
+      "uuid": "e51a4e56-1ff4-4d66-a056-aae8723a8fb1",
+      "name": "RELATED_TO",
+      "fact": "Scope is related to LabObject mentioning B_ONLY_SECRET_BETA. Episode excerpt: Scope B secret B_ONLY_SECRET_BETA must remain isolated.",
+      "group_id": "fm_scope_b_9bb6beab3da3",
+      "source_node_uuid": "d678c232-95ca-4662-9ae5-6318d54f0784",
+      "target_node_uuid": "031059a1-d8ef-4d08-ae87-6c17204c8279",
+      "valid_at": "2026-03-01T10:00:00+00:00",
+      "invalid_at": null,
+      "expired_at": null,
+      "created_at": "2026-09-10T08:22:52.406846+00:00",
+      "episodes": [
+        "99c464f9-7fa4-415c-97f2-b4419e28bb81"
+      ]
+    }
+  ],
+  "leak_b_in_a_edges": [],
+  "leak_a_in_b_edges": []
+}

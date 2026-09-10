@@ -1,0 +1,20 @@
+{
+  "starting_intent_sha": "7af9412c75b4ab96bba6d00f71bc477542a98738",
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "graphiti_core": "0.29.3",
+  "falkordblite": "0.10.0",
+  "db_path": "/workspace/Graphiti_fractal_lab/data/memoryops_fm1/fm_9bb6beab3da3.db",
+  "group": "fm_main_9bb6beab3da3",
+  "invariants": [
+    "SEMANTIC\u2260RAW",
+    "RESTORED_BYTES\u2260APPLICABILITY",
+    "RETRIEVED\u2260CURRENT",
+    "STORED\u2260CURRENT",
+    "MEMORY\u2260CANON"
+  ],
+  "upstream_graphiti_fractal": "2437244149baeb0c645e2e942125be92bba3a96b",
+  "p8_started": false,
+  "merge_to_main": false,
+  "recorded_at_utc": "2026-09-10T08:23:52.698180+00:00",
+  "note": "FM0/FM1 MemoryOps prototype; P8 not started; no main merge"
+}

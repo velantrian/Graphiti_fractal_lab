@@ -1,0 +1,142 @@
+{
+  "t5_ingest": {
+    "operation": "MEMORY_INGEST",
+    "timestamp": "2026-09-10T08:22:52.228002+00:00",
+    "group_id": "fm_main_9bb6beab3da3",
+    "episode_uuid": "f2110ee1-4597-4a30-9f9d-3b007587e3ca",
+    "entities": [
+      {
+        "uuid": "54525b9b-4d05-4185-87a3-e9f398140a80",
+        "name": "ProjectOrion",
+        "summary": "Alice works on ProjectOrion.\nProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P5_OLD_MISSING.\nProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P5_NEW_MISSING.",
+        "group_id": "fm_main_9bb6beab3da3",
+        "created_at": "2026-09-10T08:22:50.423618+00:00"
+      },
+      {
+        "uuid": "20ea1878-909a-4f90-bcda-7f5598a5fe91",
+        "name": "Rust",
+        "summary": "ProjectNova uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P5_NEW_MISSING.\nProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P5_NEW_MISSING.",
+        "group_id": "fm_main_9bb6beab3da3",
+        "created_at": "2026-09-10T08:22:50.484790+00:00"
+      }
+    ],
+    "edges": [
+      {
+        "uuid": "7a63fa64-8ffd-47f3-a1ee-d44d51679d69",
+        "name": "RUNTIME_LANGUAGE",
+        "fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P5_NEW_MISSING.",
+        "group_id": "fm_main_9bb6beab3da3",
+        "source_node_uuid": "54525b9b-4d05-4185-87a3-e9f398140a80",
+        "target_node_uuid": "20ea1878-909a-4f90-bcda-7f5598a5fe91",
+        "valid_at": "2026-03-02T10:00:00+00:00",
+        "invalid_at": null,
+        "expired_at": null,
+        "created_at": "2026-09-10T08:22:52.209575+00:00",
+        "episodes": [
+          "f2110ee1-4597-4a30-9f9d-3b007587e3ca"
+        ]
+      },
+      {
+        "uuid": "6f6487a0-caf9-4017-90ac-2d7016249f90",
+        "name": "RUNTIME_LANGUAGE",
+        "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P5_OLD_MISSING.",
+        "group_id": "fm_main_9bb6beab3da3",
+        "source_node_uuid": "54525b9b-4d05-4185-87a3-e9f398140a80",
+        "target_node_uuid": "8793a245-d9fd-4e5e-9966-49c485929a3e",
+        "valid_at": "2026-03-01T11:00:00+00:00",
+        "invalid_at": "2026-03-02T10:00:00+00:00",
+        "expired_at": "2026-09-10T08:22:52.220664+00:00",
+        "created_at": "2026-09-10T08:22:50.450870+00:00",
+        "episodes": [
+          "179363a4-346e-4b85-a364-80d81a457ac9"
+        ]
+      }
+    ],
+    "episodes": [
+      {
+        "uuid": "f2110ee1-4597-4a30-9f9d-3b007587e3ca",
+        "name": "fm_T5",
+        "content": "ProjectOrion now uses Rust as its RUNTIME_LANGUAGE.",
+        "source_description": "fractal_lab_memoryops",
+        "group_id": "fm_main_9bb6beab3da3",
+        "valid_at": "2026-03-02T10:00:00+00:00",
+        "created_at": "2026-09-10T08:22:52.198629+00:00"
+      }
+    ],
+    "query": null,
+    "db_path": "/workspace/Graphiti_fractal_lab/data/memoryops_fm1/fm_9bb6beab3da3.db",
+    "notes": {
+      "reference_time": "2026-03-02T10:00:00+00:00",
+      "text_preview": "ProjectOrion now uses Rust as its RUNTIME_LANGUAGE.",
+      "path": "graphiti.add_episode"
+    }
+  },
+  "python_edges": [
+    {
+      "uuid": "6f6487a0-caf9-4017-90ac-2d7016249f90",
+      "name": "RUNTIME_LANGUAGE",
+      "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P5_OLD_MISSING.",
+      "group_id": "fm_main_9bb6beab3da3",
+      "source_node_uuid": "54525b9b-4d05-4185-87a3-e9f398140a80",
+      "target_node_uuid": "8793a245-d9fd-4e5e-9966-49c485929a3e",
+      "valid_at": "2026-03-01T11:00:00+00:00",
+      "invalid_at": "2026-03-02T10:00:00+00:00",
+      "expired_at": "2026-09-10T08:22:52.220664+00:00",
+      "created_at": "2026-09-10T08:22:50.450870+00:00",
+      "episodes": [
+        "179363a4-346e-4b85-a364-80d81a457ac9"
+      ]
+    }
+  ],
+  "rust_orion_edges": [
+    {
+      "uuid": "7a63fa64-8ffd-47f3-a1ee-d44d51679d69",
+      "name": "RUNTIME_LANGUAGE",
+      "fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P5_NEW_MISSING.",
+      "group_id": "fm_main_9bb6beab3da3",
+      "source_node_uuid": "54525b9b-4d05-4185-87a3-e9f398140a80",
+      "target_node_uuid": "20ea1878-909a-4f90-bcda-7f5598a5fe91",
+      "valid_at": "2026-03-02T10:00:00+00:00",
+      "invalid_at": null,
+      "expired_at": null,
+      "created_at": "2026-09-10T08:22:52.209575+00:00",
+      "episodes": [
+        "f2110ee1-4597-4a30-9f9d-3b007587e3ca"
+      ]
+    }
+  ],
+  "python_invalidated": true,
+  "rust_current": true,
+  "search_facts": [
+    "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P5_NEW_MISSING.",
+    "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P5_OLD_MISSING.",
+    "ProjectNova uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P5_NEW_MISSING.",
+    "Alice works on ProjectOrion."
+  ],
+  "search_may_include_expired": true,
+  "invariant": "RETRIEVED\u2260CURRENT \u2014 search hit \u2260 currently applicable truth",
+  "classifications": [
+    {
+      "uuid": "6f6487a0-caf9-4017-90ac-2d7016249f90",
+      "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P5_OLD_MISSING.",
+      "valid_at": "2026-03-01T11:00:00+00:00",
+      "invalid_at": "2026-03-02T10:00:00+00:00",
+      "labels": [
+        "STORED",
+        "RETRIEVABLE",
+        "TEMPORALLY_EXPIRED"
+      ]
+    },
+    {
+      "uuid": "7a63fa64-8ffd-47f3-a1ee-d44d51679d69",
+      "fact": "ProjectOrion uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P5_NEW_MISSING.",
+      "valid_at": "2026-03-02T10:00:00+00:00",
+      "invalid_at": null,
+      "labels": [
+        "STORED",
+        "RETRIEVABLE",
+        "TEMPORALLY_CURRENT"
+      ]
+    }
+  ]
+}

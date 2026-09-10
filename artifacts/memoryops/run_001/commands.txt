@@ -1,0 +1,4 @@
+# FM MemoryOps prototype commands
+cd /workspace/Graphiti_fractal_lab
+PYTHONPATH=src .venv/bin/python -m fractal_lab.memoryops.cli --db data/memoryops_fm1/demo.db demo
+PYTHONPATH=src .venv/bin/pytest tests/lab/test_memoryops_fm_prototype.py -v --tb=short

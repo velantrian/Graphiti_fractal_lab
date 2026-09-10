@@ -1,0 +1,388 @@
+{
+  "ingest_receipts": [
+    {
+      "operation": "MEMORY_INGEST",
+      "timestamp": "2026-09-10T08:22:50.442468+00:00",
+      "group_id": "fm_main_9bb6beab3da3",
+      "episode_uuid": "30b5f6a1-83ea-4554-8118-4c6991deaa55",
+      "entities": [
+        {
+          "uuid": "54525b9b-4d05-4185-87a3-e9f398140a80",
+          "name": "ProjectOrion",
+          "summary": "Alice works on ProjectOrion.",
+          "group_id": "fm_main_9bb6beab3da3",
+          "created_at": "2026-09-10T08:22:50.423618+00:00"
+        },
+        {
+          "uuid": "d96ec96a-6480-4356-a791-06a3e984979d",
+          "name": "Alice",
+          "summary": "Alice works on ProjectOrion.",
+          "group_id": "fm_main_9bb6beab3da3",
+          "created_at": "2026-09-10T08:22:50.423672+00:00"
+        }
+      ],
+      "edges": [
+        {
+          "uuid": "eba056b5-7d54-4b5a-a5a1-688e048a0685",
+          "name": "WORKS_ON",
+          "fact": "Alice works on ProjectOrion.",
+          "group_id": "fm_main_9bb6beab3da3",
+          "source_node_uuid": "d96ec96a-6480-4356-a791-06a3e984979d",
+          "target_node_uuid": "54525b9b-4d05-4185-87a3-e9f398140a80",
+          "valid_at": "2026-03-01T10:00:00+00:00",
+          "invalid_at": null,
+          "expired_at": null,
+          "created_at": "2026-09-10T08:22:50.428186+00:00",
+          "episodes": [
+            "30b5f6a1-83ea-4554-8118-4c6991deaa55"
+          ]
+        }
+      ],
+      "episodes": [
+        {
+          "uuid": "30b5f6a1-83ea-4554-8118-4c6991deaa55",
+          "name": "fm_T1",
+          "content": "Alice works on ProjectOrion.",
+          "source_description": "fractal_lab_memoryops",
+          "group_id": "fm_main_9bb6beab3da3",
+          "valid_at": "2026-03-01T10:00:00+00:00",
+          "created_at": "2026-09-10T08:22:50.420547+00:00"
+        }
+      ],
+      "query": null,
+      "db_path": "/workspace/Graphiti_fractal_lab/data/memoryops_fm1/fm_9bb6beab3da3.db",
+      "notes": {
+        "reference_time": "2026-03-01T10:00:00+00:00",
+        "text_preview": "Alice works on ProjectOrion.",
+        "path": "graphiti.add_episode"
+      }
+    },
+    {
+      "operation": "MEMORY_INGEST",
+      "timestamp": "2026-09-10T08:22:50.464253+00:00",
+      "group_id": "fm_main_9bb6beab3da3",
+      "episode_uuid": "179363a4-346e-4b85-a364-80d81a457ac9",
+      "entities": [
+        {
+          "uuid": "54525b9b-4d05-4185-87a3-e9f398140a80",
+          "name": "ProjectOrion",
+          "summary": "Alice works on ProjectOrion.\nProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P5_OLD_MISSING.",
+          "group_id": "fm_main_9bb6beab3da3",
+          "created_at": "2026-09-10T08:22:50.423618+00:00"
+        },
+        {
+          "uuid": "8793a245-d9fd-4e5e-9966-49c485929a3e",
+          "name": "Python",
+          "summary": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P5_OLD_MISSING.",
+          "group_id": "fm_main_9bb6beab3da3",
+          "created_at": "2026-09-10T08:22:50.444744+00:00"
+        }
+      ],
+      "edges": [
+        {
+          "uuid": "6f6487a0-caf9-4017-90ac-2d7016249f90",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P5_OLD_MISSING.",
+          "group_id": "fm_main_9bb6beab3da3",
+          "source_node_uuid": "54525b9b-4d05-4185-87a3-e9f398140a80",
+          "target_node_uuid": "8793a245-d9fd-4e5e-9966-49c485929a3e",
+          "valid_at": "2026-03-01T11:00:00+00:00",
+          "invalid_at": null,
+          "expired_at": null,
+          "created_at": "2026-09-10T08:22:50.450870+00:00",
+          "episodes": [
+            "179363a4-346e-4b85-a364-80d81a457ac9"
+          ]
+        }
+      ],
+      "episodes": [
+        {
+          "uuid": "179363a4-346e-4b85-a364-80d81a457ac9",
+          "name": "fm_T2",
+          "content": "ProjectOrion uses Python.",
+          "source_description": "fractal_lab_memoryops",
+          "group_id": "fm_main_9bb6beab3da3",
+          "valid_at": "2026-03-01T11:00:00+00:00",
+          "created_at": "2026-09-10T08:22:50.442538+00:00"
+        }
+      ],
+      "query": null,
+      "db_path": "/workspace/Graphiti_fractal_lab/data/memoryops_fm1/fm_9bb6beab3da3.db",
+      "notes": {
+        "reference_time": "2026-03-01T11:00:00+00:00",
+        "text_preview": "ProjectOrion uses Python.",
+        "path": "graphiti.add_episode"
+      }
+    },
+    {
+      "operation": "MEMORY_INGEST",
+      "timestamp": "2026-09-10T08:22:50.483242+00:00",
+      "group_id": "fm_main_9bb6beab3da3",
+      "episode_uuid": "d25a2fa9-864c-4f58-8f8b-08ad06d397ab",
+      "entities": [
+        {
+          "uuid": "657ea968-84d7-403d-bc90-8df828d2ba0e",
+          "name": "ProjectNova",
+          "summary": "Bob works on ProjectNova.",
+          "group_id": "fm_main_9bb6beab3da3",
+          "created_at": "2026-09-10T08:22:50.465827+00:00"
+        },
+        {
+          "uuid": "c44e7e9d-7e26-4991-8f74-ebb5aa83485f",
+          "name": "Bob",
+          "summary": "Bob works on ProjectNova.",
+          "group_id": "fm_main_9bb6beab3da3",
+          "created_at": "2026-09-10T08:22:50.465852+00:00"
+        }
+      ],
+      "edges": [
+        {
+          "uuid": "a647164d-79d1-49d5-abaf-76a5175f908d",
+          "name": "WORKS_ON",
+          "fact": "Bob works on ProjectNova.",
+          "group_id": "fm_main_9bb6beab3da3",
+          "source_node_uuid": "c44e7e9d-7e26-4991-8f74-ebb5aa83485f",
+          "target_node_uuid": "657ea968-84d7-403d-bc90-8df828d2ba0e",
+          "valid_at": "2026-03-01T12:00:00+00:00",
+          "invalid_at": null,
+          "expired_at": null,
+          "created_at": "2026-09-10T08:22:50.469658+00:00",
+          "episodes": [
+            "d25a2fa9-864c-4f58-8f8b-08ad06d397ab"
+          ]
+        }
+      ],
+      "episodes": [
+        {
+          "uuid": "d25a2fa9-864c-4f58-8f8b-08ad06d397ab",
+          "name": "fm_T3",
+          "content": "Bob works on ProjectNova.",
+          "source_description": "fractal_lab_memoryops",
+          "group_id": "fm_main_9bb6beab3da3",
+          "valid_at": "2026-03-01T12:00:00+00:00",
+          "created_at": "2026-09-10T08:22:50.464315+00:00"
+        }
+      ],
+      "query": null,
+      "db_path": "/workspace/Graphiti_fractal_lab/data/memoryops_fm1/fm_9bb6beab3da3.db",
+      "notes": {
+        "reference_time": "2026-03-01T12:00:00+00:00",
+        "text_preview": "Bob works on ProjectNova.",
+        "path": "graphiti.add_episode"
+      }
+    },
+    {
+      "operation": "MEMORY_INGEST",
+      "timestamp": "2026-09-10T08:22:50.505285+00:00",
+      "group_id": "fm_main_9bb6beab3da3",
+      "episode_uuid": "0fd50153-4586-4372-a2cf-be7493d60bbe",
+      "entities": [
+        {
+          "uuid": "657ea968-84d7-403d-bc90-8df828d2ba0e",
+          "name": "ProjectNova",
+          "summary": "Bob works on ProjectNova.\nProjectNova uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P5_NEW_MISSING.",
+          "group_id": "fm_main_9bb6beab3da3",
+          "created_at": "2026-09-10T08:22:50.465827+00:00"
+        },
+        {
+          "uuid": "20ea1878-909a-4f90-bcda-7f5598a5fe91",
+          "name": "Rust",
+          "summary": "ProjectNova uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P5_NEW_MISSING.",
+          "group_id": "fm_main_9bb6beab3da3",
+          "created_at": "2026-09-10T08:22:50.484790+00:00"
+        }
+      ],
+      "edges": [
+        {
+          "uuid": "faad77a5-0ea7-4e5c-8612-6c4481cde763",
+          "name": "RUNTIME_LANGUAGE",
+          "fact": "ProjectNova uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P5_NEW_MISSING.",
+          "group_id": "fm_main_9bb6beab3da3",
+          "source_node_uuid": "657ea968-84d7-403d-bc90-8df828d2ba0e",
+          "target_node_uuid": "20ea1878-909a-4f90-bcda-7f5598a5fe91",
+          "valid_at": "2026-03-01T13:00:00+00:00",
+          "invalid_at": null,
+          "expired_at": null,
+          "created_at": "2026-09-10T08:22:50.490548+00:00",
+          "episodes": [
+            "0fd50153-4586-4372-a2cf-be7493d60bbe"
+          ]
+        }
+      ],
+      "episodes": [
+        {
+          "uuid": "0fd50153-4586-4372-a2cf-be7493d60bbe",
+          "name": "fm_T4",
+          "content": "ProjectNova uses Rust.",
+          "source_description": "fractal_lab_memoryops",
+          "group_id": "fm_main_9bb6beab3da3",
+          "valid_at": "2026-03-01T13:00:00+00:00",
+          "created_at": "2026-09-10T08:22:50.483300+00:00"
+        }
+      ],
+      "query": null,
+      "db_path": "/workspace/Graphiti_fractal_lab/data/memoryops_fm1/fm_9bb6beab3da3.db",
+      "notes": {
+        "reference_time": "2026-03-01T13:00:00+00:00",
+        "text_preview": "ProjectNova uses Rust.",
+        "path": "graphiti.add_episode"
+      }
+    }
+  ],
+  "inspect": {
+    "operation": "MEMORY_INSPECT",
+    "timestamp": "2026-09-10T08:22:50.527136+00:00",
+    "group_id": "fm_main_9bb6beab3da3",
+    "episode_uuid": null,
+    "entities": [
+      {
+        "uuid": "d96ec96a-6480-4356-a791-06a3e984979d",
+        "name": "Alice",
+        "summary": "Alice works on ProjectOrion.",
+        "group_id": "fm_main_9bb6beab3da3",
+        "created_at": "2026-09-10T08:22:50.423672+00:00"
+      },
+      {
+        "uuid": "c44e7e9d-7e26-4991-8f74-ebb5aa83485f",
+        "name": "Bob",
+        "summary": "Bob works on ProjectNova.",
+        "group_id": "fm_main_9bb6beab3da3",
+        "created_at": "2026-09-10T08:22:50.465852+00:00"
+      },
+      {
+        "uuid": "8793a245-d9fd-4e5e-9966-49c485929a3e",
+        "name": "Python",
+        "summary": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P5_OLD_MISSING.",
+        "group_id": "fm_main_9bb6beab3da3",
+        "created_at": "2026-09-10T08:22:50.444744+00:00"
+      },
+      {
+        "uuid": "657ea968-84d7-403d-bc90-8df828d2ba0e",
+        "name": "ProjectNova",
+        "summary": "Bob works on ProjectNova.\nProjectNova uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P5_NEW_MISSING.",
+        "group_id": "fm_main_9bb6beab3da3",
+        "created_at": "2026-09-10T08:22:50.465827+00:00"
+      },
+      {
+        "uuid": "54525b9b-4d05-4185-87a3-e9f398140a80",
+        "name": "ProjectOrion",
+        "summary": "Alice works on ProjectOrion.\nProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P5_OLD_MISSING.",
+        "group_id": "fm_main_9bb6beab3da3",
+        "created_at": "2026-09-10T08:22:50.423618+00:00"
+      },
+      {
+        "uuid": "20ea1878-909a-4f90-bcda-7f5598a5fe91",
+        "name": "Rust",
+        "summary": "ProjectNova uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P5_NEW_MISSING.",
+        "group_id": "fm_main_9bb6beab3da3",
+        "created_at": "2026-09-10T08:22:50.484790+00:00"
+      }
+    ],
+    "edges": [
+      {
+        "uuid": "faad77a5-0ea7-4e5c-8612-6c4481cde763",
+        "name": "RUNTIME_LANGUAGE",
+        "fact": "ProjectNova uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P5_NEW_MISSING.",
+        "group_id": "fm_main_9bb6beab3da3",
+        "source_node_uuid": "657ea968-84d7-403d-bc90-8df828d2ba0e",
+        "target_node_uuid": "20ea1878-909a-4f90-bcda-7f5598a5fe91",
+        "valid_at": "2026-03-01T13:00:00+00:00",
+        "invalid_at": null,
+        "expired_at": null,
+        "created_at": "2026-09-10T08:22:50.490548+00:00",
+        "episodes": [
+          "0fd50153-4586-4372-a2cf-be7493d60bbe"
+        ]
+      },
+      {
+        "uuid": "eba056b5-7d54-4b5a-a5a1-688e048a0685",
+        "name": "WORKS_ON",
+        "fact": "Alice works on ProjectOrion.",
+        "group_id": "fm_main_9bb6beab3da3",
+        "source_node_uuid": "d96ec96a-6480-4356-a791-06a3e984979d",
+        "target_node_uuid": "54525b9b-4d05-4185-87a3-e9f398140a80",
+        "valid_at": "2026-03-01T10:00:00+00:00",
+        "invalid_at": null,
+        "expired_at": null,
+        "created_at": "2026-09-10T08:22:50.428186+00:00",
+        "episodes": [
+          "30b5f6a1-83ea-4554-8118-4c6991deaa55"
+        ]
+      },
+      {
+        "uuid": "a647164d-79d1-49d5-abaf-76a5175f908d",
+        "name": "WORKS_ON",
+        "fact": "Bob works on ProjectNova.",
+        "group_id": "fm_main_9bb6beab3da3",
+        "source_node_uuid": "c44e7e9d-7e26-4991-8f74-ebb5aa83485f",
+        "target_node_uuid": "657ea968-84d7-403d-bc90-8df828d2ba0e",
+        "valid_at": "2026-03-01T12:00:00+00:00",
+        "invalid_at": null,
+        "expired_at": null,
+        "created_at": "2026-09-10T08:22:50.469658+00:00",
+        "episodes": [
+          "d25a2fa9-864c-4f58-8f8b-08ad06d397ab"
+        ]
+      },
+      {
+        "uuid": "6f6487a0-caf9-4017-90ac-2d7016249f90",
+        "name": "RUNTIME_LANGUAGE",
+        "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P5_OLD_MISSING.",
+        "group_id": "fm_main_9bb6beab3da3",
+        "source_node_uuid": "54525b9b-4d05-4185-87a3-e9f398140a80",
+        "target_node_uuid": "8793a245-d9fd-4e5e-9966-49c485929a3e",
+        "valid_at": "2026-03-01T11:00:00+00:00",
+        "invalid_at": null,
+        "expired_at": null,
+        "created_at": "2026-09-10T08:22:50.450870+00:00",
+        "episodes": [
+          "179363a4-346e-4b85-a364-80d81a457ac9"
+        ]
+      }
+    ],
+    "episodes": [
+      {
+        "uuid": "d25a2fa9-864c-4f58-8f8b-08ad06d397ab",
+        "name": "fm_T3",
+        "content": "Bob works on ProjectNova.",
+        "source_description": "fractal_lab_memoryops",
+        "group_id": "fm_main_9bb6beab3da3",
+        "valid_at": "2026-03-01T12:00:00+00:00",
+        "created_at": "2026-09-10T08:22:50.464315+00:00"
+      },
+      {
+        "uuid": "30b5f6a1-83ea-4554-8118-4c6991deaa55",
+        "name": "fm_T1",
+        "content": "Alice works on ProjectOrion.",
+        "source_description": "fractal_lab_memoryops",
+        "group_id": "fm_main_9bb6beab3da3",
+        "valid_at": "2026-03-01T10:00:00+00:00",
+        "created_at": "2026-09-10T08:22:50.420547+00:00"
+      },
+      {
+        "uuid": "179363a4-346e-4b85-a364-80d81a457ac9",
+        "name": "fm_T2",
+        "content": "ProjectOrion uses Python.",
+        "source_description": "fractal_lab_memoryops",
+        "group_id": "fm_main_9bb6beab3da3",
+        "valid_at": "2026-03-01T11:00:00+00:00",
+        "created_at": "2026-09-10T08:22:50.442538+00:00"
+      },
+      {
+        "uuid": "0fd50153-4586-4372-a2cf-be7493d60bbe",
+        "name": "fm_T4",
+        "content": "ProjectNova uses Rust.",
+        "source_description": "fractal_lab_memoryops",
+        "group_id": "fm_main_9bb6beab3da3",
+        "valid_at": "2026-03-01T13:00:00+00:00",
+        "created_at": "2026-09-10T08:22:50.483300+00:00"
+      }
+    ],
+    "query": null,
+    "db_path": "/workspace/Graphiti_fractal_lab/data/memoryops_fm1/fm_9bb6beab3da3.db",
+    "notes": {
+      "driver_database": "fm_main_9bb6beab3da3",
+      "invariant": "STORED\u2260CURRENT; inspect dumps stored graph state"
+    }
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "q_orion_who": {
+    "operation": "MEMORY_QUERY",
+    "timestamp": "2026-09-10T08:22:50.546805+00:00",
+    "group_id": "fm_main_9bb6beab3da3",
+    "episode_uuid": null,
+    "entities": [],
+    "edges": [
+      {
+        "uuid": "eba056b5-7d54-4b5a-a5a1-688e048a0685",
+        "name": "WORKS_ON",
+        "fact": "Alice works on ProjectOrion.",
+        "group_id": "fm_main_9bb6beab3da3",
+        "source_node_uuid": "d96ec96a-6480-4356-a791-06a3e984979d",
+        "target_node_uuid": "54525b9b-4d05-4185-87a3-e9f398140a80",
+        "valid_at": "2026-03-01T10:00:00+00:00",
+        "invalid_at": null,
+        "expired_at": null,
+        "created_at": "2026-09-10T08:22:50.428186+00:00",
+        "episodes": [
+          "30b5f6a1-83ea-4554-8118-4c6991deaa55"
+        ]
+      },
+      {
+        "uuid": "a647164d-79d1-49d5-abaf-76a5175f908d",
+        "name": "WORKS_ON",
+        "fact": "Bob works on ProjectNova.",
+        "group_id": "fm_main_9bb6beab3da3",
+        "source_node_uuid": "c44e7e9d-7e26-4991-8f74-ebb5aa83485f",
+        "target_node_uuid": "657ea968-84d7-403d-bc90-8df828d2ba0e",
+        "valid_at": "2026-03-01T12:00:00+00:00",
+        "invalid_at": null,
+        "expired_at": null,
+        "created_at": "2026-09-10T08:22:50.469658+00:00",
+        "episodes": [
+          "d25a2fa9-864c-4f58-8f8b-08ad06d397ab"
+        ]
+      },
+      {
+        "uuid": "6f6487a0-caf9-4017-90ac-2d7016249f90",
+        "name": "RUNTIME_LANGUAGE",
+        "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P5_OLD_MISSING.",
+        "group_id": "fm_main_9bb6beab3da3",
+        "source_node_uuid": "54525b9b-4d05-4185-87a3-e9f398140a80",
+        "target_node_uuid": "8793a245-d9fd-4e5e-9966-49c485929a3e",
+        "valid_at": "2026-03-01T11:00:00+00:00",
+        "invalid_at": null,
+        "expired_at": null,
+        "created_at": "2026-09-10T08:22:50.450870+00:00",
+        "episodes": [
+          "179363a4-346e-4b85-a364-80d81a457ac9"
+        ]
+      }
+    ],
+    "episodes": [],
+    "query": "Who works on ProjectOrion?",
+    "db_path": "/workspace/Graphiti_fractal_lab/data/memoryops_fm1/fm_9bb6beab3da3.db",
+    "notes": {
+      "hit_count": 3,
+      "invariant": "RETRIEVED\u2260CURRENT \u2014 search hits may include expired facts"
+    }
+  },
+  "q_orion_lang": {
+    "operation": "MEMORY_QUERY",
+    "timestamp": "2026-09-10T08:22:50.554575+00:00",
+    "group_id": "fm_main_9bb6beab3da3",
+    "episode_uuid": null,
+    "entities": [],
+    "edges": [
+      {
+        "uuid": "6f6487a0-caf9-4017-90ac-2d7016249f90",
+        "name": "RUNTIME_LANGUAGE",
+        "fact": "ProjectOrion uses Python as its RUNTIME_LANGUAGE. Retrieval marker P5_OLD_MISSING.",
+        "group_id": "fm_main_9bb6beab3da3",
+        "source_node_uuid": "54525b9b-4d05-4185-87a3-e9f398140a80",
+        "target_node_uuid": "8793a245-d9fd-4e5e-9966-49c485929a3e",
+        "valid_at": "2026-03-01T11:00:00+00:00",
+        "invalid_at": null,
+        "expired_at": null,
+        "created_at": "2026-09-10T08:22:50.450870+00:00",
+        "episodes": [
+          "179363a4-346e-4b85-a364-80d81a457ac9"
+        ]
+      },
+      {
+        "uuid": "eba056b5-7d54-4b5a-a5a1-688e048a0685",
+        "name": "WORKS_ON",
+        "fact": "Alice works on ProjectOrion.",
+        "group_id": "fm_main_9bb6beab3da3",
+        "source_node_uuid": "d96ec96a-6480-4356-a791-06a3e984979d",
+        "target_node_uuid": "54525b9b-4d05-4185-87a3-e9f398140a80",
+        "valid_at": "2026-03-01T10:00:00+00:00",
+        "invalid_at": null,
+        "expired_at": null,
+        "created_at": "2026-09-10T08:22:50.428186+00:00",
+        "episodes": [
+          "30b5f6a1-83ea-4554-8118-4c6991deaa55"
+        ]
+      },
+      {
+        "uuid": "faad77a5-0ea7-4e5c-8612-6c4481cde763",
+        "name": "RUNTIME_LANGUAGE",
+        "fact": "ProjectNova uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P5_NEW_MISSING.",
+        "group_id": "fm_main_9bb6beab3da3",
+        "source_node_uuid": "657ea968-84d7-403d-bc90-8df828d2ba0e",
+        "target_node_uuid": "20ea1878-909a-4f90-bcda-7f5598a5fe91",
+        "valid_at": "2026-03-01T13:00:00+00:00",
+        "invalid_at": null,
+        "expired_at": null,
+        "created_at": "2026-09-10T08:22:50.490548+00:00",
+        "episodes": [
+          "0fd50153-4586-4372-a2cf-be7493d60bbe"
+        ]
+      }
+    ],
+    "episodes": [],
+    "query": "What language does ProjectOrion use?",
+    "db_path": "/workspace/Graphiti_fractal_lab/data/memoryops_fm1/fm_9bb6beab3da3.db",
+    "notes": {
+      "hit_count": 3,
+      "invariant": "RETRIEVED\u2260CURRENT \u2014 search hits may include expired facts"
+    }
+  },
+  "q_nova_related": {
+    "operation": "MEMORY_QUERY",
+    "timestamp": "2026-09-10T08:22:50.562094+00:00",
+    "group_id": "fm_main_9bb6beab3da3",
+    "episode_uuid": null,
+    "entities": [],
+    "edges": [
+      {
+        "uuid": "faad77a5-0ea7-4e5c-8612-6c4481cde763",
+        "name": "RUNTIME_LANGUAGE",
+        "fact": "ProjectNova uses Rust as its RUNTIME_LANGUAGE. Retrieval marker P5_NEW_MISSING.",
+        "group_id": "fm_main_9bb6beab3da3",
+        "source_node_uuid": "657ea968-84d7-403d-bc90-8df828d2ba0e",
+        "target_node_uuid": "20ea1878-909a-4f90-bcda-7f5598a5fe91",
+        "valid_at": "2026-03-01T13:00:00+00:00",
+        "invalid_at": null,
+        "expired_at": null,
+        "created_at": "2026-09-10T08:22:50.490548+00:00",
+        "episodes": [
+          "0fd50153-4586-4372-a2cf-be7493d60bbe"
+        ]
+      },
+      {
+        "uuid": "a647164d-79d1-49d5-abaf-76a5175f908d",
+        "name": "WORKS_ON",
+        "fact": "Bob works on ProjectNova.",
+        "group_id": "fm_main_9bb6beab3da3",
+        "source_node_uuid": "c44e7e9d-7e26-4991-8f74-ebb5aa83485f",
+        "target_node_uuid": "657ea968-84d7-403d-bc90-8df828d2ba0e",
+        "valid_at": "2026-03-01T12:00:00+00:00",
+        "invalid_at": null,
+        "expired_at": null,
+        "created_at": "2026-09-10T08:22:50.469658+00:00",
+        "episodes": [
+          "d25a2fa9-864c-4f58-8f8b-08ad06d397ab"
+        ]
+      }
+    ],
+    "episodes": [],
+    "query": "What is related to ProjectNova?",
+    "db_path": "/workspace/Graphiti_fractal_lab/data/memoryops_fm1/fm_9bb6beab3da3.db",
+    "notes": {
+      "hit_count": 2,
+      "invariant": "RETRIEVED\u2260CURRENT \u2014 search hits may include expired facts"
+    }
+  }
+}
