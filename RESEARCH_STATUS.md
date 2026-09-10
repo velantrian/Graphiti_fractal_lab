@@ -31,17 +31,41 @@ RESEARCH RESULT ≠ PRODUCTION AUTHORIZATION
 | **FM-13** | `artifacts/memoryops/run_004/` | BM25 introduces broad candidates; RRF preserves measured noise; Cross-Encoder was not invoked. | ✅ COMPLETED |
 | **FM-14** | `artifacts/memoryops/run_005/` | Real BGE embeddings improve semantic geometry, but active hybrid filtering remains insufficient; Zephyr false positives persist. | ✅ COMPLETED |
 | **FM-15** | `artifacts/memoryops/run_006/` | Real local `BAAI/bge-reranker-v2-m3` provides useful pairwise query↔fact relevance signal on the frozen 4-fact fixture. No runtime threshold/gate authorized. | ✅ COMPLETED |
-| **FM-16** | planned `artifacts/memoryops/run_007/` | Held-out generalization + calibration + adversarial hard negatives; no result exists yet. | ⏳ PLANNED / NOT_RUN |
+| **FM-16** | no `run_007/` yet | Held-out generalization + calibration remains the next scientific question, but the first protocol draft failed independent pre-scoring review and must be revised before preregistration/scoring. | 🟠 PLANNED / PROTOCOL_REVISION_REQUIRED / NOT_RUN |
 
-Current bounded next question:
+Current bounded next action:
 
-> Does the FM-15 Cross-Encoder signal generalize to entity-disjoint held-out data and adversarial near-misses, and can one threshold selected only on calibration data preserve recall while enabling honest EMPTY?
+> Revise FM-16 protocol semantics and success criteria **before preregistration or scoring**. Do not run the superseded draft.
 
-**Do not skip directly to runtime integration.**
+### 🔴 FM-16 independent protocol review — 2026-09-10
+
+Independent review verdict: `REQUEST_CHANGES_BEFORE_SCORING`.
+
+This is **not** an FM-16 model result. No FM-16 scorer was run, no `run_007/` exists, and no generalization claim is available.
+
+Critical findings to incorporate into the hardened protocol:
+
+1. **Retrieval relevance was partially conflated with support for a positive proposition.** A direct negative answer such as “X does not support Y” can still be highly relevant to the yes/no question “Does X support Y?”. HN7/HN10/HN12 examples and related gold rules must be corrected before scoring.
+2. **`GENERALIZATION_STRONG` could pass while rejecting zero hard negatives on answerable queries.** Strong success therefore needs an explicit preregistered hard-negative rejection / returned-set quality gate in addition to recall safety and honest EMPTY.
+3. **No feasible calibration threshold must produce `threshold = null` and thresholded test metrics = `NOT_APPLICABLE`; no fallback threshold may be invented.**
+4. **Model identity must be verified from the actually loaded snapshot/weights/tokenizer/config/inference profile.** A cached revision string alone is not enough.
+5. **Metric formulas, denominators, tie handling, threshold comparator, verdict table, and “systematic inversion” rules must be frozen before scoring.**
+6. **TEST outputs/rankings must not be exposed before threshold freeze.** The safe order is preregistration → calibration scoring → threshold freeze → TEST scoring/reporting → anchor regression.
+7. **Claim scope remains bounded.** `800 pairs` is a matrix size, not 800 independent observations; success would establish only performance on the defined synthetic held-out fixture.
+
+Additional integrity note:
+
+```text
+RELEVANT_ANSWER
+≠
+SUPPORTS_POSITIVE_PROPOSITION
+```
+
+A negative, conditional, scoped, historical, attributed, or numeric statement may be relevant or irrelevant depending on the **information need of the query**. Gold labels must encode that need, not a preferred truth polarity.
 
 ---
 
-## 🔍 FM-13 → FM-15 research chain
+## 🔍 FM-13 → FM-16 research chain
 
 ```text
 FM-13
@@ -58,12 +82,20 @@ Score every frozen query↔fact pair with real local BGE Cross-Encoder
 → useful pairwise relevance signal confirmed on fixture
 → threshold/generalization/runtime still NOT established
 
-FM-16
-PLANNED
-→ larger entity-disjoint calibration/test corpus
-→ adversarial semantic hard negatives
-→ CE vs embedding baseline
-→ calibration-only global-threshold feasibility
+FM-16 v1 protocol
+Independent pre-scoring review
+→ REQUEST_CHANGES_BEFORE_SCORING
+→ no scorer run
+→ no run_007
+→ draft is superseded for execution
+
+FM-16 hardened protocol
+NEXT
+→ fix gold semantics
+→ add explicit hard-negative rejection success gate
+→ formalize infeasible-threshold/null branch and exact metric rules
+→ pin actual loaded model profile
+→ preregister before calibration/test scoring
 ```
 
 Important FM-15 qualification:
@@ -74,7 +106,7 @@ Important FM-15 qualification:
 - broad-query Q3 had relatively low absolute CE scores, so arbitrary global thresholds are unsafe;
 - no production `reranker_min_score` was selected.
 
-For detailed reasoning and donor map, read [`docs/research/RETRIEVAL_RELEVANCE_TRACK.md`](docs/research/RETRIEVAL_RELEVANCE_TRACK.md).
+For detailed reasoning and protocol-review findings, read [`docs/research/RETRIEVAL_RELEVANCE_TRACK.md`](docs/research/RETRIEVAL_RELEVANCE_TRACK.md).
 
 ---
 
@@ -135,6 +167,7 @@ FalkorDBLite experiment evidence ≠ Neo4j parity
 | ✅ Real BGE embedding differential | `run_005` | Real semantic geometry tested; not sufficient final filtering proof. |
 | ✅ Real local BGE Cross-Encoder pairwise scoring | `run_006` | 20 frozen pairs; pairwise relevance signal only. |
 | ✅ FM-15 integrity tests | `run_006/pytest.txt` | 14 passed in recorded run; green tests ≠ production authorization. |
+| ✅ FM-16 protocol review | independent read-only audit | Protocol flaws found before scoring; this is methodology evidence, not scorer evidence. |
 
 ---
 
@@ -146,9 +179,10 @@ FalkorDBLite experiment evidence ≠ Neo4j parity
 | Production/general Fractal relevance gate | ❌ NOT IMPLEMENTED / NOT AUTHORIZED |
 | Global calibrated CE threshold | ❌ NOT ESTABLISHED |
 | `NO_RELEVANT_MEMORY` runtime semantics | ❌ NOT IMPLEMENTED |
-| CE generalization beyond small fixture | ⏳ FM-16 NOT_RUN |
+| CE generalization beyond small fixture | ⏳ FM-16 NOT_RUN; protocol revision required first |
 | Cross-Encoder superiority over embeddings in general | ❌ NOT ESTABLISHED |
 | Cross-Encoder score as evidence/truth/Canon | ❌ FORBIDDEN CONFLATION |
+| FM-16 v1 success criteria as scientifically sufficient | ❌ SUPERSEDED / REQUEST_CHANGES_BEFORE_SCORING |
 | MMR/BFS/Titan/OpenClaw/Soul/Crystal donor adoption into runtime | ❌ NOT ADOPTED |
 | Kùzu/Postgres/DuckDB backend parity | ❌ NOT VALIDATED |
 | Migration / dual-write / rollback authorization | ❌ NOT AUTHORIZED |
@@ -163,6 +197,7 @@ FILE EXISTS ≠ TESTED
 TESTED ≠ ACTIVE
 ACTIVE ≠ PRODUCTION AUTHORIZED
 RETRIEVED ≠ RELEVANT
+RELEVANT ≠ SUPPORTS_POSITIVE_PROPOSITION
 RELEVANCE ≠ EVIDENCE
 RELEVANCE ≠ TRUTH
 EVIDENCE ≠ BELIEF
@@ -200,10 +235,13 @@ For graph-backend smoke claims, use the relevant backend tests and capability ma
 
 ### Retrieval relevance — current bounded priority
 
-1. Run **FM-16 held-out generalization/calibration** when execution resources are available.
-2. Stop for independent review after FM-16.
-3. Only if evidence supports it, separately design an end-to-end candidate-union → CE qualification → honest EMPTY experiment.
-4. Do not activate CE in runtime or set production threshold from FM-15 alone.
+1. Produce a **hardened FM-16 protocol revision** before preregistration or scoring.
+2. Correct retrieval-relevance gold semantics, especially yes/no negation, conditions, and numeric comparisons.
+3. Add explicit preregistered hard-negative rejection / returned-set quality criteria for `GENERALIZATION_STRONG`.
+4. Define infeasible calibration as `threshold = null` with thresholded TEST metrics `NOT_APPLICABLE`.
+5. Freeze exact metrics, denominators, ties, comparator, verdict table, model snapshot/profile, and sequencing.
+6. Only then execute FM-16; stop afterward for independent review.
+7. Do not activate CE in runtime or set production threshold from FM-15 or from the superseded FM-16 draft.
 
 ### Backend lane — separate priority family
 
@@ -222,6 +260,9 @@ fm13: COMPLETED
 fm14: COMPLETED
 fm15: COMPLETED
 fm16: PLANNED_NOT_RUN
+fm16_protocol_v1: REQUEST_CHANGES_BEFORE_SCORING_SUPERSEDED
+fm16_preregistration: NOT_CREATED
+fm16_run_007: NOT_CREATED
 pairwise_ce_signal: CONFIRMED_ON_FM15_FIXTURE
 new_separability_vs_embeddings: NOT_ESTABLISHED
 global_threshold: NOT_ESTABLISHED
@@ -230,5 +271,5 @@ no_relevant_memory_runtime: NOT_IMPLEMENTED
 new_relevance_module_justified: false
 architecture_change: false
 upstream_runtime_changed_by_research: false
-current_next_action: FM16_HELD_OUT_GENERALIZATION_AND_CALIBRATION
+current_next_action: REVISE_FM16_PROTOCOL_BEFORE_PREREGISTRATION_AND_SCORING
 ```
