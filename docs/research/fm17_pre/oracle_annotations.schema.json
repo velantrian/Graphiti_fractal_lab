@@ -1,0 +1,234 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fm17_pre_oracle_annotations.schema.json",
+  "title": "FM-17-pre Oracle Annotation Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "query_id",
+    "fact_id",
+    "query",
+    "fact",
+    "gold_relevance_class",
+    "annotation_source"
+  ],
+  "properties": {
+    "pair_id": {
+      "type": "string",
+      "description": "Optional stable id query_id::fact_id"
+    },
+    "query_id": {
+      "type": "string"
+    },
+    "fact_id": {
+      "type": "string"
+    },
+    "query": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entity_targets",
+        "query_class",
+        "scope_target"
+      ],
+      "properties": {
+        "entity_targets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "predicate_target": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "scope_target": {
+          "type": "string",
+          "enum": [
+            "prod",
+            "test",
+            "default",
+            "historical",
+            "current",
+            "any",
+            "unknown"
+          ]
+        },
+        "polarity_target": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "condition_target": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "attribution_target": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "query_class": {
+          "type": "string",
+          "enum": [
+            "NARROW",
+            "STATE",
+            "BROAD",
+            "NO_ANSWER",
+            "MULTIHOP"
+          ]
+        },
+        "role_target": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "subject": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "object": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "fact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entities",
+        "scope"
+      ],
+      "properties": {
+        "entities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "predicate": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "scope": {
+          "type": "string",
+          "enum": [
+            "prod",
+            "test",
+            "default",
+            "historical",
+            "current",
+            "any",
+            "unknown"
+          ]
+        },
+        "polarity": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "condition": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "attribution": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "temporal_state": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "current",
+            "historical",
+            "unknown",
+            null
+          ]
+        },
+        "role": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "subject": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "object": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "gold_relevance_class": {
+      "type": "string",
+      "enum": [
+        "DIRECT",
+        "COMPONENT",
+        "RELATED",
+        "NONANSWER"
+      ]
+    },
+    "annotation_source": {
+      "type": "string",
+      "enum": [
+        "HUMAN_GOLD",
+        "RULE_DERIVED"
+      ]
+    },
+    "annotation_notes": {
+      "type": "string"
+    },
+    "hn_labels": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Optional copy of FM-16 HN labels for the pair"
+    },
+    "diagnostic_subset": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "MULTIHOP_COMPONENT_RETENTION",
+        "HN9_SCOPE",
+        "NO_ANSWER",
+        null
+      ]
+    }
+  }
+}
