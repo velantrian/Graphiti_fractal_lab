@@ -6,9 +6,11 @@
 > **Upstream authority:** `velantrian/Graphiti_fractal` remains separate. Lab evidence never authorizes upstream/runtime changes.
 
 🤖 **AI routing:** start with [`docs/ai/README.md`](docs/ai/README.md).  
-🔎 **Retrieval-relevance narrative:** [`docs/research/RETRIEVAL_RELEVANCE_TRACK.md`](docs/research/RETRIEVAL_RELEVANCE_TRACK.md).  
+🔎 **Retrieval-relevance narrative:** [`docs/research/RETRIEVAL_RELEVANCE_TRACK.md`](docs/research/RETRIEVAL_RELEVANCE_TRACK.md) — historical/research narrative; for current FM-17-pre status continue to the FM-17-pre index below.  
 🧭 **Long-form reasoning history:** [`docs/research/RETRIEVAL_RELEVANCE_REASONING_LOG.md`](docs/research/RETRIEVAL_RELEVANCE_REASONING_LOG.md).  
-✅ **FM-16 closure + independent review reconciliation:** [`docs/research/FM16_CLOSURE_AND_INDEPENDENT_REVIEW_2026-09-11.md`](docs/research/FM16_CLOSURE_AND_INDEPENDENT_REVIEW_2026-09-11.md).
+✅ **FM-16 closure + independent review reconciliation:** [`docs/research/FM16_CLOSURE_AND_INDEPENDENT_REVIEW_2026-09-11.md`](docs/research/FM16_CLOSURE_AND_INDEPENDENT_REVIEW_2026-09-11.md).  
+🔐 **FM-17-pre current protocol index:** [`docs/research/fm17_pre/README.md`](docs/research/fm17_pre/README.md).  
+✅ **FM-17-pre v1.3.1 final integrity review:** [`docs/research/fm17_pre/FM17_PRE_V1_3_1_FINAL_INTEGRITY_REVIEW_2026-09-11.md`](docs/research/fm17_pre/FM17_PRE_V1_3_1_FINAL_INTEGRITY_REVIEW_2026-09-11.md).
 
 Exact experiment claims remain subordinate to exact Git state, executable artifacts under `artifacts/memoryops/run_00X/`, experiment code, tests, hashes and receipts.
 
@@ -35,6 +37,7 @@ RESEARCH RESULT ≠ PRODUCTION AUTHORIZATION
 | **FM-14** | `artifacts/memoryops/run_005/` | Real BGE embeddings improve semantic geometry, but active hybrid filtering remains insufficient; Zephyr false positives persist. | ✅ COMPLETED |
 | **FM-15** | `artifacts/memoryops/run_006/` | Real local `BAAI/bge-reranker-v2-m3` provides a useful pairwise query↔fact signal on the frozen four-fact fixture. No runtime threshold/gate authorized. | ✅ COMPLETED |
 | **FM-16** | `artifacts/memoryops/run_007/` | CE ranks better than embedding on the frozen mixed fixture, but neither score family has one feasible global threshold under the frozen qualification contract. | ✅ CLOSED · `PASS_WITH_MAJOR_INTERPRETATION_FINDINGS` |
+| **FM-17-pre** | `docs/research/fm17_pre/` | Protocol/integrity gate for the combined query+fact structural-oracle ceiling. No real annotation or A0–A3 result yet. | 🔐 INTEGRITY READY · `PASS_WITH_MINOR_FINDINGS` · execution not yet authorized |
 
 ---
 
@@ -248,6 +251,113 @@ FM-16 Honest Empty = NOT_ESTABLISHED
 
 ---
 
+# 🔐 FM-17-pre — current frontier after FM-16
+
+FM-17-pre is a **new bounded research hypothesis**, not a retroactive extension of FM-16 and not an architecture decision.
+
+Its primary question is:
+
+> If query structural interpretation plus fact structural representation were oracle-correct, would that typed structure add measurable qualification value beyond the frozen CE-only baseline, and would structural→CE residual ranking preserve useful evidence better than structure alone?
+
+Planned arms:
+
+```text
+A0 = frozen CE baseline
+A1 = structural oracle ACCEPT / REJECT / UNRESOLVED
+A2 = structural qualification → CE residual ranking
+A3 = ORACLE_COMPONENT_IDENTITY_CEILING_DIAGNOSTIC only
+```
+
+Scientific status remains:
+
+```text
+STRUCTURAL_VALUE = NOT_ESTABLISHED
+QUERY_UNDERSTANDING = NOT_ESTABLISHED
+EXTRACTION_ACCURACY = NOT_ESTABLISHED
+HONEST_EMPTY = NOT_ESTABLISHED
+MULTI_HOP = NOT_PROVEN
+```
+
+### Integrity-hardening lineage
+
+```text
+469fe64  initial protocol freeze
+→ 8aebf70  Measurement Charter
+→ bcad493  v1.1 anti-leakage / claim-boundary repair
+→ 914ea5c  v1.2 fail-closed schema gate
+→ f091ba2  v1.3 package completeness + A/B disagreement + actual SHA-256
+→ 080e195  v1.3.1 mandatory external pre-overlay expected root
+→ independent Manus final meta-gate review
+```
+
+**Final reviewed implementation SHA:** `080e1959fe6a3d996f2690059fcdc687dd5c832e`
+
+Final independent integrity result:
+
+```text
+VERDICT = PASS_WITH_MINOR_FINDINGS
+GO_FOR_OFFLINE_ABLATION = YES  [INTEGRITY / PROTOCOL VERDICT ONLY]
+EXTERNAL_ROOT_REQUIRED = YES
+PACKAGE_SELF_AUTHORIZATION = CLOSED
+FULL_PACKAGE_PLUS_ROOT_REPLACEMENT = REJECTED
+T27 = PASS
+T28 = PASS
+T29 = PASS
+P7 = PASS
+FULL_TEST_SUITE = 40 passed, 1 warning
+PRE_OVERLAY_EXTERNAL_ANCHOR_PROCEDURE = SUFFICIENT
+NEW_R1_R2_R3_MATERIAL_BYPASSES = []
+ENFORCEMENT_COMPLEXITY_EXHAUSTED = YES
+```
+
+Final trust boundary:
+
+```text
+EXTERNAL_R0
+=
+PACKAGE_LOCAL_ROOT
+=
+ACTUAL_RECOMPUTED_ROOT
+```
+
+The package-local root is consistency/audit state only. It is not authority and cannot be used as an implicit fallback.
+
+Required future execution order, if separately authorized:
+
+```text
+BLIND ANNOTATION
+→ INDEPENDENT A/B SUBMISSION
+→ ADJUDICATION
+→ STRUCTURAL PACKAGE FINALIZED
+→ HASH ROOT R0 COMPUTED
+→ R0 RECORDED OUTSIDE PACKAGE
+→ FREEZE
+→ ONLY THEN EVALUATION OVERLAY
+→ VALIDATE AGAINST PREVIOUSLY RECORDED EXTERNAL R0
+→ A0–A3 ONLY AFTER INTEGRITY PASS
+```
+
+Accepted residual risks:
+
+- validator cannot independently prove when/by whom `R0` was recorded;
+- R0 recording/transport is procedural rather than PKI/signature/timestamp authenticated;
+- unrelated pytest `asyncio_mode` warning is non-enforcement noise.
+
+These were not classified by the final independent review as new material R1+R2+R3 bypasses for this bounded offline protocol.
+
+Methodology findings:
+
+```text
+PASSING TEST SUITE ≠ THREAT MODEL COMPLETE
+HASH FIELD PRESENT ≠ HASH VERIFIED
+INTERNAL HASH CONSISTENCY ≠ PRE-OVERLAY FREEZE AUTHENTICITY
+VALIDATOR PASS ≠ EXPERIMENT SUCCESS
+```
+
+The meta-gate for future enforcement findings is risk-based: block only if `R1 concrete path + R2 realistic + R3 material consequence` all hold. Otherwise record residual risk rather than reopen speculative hardening.
+
+---
+
 ## ❌ Explicitly NOT established / NOT authorized
 
 | Claim | Status |
@@ -268,6 +378,9 @@ FM-16 Honest Empty = NOT_ESTABLISHED
 | Runtime CE / production `reranker_min_score` | ❌ NOT AUTHORIZED |
 | Architecture promotion | ❌ NOT AUTHORIZED |
 | Upstream/product change | ❌ NOT AUTHORIZED |
+| FM-17-pre real annotation | ❌ NOT EXECUTED / NOT YET AUTHORIZED |
+| FM-17-pre evaluation overlay | ❌ NOT EXPOSED |
+| FM-17-pre A0–A3 scientific result | ❌ NOT EXECUTED |
 
 ---
 
@@ -288,14 +401,14 @@ NOT RETRIEVED ≠ ABSENT
 UNKNOWN ≠ FALSE
 TEMPORAL APPLICABILITY ≠ SEMANTIC RELEVANCE
 SCORER FAILURE ≠ HONEST EMPTY
-RESTORED BYTES ≠ RESTORED CURRENT APPLICABILITY
+VALIDATOR PASS ≠ EXPERIMENT SUCCESS
+GO_FOR_OFFLINE_ABLATION ≠ ABLATION EXECUTED
+LAB ≠ PRODUCT
 ```
 
 ---
 
-## 🔍 Historical path to FM-16
-
-The pre-execution review history is preserved rather than rewritten away:
+## 🔍 Historical path and current frontier
 
 ```text
 FM-13
@@ -307,41 +420,53 @@ FM-14
 FM-15
 → isolate real CE pairwise signal
 
-FM-16 v1
-→ independent protocol review
-→ REQUEST_CHANGES_BEFORE_SCORING
-→ no scoring under superseded draft
-
-hardened task separation
-→ relevance ≠ positive entailment
-→ DIRECT ANSWER ≠ COMPONENT ≠ RELATED CONTEXT
-→ H1 ranking separated from H2 global gate
-→ null-threshold outcome made legitimate
-→ broad queries retained as challenge stratum
-
-FM-16 / run_007
-→ frozen CAL/TEST mixed task executed
-→ CE ranks better than embedding
+FM-16
+→ test mixed-task ranking + one-global-threshold feasibility
+→ CE ranking better than embedding on frozen fixture
 → no feasible global theta for either family
-→ independent forensic review
-→ interpretation corrections
-→ CLOSED WITH MAJOR INTERPRETATION FINDINGS
+→ bounded forensic closure
+
+FM-17-pre
+→ new structural-oracle ceiling hypothesis
+→ protocol + anti-leakage + fail-closed integrity hardening
+→ external pre-overlay root added
+→ independent integrity/meta-gate review PASS_WITH_MINOR_FINDINGS
+→ INTEGRITY GATE READY
+→ SCIENTIFIC ABLATION STILL NOT EXECUTED
 ```
 
-For the full long-form reasoning that led here, read [`docs/research/RETRIEVAL_RELEVANCE_REASONING_LOG.md`](docs/research/RETRIEVAL_RELEVANCE_REASONING_LOG.md). For the reconciled execution/review closure, read [`docs/research/FM16_CLOSURE_AND_INDEPENDENT_REVIEW_2026-09-11.md`](docs/research/FM16_CLOSURE_AND_INDEPENDENT_REVIEW_2026-09-11.md).
+For FM-16 history, read [`docs/research/FM16_CLOSURE_AND_INDEPENDENT_REVIEW_2026-09-11.md`](docs/research/FM16_CLOSURE_AND_INDEPENDENT_REVIEW_2026-09-11.md).  
+For current FM-17-pre protocol state, read [`docs/research/fm17_pre/README.md`](docs/research/fm17_pre/README.md), [`docs/research/fm17_pre/STOP_BOUNDARY.md`](docs/research/fm17_pre/STOP_BOUNDARY.md), and [`docs/research/fm17_pre/FM17_PRE_V1_3_1_FINAL_INTEGRITY_REVIEW_2026-09-11.md`](docs/research/fm17_pre/FM17_PRE_V1_3_1_FINAL_INTEGRITY_REVIEW_2026-09-11.md).
 
 ---
 
 ## 🧭 Current bounded next action
 
+The FM-16 closure itself stays closed. FM-17-pre now exists as a separate new research frontier whose integrity gate has passed independent review.
+
+The next action, **only after separate explicit user authorization**, is:
+
 ```text
-RECORD FM-16 CLOSURE
-→ STOP
+BLINDED A/B ANNOTATION
+→ ADJUDICATION
+→ EXTERNAL R0 FREEZE
+→ POST-FREEZE EVALUATION OVERLAY
+→ INTEGRITY VALIDATION AGAINST HELD R0
+→ ONE-SHOT A0/A1/A2/A3 OFFLINE ABLATION
+→ BOUNDED INTERPRETATION
 ```
 
-Do **not** start FM-17 from this closure. Do not change runtime, search recipe, product, upstream or architecture.
+Until that authorization:
 
-A later experiment may study structural qualification, query-conditioned scoring, LLM/SLM recognition, graph/path reasoning, selective abstention, or another mechanism — but each is a **new research hypothesis** requiring its own explicit scope and authorization.
+```text
+STOP
+NO REAL ANNOTATION
+NO EVALUATION OVERLAY
+NO A0–A3
+NO ABLATION
+NO MERGE
+NO PRODUCT CHANGE
+```
 
 ---
 
@@ -350,7 +475,7 @@ A later experiment may study structural qualification, query-conditioned scoring
 ```yaml
 repo: velantrian/Graphiti_fractal_lab
 scope: research_sandbox
-retrieval_relevance_track: FM16_CLOSED_BOUNDED_RESEARCH_CONTINUES
+retrieval_relevance_track: FM16_CLOSED_FM17_PRE_INTEGRITY_READY
 fm13: COMPLETED
 fm14: COMPLETED
 fm15: COMPLETED
@@ -374,11 +499,22 @@ honest_empty_established: false
 threshold_selection_uses_cal_only: true
 test_scores_existed_before_theta_freeze: true
 strict_blind_test_order_satisfied: false
+fm17_pre: INTEGRITY_READY_NOT_EXECUTED
+fm17_pre_final_reviewed_implementation_sha: 080e1959fe6a3d996f2690059fcdc687dd5c832e
+fm17_pre_integrity_verdict: PASS_WITH_MINOR_FINDINGS
+fm17_pre_go_for_offline_ablation_protocol: true
+fm17_pre_package_self_authorization_closed: true
+fm17_pre_full_package_root_replacement_rejected: true
+fm17_pre_full_test_suite: "40 passed, 1 warning"
+fm17_pre_real_annotation_executed: false
+fm17_pre_overlay_exposed: false
+fm17_pre_ablation_executed: false
+fm17_pre_structural_value_established: false
 runtime_relevance_gate: NOT_IMPLEMENTED
 runtime_authorized: false
 search_recipe_changed: false
 architecture_change: false
 upstream_runtime_changed_by_research: false
 product_changed: false
-current_next_action: RECORD_CLOSURE_AND_STOP
+current_next_action: WAIT_FOR_SEPARATE_USER_AUTHORIZATION_OF_FM17_PRE_OFFLINE_ORACLE_ABLATION
 ```
