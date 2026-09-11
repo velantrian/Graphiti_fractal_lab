@@ -1,0 +1,71 @@
+{
+  "cross_encoder": {
+    "CROSS_ENCODER_PROVIDER": "local",
+    "CROSS_ENCODER_MODEL": "BAAI/bge-reranker-v2-m3",
+    "MODEL_REVISION": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+    "MODEL_WEIGHT_FINGERPRINT": "d9e3e081faff1eefb84019509b2f5558fd74c1a05a2c7db22f74174fcedb5286",
+    "MODEL_WEIGHT_FILE": "model.safetensors",
+    "MODEL_WEIGHT_SIZE_BYTES": 2271071852,
+    "FRAMEWORK": "sentence-transformers CrossEncoder via graphiti_core.BGERerankerClient",
+    "FRAMEWORK_VERSION": "6.0.1",
+    "DEVICE": "CPU",
+    "device": "cpu",
+    "DTYPE": "torch.float32",
+    "ACTIVATION_FN": "Sigmoid()",
+    "NETWORK_REQUIRED_FOR_MODEL_FETCH": "NO_IF_CACHED",
+    "API_COST": 0,
+    "load_time_s": 7.799564588000067,
+    "package_versions": {
+      "sentence_transformers": "6.0.1",
+      "transformers": "5.17.0",
+      "torch": "2.14.0+cu130",
+      "numpy": "2.5.3",
+      "graphiti_core": "UNKNOWN",
+      "graphiti-core": "0.29.3"
+    },
+    "CROSS_ENCODER_REAL": "YES",
+    "NOT_DeterministicCrossEncoder": true,
+    "NOT_LLM_judge": true,
+    "NOT_OpenAI_reranker": true,
+    "NOT_DeepSeek_judge": true,
+    "graphiti_native_client": "BGERerankerClient",
+    "graphiti_version_expected": "0.29.3",
+    "SECRET_LOGGED": "NO",
+    "recorded_at_utc": "2026-09-11T08:13:35.095411Z",
+    "weight": {
+      "model": "BAAI/bge-reranker-v2-m3",
+      "revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+      "weight_file": "model.safetensors",
+      "sha256": "d9e3e081faff1eefb84019509b2f5558fd74c1a05a2c7db22f74174fcedb5286",
+      "size_bytes": 2271071852
+    },
+    "load_time_s_run": 10.874856815004023
+  },
+  "embedding": {
+    "provider": "local_fastembed",
+    "framework": "fastembed+onnxruntime",
+    "model_name": "BAAI/bge-small-en-v1.5",
+    "hf_source_repo": "qdrant/bge-small-en-v1.5-onnx-q",
+    "model_revision": "52398278842ec682c6f32300af41344b1c0b0bb2",
+    "model_file": "model_optimized.onnx",
+    "embedding_dim": 384,
+    "normalization": "L2_unit_norm_from_model",
+    "device": "cpu",
+    "dtype": "float32",
+    "package_versions": {
+      "fastembed": "0.8.0",
+      "onnxruntime": "1.29.0",
+      "numpy": "2.5.3"
+    },
+    "API_COST_USD": 0,
+    "LOCAL_COMPUTE_COST": "NOT_MEASURED",
+    "embedding_label": "REAL_SEMANTIC_EMBEDDING",
+    "NOT_hash_random_lexical_fixture": true
+  },
+  "pins": {
+    "ce_model": "BAAI/bge-reranker-v2-m3",
+    "ce_revision": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+    "ce_weight_sha256": "d9e3e081faff1eefb84019509b2f5558fd74c1a05a2c7db22f74174fcedb5286",
+    "embedding_model": "BAAI/bge-small-en-v1.5"
+  }
+}

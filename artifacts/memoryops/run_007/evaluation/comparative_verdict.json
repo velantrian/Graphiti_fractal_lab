@@ -1,0 +1,19 @@
+{
+  "CE_VS_EMBEDDING": "NO_MATERIAL_GAIN",
+  "GENERALIZATION_VERDICT": "GLOBAL_THRESHOLD_NOT_FEASIBLE",
+  "CRITICAL_STRATUM_FAILURE": false,
+  "heldout_ce": {
+    "theta": null,
+    "GLOBAL_THRESHOLD_FEASIBLE": false
+  },
+  "heldout_embedding": {
+    "theta": null,
+    "GLOBAL_THRESHOLD_FEASIBLE": false
+  },
+  "negation_discrimination": "PASS",
+  "temporal_text_discrimination": "PASS",
+  "scope_discrimination": "PARTIAL",
+  "condition_discrimination": "PASS",
+  "attribution_discrimination": "PASS",
+  "numeric_unit_discrimination": "PASS"
+}

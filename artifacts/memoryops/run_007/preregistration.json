@@ -1,0 +1,269 @@
+{
+  "experiment": "FM-16",
+  "preregistered_at_utc": "2026-09-11T08:13:24.220538Z",
+  "models": {
+    "cross_encoder": {
+      "name": "BAAI/bge-reranker-v2-m3",
+      "revision_pin": "953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e",
+      "weight_sha256_pin": "d9e3e081faff1eefb84019509b2f5558fd74c1a05a2c7db22f74174fcedb5286",
+      "client": "graphiti_core.cross_encoder.bge_reranker_client.BGERerankerClient"
+    },
+    "embedding": {
+      "name": "BAAI/bge-small-en-v1.5",
+      "implementation": "LocalSemanticEmbedder/fastembed",
+      "profile": "FM-14"
+    }
+  },
+  "counts": {
+    "calibration_facts": 40,
+    "calibration_queries": 20,
+    "test_facts": 40,
+    "test_queries": 20,
+    "answerable_per_split": 12,
+    "no_answer_per_split": 8,
+    "broad_answerable_per_split": 4,
+    "nonexistent_per_split": 4,
+    "unsupported_per_split": 4,
+    "hard_negative_strata": 12,
+    "ce_pairs_calibration": 800,
+    "ce_pairs_test": 800,
+    "ce_pairs_fm15_anchor": 20,
+    "ce_pairs_total": 1620
+  },
+  "query_classes": {
+    "answerable_subtypes": [
+      "narrow",
+      "paraphrase",
+      "broad"
+    ],
+    "no_answer_subtypes": [
+      "nonexistent",
+      "unsupported"
+    ]
+  },
+  "gold_sets": {
+    "calibration": {
+      "CQ01": [
+        "CF01"
+      ],
+      "CQ02": [
+        "CF07"
+      ],
+      "CQ03": [
+        "CF03"
+      ],
+      "CQ04": [
+        "CF05"
+      ],
+      "CQ05": [
+        "CF11"
+      ],
+      "CQ06": [
+        "CF17"
+      ],
+      "CQ07": [
+        "CF19"
+      ],
+      "CQ08": [
+        "CF27"
+      ],
+      "CQ09": [
+        "CF01",
+        "CF02",
+        "CF03",
+        "CF04",
+        "CF05"
+      ],
+      "CQ10": [
+        "CF06",
+        "CF07",
+        "CF08",
+        "CF09",
+        "CF10"
+      ],
+      "CQ11": [
+        "CF21",
+        "CF22",
+        "CF24"
+      ],
+      "CQ12": [
+        "CF31",
+        "CF32",
+        "CF34",
+        "CF35"
+      ],
+      "CQ13": [],
+      "CQ14": [],
+      "CQ15": [],
+      "CQ16": [],
+      "CQ17": [],
+      "CQ18": [],
+      "CQ19": [],
+      "CQ20": []
+    },
+    "test": {
+      "TQ01": [
+        "TF01"
+      ],
+      "TQ02": [
+        "TF07"
+      ],
+      "TQ03": [
+        "TF03"
+      ],
+      "TQ04": [
+        "TF05"
+      ],
+      "TQ05": [
+        "TF11"
+      ],
+      "TQ06": [
+        "TF17"
+      ],
+      "TQ07": [
+        "TF19"
+      ],
+      "TQ08": [
+        "TF27"
+      ],
+      "TQ09": [
+        "TF01",
+        "TF02",
+        "TF03",
+        "TF04",
+        "TF05"
+      ],
+      "TQ10": [
+        "TF06",
+        "TF07",
+        "TF08",
+        "TF09",
+        "TF10"
+      ],
+      "TQ11": [
+        "TF21",
+        "TF22",
+        "TF24"
+      ],
+      "TQ12": [
+        "TF31",
+        "TF32",
+        "TF34",
+        "TF35"
+      ],
+      "TQ13": [],
+      "TQ14": [],
+      "TQ15": [],
+      "TQ16": [],
+      "TQ17": [],
+      "TQ18": [],
+      "TQ19": [],
+      "TQ20": []
+    }
+  },
+  "negative_strata": {
+    "HN1": "SAME_ENTITY_WRONG_PREDICATE",
+    "HN2": "SAME_PREDICATE_WRONG_ENTITY",
+    "HN3": "LEXICAL_OVERLAP_WRONG_ANSWER",
+    "HN4": "SEMANTICALLY_RELATED_WRONG_RELATION",
+    "HN5": "NEAR_NAME_ENTITY_COLLISION",
+    "HN6": "UNRELATED",
+    "HN7": "NEGATION_POLARITY",
+    "HN8": "TEMPORAL_VERSION_MISMATCH",
+    "HN9": "SCOPE_MISMATCH",
+    "HN10": "CONDITION_MISMATCH",
+    "HN11": "ATTRIBUTION_SOURCE_MISMATCH",
+    "HN12": "NUMERIC_UNIT_DIRECTION_MISMATCH"
+  },
+  "hn_coverage_requirement": {
+    "HN1-HN6_min": 3,
+    "HN7-HN12_min": 2
+  },
+  "hn_coverage_observed": {
+    "calibration": {
+      "HN1": 20,
+      "HN2": 22,
+      "HN3": 7,
+      "HN4": 17,
+      "HN5": 4,
+      "HN6": 23,
+      "HN7": 4,
+      "HN8": 5,
+      "HN9": 3,
+      "HN10": 2,
+      "HN11": 5,
+      "HN12": 5
+    },
+    "test": {
+      "HN1": 20,
+      "HN2": 22,
+      "HN3": 7,
+      "HN4": 16,
+      "HN5": 4,
+      "HN6": 23,
+      "HN7": 7,
+      "HN8": 8,
+      "HN9": 4,
+      "HN10": 2,
+      "HN11": 5,
+      "HN12": 5
+    }
+  },
+  "entity_disjoint": {
+    "overlapping_gold_entity_names": {},
+    "entity_disjoint": true
+  },
+  "metric_definitions": {
+    "ANSWERABLE_QUERY_COVERAGE": "fraction of answerable queries with >=1 gold survivor",
+    "GOLD_PAIR_RECALL": "fraction of gold (query,fact) pairs with score >= theta",
+    "NO_ANSWER_EMPTY_ACCURACY": "fraction of no-answer queries with 0 survivors",
+    "NON_GOLD_REJECTION_RATE": "fraction of non-gold pairs with score < theta",
+    "FALSE_EMPTY_RATE": "fraction of answerable queries with 0 gold survivors",
+    "BROAD_QUERY_GOLD_RECALL": "GOLD_PAIR_RECALL restricted to broad queries",
+    "HARD_NEGATIVE_MARGIN": "lowest_gold_score - highest_non_gold_score"
+  },
+  "threshold_rule": {
+    "scope": "CALIBRATION_ONLY",
+    "one_global_threshold_per_family": true,
+    "feasibility": {
+      "ANSWERABLE_QUERY_COVERAGE": 1.0,
+      "GOLD_PAIR_RECALL_MIN": 0.9,
+      "NO_ANSWER_EMPTY_ACCURACY": 1.0,
+      "BROAD_QUERY_GOLD_RECALL_MIN": 0.9
+    },
+    "objective": "maximize NON_GOLD_REJECTION_RATE",
+    "tie_break": "lower_threshold"
+  },
+  "generalization_criteria": {
+    "GENERALIZATION_STRONG": {
+      "ANSWERABLE_QUERY_COVERAGE_MIN": 0.95,
+      "GOLD_PAIR_RECALL_MIN": 0.9,
+      "NO_ANSWER_EMPTY_ACCURACY_MIN": 0.875,
+      "FALSE_EMPTY_RATE_MAX": 0.05,
+      "BROAD_QUERY_GOLD_RECALL_MIN": 0.9,
+      "CRITICAL_STRATUM_FAILURE": false
+    }
+  },
+  "forbidden": {
+    "forced_refill": true,
+    "test_leakage_into_threshold": true,
+    "runtime_ce_activation": true,
+    "search_recipe_change": true,
+    "deepseek_extraction": true,
+    "predetermined_pass": true
+  },
+  "corpus_file_sha256": {
+    "fm15_anchor.json": "842c072939f1943f6fecad06a46c94163072d33915759add649a795df73023a0",
+    "calibration_facts.json": "ba2ea50b21822433a114cb71260f223112841dae8d22a34c0505bf0336c9623d",
+    "calibration_queries.json": "bd3417354de394a347a71d0b42efe55e51490c3e7ededd4b570e0eca67d407b6",
+    "calibration_gold.json": "c17a6439ad192a158c74b13636219d7b53cb69f8fda675b11db38fa958a71982",
+    "test_facts.json": "ade028139039838037a2bc976562f45e8f231a9e25012ce9ebcac3aa625f07c9",
+    "test_queries.json": "0f8d1a5c326a4761114056f7a3a81585a20f9698a9839de92f9556cd18985125",
+    "test_gold.json": "df7d1254c9bd68d1c3effc10322a255c40f3028a2eb8cf6372de32f715601dc3",
+    "hard_negative_labels.json": "1aef4dcd76726b11dd7e505eb38e9668479c5063caa012a104bdf3509e9ae0bd",
+    "adversarial_strata_manifest.json": "f809ba422eb016f7a6a8c6dad83d8d1cb10be88789d854342758299838cfca35"
+  },
+  "start_sha_expected": "de304f120a7fdf5bbd1ac020e4333a50a541a219",
+  "upstream_sha_expected": "2437244149baeb0c645e2e942125be92bba3a96b",
+  "scoring_begun": true
+}

@@ -1,0 +1,3 @@
+# FM-16 commands
+.venv/bin/python -c "import asyncio; from fractal_lab.experiments.fm16_generalization import run_fm16; asyncio.run(run_fm16())"
+.venv/bin/pytest -q tests/lab/test_memoryops_fm16_generalization.py

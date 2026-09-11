@@ -1,0 +1,801 @@
+query_id,query_text,query_class,query_subtype,fact_id,fact_text,gold_relevant,hard_negative_labels,COSINE_SCORE,LOGIT_SCORE,rank_within_query
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF01,Sofia works on Project Nimbus.,True,,0.8114949289697332,,1
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF02,Project Nimbus uses Scala.,False,HN1,0.7922432851281508,,2
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF03,Project Nimbus depends on MongoDB.,False,HN1,0.7581905488593793,,5
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF04,Project Nimbus is owned by Brightline Corp.,False,HN1,0.764080237977675,,4
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF05,Project Nimbus is deployed in Tokyo.,False,,0.7901229952313585,,3
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF06,Marcus works on Project Vector.,False,HN2,0.658017891349741,,7
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF07,Project Vector uses Swift.,False,,0.5879511035050811,,29
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF08,Project Vector depends on RabbitMQ.,False,,0.5971434837763038,,25
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF09,Project Vector is owned by Redwood Analytics.,False,,0.5910071231716773,,28
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF10,Project Vector has status preview.,False,,0.5999466025088375,,23
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF11,Lena works on Project Cobalt.,False,HN2,0.6229071579366915,,16
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF12,Project Cobalt uses Haskell.,False,,0.5955304183014746,,26
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF13,Project Cobalt depends on Prometheus.,False,,0.6400077774687564,,8
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF14,Project Cobalt currently uses Scala for the API layer.,False,,0.6058122179431903,,20
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF15,Project Cobalt previously used Java for the API layer.,False,,0.6287582985640803,,14
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF16,Hiro works on Project Aurora.,False,HN2,0.6322503608561785,,12
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF17,Project Aurora uses Zig.,False,,0.634270477373557,,10
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF18,Project Aurora depends on Sidekiq.,False,HN4,0.6084143797051385,,18
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF19,Project Aurora supports feature sharding.,False,,0.6276598083360709,,15
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF20,Project Aurora does NOT support feature sharding.,False,,0.5493690154338483,,34
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF21,Amira works on Project Titan.,False,,0.6399690466987711,,9
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF22,Project Titan uses MySQL in production.,False,,0.592956498232006,,27
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF23,Project Titan uses H2 in tests.,False,,0.6333844115024003,,11
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF24,Feature caching is enabled by default in Project Titan.,False,,0.5350060493365509,,36
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF25,Feature caching is enabled only when CACHE_MODE=true in Project Titan.,False,,0.47475318808374656,,38
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF26,Felix works on Project Willow.,False,,0.6184041093352839,,17
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF27,Project Willow requires more than 32 GB of memory.,False,,0.5380327236539771,,35
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF28,Project Willow requires less than 32 GB of memory.,False,HN6|HN12,0.5208015523385502,,37
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF29,Project Willow is deployed in Dublin.,False,,0.5663757881315373,,32
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF30,Clara confirmed migration Willow-Green.,False,,0.4113477736171969,,39
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF31,Devon works on Project Cipher.,False,,0.6003647365154866,,22
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF32,Project Cipher uses Scala.,False,HN6,0.5971935065648682,,24
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF33,Devon said that Clara may confirm migration Willow-Green.,False,,0.36515618825514295,,40
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF34,Project Cipher has status experimental.,False,,0.6308888061373787,,13
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF35,Project Cipher is owned by Brightline Corp.,False,,0.5580188729929655,,33
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF36,Clara works on Project Mesa.,False,,0.5794711556941033,,30
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF37,Project Mesa uses Swift.,False,,0.6073418418569587,,19
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF38,Project Mesa depends on MongoDB.,False,,0.6016129097435731,,21
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF39,Project Mesa has status stable.,False,,0.5697138464072582,,31
+TQ01,Who works on Project Nimbus?,answerable,narrow,TF40,Project NimbusX uses Perl.,False,HN5|HN3,0.7455318512090225,,6
+TQ02,What language does Project Vector use?,answerable,narrow,TF01,Sofia works on Project Nimbus.,False,,0.5967316851874154,,18
+TQ02,What language does Project Vector use?,answerable,narrow,TF02,Project Nimbus uses Scala.,False,HN2,0.6906692387062663,,9
+TQ02,What language does Project Vector use?,answerable,narrow,TF03,Project Nimbus depends on MongoDB.,False,,0.629783673411785,,15
+TQ02,What language does Project Vector use?,answerable,narrow,TF04,Project Nimbus is owned by Brightline Corp.,False,,0.5183152137378556,,36
+TQ02,What language does Project Vector use?,answerable,narrow,TF05,Project Nimbus is deployed in Tokyo.,False,,0.5550370501951858,,27
+TQ02,What language does Project Vector use?,answerable,narrow,TF06,Marcus works on Project Vector.,False,HN1,0.6896049264539337,,10
+TQ02,What language does Project Vector use?,answerable,narrow,TF07,Project Vector uses Swift.,True,,0.8278343411193622,,1
+TQ02,What language does Project Vector use?,answerable,narrow,TF08,Project Vector depends on RabbitMQ.,False,HN1,0.7621206909255651,,2
+TQ02,What language does Project Vector use?,answerable,narrow,TF09,Project Vector is owned by Redwood Analytics.,False,,0.7115841826928553,,5
+TQ02,What language does Project Vector use?,answerable,narrow,TF10,Project Vector has status preview.,False,HN1,0.7464322142852522,,3
+TQ02,What language does Project Vector use?,answerable,narrow,TF11,Lena works on Project Cobalt.,False,,0.5502598677248912,,29
+TQ02,What language does Project Vector use?,answerable,narrow,TF12,Project Cobalt uses Haskell.,False,HN2,0.6815775434557539,,11
+TQ02,What language does Project Vector use?,answerable,narrow,TF13,Project Cobalt depends on Prometheus.,False,,0.5510320160573983,,28
+TQ02,What language does Project Vector use?,answerable,narrow,TF14,Project Cobalt currently uses Scala for the API layer.,False,,0.7142917802459774,,4
+TQ02,What language does Project Vector use?,answerable,narrow,TF15,Project Cobalt previously used Java for the API layer.,False,HN4|HN8,0.6939819147568848,,8
+TQ02,What language does Project Vector use?,answerable,narrow,TF16,Hiro works on Project Aurora.,False,,0.5595258596683921,,26
+TQ02,What language does Project Vector use?,answerable,narrow,TF17,Project Aurora uses Zig.,False,,0.626055209457155,,16
+TQ02,What language does Project Vector use?,answerable,narrow,TF18,Project Aurora depends on Sidekiq.,False,,0.5935044812848431,,20
+TQ02,What language does Project Vector use?,answerable,narrow,TF19,Project Aurora supports feature sharding.,False,,0.6157732577336318,,17
+TQ02,What language does Project Vector use?,answerable,narrow,TF20,Project Aurora does NOT support feature sharding.,False,,0.5625671447892804,,24
+TQ02,What language does Project Vector use?,answerable,narrow,TF21,Amira works on Project Titan.,False,,0.5820318895886751,,22
+TQ02,What language does Project Vector use?,answerable,narrow,TF22,Project Titan uses MySQL in production.,False,,0.6580140972165045,,13
+TQ02,What language does Project Vector use?,answerable,narrow,TF23,Project Titan uses H2 in tests.,False,HN9,0.5840621752514157,,21
+TQ02,What language does Project Vector use?,answerable,narrow,TF24,Feature caching is enabled by default in Project Titan.,False,,0.5809623449436411,,23
+TQ02,What language does Project Vector use?,answerable,narrow,TF25,Feature caching is enabled only when CACHE_MODE=true in Project Titan.,False,,0.5394168740671621,,33
+TQ02,What language does Project Vector use?,answerable,narrow,TF26,Felix works on Project Willow.,False,,0.545268067546431,,31
+TQ02,What language does Project Vector use?,answerable,narrow,TF27,Project Willow requires more than 32 GB of memory.,False,HN6,0.5453271351924689,,30
+TQ02,What language does Project Vector use?,answerable,narrow,TF28,Project Willow requires less than 32 GB of memory.,False,,0.5451840090359609,,32
+TQ02,What language does Project Vector use?,answerable,narrow,TF29,Project Willow is deployed in Dublin.,False,,0.4972396303999476,,38
+TQ02,What language does Project Vector use?,answerable,narrow,TF30,Clara confirmed migration Willow-Green.,False,,0.4019734704950162,,39
+TQ02,What language does Project Vector use?,answerable,narrow,TF31,Devon works on Project Cipher.,False,,0.5210268385503887,,35
+TQ02,What language does Project Vector use?,answerable,narrow,TF32,Project Cipher uses Scala.,False,,0.7109950457069018,,6
+TQ02,What language does Project Vector use?,answerable,narrow,TF33,Devon said that Clara may confirm migration Willow-Green.,False,,0.34460518779554694,,40
+TQ02,What language does Project Vector use?,answerable,narrow,TF34,Project Cipher has status experimental.,False,,0.5962538374089583,,19
+TQ02,What language does Project Vector use?,answerable,narrow,TF35,Project Cipher is owned by Brightline Corp.,False,,0.5612284786383086,,25
+TQ02,What language does Project Vector use?,answerable,narrow,TF36,Clara works on Project Mesa.,False,,0.5132534809524032,,37
+TQ02,What language does Project Vector use?,answerable,narrow,TF37,Project Mesa uses Swift.,False,HN2|HN3,0.6759747700016716,,12
+TQ02,What language does Project Vector use?,answerable,narrow,TF38,Project Mesa depends on MongoDB.,False,,0.6349852826901949,,14
+TQ02,What language does Project Vector use?,answerable,narrow,TF39,Project Mesa has status stable.,False,,0.5297889744293367,,34
+TQ02,What language does Project Vector use?,answerable,narrow,TF40,Project NimbusX uses Perl.,False,HN6,0.6953730660421376,,7
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF01,Sofia works on Project Nimbus.,False,HN1,0.7367087061995383,,5
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF02,Project Nimbus uses Scala.,False,HN1,0.7745342497347272,,2
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF03,Project Nimbus depends on MongoDB.,True,,0.8414430711918263,,1
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF04,Project Nimbus is owned by Brightline Corp.,False,,0.7173519999838238,,6
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF05,Project Nimbus is deployed in Tokyo.,False,,0.7656324954125769,,3
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF06,Marcus works on Project Vector.,False,,0.5796451270820816,,28
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF07,Project Vector uses Swift.,False,,0.5989584125118914,,23
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF08,Project Vector depends on RabbitMQ.,False,HN2,0.6818691589650777,,8
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF09,Project Vector is owned by Redwood Analytics.,False,,0.5407409565643935,,36
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF10,Project Vector has status preview.,False,,0.5985093438330886,,24
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF11,Lena works on Project Cobalt.,False,,0.5892558794958122,,26
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF12,Project Cobalt uses Haskell.,False,,0.6036839938461261,,21
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF13,Project Cobalt depends on Prometheus.,False,HN2,0.6773907651068954,,9
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF14,Project Cobalt currently uses Scala for the API layer.,False,,0.6238435617685838,,16
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF15,Project Cobalt previously used Java for the API layer.,False,,0.6414863119829947,,12
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF16,Hiro works on Project Aurora.,False,,0.585284786226008,,27
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF17,Project Aurora uses Zig.,False,,0.6248764395117786,,15
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF18,Project Aurora depends on Sidekiq.,False,HN2,0.6497854157124916,,11
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF19,Project Aurora supports feature sharding.,False,,0.6565939122586549,,10
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF20,Project Aurora does NOT support feature sharding.,False,HN4|HN7,0.590186967033207,,25
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF21,Amira works on Project Titan.,False,,0.5734336507484639,,31
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF22,Project Titan uses MySQL in production.,False,,0.6021934264613613,,22
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF23,Project Titan uses H2 in tests.,False,HN9,0.6382589074060925,,13
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF24,Feature caching is enabled by default in Project Titan.,False,,0.6160026716572677,,17
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF25,Feature caching is enabled only when CACHE_MODE=true in Project Titan.,False,,0.5789079667402692,,29
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF26,Felix works on Project Willow.,False,,0.5633986452796008,,32
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF27,Project Willow requires more than 32 GB of memory.,False,,0.578493501803898,,30
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF28,Project Willow requires less than 32 GB of memory.,False,HN6,0.5592083540651007,,33
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF29,Project Willow is deployed in Dublin.,False,,0.5557450661867461,,34
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF30,Clara confirmed migration Willow-Green.,False,,0.4176382356471782,,39
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF31,Devon works on Project Cipher.,False,,0.5401823579240286,,37
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF32,Project Cipher uses Scala.,False,,0.6090847303441612,,19
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF33,Devon said that Clara may confirm migration Willow-Green.,False,,0.3735049221723723,,40
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF34,Project Cipher has status experimental.,False,,0.632181986201902,,14
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF35,Project Cipher is owned by Brightline Corp.,False,,0.5336710889086097,,38
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF36,Clara works on Project Mesa.,False,,0.5435861149010504,,35
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF37,Project Mesa uses Swift.,False,,0.6142626119646609,,18
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF38,Project Mesa depends on MongoDB.,False,HN2|HN3,0.6997379621646852,,7
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF39,Project Mesa has status stable.,False,,0.6075660463596462,,20
+TQ03,What does Project Nimbus depend on?,answerable,narrow,TF40,Project NimbusX uses Perl.,False,HN5,0.7489156143628769,,4
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF01,Sofia works on Project Nimbus.,False,HN1,0.7330687494721283,,5
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF02,Project Nimbus uses Scala.,False,HN1,0.7449505896824246,,3
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF03,Project Nimbus depends on MongoDB.,False,,0.7683927718109562,,2
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF04,Project Nimbus is owned by Brightline Corp.,False,,0.7340499149063519,,4
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF05,Project Nimbus is deployed in Tokyo.,True,,0.8614573685681273,,1
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF06,Marcus works on Project Vector.,False,HN6,0.5699696164476462,,25
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF07,Project Vector uses Swift.,False,,0.5969598355782834,,24
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF08,Project Vector depends on RabbitMQ.,False,,0.6323125868913948,,11
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF09,Project Vector is owned by Redwood Analytics.,False,,0.5611877663696242,,30
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF10,Project Vector has status preview.,False,,0.616878454173528,,18
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF11,Lena works on Project Cobalt.,False,,0.5675542550782842,,27
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF12,Project Cobalt uses Haskell.,False,,0.565833437047833,,28
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF13,Project Cobalt depends on Prometheus.,False,,0.6197081344017163,,17
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF14,Project Cobalt currently uses Scala for the API layer.,False,,0.6018061925102101,,22
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF15,Project Cobalt previously used Java for the API layer.,False,HN4|HN8,0.6286823525145818,,15
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF16,Hiro works on Project Aurora.,False,,0.6293121174288195,,14
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF17,Project Aurora uses Zig.,False,,0.6321074341724829,,13
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF18,Project Aurora depends on Sidekiq.,False,,0.6086476168081434,,20
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF19,Project Aurora supports feature sharding.,False,,0.6471999669486985,,8
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF20,Project Aurora does NOT support feature sharding.,False,,0.5653601743865525,,29
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF21,Amira works on Project Titan.,False,,0.5693930670900985,,26
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF22,Project Titan uses MySQL in production.,False,,0.6053147879387447,,21
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF23,Project Titan uses H2 in tests.,False,HN6,0.6323029876824796,,12
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF24,Feature caching is enabled by default in Project Titan.,False,,0.5536199251547056,,32
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF25,Feature caching is enabled only when CACHE_MODE=true in Project Titan.,False,,0.4948223526334064,,38
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF26,Felix works on Project Willow.,False,,0.5550313935669944,,31
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF27,Project Willow requires more than 32 GB of memory.,False,,0.5378263901588325,,36
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF28,Project Willow requires less than 32 GB of memory.,False,,0.516102998418092,,37
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF29,Project Willow is deployed in Dublin.,False,HN2,0.6532484008487013,,7
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF30,Clara confirmed migration Willow-Green.,False,,0.44257498492428576,,39
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF31,Devon works on Project Cipher.,False,,0.5527293902586475,,33
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF32,Project Cipher uses Scala.,False,,0.6012700901779706,,23
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF33,Devon said that Clara may confirm migration Willow-Green.,False,,0.38450129237246305,,40
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF34,Project Cipher has status experimental.,False,,0.6394137046844688,,9
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF35,Project Cipher is owned by Brightline Corp.,False,,0.5501058519109319,,34
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF36,Clara works on Project Mesa.,False,,0.5441256639775939,,35
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF37,Project Mesa uses Swift.,False,,0.6270074909021346,,16
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF38,Project Mesa depends on MongoDB.,False,,0.6361435698906394,,10
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF39,Project Mesa has status stable.,False,,0.6103087491204324,,19
+TQ04,Where is Project Nimbus deployed?,answerable,narrow,TF40,Project NimbusX uses Perl.,False,HN5,0.7247531004404814,,6
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF01,Sofia works on Project Nimbus.,False,HN2,0.5947625719963086,,19
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF02,Project Nimbus uses Scala.,False,,0.5694761473186856,,25
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF03,Project Nimbus depends on MongoDB.,False,,0.6398929400884943,,9
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF04,Project Nimbus is owned by Brightline Corp.,False,,0.5331806318235599,,33
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF05,Project Nimbus is deployed in Tokyo.,False,,0.5532274706206651,,29
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF06,Marcus works on Project Vector.,False,HN2,0.6444424359067584,,8
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF07,Project Vector uses Swift.,False,,0.6051873807482577,,17
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF08,Project Vector depends on RabbitMQ.,False,,0.5928924268327627,,21
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF09,Project Vector is owned by Redwood Analytics.,False,,0.5380897964139079,,31
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF10,Project Vector has status preview.,False,,0.5850411259406028,,23
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF11,Lena works on Project Cobalt.,True,,0.7924060461428774,,2
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF12,Project Cobalt uses Haskell.,False,HN1,0.7853884598442957,,4
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF13,Project Cobalt depends on Prometheus.,False,HN1,0.7947778991488902,,1
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF14,Project Cobalt currently uses Scala for the API layer.,False,HN4,0.752107643491145,,5
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF15,Project Cobalt previously used Java for the API layer.,False,HN4|HN8,0.7902454494712912,,3
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF16,Hiro works on Project Aurora.,False,,0.6357676741343877,,10
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF17,Project Aurora uses Zig.,False,,0.6531147419785664,,6
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF18,Project Aurora depends on Sidekiq.,False,,0.6211719351152387,,13
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF19,Project Aurora supports feature sharding.,False,,0.592482209519745,,22
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF20,Project Aurora does NOT support feature sharding.,False,,0.5205652105798425,,35
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF21,Amira works on Project Titan.,False,,0.604808232505408,,18
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF22,Project Titan uses MySQL in production.,False,,0.5600335332500337,,28
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF23,Project Titan uses H2 in tests.,False,,0.619243064542146,,14
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF24,Feature caching is enabled by default in Project Titan.,False,,0.5347855428708188,,32
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF25,Feature caching is enabled only when CACHE_MODE=true in Project Titan.,False,,0.5144137426196549,,36
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF26,Felix works on Project Willow.,False,HN2,0.580482312469021,,24
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF27,Project Willow requires more than 32 GB of memory.,False,,0.5052483954581084,,37
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF28,Project Willow requires less than 32 GB of memory.,False,,0.49338604833714084,,38
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF29,Project Willow is deployed in Dublin.,False,,0.5329321878912187,,34
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF30,Clara confirmed migration Willow-Green.,False,,0.4594584633107054,,39
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF31,Devon works on Project Cipher.,False,,0.6215655699823833,,12
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF32,Project Cipher uses Scala.,False,,0.5607664528018527,,27
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF33,Devon said that Clara may confirm migration Willow-Green.,False,HN3,0.4236213598439565,,40
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF34,Project Cipher has status experimental.,False,,0.6067144387627339,,16
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF35,Project Cipher is owned by Brightline Corp.,False,,0.5450296212807837,,30
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF36,Clara works on Project Mesa.,False,,0.607992640511251,,15
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF37,Project Mesa uses Swift.,False,,0.6335938034381147,,11
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF38,Project Mesa depends on MongoDB.,False,,0.6491074418133247,,7
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF39,Project Mesa has status stable.,False,,0.568406097321896,,26
+TQ05,Which person is assigned to Project Cobalt?,answerable,paraphrase,TF40,Project NimbusX uses Perl.,False,HN6,0.5943988061285436,,20
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF01,Sofia works on Project Nimbus.,False,,0.602759856052643,,24
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF02,Project Nimbus uses Scala.,False,HN2,0.6769303403494207,,13
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF03,Project Nimbus depends on MongoDB.,False,,0.6370419063333185,,20
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF04,Project Nimbus is owned by Brightline Corp.,False,,0.5460331353722894,,38
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF05,Project Nimbus is deployed in Tokyo.,False,,0.5995975506578041,,25
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF06,Marcus works on Project Vector.,False,,0.5990943095134851,,26
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF07,Project Vector uses Swift.,False,HN2,0.6780742954431895,,12
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF08,Project Vector depends on RabbitMQ.,False,,0.655492248012509,,16
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF09,Project Vector is owned by Redwood Analytics.,False,,0.6129677803005009,,23
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF10,Project Vector has status preview.,False,,0.6506258383379968,,17
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF11,Lena works on Project Cobalt.,False,,0.6352528657629848,,21
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF12,Project Cobalt uses Haskell.,False,HN2,0.709321056838284,,7
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF13,Project Cobalt depends on Prometheus.,False,,0.6640900508162433,,14
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF14,Project Cobalt currently uses Scala for the API layer.,False,HN4,0.7266462267784697,,6
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF15,Project Cobalt previously used Java for the API layer.,False,HN8,0.7354927263166602,,4
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF16,Hiro works on Project Aurora.,False,HN1,0.7299836835450162,,5
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF17,Project Aurora uses Zig.,True,,0.7516737758038496,,3
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF18,Project Aurora depends on Sidekiq.,False,HN1,0.7691930031102003,,2
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF19,Project Aurora supports feature sharding.,False,,0.7890714141691462,,1
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF20,Project Aurora does NOT support feature sharding.,False,HN4|HN7,0.7072442436408993,,8
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF21,Amira works on Project Titan.,False,,0.5706467473068582,,34
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF22,Project Titan uses MySQL in production.,False,,0.6602809778035398,,15
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF23,Project Titan uses H2 in tests.,False,,0.622954353057379,,22
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF24,Feature caching is enabled by default in Project Titan.,False,,0.5732688313754687,,33
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF25,Feature caching is enabled only when CACHE_MODE=true in Project Titan.,False,,0.5467273329899812,,37
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF26,Felix works on Project Willow.,False,,0.5810006936531195,,29
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF27,Project Willow requires more than 32 GB of memory.,False,,0.5840007550851974,,28
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF28,Project Willow requires less than 32 GB of memory.,False,HN6,0.579458058425016,,31
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF29,Project Willow is deployed in Dublin.,False,,0.5797867415642436,,30
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF30,Clara confirmed migration Willow-Green.,False,,0.4508086582578086,,39
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF31,Devon works on Project Cipher.,False,,0.5538187679524872,,35
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF32,Project Cipher uses Scala.,False,,0.6793928484817601,,11
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF33,Devon said that Clara may confirm migration Willow-Green.,False,,0.39575858793658003,,40
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF34,Project Cipher has status experimental.,False,,0.6435710381299516,,18
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF35,Project Cipher is owned by Brightline Corp.,False,,0.5854456038594262,,27
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF36,Clara works on Project Mesa.,False,,0.5509650363829514,,36
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF37,Project Mesa uses Swift.,False,,0.6849916289389988,,10
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF38,Project Mesa depends on MongoDB.,False,,0.6405927930807566,,19
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF39,Project Mesa has status stable.,False,,0.5793961031089359,,32
+TQ06,What programming language powers Project Aurora?,answerable,paraphrase,TF40,Project NimbusX uses Perl.,False,HN6,0.7034182801602745,,9
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF01,Sofia works on Project Nimbus.,False,,0.5916897703027827,,26
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF02,Project Nimbus uses Scala.,False,,0.6822029225126247,,10
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF03,Project Nimbus depends on MongoDB.,False,,0.665336781709025,,17
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF04,Project Nimbus is owned by Brightline Corp.,False,,0.5288094391281539,,36
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF05,Project Nimbus is deployed in Tokyo.,False,,0.5585085654798483,,32
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF06,Marcus works on Project Vector.,False,HN2,0.580761086817268,,28
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF07,Project Vector uses Swift.,False,,0.6827183403817022,,9
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF08,Project Vector depends on RabbitMQ.,False,,0.6737229907418604,,11
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF09,Project Vector is owned by Redwood Analytics.,False,,0.5458938405965782,,33
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF10,Project Vector has status preview.,False,,0.6722629758936011,,13
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF11,Lena works on Project Cobalt.,False,,0.6144082225693789,,22
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF12,Project Cobalt uses Haskell.,False,,0.6477907946231196,,20
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF13,Project Cobalt depends on Prometheus.,False,,0.5766832322713048,,30
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF14,Project Cobalt currently uses Scala for the API layer.,False,,0.7081526206255391,,5
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF15,Project Cobalt previously used Java for the API layer.,False,,0.6875013382964151,,7
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF16,Hiro works on Project Aurora.,False,HN1,0.6723752963511127,,12
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF17,Project Aurora uses Zig.,False,HN1,0.7097746186310061,,4
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF18,Project Aurora depends on Sidekiq.,False,,0.7270644908677216,,3
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF19,Project Aurora supports feature sharding.,True,,0.919285825989774,,1
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF20,Project Aurora does NOT support feature sharding.,False,HN7|HN1,0.870183836224446,,2
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF21,Amira works on Project Titan.,False,,0.5768077096392804,,29
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF22,Project Titan uses MySQL in production.,False,,0.671109272401677,,14
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF23,Project Titan uses H2 in tests.,False,,0.6213946539677366,,21
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF24,Feature caching is enabled by default in Project Titan.,False,HN4,0.6669970959912793,,16
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF25,Feature caching is enabled only when CACHE_MODE=true in Project Titan.,False,HN4|HN10,0.6839159573010188,,8
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF26,Felix works on Project Willow.,False,,0.5981916190495071,,25
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF27,Project Willow requires more than 32 GB of memory.,False,,0.6089530584155648,,24
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF28,Project Willow requires less than 32 GB of memory.,False,HN6,0.6094597118668967,,23
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF29,Project Willow is deployed in Dublin.,False,,0.5351942648577499,,35
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF30,Clara confirmed migration Willow-Green.,False,,0.45693738019805175,,39
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF31,Devon works on Project Cipher.,False,,0.5137864549077777,,37
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF32,Project Cipher uses Scala.,False,,0.6562616244966829,,18
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF33,Devon said that Clara may confirm migration Willow-Green.,False,,0.3997355906402422,,40
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF34,Project Cipher has status experimental.,False,,0.5898318458019945,,27
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF35,Project Cipher is owned by Brightline Corp.,False,,0.5071589180716511,,38
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF36,Clara works on Project Mesa.,False,,0.5420243995746914,,34
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF37,Project Mesa uses Swift.,False,,0.6910055513490656,,6
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF38,Project Mesa depends on MongoDB.,False,,0.6680257773524416,,15
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF39,Project Mesa has status stable.,False,,0.5676422664636505,,31
+TQ07,Does Project Aurora support feature sharding?,answerable,paraphrase,TF40,Project NimbusX uses Perl.,False,HN6,0.6518608632603449,,19
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF01,Sofia works on Project Nimbus.,False,HN2,0.5556327964682772,,23
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF02,Project Nimbus uses Scala.,False,,0.5894287170983655,,15
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF03,Project Nimbus depends on MongoDB.,False,,0.6162146811512355,,5
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF04,Project Nimbus is owned by Brightline Corp.,False,,0.43985253904230404,,40
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF05,Project Nimbus is deployed in Tokyo.,False,,0.5161503472245514,,33
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF06,Marcus works on Project Vector.,False,,0.5302500116123687,,30
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF07,Project Vector uses Swift.,False,,0.5918528668388033,,13
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF08,Project Vector depends on RabbitMQ.,False,,0.6153845995601855,,6
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF09,Project Vector is owned by Redwood Analytics.,False,,0.5350861944855538,,29
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF10,Project Vector has status preview.,False,,0.5998759807307051,,11
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF11,Lena works on Project Cobalt.,False,,0.5059113354531867,,36
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF12,Project Cobalt uses Haskell.,False,,0.5540043724651675,,24
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF13,Project Cobalt depends on Prometheus.,False,,0.5231229587551092,,32
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF14,Project Cobalt currently uses Scala for the API layer.,False,,0.5793386819069297,,18
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF15,Project Cobalt previously used Java for the API layer.,False,,0.5672747000633322,,21
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF16,Hiro works on Project Aurora.,False,,0.5290710058593413,,31
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF17,Project Aurora uses Zig.,False,,0.5519559900084499,,26
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF18,Project Aurora depends on Sidekiq.,False,,0.5607739611374131,,22
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF19,Project Aurora supports feature sharding.,False,,0.6107313407074175,,7
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF20,Project Aurora does NOT support feature sharding.,False,HN6,0.6005114632289975,,10
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF21,Amira works on Project Titan.,False,,0.5067183552089038,,35
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF22,Project Titan uses MySQL in production.,False,HN4,0.6231098856355333,,4
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF23,Project Titan uses H2 in tests.,False,,0.5719475966628139,,20
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF24,Feature caching is enabled by default in Project Titan.,False,,0.5896033460879507,,14
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF25,Feature caching is enabled only when CACHE_MODE=true in Project Titan.,False,,0.5857607632642969,,17
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF26,Felix works on Project Willow.,False,HN1,0.6366486517190709,,3
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF27,Project Willow requires more than 32 GB of memory.,True,,0.9220489930217385,,1
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF28,Project Willow requires less than 32 GB of memory.,False,HN12|HN1,0.9021977854350743,,2
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF29,Project Willow is deployed in Dublin.,False,HN1,0.5929749544084775,,12
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF30,Clara confirmed migration Willow-Green.,False,HN4,0.5520743616535871,,25
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF31,Devon works on Project Cipher.,False,,0.5353042258959937,,28
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF32,Project Cipher uses Scala.,False,,0.5859733762221425,,16
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF33,Devon said that Clara may confirm migration Willow-Green.,False,HN11|HN3,0.5159103608367734,,34
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF34,Project Cipher has status experimental.,False,,0.5412912358309903,,27
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF35,Project Cipher is owned by Brightline Corp.,False,,0.4505793001095995,,39
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF36,Clara works on Project Mesa.,False,,0.5004143275359705,,38
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF37,Project Mesa uses Swift.,False,,0.5725518334995806,,19
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF38,Project Mesa depends on MongoDB.,False,,0.6019990125483596,,9
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF39,Project Mesa has status stable.,False,,0.5035650622385881,,37
+TQ08,Does Project Willow require more than 32 GB of memory?,answerable,paraphrase,TF40,Project NimbusX uses Perl.,False,HN6,0.6080848761303199,,8
+TQ09,What is related to Project Nimbus?,answerable,broad,TF01,Sofia works on Project Nimbus.,True,,0.7558175616945193,,4
+TQ09,What is related to Project Nimbus?,answerable,broad,TF02,Project Nimbus uses Scala.,True,,0.7768921737470708,,2
+TQ09,What is related to Project Nimbus?,answerable,broad,TF03,Project Nimbus depends on MongoDB.,True,,0.7690383312027872,,3
+TQ09,What is related to Project Nimbus?,answerable,broad,TF04,Project Nimbus is owned by Brightline Corp.,True,,0.7478713171599694,,5
+TQ09,What is related to Project Nimbus?,answerable,broad,TF05,Project Nimbus is deployed in Tokyo.,True,,0.785910385497208,,1
+TQ09,What is related to Project Nimbus?,answerable,broad,TF06,Marcus works on Project Vector.,False,HN2,0.5827403211695645,,23
+TQ09,What is related to Project Nimbus?,answerable,broad,TF07,Project Vector uses Swift.,False,,0.6018653706090916,,17
+TQ09,What is related to Project Nimbus?,answerable,broad,TF08,Project Vector depends on RabbitMQ.,False,,0.6036942391108788,,15
+TQ09,What is related to Project Nimbus?,answerable,broad,TF09,Project Vector is owned by Redwood Analytics.,False,,0.5661816605225538,,25
+TQ09,What is related to Project Nimbus?,answerable,broad,TF10,Project Vector has status preview.,False,,0.5968887748528344,,20
+TQ09,What is related to Project Nimbus?,answerable,broad,TF11,Lena works on Project Cobalt.,False,,0.5612996495031661,,28
+TQ09,What is related to Project Nimbus?,answerable,broad,TF12,Project Cobalt uses Haskell.,False,,0.5871462897592175,,22
+TQ09,What is related to Project Nimbus?,answerable,broad,TF13,Project Cobalt depends on Prometheus.,False,,0.6435717123089592,,7
+TQ09,What is related to Project Nimbus?,answerable,broad,TF14,Project Cobalt currently uses Scala for the API layer.,False,,0.6034568570192164,,16
+TQ09,What is related to Project Nimbus?,answerable,broad,TF15,Project Cobalt previously used Java for the API layer.,False,HN4|HN8,0.6369069580391781,,8
+TQ09,What is related to Project Nimbus?,answerable,broad,TF16,Hiro works on Project Aurora.,False,,0.5995314478329313,,19
+TQ09,What is related to Project Nimbus?,answerable,broad,TF17,Project Aurora uses Zig.,False,,0.6251339887924988,,10
+TQ09,What is related to Project Nimbus?,answerable,broad,TF18,Project Aurora depends on Sidekiq.,False,,0.6011999675238582,,18
+TQ09,What is related to Project Nimbus?,answerable,broad,TF19,Project Aurora supports feature sharding.,False,,0.6311356750266262,,9
+TQ09,What is related to Project Nimbus?,answerable,broad,TF20,Project Aurora does NOT support feature sharding.,False,HN6|HN7,0.5462032007171992,,31
+TQ09,What is related to Project Nimbus?,answerable,broad,TF21,Amira works on Project Titan.,False,,0.5634522639932528,,26
+TQ09,What is related to Project Nimbus?,answerable,broad,TF22,Project Titan uses MySQL in production.,False,,0.5665832054621289,,24
+TQ09,What is related to Project Nimbus?,answerable,broad,TF23,Project Titan uses H2 in tests.,False,HN4|HN9,0.6086551927956324,,13
+TQ09,What is related to Project Nimbus?,answerable,broad,TF24,Feature caching is enabled by default in Project Titan.,False,,0.5442120926792668,,32
+TQ09,What is related to Project Nimbus?,answerable,broad,TF25,Feature caching is enabled only when CACHE_MODE=true in Project Titan.,False,,0.480246552696098,,38
+TQ09,What is related to Project Nimbus?,answerable,broad,TF26,Felix works on Project Willow.,False,,0.5563333705985871,,30
+TQ09,What is related to Project Nimbus?,answerable,broad,TF27,Project Willow requires more than 32 GB of memory.,False,,0.5377453873827616,,34
+TQ09,What is related to Project Nimbus?,answerable,broad,TF28,Project Willow requires less than 32 GB of memory.,False,HN6|HN12,0.5251670900952906,,37
+TQ09,What is related to Project Nimbus?,answerable,broad,TF29,Project Willow is deployed in Dublin.,False,,0.5591942629274073,,29
+TQ09,What is related to Project Nimbus?,answerable,broad,TF30,Clara confirmed migration Willow-Green.,False,,0.4029427730595102,,39
+TQ09,What is related to Project Nimbus?,answerable,broad,TF31,Devon works on Project Cipher.,False,,0.5315327595087002,,36
+TQ09,What is related to Project Nimbus?,answerable,broad,TF32,Project Cipher uses Scala.,False,,0.5957084819453706,,21
+TQ09,What is related to Project Nimbus?,answerable,broad,TF33,Devon said that Clara may confirm migration Willow-Green.,False,HN11,0.3583744312689964,,40
+TQ09,What is related to Project Nimbus?,answerable,broad,TF34,Project Cipher has status experimental.,False,,0.6231423613080399,,11
+TQ09,What is related to Project Nimbus?,answerable,broad,TF35,Project Cipher is owned by Brightline Corp.,False,,0.538066514326057,,33
+TQ09,What is related to Project Nimbus?,answerable,broad,TF36,Clara works on Project Mesa.,False,,0.5371805873229204,,35
+TQ09,What is related to Project Nimbus?,answerable,broad,TF37,Project Mesa uses Swift.,False,,0.6079816028759987,,14
+TQ09,What is related to Project Nimbus?,answerable,broad,TF38,Project Mesa depends on MongoDB.,False,,0.6151641455452651,,12
+TQ09,What is related to Project Nimbus?,answerable,broad,TF39,Project Mesa has status stable.,False,,0.5624981305141308,,27
+TQ09,What is related to Project Nimbus?,answerable,broad,TF40,Project NimbusX uses Perl.,False,HN5|HN3,0.7243188673919917,,6
+TQ10,What should I know about Project Vector?,answerable,broad,TF01,Sofia works on Project Nimbus.,False,HN2,0.6174678601963194,,17
+TQ10,What should I know about Project Vector?,answerable,broad,TF02,Project Nimbus uses Scala.,False,,0.6529660644932953,,9
+TQ10,What should I know about Project Vector?,answerable,broad,TF03,Project Nimbus depends on MongoDB.,False,,0.6154682017186065,,18
+TQ10,What should I know about Project Vector?,answerable,broad,TF04,Project Nimbus is owned by Brightline Corp.,False,,0.5062627451350207,,37
+TQ10,What should I know about Project Vector?,answerable,broad,TF05,Project Nimbus is deployed in Tokyo.,False,,0.5382009985068118,,33
+TQ10,What should I know about Project Vector?,answerable,broad,TF06,Marcus works on Project Vector.,True,,0.745281705237861,,4
+TQ10,What should I know about Project Vector?,answerable,broad,TF07,Project Vector uses Swift.,True,,0.8228895469247055,,1
+TQ10,What should I know about Project Vector?,answerable,broad,TF08,Project Vector depends on RabbitMQ.,True,,0.767792778240044,,3
+TQ10,What should I know about Project Vector?,answerable,broad,TF09,Project Vector is owned by Redwood Analytics.,True,,0.737262381336798,,5
+TQ10,What should I know about Project Vector?,answerable,broad,TF10,Project Vector has status preview.,True,,0.7843340579037046,,2
+TQ10,What should I know about Project Vector?,answerable,broad,TF11,Lena works on Project Cobalt.,False,,0.5669517606232601,,26
+TQ10,What should I know about Project Vector?,answerable,broad,TF12,Project Cobalt uses Haskell.,False,,0.6255535416974441,,16
+TQ10,What should I know about Project Vector?,answerable,broad,TF13,Project Cobalt depends on Prometheus.,False,,0.5791434407487269,,24
+TQ10,What should I know about Project Vector?,answerable,broad,TF14,Project Cobalt currently uses Scala for the API layer.,False,,0.6642259536665841,,7
+TQ10,What should I know about Project Vector?,answerable,broad,TF15,Project Cobalt previously used Java for the API layer.,False,HN4|HN8,0.6352445919084627,,12
+TQ10,What should I know about Project Vector?,answerable,broad,TF16,Hiro works on Project Aurora.,False,,0.5747544171495497,,25
+TQ10,What should I know about Project Vector?,answerable,broad,TF17,Project Aurora uses Zig.,False,,0.6367906880387375,,11
+TQ10,What should I know about Project Vector?,answerable,broad,TF18,Project Aurora depends on Sidekiq.,False,,0.6008282233280798,,23
+TQ10,What should I know about Project Vector?,answerable,broad,TF19,Project Aurora supports feature sharding.,False,,0.6311364393218529,,15
+TQ10,What should I know about Project Vector?,answerable,broad,TF20,Project Aurora does NOT support feature sharding.,False,HN6|HN7,0.5574694296933056,,29
+TQ10,What should I know about Project Vector?,answerable,broad,TF21,Amira works on Project Titan.,False,,0.6064786647306608,,19
+TQ10,What should I know about Project Vector?,answerable,broad,TF22,Project Titan uses MySQL in production.,False,,0.6339186999638329,,13
+TQ10,What should I know about Project Vector?,answerable,broad,TF23,Project Titan uses H2 in tests.,False,,0.6056891962783789,,20
+TQ10,What should I know about Project Vector?,answerable,broad,TF24,Feature caching is enabled by default in Project Titan.,False,,0.6032864596174276,,22
+TQ10,What should I know about Project Vector?,answerable,broad,TF25,Feature caching is enabled only when CACHE_MODE=true in Project Titan.,False,,0.5367440115779154,,34
+TQ10,What should I know about Project Vector?,answerable,broad,TF26,Felix works on Project Willow.,False,,0.5552848271799038,,30
+TQ10,What should I know about Project Vector?,answerable,broad,TF27,Project Willow requires more than 32 GB of memory.,False,,0.5633800425595494,,28
+TQ10,What should I know about Project Vector?,answerable,broad,TF28,Project Willow requires less than 32 GB of memory.,False,HN6,0.5634453749966456,,27
+TQ10,What should I know about Project Vector?,answerable,broad,TF29,Project Willow is deployed in Dublin.,False,,0.47962849538133745,,38
+TQ10,What should I know about Project Vector?,answerable,broad,TF30,Clara confirmed migration Willow-Green.,False,,0.37892289593619805,,39
+TQ10,What should I know about Project Vector?,answerable,broad,TF31,Devon works on Project Cipher.,False,,0.5187347633150319,,36
+TQ10,What should I know about Project Vector?,answerable,broad,TF32,Project Cipher uses Scala.,False,,0.6647811424799018,,6
+TQ10,What should I know about Project Vector?,answerable,broad,TF33,Devon said that Clara may confirm migration Willow-Green.,False,HN11,0.33218727436928974,,40
+TQ10,What should I know about Project Vector?,answerable,broad,TF34,Project Cipher has status experimental.,False,,0.6032942077536263,,21
+TQ10,What should I know about Project Vector?,answerable,broad,TF35,Project Cipher is owned by Brightline Corp.,False,,0.5307589771672987,,35
+TQ10,What should I know about Project Vector?,answerable,broad,TF36,Clara works on Project Mesa.,False,,0.545406124539445,,31
+TQ10,What should I know about Project Vector?,answerable,broad,TF37,Project Mesa uses Swift.,False,HN3,0.6622270905383467,,8
+TQ10,What should I know about Project Vector?,answerable,broad,TF38,Project Mesa depends on MongoDB.,False,,0.631294231082441,,14
+TQ10,What should I know about Project Vector?,answerable,broad,TF39,Project Mesa has status stable.,False,,0.5444288760507258,,32
+TQ10,What should I know about Project Vector?,answerable,broad,TF40,Project NimbusX uses Perl.,False,HN6,0.6404070514883553,,10
+TQ11,What components are associated with Project Titan?,answerable,broad,TF01,Sofia works on Project Nimbus.,False,HN6,0.5778825386977511,,28
+TQ11,What components are associated with Project Titan?,answerable,broad,TF02,Project Nimbus uses Scala.,False,,0.6521294935034113,,13
+TQ11,What components are associated with Project Titan?,answerable,broad,TF03,Project Nimbus depends on MongoDB.,False,,0.6532155881268663,,11
+TQ11,What components are associated with Project Titan?,answerable,broad,TF04,Project Nimbus is owned by Brightline Corp.,False,,0.5403242727818671,,37
+TQ11,What components are associated with Project Titan?,answerable,broad,TF05,Project Nimbus is deployed in Tokyo.,False,,0.5983526683911361,,26
+TQ11,What components are associated with Project Titan?,answerable,broad,TF06,Marcus works on Project Vector.,False,,0.6284884860744597,,20
+TQ11,What components are associated with Project Titan?,answerable,broad,TF07,Project Vector uses Swift.,False,,0.6590025492739905,,10
+TQ11,What components are associated with Project Titan?,answerable,broad,TF08,Project Vector depends on RabbitMQ.,False,,0.6129552273318999,,24
+TQ11,What components are associated with Project Titan?,answerable,broad,TF09,Project Vector is owned by Redwood Analytics.,False,,0.5720069829197657,,30
+TQ11,What components are associated with Project Titan?,answerable,broad,TF10,Project Vector has status preview.,False,,0.6455809430094274,,15
+TQ11,What components are associated with Project Titan?,answerable,broad,TF11,Lena works on Project Cobalt.,False,,0.6323943665811391,,18
+TQ11,What components are associated with Project Titan?,answerable,broad,TF12,Project Cobalt uses Haskell.,False,,0.6204476450152395,,21
+TQ11,What components are associated with Project Titan?,answerable,broad,TF13,Project Cobalt depends on Prometheus.,False,,0.6361925455908941,,17
+TQ11,What components are associated with Project Titan?,answerable,broad,TF14,Project Cobalt currently uses Scala for the API layer.,False,,0.6946668337371644,,5
+TQ11,What components are associated with Project Titan?,answerable,broad,TF15,Project Cobalt previously used Java for the API layer.,False,HN8,0.6664880619966046,,8
+TQ11,What components are associated with Project Titan?,answerable,broad,TF16,Hiro works on Project Aurora.,False,,0.653190191679557,,12
+TQ11,What components are associated with Project Titan?,answerable,broad,TF17,Project Aurora uses Zig.,False,,0.6510746314728308,,14
+TQ11,What components are associated with Project Titan?,answerable,broad,TF18,Project Aurora depends on Sidekiq.,False,,0.6089309693401128,,25
+TQ11,What components are associated with Project Titan?,answerable,broad,TF19,Project Aurora supports feature sharding.,False,,0.6622852376687246,,9
+TQ11,What components are associated with Project Titan?,answerable,broad,TF20,Project Aurora does NOT support feature sharding.,False,HN7,0.5514998295921794,,34
+TQ11,What components are associated with Project Titan?,answerable,broad,TF21,Amira works on Project Titan.,True,,0.7411563268938793,,2
+TQ11,What components are associated with Project Titan?,answerable,broad,TF22,Project Titan uses MySQL in production.,True,,0.7065440152628885,,4
+TQ11,What components are associated with Project Titan?,answerable,broad,TF23,Project Titan uses H2 in tests.,False,HN9,0.7767327485350376,,1
+TQ11,What components are associated with Project Titan?,answerable,broad,TF24,Feature caching is enabled by default in Project Titan.,True,,0.7148904172201834,,3
+TQ11,What components are associated with Project Titan?,answerable,broad,TF25,Feature caching is enabled only when CACHE_MODE=true in Project Titan.,False,HN10,0.6164522532562269,,22
+TQ11,What components are associated with Project Titan?,answerable,broad,TF26,Felix works on Project Willow.,False,,0.5213687821603917,,38
+TQ11,What components are associated with Project Titan?,answerable,broad,TF27,Project Willow requires more than 32 GB of memory.,False,,0.561564349331595,,31
+TQ11,What components are associated with Project Titan?,answerable,broad,TF28,Project Willow requires less than 32 GB of memory.,False,HN12,0.5451327040873494,,35
+TQ11,What components are associated with Project Titan?,answerable,broad,TF29,Project Willow is deployed in Dublin.,False,,0.5450724003511477,,36
+TQ11,What components are associated with Project Titan?,answerable,broad,TF30,Clara confirmed migration Willow-Green.,False,,0.3906697715508273,,39
+TQ11,What components are associated with Project Titan?,answerable,broad,TF31,Devon works on Project Cipher.,False,,0.5522165181863519,,33
+TQ11,What components are associated with Project Titan?,answerable,broad,TF32,Project Cipher uses Scala.,False,,0.6420355282125807,,16
+TQ11,What components are associated with Project Titan?,answerable,broad,TF33,Devon said that Clara may confirm migration Willow-Green.,False,HN11,0.35122303391773474,,40
+TQ11,What components are associated with Project Titan?,answerable,broad,TF34,Project Cipher has status experimental.,False,,0.6131701896899929,,23
+TQ11,What components are associated with Project Titan?,answerable,broad,TF35,Project Cipher is owned by Brightline Corp.,False,,0.5533894038251939,,32
+TQ11,What components are associated with Project Titan?,answerable,broad,TF36,Clara works on Project Mesa.,False,,0.5774743238529845,,29
+TQ11,What components are associated with Project Titan?,answerable,broad,TF37,Project Mesa uses Swift.,False,,0.6873763162734271,,7
+TQ11,What components are associated with Project Titan?,answerable,broad,TF38,Project Mesa depends on MongoDB.,False,,0.6917890176930215,,6
+TQ11,What components are associated with Project Titan?,answerable,broad,TF39,Project Mesa has status stable.,False,,0.6287605295204485,,19
+TQ11,What components are associated with Project Titan?,answerable,broad,TF40,Project NimbusX uses Perl.,False,HN6,0.5935131955571544,,27
+TQ12,Tell me about Project Cipher.,answerable,broad,TF01,Sofia works on Project Nimbus.,False,HN2,0.5850128062702713,,25
+TQ12,Tell me about Project Cipher.,answerable,broad,TF02,Project Nimbus uses Scala.,False,,0.6438218461426826,,10
+TQ12,Tell me about Project Cipher.,answerable,broad,TF03,Project Nimbus depends on MongoDB.,False,,0.6301542547266148,,15
+TQ12,Tell me about Project Cipher.,answerable,broad,TF04,Project Nimbus is owned by Brightline Corp.,False,,0.5071450674977479,,37
+TQ12,Tell me about Project Cipher.,answerable,broad,TF05,Project Nimbus is deployed in Tokyo.,False,,0.5786030674755721,,27
+TQ12,Tell me about Project Cipher.,answerable,broad,TF06,Marcus works on Project Vector.,False,,0.6106263314979399,,20
+TQ12,Tell me about Project Cipher.,answerable,broad,TF07,Project Vector uses Swift.,False,,0.6097121072380656,,21
+TQ12,Tell me about Project Cipher.,answerable,broad,TF08,Project Vector depends on RabbitMQ.,False,,0.6296217108402952,,16
+TQ12,Tell me about Project Cipher.,answerable,broad,TF09,Project Vector is owned by Redwood Analytics.,False,,0.540887086168238,,35
+TQ12,Tell me about Project Cipher.,answerable,broad,TF10,Project Vector has status preview.,False,,0.6228064858801194,,17
+TQ12,Tell me about Project Cipher.,answerable,broad,TF11,Lena works on Project Cobalt.,False,,0.6057385300157225,,22
+TQ12,Tell me about Project Cipher.,answerable,broad,TF12,Project Cobalt uses Haskell.,False,,0.6756075737446248,,5
+TQ12,Tell me about Project Cipher.,answerable,broad,TF13,Project Cobalt depends on Prometheus.,False,,0.6310932935355572,,13
+TQ12,Tell me about Project Cipher.,answerable,broad,TF14,Project Cobalt currently uses Scala for the API layer.,False,,0.6460652208267795,,9
+TQ12,Tell me about Project Cipher.,answerable,broad,TF15,Project Cobalt previously used Java for the API layer.,False,HN8,0.6479767691867562,,7
+TQ12,Tell me about Project Cipher.,answerable,broad,TF16,Hiro works on Project Aurora.,False,,0.5760714732383155,,28
+TQ12,Tell me about Project Cipher.,answerable,broad,TF17,Project Aurora uses Zig.,False,,0.630196798590821,,14
+TQ12,Tell me about Project Cipher.,answerable,broad,TF18,Project Aurora depends on Sidekiq.,False,,0.6318001518833054,,12
+TQ12,Tell me about Project Cipher.,answerable,broad,TF19,Project Aurora supports feature sharding.,False,,0.5965856777593124,,24
+TQ12,Tell me about Project Cipher.,answerable,broad,TF20,Project Aurora does NOT support feature sharding.,False,HN6|HN7,0.5472729790205063,,33
+TQ12,Tell me about Project Cipher.,answerable,broad,TF21,Amira works on Project Titan.,False,,0.6168222905033917,,19
+TQ12,Tell me about Project Cipher.,answerable,broad,TF22,Project Titan uses MySQL in production.,False,,0.6212556416594134,,18
+TQ12,Tell me about Project Cipher.,answerable,broad,TF23,Project Titan uses H2 in tests.,False,,0.6004340590998297,,23
+TQ12,Tell me about Project Cipher.,answerable,broad,TF24,Feature caching is enabled by default in Project Titan.,False,,0.5453483906401472,,34
+TQ12,Tell me about Project Cipher.,answerable,broad,TF25,Feature caching is enabled only when CACHE_MODE=true in Project Titan.,False,,0.49844080907667515,,38
+TQ12,Tell me about Project Cipher.,answerable,broad,TF26,Felix works on Project Willow.,False,,0.5599215593303667,,30
+TQ12,Tell me about Project Cipher.,answerable,broad,TF27,Project Willow requires more than 32 GB of memory.,False,,0.5535541822582799,,32
+TQ12,Tell me about Project Cipher.,answerable,broad,TF28,Project Willow requires less than 32 GB of memory.,False,HN12,0.5567528242774349,,31
+TQ12,Tell me about Project Cipher.,answerable,broad,TF29,Project Willow is deployed in Dublin.,False,,0.5299704790486067,,36
+TQ12,Tell me about Project Cipher.,answerable,broad,TF30,Clara confirmed migration Willow-Green.,False,,0.4144766612658002,,39
+TQ12,Tell me about Project Cipher.,answerable,broad,TF31,Devon works on Project Cipher.,True,,0.7532797056126914,,3
+TQ12,Tell me about Project Cipher.,answerable,broad,TF32,Project Cipher uses Scala.,True,,0.8361126550920733,,2
+TQ12,Tell me about Project Cipher.,answerable,broad,TF33,Devon said that Clara may confirm migration Willow-Green.,False,HN11|HN4,0.3713735269810638,,40
+TQ12,Tell me about Project Cipher.,answerable,broad,TF34,Project Cipher has status experimental.,True,,0.8509477852076589,,1
+TQ12,Tell me about Project Cipher.,answerable,broad,TF35,Project Cipher is owned by Brightline Corp.,True,,0.7488881236668713,,4
+TQ12,Tell me about Project Cipher.,answerable,broad,TF36,Clara works on Project Mesa.,False,,0.5841392284850735,,26
+TQ12,Tell me about Project Cipher.,answerable,broad,TF37,Project Mesa uses Swift.,False,,0.6463015119804661,,8
+TQ12,Tell me about Project Cipher.,answerable,broad,TF38,Project Mesa depends on MongoDB.,False,,0.6406769788845111,,11
+TQ12,Tell me about Project Cipher.,answerable,broad,TF39,Project Mesa has status stable.,False,,0.5758260997349514,,29
+TQ12,Tell me about Project Cipher.,answerable,broad,TF40,Project NimbusX uses Perl.,False,HN6,0.6640999826724374,,6
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF01,Sofia works on Project Nimbus.,False,,0.6453490196594563,,5
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF02,Project Nimbus uses Scala.,False,,0.6206316391375282,,13
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF03,Project Nimbus depends on MongoDB.,False,,0.592429269392595,,25
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF04,Project Nimbus is owned by Brightline Corp.,False,,0.5565878919437499,,31
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF05,Project Nimbus is deployed in Tokyo.,False,,0.5838577998519695,,28
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF06,Marcus works on Project Vector.,False,,0.6842417886941569,,2
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF07,Project Vector uses Swift.,False,,0.5947178874971125,,23
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF08,Project Vector depends on RabbitMQ.,False,,0.5914242780334553,,26
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF09,Project Vector is owned by Redwood Analytics.,False,,0.595783375425011,,22
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF10,Project Vector has status preview.,False,,0.6217740634168297,,12
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF11,Lena works on Project Cobalt.,False,,0.643695817416121,,6
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF12,Project Cobalt uses Haskell.,False,,0.6185420510084102,,16
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF13,Project Cobalt depends on Prometheus.,False,,0.6194224184791624,,14
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF14,Project Cobalt currently uses Scala for the API layer.,False,,0.6388543004942058,,7
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF15,Project Cobalt previously used Java for the API layer.,False,,0.6362608383772094,,8
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF16,Hiro works on Project Aurora.,False,,0.6251719071682208,,10
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF17,Project Aurora uses Zig.,False,,0.7098427566882198,,1
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF18,Project Aurora depends on Sidekiq.,False,,0.6028074555909855,,18
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF19,Project Aurora supports feature sharding.,False,,0.6242327472539013,,11
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF20,Project Aurora does NOT support feature sharding.,False,,0.5516161806271782,,32
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF21,Amira works on Project Titan.,False,,0.675063580037037,,3
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF22,Project Titan uses MySQL in production.,False,,0.6017980079833032,,20
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF23,Project Titan uses H2 in tests.,False,,0.6516028812846851,,4
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF24,Feature caching is enabled by default in Project Titan.,False,,0.5295248557291589,,37
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF25,Feature caching is enabled only when CACHE_MODE=true in Project Titan.,False,,0.4876221780890044,,38
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF26,Felix works on Project Willow.,False,,0.6192622046389658,,15
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF27,Project Willow requires more than 32 GB of memory.,False,,0.5389616563732889,,34
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF28,Project Willow requires less than 32 GB of memory.,False,,0.5301533675026636,,36
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF29,Project Willow is deployed in Dublin.,False,,0.538195089124873,,35
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF30,Clara confirmed migration Willow-Green.,False,,0.4566651204207745,,39
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF31,Devon works on Project Cipher.,False,,0.5790656454836907,,29
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF32,Project Cipher uses Scala.,False,,0.596199743299695,,21
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF33,Devon said that Clara may confirm migration Willow-Green.,False,,0.39415218317649137,,40
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF34,Project Cipher has status experimental.,False,,0.60482221994751,,17
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF35,Project Cipher is owned by Brightline Corp.,False,,0.5582096523405947,,30
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF36,Clara works on Project Mesa.,False,,0.602586790440012,,19
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF37,Project Mesa uses Swift.,False,,0.5940010043447642,,24
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF38,Project Mesa depends on MongoDB.,False,,0.5874747797658195,,27
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF39,Project Mesa has status stable.,False,,0.5515605048592551,,33
+TQ13,Who works on Project Zephyr?,no_answer,nonexistent,TF40,Project NimbusX uses Perl.,False,,0.626270409352076,,9
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF01,Sofia works on Project Nimbus.,False,,0.6138938019258857,,23
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF02,Project Nimbus uses Scala.,False,,0.7087092455645041,,3
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF03,Project Nimbus depends on MongoDB.,False,,0.6372318944515618,,17
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF04,Project Nimbus is owned by Brightline Corp.,False,,0.5532402560655056,,35
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF05,Project Nimbus is deployed in Tokyo.,False,,0.5811500039883065,,30
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF06,Marcus works on Project Vector.,False,,0.6296866155478675,,21
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF07,Project Vector uses Swift.,False,,0.6776468258753351,,9
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF08,Project Vector depends on RabbitMQ.,False,,0.644436445985035,,13
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF09,Project Vector is owned by Redwood Analytics.,False,,0.6314523368737578,,20
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF10,Project Vector has status preview.,False,,0.6381259189005722,,16
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF11,Lena works on Project Cobalt.,False,,0.5919318027054884,,26
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF12,Project Cobalt uses Haskell.,False,,0.6853485573010881,,7
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF13,Project Cobalt depends on Prometheus.,False,,0.5887364501468774,,27
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF14,Project Cobalt currently uses Scala for the API layer.,False,,0.7256740804556073,,1
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF15,Project Cobalt previously used Java for the API layer.,False,,0.7135388761193163,,2
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF16,Hiro works on Project Aurora.,False,,0.6430407050405217,,14
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF17,Project Aurora uses Zig.,False,,0.6647185230342274,,12
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF18,Project Aurora depends on Sidekiq.,False,,0.6726410307844335,,10
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF19,Project Aurora supports feature sharding.,False,,0.6988535971805626,,6
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF20,Project Aurora does NOT support feature sharding.,False,,0.636331057237208,,18
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF21,Amira works on Project Titan.,False,,0.6058888369225993,,25
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF22,Project Titan uses MySQL in production.,False,,0.6677751383902865,,11
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF23,Project Titan uses H2 in tests.,False,,0.6242757096733542,,22
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF24,Feature caching is enabled by default in Project Titan.,False,,0.5822339747322747,,29
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF25,Feature caching is enabled only when CACHE_MODE=true in Project Titan.,False,,0.540405039232905,,37
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF26,Felix works on Project Willow.,False,,0.6133472598598311,,24
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF27,Project Willow requires more than 32 GB of memory.,False,,0.5657213172984251,,31
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF28,Project Willow requires less than 32 GB of memory.,False,,0.5556192206896237,,34
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF29,Project Willow is deployed in Dublin.,False,,0.5313177031789352,,38
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF30,Clara confirmed migration Willow-Green.,False,,0.4401110679898072,,39
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF31,Devon works on Project Cipher.,False,,0.5487837216105517,,36
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF32,Project Cipher uses Scala.,False,,0.7042838923389364,,4
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF33,Devon said that Clara may confirm migration Willow-Green.,False,,0.3975891410241841,,40
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF34,Project Cipher has status experimental.,False,,0.6331026946595614,,19
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF35,Project Cipher is owned by Brightline Corp.,False,,0.5844817331980784,,28
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF36,Clara works on Project Mesa.,False,,0.5622011568354998,,33
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF37,Project Mesa uses Swift.,False,,0.6806794104564764,,8
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF38,Project Mesa depends on MongoDB.,False,,0.6395557751412568,,15
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF39,Project Mesa has status stable.,False,,0.5645300389739047,,32
+TQ14,What language does Project Orion use?,no_answer,nonexistent,TF40,Project NimbusX uses Perl.,False,,0.7007350237905854,,5
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF01,Sofia works on Project Nimbus.,False,,0.5971316381503816,,17
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF02,Project Nimbus uses Scala.,False,,0.5835088106048582,,25
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF03,Project Nimbus depends on MongoDB.,False,,0.6174334380239618,,7
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF04,Project Nimbus is owned by Brightline Corp.,False,,0.5800842323867699,,28
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF05,Project Nimbus is deployed in Tokyo.,False,,0.6613005107966128,,2
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF06,Marcus works on Project Vector.,False,,0.6280036018261801,,6
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF07,Project Vector uses Swift.,False,,0.5839629534494282,,24
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF08,Project Vector depends on RabbitMQ.,False,,0.6047130438033702,,13
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF09,Project Vector is owned by Redwood Analytics.,False,,0.577258353388882,,29
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF10,Project Vector has status preview.,False,,0.6139780400284214,,10
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF11,Lena works on Project Cobalt.,False,,0.5908630913037717,,21
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF12,Project Cobalt uses Haskell.,False,,0.528691093867914,,35
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF13,Project Cobalt depends on Prometheus.,False,,0.6019624206736146,,15
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF14,Project Cobalt currently uses Scala for the API layer.,False,,0.5847389048961689,,23
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF15,Project Cobalt previously used Java for the API layer.,False,,0.589394595912379,,22
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF16,Hiro works on Project Aurora.,False,,0.6159720076014168,,9
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF17,Project Aurora uses Zig.,False,,0.6724186852347562,,1
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF18,Project Aurora depends on Sidekiq.,False,,0.594917857929402,,20
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF19,Project Aurora supports feature sharding.,False,,0.6416569416693808,,4
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF20,Project Aurora does NOT support feature sharding.,False,,0.5639537915604954,,33
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF21,Amira works on Project Titan.,False,,0.5964486576960054,,18
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF22,Project Titan uses MySQL in production.,False,,0.5991786152161622,,16
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF23,Project Titan uses H2 in tests.,False,,0.6173688079084214,,8
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF24,Feature caching is enabled by default in Project Titan.,False,,0.6026000240447004,,14
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF25,Feature caching is enabled only when CACHE_MODE=true in Project Titan.,False,,0.5069201802557028,,36
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF26,Felix works on Project Willow.,False,,0.5685061309644777,,32
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF27,Project Willow requires more than 32 GB of memory.,False,,0.5043120997302928,,37
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF28,Project Willow requires less than 32 GB of memory.,False,,0.49245375725758944,,38
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF29,Project Willow is deployed in Dublin.,False,,0.6466683054179005,,3
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF30,Clara confirmed migration Willow-Green.,False,,0.4455112452754508,,39
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF31,Devon works on Project Cipher.,False,,0.5354145339103678,,34
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF32,Project Cipher uses Scala.,False,,0.5829114712080704,,26
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF33,Devon said that Clara may confirm migration Willow-Green.,False,,0.37131935931269444,,40
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF34,Project Cipher has status experimental.,False,,0.6315325272102082,,5
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF35,Project Cipher is owned by Brightline Corp.,False,,0.573387768214845,,30
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF36,Clara works on Project Mesa.,False,,0.5705581649301549,,31
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF37,Project Mesa uses Swift.,False,,0.6067635031759236,,12
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF38,Project Mesa depends on MongoDB.,False,,0.6075329326072894,,11
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF39,Project Mesa has status stable.,False,,0.59625386449348,,19
+TQ15,Where is Project Nova deployed?,no_answer,nonexistent,TF40,Project NimbusX uses Perl.,False,,0.58142024056319,,27
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF01,Sofia works on Project Nimbus.,False,,0.5552420148713615,,26
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF02,Project Nimbus uses Scala.,False,,0.5701744572135314,,21
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF03,Project Nimbus depends on MongoDB.,False,,0.6061022541200882,,11
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF04,Project Nimbus is owned by Brightline Corp.,False,,0.67511449442606,,2
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF05,Project Nimbus is deployed in Tokyo.,False,,0.5206373930695125,,32
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF06,Marcus works on Project Vector.,False,,0.6051883615338073,,12
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF07,Project Vector uses Swift.,False,,0.5904484771571805,,16
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF08,Project Vector depends on RabbitMQ.,False,,0.5804952538024531,,18
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF09,Project Vector is owned by Redwood Analytics.,False,,0.7130139727260588,,1
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF10,Project Vector has status preview.,False,,0.5726377338852146,,19
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF11,Lena works on Project Cobalt.,False,,0.6140744327043988,,9
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF12,Project Cobalt uses Haskell.,False,,0.6158255079412962,,8
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF13,Project Cobalt depends on Prometheus.,False,,0.654768288332548,,5
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF14,Project Cobalt currently uses Scala for the API layer.,False,,0.6596430890618539,,4
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF15,Project Cobalt previously used Java for the API layer.,False,,0.6409810631035919,,7
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF16,Hiro works on Project Aurora.,False,,0.5583690771593987,,25
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF17,Project Aurora uses Zig.,False,,0.5877319832470151,,17
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF18,Project Aurora depends on Sidekiq.,False,,0.6037687463738561,,13
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF19,Project Aurora supports feature sharding.,False,,0.5925219279767691,,15
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF20,Project Aurora does NOT support feature sharding.,False,,0.5362407308385443,,30
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF21,Amira works on Project Titan.,False,,0.5592047600943766,,24
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF22,Project Titan uses MySQL in production.,False,,0.6484775034611314,,6
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF23,Project Titan uses H2 in tests.,False,,0.5649832823638565,,23
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF24,Feature caching is enabled by default in Project Titan.,False,,0.5216165161794366,,31
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF25,Feature caching is enabled only when CACHE_MODE=true in Project Titan.,False,,0.4617876834206972,,38
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF26,Felix works on Project Willow.,False,,0.5142307895246389,,33
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF27,Project Willow requires more than 32 GB of memory.,False,,0.5022628362325046,,36
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF28,Project Willow requires less than 32 GB of memory.,False,,0.480009963808887,,37
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF29,Project Willow is deployed in Dublin.,False,,0.5028609697736519,,35
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF30,Clara confirmed migration Willow-Green.,False,,0.3627901670045917,,39
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF31,Devon works on Project Cipher.,False,,0.5437876446060341,,28
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF32,Project Cipher uses Scala.,False,,0.5413386162561579,,29
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF33,Devon said that Clara may confirm migration Willow-Green.,False,,0.3322579281554309,,40
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF34,Project Cipher has status experimental.,False,,0.5458390655066517,,27
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF35,Project Cipher is owned by Brightline Corp.,False,,0.6673863510991496,,3
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF36,Clara works on Project Mesa.,False,,0.5072590068217103,,34
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF37,Project Mesa uses Swift.,False,,0.5935405412213659,,14
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF38,Project Mesa depends on MongoDB.,False,,0.6092802750367309,,10
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF39,Project Mesa has status stable.,False,,0.5725139681664033,,20
+TQ16,Who owns Project Atlas?,no_answer,nonexistent,TF40,Project NimbusX uses Perl.,False,,0.5671484553711958,,22
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF01,Sofia works on Project Nimbus.,False,,0.7264497329785472,,4
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF02,Project Nimbus uses Scala.,False,,0.7456232791878672,,2
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF03,Project Nimbus depends on MongoDB.,False,,0.6972754193373799,,5
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF04,Project Nimbus is owned by Brightline Corp.,False,,0.7855651660459783,,1
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF05,Project Nimbus is deployed in Tokyo.,False,,0.7398222169049606,,3
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF06,Marcus works on Project Vector.,False,,0.5527697473767306,,13
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF07,Project Vector uses Swift.,False,,0.5142314635882973,,29
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF08,Project Vector depends on RabbitMQ.,False,,0.5014720156415517,,31
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF09,Project Vector is owned by Redwood Analytics.,False,,0.5623145080820915,,10
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF10,Project Vector has status preview.,False,,0.49027831878964345,,33
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF11,Lena works on Project Cobalt.,False,,0.5339073927731796,,21
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF12,Project Cobalt uses Haskell.,False,,0.5479841998459445,,15
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF13,Project Cobalt depends on Prometheus.,False,,0.5911297369285753,,7
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF14,Project Cobalt currently uses Scala for the API layer.,False,,0.5397743064822526,,18
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF15,Project Cobalt previously used Java for the API layer.,False,,0.581228029994916,,8
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF16,Hiro works on Project Aurora.,False,,0.5528845425920847,,12
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF17,Project Aurora uses Zig.,False,,0.5738158708875011,,9
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF18,Project Aurora depends on Sidekiq.,False,,0.5358759941683707,,20
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF19,Project Aurora supports feature sharding.,False,,0.541464905507616,,17
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF20,Project Aurora does NOT support feature sharding.,False,,0.4681006105069132,,34
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF21,Amira works on Project Titan.,False,,0.5336011121322144,,22
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF22,Project Titan uses MySQL in production.,False,,0.5192086702605118,,27
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF23,Project Titan uses H2 in tests.,False,,0.5389876886080004,,19
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF24,Feature caching is enabled by default in Project Titan.,False,,0.4544246657930231,,36
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF25,Feature caching is enabled only when CACHE_MODE=true in Project Titan.,False,,0.394427366368983,,38
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF26,Felix works on Project Willow.,False,,0.5263104728084305,,25
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF27,Project Willow requires more than 32 GB of memory.,False,,0.46442725184462585,,35
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF28,Project Willow requires less than 32 GB of memory.,False,,0.4419130634814622,,37
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF29,Project Willow is deployed in Dublin.,False,,0.511613815856583,,30
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF30,Clara confirmed migration Willow-Green.,False,,0.37115563155399217,,39
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF31,Devon works on Project Cipher.,False,,0.5179961074240493,,28
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF32,Project Cipher uses Scala.,False,,0.5312376914295676,,24
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF33,Devon said that Clara may confirm migration Willow-Green.,False,,0.33025057962543586,,40
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF34,Project Cipher has status experimental.,False,,0.5616390328617942,,11
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF35,Project Cipher is owned by Brightline Corp.,False,,0.5472621143153161,,16
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF36,Clara works on Project Mesa.,False,,0.4952368479841931,,32
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF37,Project Mesa uses Swift.,False,,0.5517729790399227,,14
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF38,Project Mesa depends on MongoDB.,False,,0.5313736395669487,,23
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF39,Project Mesa has status stable.,False,,0.5197124874594338,,26
+TQ17,Who founded Project Nimbus?,no_answer,unsupported,TF40,Project NimbusX uses Perl.,False,,0.6813914724470957,,6
+TQ18,When was Project Vector started?,no_answer,unsupported,TF01,Sofia works on Project Nimbus.,False,,0.6060858582540148,,15
+TQ18,When was Project Vector started?,no_answer,unsupported,TF02,Project Nimbus uses Scala.,False,,0.6294497747841458,,10
+TQ18,When was Project Vector started?,no_answer,unsupported,TF03,Project Nimbus depends on MongoDB.,False,,0.5625924010663763,,26
+TQ18,When was Project Vector started?,no_answer,unsupported,TF04,Project Nimbus is owned by Brightline Corp.,False,,0.5417910872223662,,33
+TQ18,When was Project Vector started?,no_answer,unsupported,TF05,Project Nimbus is deployed in Tokyo.,False,,0.5720298728127359,,23
+TQ18,When was Project Vector started?,no_answer,unsupported,TF06,Marcus works on Project Vector.,False,,0.7300673072088827,,4
+TQ18,When was Project Vector started?,no_answer,unsupported,TF07,Project Vector uses Swift.,False,,0.7895718366776936,,1
+TQ18,When was Project Vector started?,no_answer,unsupported,TF08,Project Vector depends on RabbitMQ.,False,,0.6904842029205864,,5
+TQ18,When was Project Vector started?,no_answer,unsupported,TF09,Project Vector is owned by Redwood Analytics.,False,,0.7613156216722544,,2
+TQ18,When was Project Vector started?,no_answer,unsupported,TF10,Project Vector has status preview.,False,,0.7489438908668672,,3
+TQ18,When was Project Vector started?,no_answer,unsupported,TF11,Lena works on Project Cobalt.,False,,0.5593377091208026,,29
+TQ18,When was Project Vector started?,no_answer,unsupported,TF12,Project Cobalt uses Haskell.,False,,0.6027662578651037,,18
+TQ18,When was Project Vector started?,no_answer,unsupported,TF13,Project Cobalt depends on Prometheus.,False,,0.5660331894795111,,24
+TQ18,When was Project Vector started?,no_answer,unsupported,TF14,Project Cobalt currently uses Scala for the API layer.,False,,0.6301960676159709,,9
+TQ18,When was Project Vector started?,no_answer,unsupported,TF15,Project Cobalt previously used Java for the API layer.,False,,0.6531784707385597,,6
+TQ18,When was Project Vector started?,no_answer,unsupported,TF16,Hiro works on Project Aurora.,False,,0.5955834068230847,,19
+TQ18,When was Project Vector started?,no_answer,unsupported,TF17,Project Aurora uses Zig.,False,,0.644424031164131,,8
+TQ18,When was Project Vector started?,no_answer,unsupported,TF18,Project Aurora depends on Sidekiq.,False,,0.5869813987688574,,20
+TQ18,When was Project Vector started?,no_answer,unsupported,TF19,Project Aurora supports feature sharding.,False,,0.6144011890450545,,12
+TQ18,When was Project Vector started?,no_answer,unsupported,TF20,Project Aurora does NOT support feature sharding.,False,,0.5471116438248088,,31
+TQ18,When was Project Vector started?,no_answer,unsupported,TF21,Amira works on Project Titan.,False,,0.6048387598218732,,16
+TQ18,When was Project Vector started?,no_answer,unsupported,TF22,Project Titan uses MySQL in production.,False,,0.6064742647811214,,13
+TQ18,When was Project Vector started?,no_answer,unsupported,TF23,Project Titan uses H2 in tests.,False,,0.5839309122723682,,21
+TQ18,When was Project Vector started?,no_answer,unsupported,TF24,Feature caching is enabled by default in Project Titan.,False,,0.5536316211201859,,30
+TQ18,When was Project Vector started?,no_answer,unsupported,TF25,Feature caching is enabled only when CACHE_MODE=true in Project Titan.,False,,0.5032865166795363,,38
+TQ18,When was Project Vector started?,no_answer,unsupported,TF26,Felix works on Project Willow.,False,,0.5647852375366733,,25
+TQ18,When was Project Vector started?,no_answer,unsupported,TF27,Project Willow requires more than 32 GB of memory.,False,,0.5396124066559939,,35
+TQ18,When was Project Vector started?,no_answer,unsupported,TF28,Project Willow requires less than 32 GB of memory.,False,,0.5374762328660164,,37
+TQ18,When was Project Vector started?,no_answer,unsupported,TF29,Project Willow is deployed in Dublin.,False,,0.5379974944975574,,36
+TQ18,When was Project Vector started?,no_answer,unsupported,TF30,Clara confirmed migration Willow-Green.,False,,0.4331922351840981,,39
+TQ18,When was Project Vector started?,no_answer,unsupported,TF31,Devon works on Project Cipher.,False,,0.5398264509620199,,34
+TQ18,When was Project Vector started?,no_answer,unsupported,TF32,Project Cipher uses Scala.,False,,0.6260749433811897,,11
+TQ18,When was Project Vector started?,no_answer,unsupported,TF33,Devon said that Clara may confirm migration Willow-Green.,False,,0.36514256494970226,,40
+TQ18,When was Project Vector started?,no_answer,unsupported,TF34,Project Cipher has status experimental.,False,,0.6063494562206181,,14
+TQ18,When was Project Vector started?,no_answer,unsupported,TF35,Project Cipher is owned by Brightline Corp.,False,,0.5607039972514307,,28
+TQ18,When was Project Vector started?,no_answer,unsupported,TF36,Clara works on Project Mesa.,False,,0.5469683334678719,,32
+TQ18,When was Project Vector started?,no_answer,unsupported,TF37,Project Mesa uses Swift.,False,,0.6498308682881299,,7
+TQ18,When was Project Vector started?,no_answer,unsupported,TF38,Project Mesa depends on MongoDB.,False,,0.5754928118016381,,22
+TQ18,When was Project Vector started?,no_answer,unsupported,TF39,Project Mesa has status stable.,False,,0.5624418802581735,,27
+TQ18,When was Project Vector started?,no_answer,unsupported,TF40,Project NimbusX uses Perl.,False,,0.603524991627657,,17
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF01,Sofia works on Project Nimbus.,False,,0.5330585336579711,,29
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF02,Project Nimbus uses Scala.,False,,0.568700648386753,,20
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF03,Project Nimbus depends on MongoDB.,False,,0.6336107211469627,,7
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF04,Project Nimbus is owned by Brightline Corp.,False,,0.5886826761207007,,13
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF05,Project Nimbus is deployed in Tokyo.,False,,0.5131643685396061,,31
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF06,Marcus works on Project Vector.,False,,0.5485934933107817,,26
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF07,Project Vector uses Swift.,False,,0.6044803043204836,,11
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF08,Project Vector depends on RabbitMQ.,False,,0.557484802179772,,23
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF09,Project Vector is owned by Redwood Analytics.,False,,0.5648269393380246,,22
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF10,Project Vector has status preview.,False,,0.5557786744153737,,24
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF11,Lena works on Project Cobalt.,False,,0.6958616820130709,,5
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF12,Project Cobalt uses Haskell.,False,,0.7444034233699525,,3
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF13,Project Cobalt depends on Prometheus.,False,,0.7399770901657814,,4
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF14,Project Cobalt currently uses Scala for the API layer.,False,,0.7499660003097544,,2
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF15,Project Cobalt previously used Java for the API layer.,False,,0.7785334306652842,,1
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF16,Hiro works on Project Aurora.,False,,0.5657227729551658,,21
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF17,Project Aurora uses Zig.,False,,0.6224222265036529,,10
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF18,Project Aurora depends on Sidekiq.,False,,0.5519806448743733,,25
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF19,Project Aurora supports feature sharding.,False,,0.5729254241086637,,17
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF20,Project Aurora does NOT support feature sharding.,False,,0.5381408157905029,,28
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF21,Amira works on Project Titan.,False,,0.5118348844225533,,32
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF22,Project Titan uses MySQL in production.,False,,0.584507392084905,,15
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF23,Project Titan uses H2 in tests.,False,,0.5847483378620142,,14
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF24,Feature caching is enabled by default in Project Titan.,False,,0.5185230081918736,,30
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF25,Feature caching is enabled only when CACHE_MODE=true in Project Titan.,False,,0.4967680584795846,,35
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF26,Felix works on Project Willow.,False,,0.49427721031361566,,36
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF27,Project Willow requires more than 32 GB of memory.,False,,0.48975011470567004,,37
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF28,Project Willow requires less than 32 GB of memory.,False,,0.4834239637628489,,38
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF29,Project Willow is deployed in Dublin.,False,,0.49807681302215095,,34
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF30,Clara confirmed migration Willow-Green.,False,,0.37483575533185054,,39
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF31,Devon works on Project Cipher.,False,,0.5458315272119084,,27
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF32,Project Cipher uses Scala.,False,,0.5706360765743113,,19
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF33,Devon said that Clara may confirm migration Willow-Green.,False,,0.340258953323518,,40
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF34,Project Cipher has status experimental.,False,,0.5712221186643264,,18
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF35,Project Cipher is owned by Brightline Corp.,False,,0.5936355557283362,,12
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF36,Clara works on Project Mesa.,False,,0.5026591134323294,,33
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF37,Project Mesa uses Swift.,False,,0.6275310420069189,,8
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF38,Project Mesa depends on MongoDB.,False,,0.6344618048038095,,6
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF39,Project Mesa has status stable.,False,,0.5763794032822988,,16
+TQ19,What is the license of Project Cobalt?,no_answer,unsupported,TF40,Project NimbusX uses Perl.,False,,0.6260136415001911,,9
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF01,Sofia works on Project Nimbus.,False,,0.5464634627265643,,31
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF02,Project Nimbus uses Scala.,False,,0.5897238279242247,,21
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF03,Project Nimbus depends on MongoDB.,False,,0.610755277903322,,13
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF04,Project Nimbus is owned by Brightline Corp.,False,,0.5598197135327507,,27
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF05,Project Nimbus is deployed in Tokyo.,False,,0.5449036501438088,,34
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF06,Marcus works on Project Vector.,False,,0.5647115328160024,,26
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF07,Project Vector uses Swift.,False,,0.5985092250778207,,18
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF08,Project Vector depends on RabbitMQ.,False,,0.5995376874243035,,17
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF09,Project Vector is owned by Redwood Analytics.,False,,0.6180410431859424,,10
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF10,Project Vector has status preview.,False,,0.6104260528427281,,14
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF11,Lena works on Project Cobalt.,False,,0.6121467674188742,,12
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF12,Project Cobalt uses Haskell.,False,,0.6000262064511872,,16
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF13,Project Cobalt depends on Prometheus.,False,,0.610153213714261,,15
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF14,Project Cobalt currently uses Scala for the API layer.,False,,0.6430226967527378,,6
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF15,Project Cobalt previously used Java for the API layer.,False,,0.6407238369509871,,8
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF16,Hiro works on Project Aurora.,False,,0.6958683225399472,,4
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF17,Project Aurora uses Zig.,False,,0.7132277052496293,,3
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF18,Project Aurora depends on Sidekiq.,False,,0.7386899290050198,,1
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF19,Project Aurora supports feature sharding.,False,,0.7312866705446559,,2
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF20,Project Aurora does NOT support feature sharding.,False,,0.6602988376769479,,5
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF21,Amira works on Project Titan.,False,,0.5538374867944311,,30
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF22,Project Titan uses MySQL in production.,False,,0.6421739570827182,,7
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF23,Project Titan uses H2 in tests.,False,,0.5592387134370287,,28
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF24,Feature caching is enabled by default in Project Titan.,False,,0.5394038204213486,,35
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF25,Feature caching is enabled only when CACHE_MODE=true in Project Titan.,False,,0.4889900704881773,,38
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF26,Felix works on Project Willow.,False,,0.545880984845542,,33
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF27,Project Willow requires more than 32 GB of memory.,False,,0.5792557466291752,,22
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF28,Project Willow requires less than 32 GB of memory.,False,,0.5562606437866704,,29
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF29,Project Willow is deployed in Dublin.,False,,0.5459662251610042,,32
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF30,Clara confirmed migration Willow-Green.,False,,0.37943014000615977,,39
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF31,Devon works on Project Cipher.,False,,0.5097180339574217,,36
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF32,Project Cipher uses Scala.,False,,0.5730997848957468,,24
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF33,Devon said that Clara may confirm migration Willow-Green.,False,,0.3309067871341443,,40
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF34,Project Cipher has status experimental.,False,,0.58992344580619,,20
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF35,Project Cipher is owned by Brightline Corp.,False,,0.5772163464504366,,23
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF36,Clara works on Project Mesa.,False,,0.4929357321291667,,37
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF37,Project Mesa uses Swift.,False,,0.6350032979085719,,9
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF38,Project Mesa depends on MongoDB.,False,,0.6171263440433918,,11
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF39,Project Mesa has status stable.,False,,0.5689592139146056,,25
+TQ20,How many users does Project Aurora have?,no_answer,unsupported,TF40,Project NimbusX uses Perl.,False,,0.5900597516038937,,19

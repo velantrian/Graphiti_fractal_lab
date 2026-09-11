@@ -1,0 +1,801 @@
+query_id,query_text,query_class,query_subtype,fact_id,fact_text,gold_relevant,hard_negative_labels,RAW_SCORE,LOGIT_SCORE,rank_within_query
+CQ01,Who works on Project Helix?,answerable,narrow,CF01,Mira works on Project Helix.,True,,0.9830165505409241,,1
+CQ01,Who works on Project Helix?,answerable,narrow,CF02,Project Helix uses Go.,False,HN1,0.007717416621744633,,7
+CQ01,Who works on Project Helix?,answerable,narrow,CF03,Project Helix depends on Redis.,False,HN1,0.4250449538230896,,3
+CQ01,Who works on Project Helix?,answerable,narrow,CF04,Project Helix is owned by Apex Labs.,False,HN1,0.49815940856933594,,2
+CQ01,Who works on Project Helix?,answerable,narrow,CF05,Project Helix is deployed in Frankfurt.,False,,0.02378675527870655,,4
+CQ01,Who works on Project Helix?,answerable,narrow,CF06,Jonas works on Project Cascade.,False,HN2,0.006061272695660591,,9
+CQ01,Who works on Project Helix?,answerable,narrow,CF07,Project Cascade uses TypeScript.,False,,2.4631242922623642e-05,,27
+CQ01,Who works on Project Helix?,answerable,narrow,CF08,Project Cascade depends on Kafka.,False,,0.00013855563884135336,,17
+CQ01,Who works on Project Helix?,answerable,narrow,CF09,Project Cascade is owned by Northwind Systems.,False,,5.292330388328992e-05,,19
+CQ01,Who works on Project Helix?,answerable,narrow,CF10,Project Cascade has status beta.,False,,3.011406442965381e-05,,23
+CQ01,Who works on Project Helix?,answerable,narrow,CF11,Elena works on Project Prism.,False,HN2,0.0028355764225125313,,12
+CQ01,Who works on Project Helix?,answerable,narrow,CF12,Project Prism uses Kotlin.,False,,4.088892455911264e-05,,21
+CQ01,Who works on Project Helix?,answerable,narrow,CF13,Project Prism depends on Grafana.,False,,0.00012726383283734322,,18
+CQ01,Who works on Project Helix?,answerable,narrow,CF14,Project Prism currently uses Go for the API layer.,False,,2.793432940961793e-05,,25
+CQ01,Who works on Project Helix?,answerable,narrow,CF15,Project Prism previously used Python for the API layer.,False,,2.3111115297069773e-05,,28
+CQ01,Who works on Project Helix?,answerable,narrow,CF16,Theo works on Project Quasar.,False,HN2,0.0031299281399697065,,11
+CQ01,Who works on Project Helix?,answerable,narrow,CF17,Project Quasar uses Elixir.,False,,2.668313572939951e-05,,26
+CQ01,Who works on Project Helix?,answerable,narrow,CF18,Project Quasar depends on Celery.,False,HN4,0.0002705457154661417,,14
+CQ01,Who works on Project Helix?,answerable,narrow,CF19,Project Quasar supports feature streaming.,False,,1.985514973057434e-05,,32
+CQ01,Who works on Project Helix?,answerable,narrow,CF20,Project Quasar does NOT support feature streaming.,False,,1.633705323911272e-05,,38
+CQ01,Who works on Project Helix?,answerable,narrow,CF21,Nadia works on Project Ember.,False,,0.005788130220025778,,10
+CQ01,Who works on Project Helix?,answerable,narrow,CF22,Project Ember uses PostgreSQL in production.,False,,1.8057708075502887e-05,,35
+CQ01,Who works on Project Helix?,answerable,narrow,CF23,Project Ember uses SQLite in tests.,False,,1.7659776858636178e-05,,36
+CQ01,Who works on Project Helix?,answerable,narrow,CF24,Feature auth is enabled by default in Project Ember.,False,,1.615746077732183e-05,,39
+CQ01,Who works on Project Helix?,answerable,narrow,CF25,Feature auth is enabled only when DEBUG_MODE=true in Project Ember.,False,,1.6089803466456942e-05,,40
+CQ01,Who works on Project Helix?,answerable,narrow,CF26,Owen works on Project Lattice.,False,,0.002608473412692547,,13
+CQ01,Who works on Project Helix?,answerable,narrow,CF27,Project Lattice requires more than 16 GB of memory.,False,,2.2527132387040183e-05,,29
+CQ01,Who works on Project Helix?,answerable,narrow,CF28,Project Lattice requires less than 16 GB of memory.,False,HN6|HN12,1.9396971765672788e-05,,33
+CQ01,Who works on Project Helix?,answerable,narrow,CF29,Project Lattice is deployed in Singapore.,False,,2.126299477822613e-05,,30
+CQ01,Who works on Project Helix?,answerable,narrow,CF30,Priya confirmed migration Lattice-Blue.,False,,1.7540238332003355e-05,,37
+CQ01,Who works on Project Helix?,answerable,narrow,CF31,Kai works on Project Flux.,False,,0.007776329759508371,,6
+CQ01,Who works on Project Helix?,answerable,narrow,CF32,Project Flux uses Go.,False,HN6,2.875300924642943e-05,,24
+CQ01,Who works on Project Helix?,answerable,narrow,CF33,Kai said that Priya may confirm migration Lattice-Blue.,False,,3.905788253177889e-05,,22
+CQ01,Who works on Project Helix?,answerable,narrow,CF34,Project Flux has status alpha.,False,,5.188399154576473e-05,,20
+CQ01,Who works on Project Helix?,answerable,narrow,CF35,Project Flux is owned by Apex Labs.,False,,0.00021274673053994775,,16
+CQ01,Who works on Project Helix?,answerable,narrow,CF36,Priya works on Project Harbor.,False,,0.0123416967689991,,5
+CQ01,Who works on Project Helix?,answerable,narrow,CF37,Project Harbor uses TypeScript.,False,,2.1093906980240718e-05,,31
+CQ01,Who works on Project Helix?,answerable,narrow,CF38,Project Harbor depends on Redis.,False,,0.00021334149641916156,,15
+CQ01,Who works on Project Helix?,answerable,narrow,CF39,Project Harbor has status GA.,False,,1.910543505800888e-05,,34
+CQ01,Who works on Project Helix?,answerable,narrow,CF40,Project HelixCore uses Ruby.,False,HN5|HN3,0.007408211939036846,,8
+CQ02,What language does Project Cascade use?,answerable,narrow,CF01,Mira works on Project Helix.,False,,2.7931188014918007e-05,,31
+CQ02,What language does Project Cascade use?,answerable,narrow,CF02,Project Helix uses Go.,False,HN2,0.0168922021985054,,5
+CQ02,What language does Project Cascade use?,answerable,narrow,CF03,Project Helix depends on Redis.,False,,0.00020429895084816962,,17
+CQ02,What language does Project Cascade use?,answerable,narrow,CF04,Project Helix is owned by Apex Labs.,False,,7.580053352285177e-05,,21
+CQ02,What language does Project Cascade use?,answerable,narrow,CF05,Project Helix is deployed in Frankfurt.,False,,2.9794016882078722e-05,,30
+CQ02,What language does Project Cascade use?,answerable,narrow,CF06,Jonas works on Project Cascade.,False,HN1,0.0031387978233397007,,13
+CQ02,What language does Project Cascade use?,answerable,narrow,CF07,Project Cascade uses TypeScript.,True,,0.9942968487739563,,1
+CQ02,What language does Project Cascade use?,answerable,narrow,CF08,Project Cascade depends on Kafka.,False,HN1,0.9472389817237854,,2
+CQ02,What language does Project Cascade use?,answerable,narrow,CF09,Project Cascade is owned by Northwind Systems.,False,,0.03565826267004013,,4
+CQ02,What language does Project Cascade use?,answerable,narrow,CF10,Project Cascade has status beta.,False,HN1,0.040838588029146194,,3
+CQ02,What language does Project Cascade use?,answerable,narrow,CF11,Elena works on Project Prism.,False,,1.7247486539417878e-05,,38
+CQ02,What language does Project Cascade use?,answerable,narrow,CF12,Project Prism uses Kotlin.,False,HN2,0.013296952471137047,,9
+CQ02,What language does Project Cascade use?,answerable,narrow,CF13,Project Prism depends on Grafana.,False,,0.00023987410531844944,,16
+CQ02,What language does Project Cascade use?,answerable,narrow,CF14,Project Prism currently uses Go for the API layer.,False,,0.00953245721757412,,10
+CQ02,What language does Project Cascade use?,answerable,narrow,CF15,Project Prism previously used Python for the API layer.,False,HN4,0.007072928361594677,,12
+CQ02,What language does Project Cascade use?,answerable,narrow,CF16,Theo works on Project Quasar.,False,,2.4431272322544828e-05,,34
+CQ02,What language does Project Cascade use?,answerable,narrow,CF17,Project Quasar uses Elixir.,False,,0.007147345691919327,,11
+CQ02,What language does Project Cascade use?,answerable,narrow,CF18,Project Quasar depends on Celery.,False,,0.00018564301717560738,,18
+CQ02,What language does Project Cascade use?,answerable,narrow,CF19,Project Quasar supports feature streaming.,False,,6.568111712113023e-05,,23
+CQ02,What language does Project Cascade use?,answerable,narrow,CF20,Project Quasar does NOT support feature streaming.,False,,3.482874308247119e-05,,29
+CQ02,What language does Project Cascade use?,answerable,narrow,CF21,Nadia works on Project Ember.,False,,2.639391277625691e-05,,32
+CQ02,What language does Project Cascade use?,answerable,narrow,CF22,Project Ember uses PostgreSQL in production.,False,,0.0022281003184616566,,14
+CQ02,What language does Project Cascade use?,answerable,narrow,CF23,Project Ember uses SQLite in tests.,False,HN9,0.002089382614940405,,15
+CQ02,What language does Project Cascade use?,answerable,narrow,CF24,Feature auth is enabled by default in Project Ember.,False,,0.00010029231634689495,,19
+CQ02,What language does Project Cascade use?,answerable,narrow,CF25,Feature auth is enabled only when DEBUG_MODE=true in Project Ember.,False,,2.5734563678270206e-05,,33
+CQ02,What language does Project Cascade use?,answerable,narrow,CF26,Owen works on Project Lattice.,False,,1.9607896319939755e-05,,36
+CQ02,What language does Project Cascade use?,answerable,narrow,CF27,Project Lattice requires more than 16 GB of memory.,False,HN6,3.942254261346534e-05,,27
+CQ02,What language does Project Cascade use?,answerable,narrow,CF28,Project Lattice requires less than 16 GB of memory.,False,,4.109850124223158e-05,,26
+CQ02,What language does Project Cascade use?,answerable,narrow,CF29,Project Lattice is deployed in Singapore.,False,,3.659438880276866e-05,,28
+CQ02,What language does Project Cascade use?,answerable,narrow,CF30,Priya confirmed migration Lattice-Blue.,False,,1.6460897313663736e-05,,39
+CQ02,What language does Project Cascade use?,answerable,narrow,CF31,Kai works on Project Flux.,False,,1.9133698515361175e-05,,37
+CQ02,What language does Project Cascade use?,answerable,narrow,CF32,Project Flux uses Go.,False,,0.015925325453281403,,6
+CQ02,What language does Project Cascade use?,answerable,narrow,CF33,Kai said that Priya may confirm migration Lattice-Blue.,False,,1.626623998163268e-05,,40
+CQ02,What language does Project Cascade use?,answerable,narrow,CF34,Project Flux has status alpha.,False,,9.364056313643232e-05,,20
+CQ02,What language does Project Cascade use?,answerable,narrow,CF35,Project Flux is owned by Apex Labs.,False,,5.6775490520522e-05,,24
+CQ02,What language does Project Cascade use?,answerable,narrow,CF36,Priya works on Project Harbor.,False,,2.0721798136946745e-05,,35
+CQ02,What language does Project Cascade use?,answerable,narrow,CF37,Project Harbor uses TypeScript.,False,HN2|HN3,0.014344653114676476,,7
+CQ02,What language does Project Cascade use?,answerable,narrow,CF38,Project Harbor depends on Redis.,False,,7.437195745296776e-05,,22
+CQ02,What language does Project Cascade use?,answerable,narrow,CF39,Project Harbor has status GA.,False,,4.51518535555806e-05,,25
+CQ02,What language does Project Cascade use?,answerable,narrow,CF40,Project HelixCore uses Ruby.,False,HN6,0.013463410548865795,,8
+CQ03,What does Project Helix depend on?,answerable,narrow,CF01,Mira works on Project Helix.,False,HN1,0.026034759357571602,,8
+CQ03,What does Project Helix depend on?,answerable,narrow,CF02,Project Helix uses Go.,False,HN1,0.18194462358951569,,3
+CQ03,What does Project Helix depend on?,answerable,narrow,CF03,Project Helix depends on Redis.,True,,0.9987726807594299,,1
+CQ03,What does Project Helix depend on?,answerable,narrow,CF04,Project Helix is owned by Apex Labs.,False,,0.6938347816467285,,2
+CQ03,What does Project Helix depend on?,answerable,narrow,CF05,Project Helix is deployed in Frankfurt.,False,,0.0166009534150362,,10
+CQ03,What does Project Helix depend on?,answerable,narrow,CF06,Jonas works on Project Cascade.,False,,1.9628458176157437e-05,,34
+CQ03,What does Project Helix depend on?,answerable,narrow,CF07,Project Cascade uses TypeScript.,False,,0.0001831554836826399,,20
+CQ03,What does Project Helix depend on?,answerable,narrow,CF08,Project Cascade depends on Kafka.,False,HN2,0.019266396760940552,,9
+CQ03,What does Project Helix depend on?,answerable,narrow,CF09,Project Cascade is owned by Northwind Systems.,False,,0.00013728249177802354,,23
+CQ03,What does Project Helix depend on?,answerable,narrow,CF10,Project Cascade has status beta.,False,,5.8268531574867666e-05,,27
+CQ03,What does Project Helix depend on?,answerable,narrow,CF11,Elena works on Project Prism.,False,,1.7985148588195443e-05,,36
+CQ03,What does Project Helix depend on?,answerable,narrow,CF12,Project Prism uses Kotlin.,False,,0.00042693247087299824,,14
+CQ03,What does Project Helix depend on?,answerable,narrow,CF13,Project Prism depends on Grafana.,False,HN2,0.03249140456318855,,7
+CQ03,What does Project Helix depend on?,answerable,narrow,CF14,Project Prism currently uses Go for the API layer.,False,,0.00034216325730085373,,16
+CQ03,What does Project Helix depend on?,answerable,narrow,CF15,Project Prism previously used Python for the API layer.,False,,0.00033090836950577796,,17
+CQ03,What does Project Helix depend on?,answerable,narrow,CF16,Theo works on Project Quasar.,False,,2.0957239030394703e-05,,32
+CQ03,What does Project Helix depend on?,answerable,narrow,CF17,Project Quasar uses Elixir.,False,,0.0006494592525996268,,11
+CQ03,What does Project Helix depend on?,answerable,narrow,CF18,Project Quasar depends on Celery.,False,HN2,0.044371556490659714,,6
+CQ03,What does Project Helix depend on?,answerable,narrow,CF19,Project Quasar supports feature streaming.,False,,7.442119385814294e-05,,25
+CQ03,What does Project Helix depend on?,answerable,narrow,CF20,Project Quasar does NOT support feature streaming.,False,HN4,3.770132389036007e-05,,28
+CQ03,What does Project Helix depend on?,answerable,narrow,CF21,Nadia works on Project Ember.,False,,1.8714159523369744e-05,,35
+CQ03,What does Project Helix depend on?,answerable,narrow,CF22,Project Ember uses PostgreSQL in production.,False,,0.00017401555669493973,,21
+CQ03,What does Project Helix depend on?,answerable,narrow,CF23,Project Ember uses SQLite in tests.,False,HN9,0.00013989275612402707,,22
+CQ03,What does Project Helix depend on?,answerable,narrow,CF24,Feature auth is enabled by default in Project Ember.,False,,1.760932536853943e-05,,37
+CQ03,What does Project Helix depend on?,answerable,narrow,CF25,Feature auth is enabled only when DEBUG_MODE=true in Project Ember.,False,,1.6689416952431202e-05,,38
+CQ03,What does Project Helix depend on?,answerable,narrow,CF26,Owen works on Project Lattice.,False,,2.024900823016651e-05,,33
+CQ03,What does Project Helix depend on?,answerable,narrow,CF27,Project Lattice requires more than 16 GB of memory.,False,,0.0005438972148112953,,12
+CQ03,What does Project Helix depend on?,answerable,narrow,CF28,Project Lattice requires less than 16 GB of memory.,False,HN6,0.0005192214739508927,,13
+CQ03,What does Project Helix depend on?,answerable,narrow,CF29,Project Lattice is deployed in Singapore.,False,,2.569584103184752e-05,,30
+CQ03,What does Project Helix depend on?,answerable,narrow,CF30,Priya confirmed migration Lattice-Blue.,False,,1.6268428225885145e-05,,40
+CQ03,What does Project Helix depend on?,answerable,narrow,CF31,Kai works on Project Flux.,False,,2.484879587427713e-05,,31
+CQ03,What does Project Helix depend on?,answerable,narrow,CF32,Project Flux uses Go.,False,,0.0004245048330631107,,15
+CQ03,What does Project Helix depend on?,answerable,narrow,CF33,Kai said that Priya may confirm migration Lattice-Blue.,False,,1.632045314181596e-05,,39
+CQ03,What does Project Helix depend on?,answerable,narrow,CF34,Project Flux has status alpha.,False,,0.0002622983301989734,,19
+CQ03,What does Project Helix depend on?,answerable,narrow,CF35,Project Flux is owned by Apex Labs.,False,,0.0002746719401329756,,18
+CQ03,What does Project Helix depend on?,answerable,narrow,CF36,Priya works on Project Harbor.,False,,2.607271926535759e-05,,29
+CQ03,What does Project Helix depend on?,answerable,narrow,CF37,Project Harbor uses TypeScript.,False,,0.0001311699306825176,,24
+CQ03,What does Project Helix depend on?,answerable,narrow,CF38,Project Harbor depends on Redis.,False,HN2|HN3,0.0625259280204773,,4
+CQ03,What does Project Helix depend on?,answerable,narrow,CF39,Project Harbor has status GA.,False,,6.223182572284713e-05,,26
+CQ03,What does Project Helix depend on?,answerable,narrow,CF40,Project HelixCore uses Ruby.,False,HN5,0.058990806341171265,,5
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF01,Mira works on Project Helix.,False,HN1,0.02239132486283779,,5
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF02,Project Helix uses Go.,False,HN1,0.014647156931459904,,6
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF03,Project Helix depends on Redis.,False,,0.04941391199827194,,3
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF04,Project Helix is owned by Apex Labs.,False,,0.07855784893035889,,2
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF05,Project Helix is deployed in Frankfurt.,True,,0.99959796667099,,1
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF06,Jonas works on Project Cascade.,False,HN6,4.80274720757734e-05,,23
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF07,Project Cascade uses TypeScript.,False,,4.123877806705423e-05,,27
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF08,Project Cascade depends on Kafka.,False,,5.3528070566244423e-05,,18
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF09,Project Cascade is owned by Northwind Systems.,False,,6.452294474001974e-05,,16
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF10,Project Cascade has status beta.,False,,0.00011313573486404493,,11
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF11,Elena works on Project Prism.,False,,2.2360314687830396e-05,,34
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF12,Project Prism uses Kotlin.,False,,4.851268749916926e-05,,22
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF13,Project Prism depends on Grafana.,False,,5.181916640140116e-05,,19
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF14,Project Prism currently uses Go for the API layer.,False,,8.820091898087412e-05,,12
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF15,Project Prism previously used Python for the API layer.,False,HN4|HN8,6.485934864031151e-05,,15
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF16,Theo works on Project Quasar.,False,,2.569640491856262e-05,,31
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF17,Project Quasar uses Elixir.,False,,4.137171708862297e-05,,26
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF18,Project Quasar depends on Celery.,False,,6.845229654572904e-05,,14
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF19,Project Quasar supports feature streaming.,False,,2.2113033992354758e-05,,35
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF20,Project Quasar does NOT support feature streaming.,False,,1.7141526768682525e-05,,39
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF21,Nadia works on Project Ember.,False,,1.7996660972130485e-05,,37
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF22,Project Ember uses PostgreSQL in production.,False,,2.546183895901777e-05,,32
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF23,Project Ember uses SQLite in tests.,False,HN6,2.2393007384380326e-05,,33
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF24,Feature auth is enabled by default in Project Ember.,False,,1.6267109458567575e-05,,40
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF25,Feature auth is enabled only when DEBUG_MODE=true in Project Ember.,False,,1.7683454643702134e-05,,38
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF26,Owen works on Project Lattice.,False,,1.9252487618359737e-05,,36
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF27,Project Lattice requires more than 16 GB of memory.,False,,3.973434286308475e-05,,28
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF28,Project Lattice requires less than 16 GB of memory.,False,,3.830125569947995e-05,,29
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF29,Project Lattice is deployed in Singapore.,False,HN2,0.040844373404979706,,4
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF30,Priya confirmed migration Lattice-Blue.,False,,4.875260128756054e-05,,21
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF31,Kai works on Project Flux.,False,,2.929119364125654e-05,,30
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF32,Project Flux uses Go.,False,,4.205984441796318e-05,,25
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF33,Kai said that Priya may confirm migration Lattice-Blue.,False,,4.9205707910005e-05,,20
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF34,Project Flux has status alpha.,False,,6.967376248212531e-05,,13
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF35,Project Flux is owned by Apex Labs.,False,,6.360547558870167e-05,,17
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF36,Priya works on Project Harbor.,False,,0.00020396846230141819,,9
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF37,Project Harbor uses TypeScript.,False,,4.500925570027903e-05,,24
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF38,Project Harbor depends on Redis.,False,,0.00016154702461790293,,10
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF39,Project Harbor has status GA.,False,,0.0003326375735923648,,8
+CQ04,Where is Project Helix deployed?,answerable,narrow,CF40,Project HelixCore uses Ruby.,False,HN5,0.005606244318187237,,7
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF01,Mira works on Project Helix.,False,HN2,0.00039455003570765257,,6
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF02,Project Helix uses Go.,False,,1.702697409200482e-05,,28
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF03,Project Helix depends on Redis.,False,,0.0002391071175225079,,13
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF04,Project Helix is owned by Apex Labs.,False,,2.1415253286249936e-05,,21
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF05,Project Helix is deployed in Frankfurt.,False,,2.1873764126212336e-05,,20
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF06,Jonas works on Project Cascade.,False,HN2,0.0002742357610259205,,11
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF07,Project Cascade uses TypeScript.,False,,1.650393460295163e-05,,32
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF08,Project Cascade depends on Kafka.,False,,7.870372792240232e-05,,17
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF09,Project Cascade is owned by Northwind Systems.,False,,1.721925218589604e-05,,26
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF10,Project Cascade has status beta.,False,,1.8791239199345e-05,,22
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF11,Elena works on Project Prism.,True,,0.41935840249061584,,2
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF12,Project Prism uses Kotlin.,False,HN1,0.005514760501682758,,3
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF13,Project Prism depends on Grafana.,False,HN1,0.5613895058631897,,1
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF14,Project Prism currently uses Go for the API layer.,False,HN4,0.00196849019266665,,4
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF15,Project Prism previously used Python for the API layer.,False,HN4|HN8,0.0014320312766358256,,5
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF16,Theo works on Project Quasar.,False,,0.0003274362825322896,,9
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF17,Project Quasar uses Elixir.,False,,1.8070146325044334e-05,,24
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF18,Project Quasar depends on Celery.,False,,0.00038952924660407007,,7
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF19,Project Quasar supports feature streaming.,False,,1.6331789083778858e-05,,37
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF20,Project Quasar does NOT support feature streaming.,False,,1.63249369506957e-05,,38
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF21,Nadia works on Project Ember.,False,,0.00037984325899742544,,8
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF22,Project Ember uses PostgreSQL in production.,False,,1.6375128325307742e-05,,36
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF23,Project Ember uses SQLite in tests.,False,,1.649897785682697e-05,,33
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF24,Feature auth is enabled by default in Project Ember.,False,,1.6267202227027155e-05,,39
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF25,Feature auth is enabled only when DEBUG_MODE=true in Project Ember.,False,,1.608423553989269e-05,,40
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF26,Owen works on Project Lattice.,False,HN2,0.00016466379747726023,,14
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF27,Project Lattice requires more than 16 GB of memory.,False,,1.683973277977202e-05,,29
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF28,Project Lattice requires less than 16 GB of memory.,False,,1.638243702473119e-05,,35
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF29,Project Lattice is deployed in Singapore.,False,,1.8398148313281126e-05,,23
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF30,Priya confirmed migration Lattice-Blue.,False,,5.550623609451577e-05,,18
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF31,Kai works on Project Flux.,False,,0.00032404420198872685,,10
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF32,Project Flux uses Go.,False,,1.6562304153922014e-05,,31
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF33,Kai said that Priya may confirm migration Lattice-Blue.,False,HN3,0.00012438312114682049,,15
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF34,Project Flux has status alpha.,False,,2.5721239580889232e-05,,19
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF35,Project Flux is owned by Apex Labs.,False,,1.7922789993463084e-05,,25
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF36,Priya works on Project Harbor.,False,,0.00027115357806906104,,12
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF37,Project Harbor uses TypeScript.,False,,1.6391924873460084e-05,,34
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF38,Project Harbor depends on Redis.,False,,0.00010672725329641253,,16
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF39,Project Harbor has status GA.,False,,1.7167192709166557e-05,,27
+CQ05,Which person is assigned to Project Prism?,answerable,paraphrase,CF40,Project HelixCore uses Ruby.,False,HN6,1.672722828516271e-05,,30
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF01,Mira works on Project Helix.,False,,5.501383566297591e-05,,33
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF02,Project Helix uses Go.,False,HN2,0.024234652519226074,,4
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF03,Project Helix depends on Redis.,False,,0.000307596696075052,,24
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF04,Project Helix is owned by Apex Labs.,False,,0.0004347475478425622,,21
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF05,Project Helix is deployed in Frankfurt.,False,,6.247853889362887e-05,,32
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF06,Jonas works on Project Cascade.,False,,3.0333751055877656e-05,,38
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF07,Project Cascade uses TypeScript.,False,HN2,0.019492309540510178,,8
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF08,Project Cascade depends on Kafka.,False,,0.02207203023135662,,5
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF09,Project Cascade is owned by Northwind Systems.,False,,0.00011601565347518772,,30
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF10,Project Cascade has status beta.,False,,0.00035394859150983393,,22
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF11,Elena works on Project Prism.,False,,4.575910497806035e-05,,34
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF12,Project Prism uses Kotlin.,False,HN2,0.01512385904788971,,9
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF13,Project Prism depends on Grafana.,False,,0.0010032056597992778,,17
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF14,Project Prism currently uses Go for the API layer.,False,HN4,0.019689902663230896,,7
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF15,Project Prism previously used Python for the API layer.,False,HN8,0.012966351583600044,,10
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF16,Theo works on Project Quasar.,False,HN1,0.008312963880598545,,13
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF17,Project Quasar uses Elixir.,True,,0.9576945304870605,,1
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF18,Project Quasar depends on Celery.,False,HN1,0.8772420883178711,,2
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF19,Project Quasar supports feature streaming.,False,,0.07084989547729492,,3
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF20,Project Quasar does NOT support feature streaming.,False,HN4|HN7,0.006524696946144104,,14
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF21,Nadia works on Project Ember.,False,,2.483323260094039e-05,,39
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF22,Project Ember uses PostgreSQL in production.,False,,0.003360637230798602,,15
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF23,Project Ember uses SQLite in tests.,False,,0.0017968519823625684,,16
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF24,Feature auth is enabled by default in Project Ember.,False,,0.0006369228940457106,,18
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF25,Feature auth is enabled only when DEBUG_MODE=true in Project Ember.,False,,0.0006268226425163448,,19
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF26,Owen works on Project Lattice.,False,,3.728631418198347e-05,,35
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF27,Project Lattice requires more than 16 GB of memory.,False,,0.00021171450498513877,,28
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF28,Project Lattice requires less than 16 GB of memory.,False,HN6,0.00023886126291472465,,27
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF29,Project Lattice is deployed in Singapore.,False,,0.00017038712394423783,,29
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF30,Priya confirmed migration Lattice-Blue.,False,,7.909247506177053e-05,,31
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF31,Kai works on Project Flux.,False,,3.543564162100665e-05,,36
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF32,Project Flux uses Go.,False,,0.02181241475045681,,6
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF33,Kai said that Priya may confirm migration Lattice-Blue.,False,,0.0004515681939665228,,20
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF34,Project Flux has status alpha.,False,,0.0002516885579098016,,25
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF35,Project Flux is owned by Apex Labs.,False,,0.000343458290444687,,23
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF36,Priya works on Project Harbor.,False,,1.8043230738840066e-05,,40
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF37,Project Harbor uses TypeScript.,False,,0.010803595185279846,,11
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF38,Project Harbor depends on Redis.,False,,0.0002443464763928205,,26
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF39,Project Harbor has status GA.,False,,3.2334544812329113e-05,,37
+CQ06,What programming language powers Project Quasar?,answerable,paraphrase,CF40,Project HelixCore uses Ruby.,False,HN6,0.009560867212712765,,12
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF01,Mira works on Project Helix.,False,,2.696773299248889e-05,,27
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF02,Project Helix uses Go.,False,,7.996681961230934e-05,,17
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF03,Project Helix depends on Redis.,False,,0.00010600448149489239,,14
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF04,Project Helix is owned by Apex Labs.,False,,2.684515857254155e-05,,28
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF05,Project Helix is deployed in Frankfurt.,False,,2.080861304420978e-05,,30
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF06,Jonas works on Project Cascade.,False,HN2,1.6461855921079405e-05,,37
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF07,Project Cascade uses TypeScript.,False,,0.00016806712665129453,,8
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF08,Project Cascade depends on Kafka.,False,,4.605596768669784e-05,,20
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF09,Project Cascade is owned by Northwind Systems.,False,,4.603866545949131e-05,,21
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF10,Project Cascade has status beta.,False,,0.00015036697732284665,,9
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF11,Elena works on Project Prism.,False,,1.6518470147275366e-05,,36
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF12,Project Prism uses Kotlin.,False,,8.457956573693082e-05,,15
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF13,Project Prism depends on Grafana.,False,,4.4088006688980386e-05,,23
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF14,Project Prism currently uses Go for the API layer.,False,,0.00010755839321063831,,13
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF15,Project Prism previously used Python for the API layer.,False,,5.568150299950503e-05,,19
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF16,Theo works on Project Quasar.,False,HN1,0.0006037873681634665,,6
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF17,Project Quasar uses Elixir.,False,HN1,0.003656846471130848,,4
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF18,Project Quasar depends on Celery.,False,,0.01065688394010067,,3
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF19,Project Quasar supports feature streaming.,True,,0.9999688863754272,,1
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF20,Project Quasar does NOT support feature streaming.,False,HN7|HN1,0.9984329342842102,,2
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF21,Nadia works on Project Ember.,False,,1.6433072232757695e-05,,38
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF22,Project Ember uses PostgreSQL in production.,False,,1.8947108401334845e-05,,31
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF23,Project Ember uses SQLite in tests.,False,,2.115551251336001e-05,,29
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF24,Feature auth is enabled by default in Project Ember.,False,HN4,0.0019086000975221395,,5
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF25,Feature auth is enabled only when DEBUG_MODE=true in Project Ember.,False,HN4|HN10,0.0004910375573672354,,7
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF26,Owen works on Project Lattice.,False,,1.640468508412596e-05,,39
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF27,Project Lattice requires more than 16 GB of memory.,False,,4.3745509174186736e-05,,24
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF28,Project Lattice requires less than 16 GB of memory.,False,HN6,4.489120692596771e-05,,22
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF29,Project Lattice is deployed in Singapore.,False,,1.7547532479511574e-05,,32
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF30,Priya confirmed migration Lattice-Blue.,False,,1.6532227164134383e-05,,34
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF31,Kai works on Project Flux.,False,,1.7083297279896215e-05,,33
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF32,Project Flux uses Go.,False,,5.88714647165034e-05,,18
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF33,Kai said that Priya may confirm migration Lattice-Blue.,False,,1.6136364138219506e-05,,40
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF34,Project Flux has status alpha.,False,,0.00011356570030329749,,12
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF35,Project Flux is owned by Apex Labs.,False,,2.817261884047184e-05,,26
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF36,Priya works on Project Harbor.,False,,1.6525338651263155e-05,,35
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF37,Project Harbor uses TypeScript.,False,,0.00014528221799992025,,10
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF38,Project Harbor depends on Redis.,False,,0.0001152137410826981,,11
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF39,Project Harbor has status GA.,False,,3.329502942506224e-05,,25
+CQ07,Does Project Quasar support feature streaming?,answerable,paraphrase,CF40,Project HelixCore uses Ruby.,False,HN6,8.347199764102697e-05,,16
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF01,Mira works on Project Helix.,False,HN2,3.267474312451668e-05,,31
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF02,Project Helix uses Go.,False,,0.00023788577527739108,,6
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF03,Project Helix depends on Redis.,False,,0.0003289958112873137,,5
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF04,Project Helix is owned by Apex Labs.,False,,4.463563527679071e-05,,29
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF05,Project Helix is deployed in Frankfurt.,False,,4.737705967272632e-05,,27
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF06,Jonas works on Project Cascade.,False,,2.3266709831659682e-05,,34
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF07,Project Cascade uses TypeScript.,False,,0.00019251456251367927,,7
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF08,Project Cascade depends on Kafka.,False,,0.00010802668839460239,,14
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF09,Project Cascade is owned by Northwind Systems.,False,,5.465980575536378e-05,,23
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF10,Project Cascade has status beta.,False,,0.0001126305724028498,,12
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF11,Elena works on Project Prism.,False,,1.79495254997164e-05,,40
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF12,Project Prism uses Kotlin.,False,,9.229254646925256e-05,,16
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF13,Project Prism depends on Grafana.,False,,6.702989048790187e-05,,19
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF14,Project Prism currently uses Go for the API layer.,False,,5.0350918172625825e-05,,26
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF15,Project Prism previously used Python for the API layer.,False,,5.245236388873309e-05,,25
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF16,Theo works on Project Quasar.,False,,2.0819134078919888e-05,,36
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF17,Project Quasar uses Elixir.,False,,0.00013577676145359874,,10
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF18,Project Quasar depends on Celery.,False,,0.00012674489698838443,,11
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF19,Project Quasar supports feature streaming.,False,,6.53394017717801e-05,,20
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF20,Project Quasar does NOT support feature streaming.,False,HN6,4.4728181819664314e-05,,28
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF21,Nadia works on Project Ember.,False,,1.9118302589049563e-05,,38
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF22,Project Ember uses PostgreSQL in production.,False,HN4,7.92824721429497e-05,,17
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF23,Project Ember uses SQLite in tests.,False,,5.749331467086449e-05,,22
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF24,Feature auth is enabled by default in Project Ember.,False,,2.6406349206808954e-05,,33
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF25,Feature auth is enabled only when DEBUG_MODE=true in Project Ember.,False,,1.931669066834729e-05,,37
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF26,Owen works on Project Lattice.,False,HN1,0.000658466771710664,,4
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF27,Project Lattice requires more than 16 GB of memory.,True,,0.9999643564224243,,1
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF28,Project Lattice requires less than 16 GB of memory.,False,HN12|HN1,0.9744248390197754,,2
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF29,Project Lattice is deployed in Singapore.,False,HN1,0.002509511075913906,,3
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF30,Priya confirmed migration Lattice-Blue.,False,HN4,4.307751078158617e-05,,30
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF31,Kai works on Project Flux.,False,,2.087796565319877e-05,,35
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF32,Project Flux uses Go.,False,,9.878259879769757e-05,,15
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF33,Kai said that Priya may confirm migration Lattice-Blue.,False,HN3|HN11,5.3249779739417136e-05,,24
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF34,Project Flux has status alpha.,False,,5.761883585364558e-05,,21
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF35,Project Flux is owned by Apex Labs.,False,,2.9423536034300923e-05,,32
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF36,Priya works on Project Harbor.,False,,1.8629063561093062e-05,,39
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF37,Project Harbor uses TypeScript.,False,,0.00011144609015900642,,13
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF38,Project Harbor depends on Redis.,False,,0.00016584178956691176,,8
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF39,Project Harbor has status GA.,False,,7.59332106099464e-05,,18
+CQ08,Does Project Lattice require more than 16 GB of memory?,answerable,paraphrase,CF40,Project HelixCore uses Ruby.,False,HN6,0.0001585273421369493,,9
+CQ09,What is related to Project Helix?,answerable,broad,CF01,Mira works on Project Helix.,True,,0.1340988278388977,,2
+CQ09,What is related to Project Helix?,answerable,broad,CF02,Project Helix uses Go.,True,,0.02084925025701523,,5
+CQ09,What is related to Project Helix?,answerable,broad,CF03,Project Helix depends on Redis.,True,,0.10598124563694,,3
+CQ09,What is related to Project Helix?,answerable,broad,CF04,Project Helix is owned by Apex Labs.,True,,0.39909622073173523,,1
+CQ09,What is related to Project Helix?,answerable,broad,CF05,Project Helix is deployed in Frankfurt.,True,,0.0719490498304367,,4
+CQ09,What is related to Project Helix?,answerable,broad,CF06,Jonas works on Project Cascade.,False,HN2,2.2665044525638223e-05,,33
+CQ09,What is related to Project Helix?,answerable,broad,CF07,Project Cascade uses TypeScript.,False,,4.528872887021862e-05,,20
+CQ09,What is related to Project Helix?,answerable,broad,CF08,Project Cascade depends on Kafka.,False,,4.024443114758469e-05,,23
+CQ09,What is related to Project Helix?,answerable,broad,CF09,Project Cascade is owned by Northwind Systems.,False,,4.7724224714329466e-05,,18
+CQ09,What is related to Project Helix?,answerable,broad,CF10,Project Cascade has status beta.,False,,4.401541082188487e-05,,21
+CQ09,What is related to Project Helix?,answerable,broad,CF11,Elena works on Project Prism.,False,,3.152667704853229e-05,,29
+CQ09,What is related to Project Helix?,answerable,broad,CF12,Project Prism uses Kotlin.,False,,4.6127614041324705e-05,,19
+CQ09,What is related to Project Helix?,answerable,broad,CF13,Project Prism depends on Grafana.,False,,8.693635027157143e-05,,10
+CQ09,What is related to Project Helix?,answerable,broad,CF14,Project Prism currently uses Go for the API layer.,False,HN4,4.397467273520306e-05,,22
+CQ09,What is related to Project Helix?,answerable,broad,CF15,Project Prism previously used Python for the API layer.,False,HN4,5.2410214266274124e-05,,15
+CQ09,What is related to Project Helix?,answerable,broad,CF16,Theo works on Project Quasar.,False,,3.476251004030928e-05,,27
+CQ09,What is related to Project Helix?,answerable,broad,CF17,Project Quasar uses Elixir.,False,,5.190497176954523e-05,,16
+CQ09,What is related to Project Helix?,answerable,broad,CF18,Project Quasar depends on Celery.,False,,0.00010426511289551854,,8
+CQ09,What is related to Project Helix?,answerable,broad,CF19,Project Quasar supports feature streaming.,False,,3.5190685593988746e-05,,26
+CQ09,What is related to Project Helix?,answerable,broad,CF20,Project Quasar does NOT support feature streaming.,False,HN6,1.6471905837533996e-05,,37
+CQ09,What is related to Project Helix?,answerable,broad,CF21,Nadia works on Project Ember.,False,,3.0451687052845955e-05,,30
+CQ09,What is related to Project Helix?,answerable,broad,CF22,Project Ember uses PostgreSQL in production.,False,,2.1819616449647583e-05,,34
+CQ09,What is related to Project Helix?,answerable,broad,CF23,Project Ember uses SQLite in tests.,False,HN4,1.9656050426419824e-05,,35
+CQ09,What is related to Project Helix?,answerable,broad,CF24,Feature auth is enabled by default in Project Ember.,False,,1.6340121874236502e-05,,39
+CQ09,What is related to Project Helix?,answerable,broad,CF25,Feature auth is enabled only when DEBUG_MODE=true in Project Ember.,False,,1.622140916879289e-05,,40
+CQ09,What is related to Project Helix?,answerable,broad,CF26,Owen works on Project Lattice.,False,,2.507281351427082e-05,,32
+CQ09,What is related to Project Helix?,answerable,broad,CF27,Project Lattice requires more than 16 GB of memory.,False,,8.318109030369669e-05,,11
+CQ09,What is related to Project Helix?,answerable,broad,CF28,Project Lattice requires less than 16 GB of memory.,False,HN6|HN12,5.5080185120459646e-05,,12
+CQ09,What is related to Project Helix?,answerable,broad,CF29,Project Lattice is deployed in Singapore.,False,,3.675102925626561e-05,,25
+CQ09,What is related to Project Helix?,answerable,broad,CF30,Priya confirmed migration Lattice-Blue.,False,,1.6383579350076616e-05,,38
+CQ09,What is related to Project Helix?,answerable,broad,CF31,Kai works on Project Flux.,False,,5.377939305617474e-05,,13
+CQ09,What is related to Project Helix?,answerable,broad,CF32,Project Flux uses Go.,False,,5.328218685463071e-05,,14
+CQ09,What is related to Project Helix?,answerable,broad,CF33,Kai said that Priya may confirm migration Lattice-Blue.,False,HN11,1.6602203686488792e-05,,36
+CQ09,What is related to Project Helix?,answerable,broad,CF34,Project Flux has status alpha.,False,,9.6992684120778e-05,,9
+CQ09,What is related to Project Helix?,answerable,broad,CF35,Project Flux is owned by Apex Labs.,False,,0.00011086883750976995,,7
+CQ09,What is related to Project Helix?,answerable,broad,CF36,Priya works on Project Harbor.,False,,3.853363887174055e-05,,24
+CQ09,What is related to Project Helix?,answerable,broad,CF37,Project Harbor uses TypeScript.,False,,2.8737464162986726e-05,,31
+CQ09,What is related to Project Helix?,answerable,broad,CF38,Project Harbor depends on Redis.,False,,5.156283805263229e-05,,17
+CQ09,What is related to Project Helix?,answerable,broad,CF39,Project Harbor has status GA.,False,,3.416876643314026e-05,,28
+CQ09,What is related to Project Helix?,answerable,broad,CF40,Project HelixCore uses Ruby.,False,HN5|HN3,0.017152544111013412,,6
+CQ10,What should I know about Project Cascade?,answerable,broad,CF01,Mira works on Project Helix.,False,HN2,1.830635119404178e-05,,22
+CQ10,What should I know about Project Cascade?,answerable,broad,CF02,Project Helix uses Go.,False,,1.84050095413113e-05,,20
+CQ10,What should I know about Project Cascade?,answerable,broad,CF03,Project Helix depends on Redis.,False,,1.9927821995224804e-05,,15
+CQ10,What should I know about Project Cascade?,answerable,broad,CF04,Project Helix is owned by Apex Labs.,False,,2.0743329514516518e-05,,12
+CQ10,What should I know about Project Cascade?,answerable,broad,CF05,Project Helix is deployed in Frankfurt.,False,,2.1614789147861302e-05,,10
+CQ10,What should I know about Project Cascade?,answerable,broad,CF06,Jonas works on Project Cascade.,True,,0.007979610934853554,,4
+CQ10,What should I know about Project Cascade?,answerable,broad,CF07,Project Cascade uses TypeScript.,True,,0.0229226965457201,,3
+CQ10,What should I know about Project Cascade?,answerable,broad,CF08,Project Cascade depends on Kafka.,True,,0.0039996188133955,,5
+CQ10,What should I know about Project Cascade?,answerable,broad,CF09,Project Cascade is owned by Northwind Systems.,True,,0.22129406034946442,,1
+CQ10,What should I know about Project Cascade?,answerable,broad,CF10,Project Cascade has status beta.,True,,0.03189294412732124,,2
+CQ10,What should I know about Project Cascade?,answerable,broad,CF11,Elena works on Project Prism.,False,,1.6474372387165204e-05,,33
+CQ10,What should I know about Project Cascade?,answerable,broad,CF12,Project Prism uses Kotlin.,False,,1.7577127437107265e-05,,27
+CQ10,What should I know about Project Cascade?,answerable,broad,CF13,Project Prism depends on Grafana.,False,,1.7749938706401736e-05,,25
+CQ10,What should I know about Project Cascade?,answerable,broad,CF14,Project Prism currently uses Go for the API layer.,False,,1.8154056306229904e-05,,23
+CQ10,What should I know about Project Cascade?,answerable,broad,CF15,Project Prism previously used Python for the API layer.,False,HN4,1.750314186210744e-05,,28
+CQ10,What should I know about Project Cascade?,answerable,broad,CF16,Theo works on Project Quasar.,False,,2.0458151993807405e-05,,13
+CQ10,What should I know about Project Cascade?,answerable,broad,CF17,Project Quasar uses Elixir.,False,,2.1466474208864383e-05,,11
+CQ10,What should I know about Project Cascade?,answerable,broad,CF18,Project Quasar depends on Celery.,False,,2.264445720356889e-05,,8
+CQ10,What should I know about Project Cascade?,answerable,broad,CF19,Project Quasar supports feature streaming.,False,,2.1764813936897554e-05,,9
+CQ10,What should I know about Project Cascade?,answerable,broad,CF20,Project Quasar does NOT support feature streaming.,False,HN6|HN7,1.6277350368909538e-05,,36
+CQ10,What should I know about Project Cascade?,answerable,broad,CF21,Nadia works on Project Ember.,False,,1.657135726418346e-05,,32
+CQ10,What should I know about Project Cascade?,answerable,broad,CF22,Project Ember uses PostgreSQL in production.,False,,1.6369071090593934e-05,,34
+CQ10,What should I know about Project Cascade?,answerable,broad,CF23,Project Ember uses SQLite in tests.,False,,1.635970693314448e-05,,35
+CQ10,What should I know about Project Cascade?,answerable,broad,CF24,Feature auth is enabled by default in Project Ember.,False,,1.6257121387752704e-05,,37
+CQ10,What should I know about Project Cascade?,answerable,broad,CF25,Feature auth is enabled only when DEBUG_MODE=true in Project Ember.,False,,1.6100762877613306e-05,,40
+CQ10,What should I know about Project Cascade?,answerable,broad,CF26,Owen works on Project Lattice.,False,,1.7452141037210822e-05,,29
+CQ10,What should I know about Project Cascade?,answerable,broad,CF27,Project Lattice requires more than 16 GB of memory.,False,,3.827390537480824e-05,,6
+CQ10,What should I know about Project Cascade?,answerable,broad,CF28,Project Lattice requires less than 16 GB of memory.,False,HN6,2.862570181605406e-05,,7
+CQ10,What should I know about Project Cascade?,answerable,broad,CF29,Project Lattice is deployed in Singapore.,False,,2.000236236199271e-05,,14
+CQ10,What should I know about Project Cascade?,answerable,broad,CF30,Priya confirmed migration Lattice-Blue.,False,,1.6215268260566518e-05,,38
+CQ10,What should I know about Project Cascade?,answerable,broad,CF31,Kai works on Project Flux.,False,,1.696942672424484e-05,,30
+CQ10,What should I know about Project Cascade?,answerable,broad,CF32,Project Flux uses Go.,False,,1.6620548194623552e-05,,31
+CQ10,What should I know about Project Cascade?,answerable,broad,CF33,Kai said that Priya may confirm migration Lattice-Blue.,False,HN11,1.6214928109548055e-05,,39
+CQ10,What should I know about Project Cascade?,answerable,broad,CF34,Project Flux has status alpha.,False,,1.7927986846189015e-05,,24
+CQ10,What should I know about Project Cascade?,answerable,broad,CF35,Project Flux is owned by Apex Labs.,False,,1.769327172951307e-05,,26
+CQ10,What should I know about Project Cascade?,answerable,broad,CF36,Priya works on Project Harbor.,False,,1.916713699756656e-05,,17
+CQ10,What should I know about Project Cascade?,answerable,broad,CF37,Project Harbor uses TypeScript.,False,HN3,1.8344257114222273e-05,,21
+CQ10,What should I know about Project Cascade?,answerable,broad,CF38,Project Harbor depends on Redis.,False,,1.9025617802981287e-05,,18
+CQ10,What should I know about Project Cascade?,answerable,broad,CF39,Project Harbor has status GA.,False,,1.9185259588994086e-05,,16
+CQ10,What should I know about Project Cascade?,answerable,broad,CF40,Project HelixCore uses Ruby.,False,HN6,1.8655267922440544e-05,,19
+CQ11,What components are associated with Project Ember?,answerable,broad,CF01,Mira works on Project Helix.,False,HN6,3.965148061979562e-05,,23
+CQ11,What components are associated with Project Ember?,answerable,broad,CF02,Project Helix uses Go.,False,,3.6338751669973135e-05,,26
+CQ11,What components are associated with Project Ember?,answerable,broad,CF03,Project Helix depends on Redis.,False,,0.00012607494136318564,,8
+CQ11,What components are associated with Project Ember?,answerable,broad,CF04,Project Helix is owned by Apex Labs.,False,,3.939150337828323e-05,,25
+CQ11,What components are associated with Project Ember?,answerable,broad,CF05,Project Helix is deployed in Frankfurt.,False,,2.683059574337676e-05,,32
+CQ11,What components are associated with Project Ember?,answerable,broad,CF06,Jonas works on Project Cascade.,False,,2.057701931335032e-05,,38
+CQ11,What components are associated with Project Ember?,answerable,broad,CF07,Project Cascade uses TypeScript.,False,,7.522317173425108e-05,,14
+CQ11,What components are associated with Project Ember?,answerable,broad,CF08,Project Cascade depends on Kafka.,False,,4.411664485814981e-05,,20
+CQ11,What components are associated with Project Ember?,answerable,broad,CF09,Project Cascade is owned by Northwind Systems.,False,,2.4316559574799612e-05,,35
+CQ11,What components are associated with Project Ember?,answerable,broad,CF10,Project Cascade has status beta.,False,,2.5751185603439808e-05,,33
+CQ11,What components are associated with Project Ember?,answerable,broad,CF11,Elena works on Project Prism.,False,,2.9761562473140657e-05,,29
+CQ11,What components are associated with Project Ember?,answerable,broad,CF12,Project Prism uses Kotlin.,False,,0.00010148862929781899,,10
+CQ11,What components are associated with Project Ember?,answerable,broad,CF13,Project Prism depends on Grafana.,False,,0.00016894294822122902,,7
+CQ11,What components are associated with Project Ember?,answerable,broad,CF14,Project Prism currently uses Go for the API layer.,False,,9.352945198770612e-05,,11
+CQ11,What components are associated with Project Ember?,answerable,broad,CF15,Project Prism previously used Python for the API layer.,False,HN8,0.00012517423601821065,,9
+CQ11,What components are associated with Project Ember?,answerable,broad,CF16,Theo works on Project Quasar.,False,,5.164196772966534e-05,,18
+CQ11,What components are associated with Project Ember?,answerable,broad,CF17,Project Quasar uses Elixir.,False,,7.200871186796576e-05,,15
+CQ11,What components are associated with Project Ember?,answerable,broad,CF18,Project Quasar depends on Celery.,False,,0.00023541713017039,,6
+CQ11,What components are associated with Project Ember?,answerable,broad,CF19,Project Quasar supports feature streaming.,False,,2.9617533073178492e-05,,30
+CQ11,What components are associated with Project Ember?,answerable,broad,CF20,Project Quasar does NOT support feature streaming.,False,HN7,1.7159860362880863e-05,,40
+CQ11,What components are associated with Project Ember?,answerable,broad,CF21,Nadia works on Project Ember.,True,,0.018454916775226593,,3
+CQ11,What components are associated with Project Ember?,answerable,broad,CF22,Project Ember uses PostgreSQL in production.,True,,0.11719151586294174,,1
+CQ11,What components are associated with Project Ember?,answerable,broad,CF23,Project Ember uses SQLite in tests.,False,HN9,0.030819658190011978,,2
+CQ11,What components are associated with Project Ember?,answerable,broad,CF24,Feature auth is enabled by default in Project Ember.,True,,0.003918759990483522,,4
+CQ11,What components are associated with Project Ember?,answerable,broad,CF25,Feature auth is enabled only when DEBUG_MODE=true in Project Ember.,False,HN10,0.0008224878110922873,,5
+CQ11,What components are associated with Project Ember?,answerable,broad,CF26,Owen works on Project Lattice.,False,,3.1158797355601564e-05,,28
+CQ11,What components are associated with Project Ember?,answerable,broad,CF27,Project Lattice requires more than 16 GB of memory.,False,,4.74954467790667e-05,,19
+CQ11,What components are associated with Project Ember?,answerable,broad,CF28,Project Lattice requires less than 16 GB of memory.,False,HN12,4.4024185626767576e-05,,21
+CQ11,What components are associated with Project Ember?,answerable,broad,CF29,Project Lattice is deployed in Singapore.,False,,2.280845546920318e-05,,37
+CQ11,What components are associated with Project Ember?,answerable,broad,CF30,Priya confirmed migration Lattice-Blue.,False,,2.3329967007157393e-05,,36
+CQ11,What components are associated with Project Ember?,answerable,broad,CF31,Kai works on Project Flux.,False,,2.9057990104774944e-05,,31
+CQ11,What components are associated with Project Ember?,answerable,broad,CF32,Project Flux uses Go.,False,,3.957788794650696e-05,,24
+CQ11,What components are associated with Project Ember?,answerable,broad,CF33,Kai said that Priya may confirm migration Lattice-Blue.,False,HN11,4.246889511705376e-05,,22
+CQ11,What components are associated with Project Ember?,answerable,broad,CF34,Project Flux has status alpha.,False,,5.527081884793006e-05,,17
+CQ11,What components are associated with Project Ember?,answerable,broad,CF35,Project Flux is owned by Apex Labs.,False,,3.3104497560998425e-05,,27
+CQ11,What components are associated with Project Ember?,answerable,broad,CF36,Priya works on Project Harbor.,False,,2.453482011333108e-05,,34
+CQ11,What components are associated with Project Ember?,answerable,broad,CF37,Project Harbor uses TypeScript.,False,,8.931176853366196e-05,,12
+CQ11,What components are associated with Project Ember?,answerable,broad,CF38,Project Harbor depends on Redis.,False,,6.266631680773571e-05,,16
+CQ11,What components are associated with Project Ember?,answerable,broad,CF39,Project Harbor has status GA.,False,,1.873348082881421e-05,,39
+CQ11,What components are associated with Project Ember?,answerable,broad,CF40,Project HelixCore uses Ruby.,False,HN6,8.450644236290827e-05,,13
+CQ12,Tell me about Project Flux.,answerable,broad,CF01,Mira works on Project Helix.,False,HN2,0.0003844507737085223,,9
+CQ12,Tell me about Project Flux.,answerable,broad,CF02,Project Helix uses Go.,False,,0.0004599887761287391,,8
+CQ12,Tell me about Project Flux.,answerable,broad,CF03,Project Helix depends on Redis.,False,,0.00060699024470523,,6
+CQ12,Tell me about Project Flux.,answerable,broad,CF04,Project Helix is owned by Apex Labs.,False,,0.0008958891849033535,,5
+CQ12,Tell me about Project Flux.,answerable,broad,CF05,Project Helix is deployed in Frankfurt.,False,,0.0005609908839687705,,7
+CQ12,Tell me about Project Flux.,answerable,broad,CF06,Jonas works on Project Cascade.,False,,5.3667656175093725e-05,,31
+CQ12,Tell me about Project Flux.,answerable,broad,CF07,Project Cascade uses TypeScript.,False,,0.00011669735249597579,,21
+CQ12,Tell me about Project Flux.,answerable,broad,CF08,Project Cascade depends on Kafka.,False,,5.269059693091549e-05,,32
+CQ12,Tell me about Project Flux.,answerable,broad,CF09,Project Cascade is owned by Northwind Systems.,False,,6.61258163745515e-05,,29
+CQ12,Tell me about Project Flux.,answerable,broad,CF10,Project Cascade has status beta.,False,,0.0002394591283518821,,11
+CQ12,Tell me about Project Flux.,answerable,broad,CF11,Elena works on Project Prism.,False,,7.677336543565616e-05,,27
+CQ12,Tell me about Project Flux.,answerable,broad,CF12,Project Prism uses Kotlin.,False,,0.00019643815176095814,,15
+CQ12,Tell me about Project Flux.,answerable,broad,CF13,Project Prism depends on Grafana.,False,,8.050024916883558e-05,,24
+CQ12,Tell me about Project Flux.,answerable,broad,CF14,Project Prism currently uses Go for the API layer.,False,,0.0002556235122028738,,10
+CQ12,Tell me about Project Flux.,answerable,broad,CF15,Project Prism previously used Python for the API layer.,False,HN8,0.00015203897783067077,,17
+CQ12,Tell me about Project Flux.,answerable,broad,CF16,Theo works on Project Quasar.,False,,0.00013522118388209492,,19
+CQ12,Tell me about Project Flux.,answerable,broad,CF17,Project Quasar uses Elixir.,False,,0.00014494970673695207,,18
+CQ12,Tell me about Project Flux.,answerable,broad,CF18,Project Quasar depends on Celery.,False,,7.841073966119438e-05,,25
+CQ12,Tell me about Project Flux.,answerable,broad,CF19,Project Quasar supports feature streaming.,False,,0.00021955170086584985,,13
+CQ12,Tell me about Project Flux.,answerable,broad,CF20,Project Quasar does NOT support feature streaming.,False,HN6,2.4973256586235948e-05,,37
+CQ12,Tell me about Project Flux.,answerable,broad,CF21,Nadia works on Project Ember.,False,,0.0001928801939357072,,16
+CQ12,Tell me about Project Flux.,answerable,broad,CF22,Project Ember uses PostgreSQL in production.,False,,7.541249215137213e-05,,28
+CQ12,Tell me about Project Flux.,answerable,broad,CF23,Project Ember uses SQLite in tests.,False,,4.689430716098286e-05,,34
+CQ12,Tell me about Project Flux.,answerable,broad,CF24,Feature auth is enabled by default in Project Ember.,False,,3.822174767265096e-05,,35
+CQ12,Tell me about Project Flux.,answerable,broad,CF25,Feature auth is enabled only when DEBUG_MODE=true in Project Ember.,False,,1.754058939695824e-05,,38
+CQ12,Tell me about Project Flux.,answerable,broad,CF26,Owen works on Project Lattice.,False,,5.891819455428049e-05,,30
+CQ12,Tell me about Project Flux.,answerable,broad,CF27,Project Lattice requires more than 16 GB of memory.,False,,5.148932905285619e-05,,33
+CQ12,Tell me about Project Flux.,answerable,broad,CF28,Project Lattice requires less than 16 GB of memory.,False,HN12,3.185749301337637e-05,,36
+CQ12,Tell me about Project Flux.,answerable,broad,CF29,Project Lattice is deployed in Singapore.,False,,9.847571345744655e-05,,22
+CQ12,Tell me about Project Flux.,answerable,broad,CF30,Priya confirmed migration Lattice-Blue.,False,,1.632001658435911e-05,,40
+CQ12,Tell me about Project Flux.,answerable,broad,CF31,Kai works on Project Flux.,True,,0.1252961903810501,,3
+CQ12,Tell me about Project Flux.,answerable,broad,CF32,Project Flux uses Go.,True,,0.04234975203871727,,4
+CQ12,Tell me about Project Flux.,answerable,broad,CF33,Kai said that Priya may confirm migration Lattice-Blue.,False,HN11|HN4,1.6485562809975818e-05,,39
+CQ12,Tell me about Project Flux.,answerable,broad,CF34,Project Flux has status alpha.,True,,0.16385339200496674,,2
+CQ12,Tell me about Project Flux.,answerable,broad,CF35,Project Flux is owned by Apex Labs.,True,,0.5901251435279846,,1
+CQ12,Tell me about Project Flux.,answerable,broad,CF36,Priya works on Project Harbor.,False,,7.749648648314178e-05,,26
+CQ12,Tell me about Project Flux.,answerable,broad,CF37,Project Harbor uses TypeScript.,False,,0.00013471694546751678,,20
+CQ12,Tell me about Project Flux.,answerable,broad,CF38,Project Harbor depends on Redis.,False,,0.0002319346385775134,,12
+CQ12,Tell me about Project Flux.,answerable,broad,CF39,Project Harbor has status GA.,False,,9.203355148201808e-05,,23
+CQ12,Tell me about Project Flux.,answerable,broad,CF40,Project HelixCore uses Ruby.,False,HN6,0.00020284552010707557,,14
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF01,Mira works on Project Helix.,False,,0.00910455547273159,,2
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF02,Project Helix uses Go.,False,,2.7193989808438346e-05,,23
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF03,Project Helix depends on Redis.,False,,0.00021323371038306504,,10
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF04,Project Helix is owned by Apex Labs.,False,,8.62250744830817e-05,,14
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF05,Project Helix is deployed in Frankfurt.,False,,3.4301283449167386e-05,,19
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF06,Jonas works on Project Cascade.,False,,0.006204952020198107,,5
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF07,Project Cascade uses TypeScript.,False,,2.072575080092065e-05,,32
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF08,Project Cascade depends on Kafka.,False,,0.0001249539782293141,,13
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF09,Project Cascade is owned by Northwind Systems.,False,,3.4499098546803e-05,,18
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF10,Project Cascade has status beta.,False,,2.5681314582470804e-05,,24
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF11,Elena works on Project Prism.,False,,0.0025239414535462856,,8
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF12,Project Prism uses Kotlin.,False,,3.1173654861049727e-05,,21
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF13,Project Prism depends on Grafana.,False,,0.00013879603648092598,,12
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF14,Project Prism currently uses Go for the API layer.,False,,2.4794966520857997e-05,,25
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF15,Project Prism previously used Python for the API layer.,False,,2.0264482373022474e-05,,35
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF16,Theo works on Project Quasar.,False,,0.0069808741100132465,,4
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF17,Project Quasar uses Elixir.,False,,4.0275263017974794e-05,,16
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF18,Project Quasar depends on Celery.,False,,0.0002992124354932457,,9
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF19,Project Quasar supports feature streaming.,False,,2.0624738681362942e-05,,33
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF20,Project Quasar does NOT support feature streaming.,False,,1.6331288861692883e-05,,38
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF21,Nadia works on Project Ember.,False,,0.00793467927724123,,3
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF22,Project Ember uses PostgreSQL in production.,False,,2.0578274416038767e-05,,34
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF23,Project Ember uses SQLite in tests.,False,,1.8576851289253682e-05,,37
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF24,Feature auth is enabled by default in Project Ember.,False,,1.6141473679454066e-05,,39
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF25,Feature auth is enabled only when DEBUG_MODE=true in Project Ember.,False,,1.6066926036728546e-05,,40
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF26,Owen works on Project Lattice.,False,,0.0034241825342178345,,7
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF27,Project Lattice requires more than 16 GB of memory.,False,,2.1849975382792763e-05,,28
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF28,Project Lattice requires less than 16 GB of memory.,False,,1.8640987036633305e-05,,36
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF29,Project Lattice is deployed in Singapore.,False,,2.1656218450516462e-05,,29
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF30,Priya confirmed migration Lattice-Blue.,False,,2.34231301874388e-05,,26
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF31,Kai works on Project Flux.,False,,0.005466056987643242,,6
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF32,Project Flux uses Go.,False,,2.24121286009904e-05,,27
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF33,Kai said that Priya may confirm migration Lattice-Blue.,False,,3.723933332366869e-05,,17
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF34,Project Flux has status alpha.,False,,2.737398972385563e-05,,22
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF35,Project Flux is owned by Apex Labs.,False,,4.796197754330933e-05,,15
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF36,Priya works on Project Harbor.,False,,0.01028798520565033,,1
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF37,Project Harbor uses TypeScript.,False,,2.1313850083970465e-05,,31
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF38,Project Harbor depends on Redis.,False,,0.0001806961081456393,,11
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF39,Project Harbor has status GA.,False,,2.1612624550471082e-05,,30
+CQ13,Who works on Project Zephyr?,no_answer,nonexistent,CF40,Project HelixCore uses Ruby.,False,,3.2928521250141785e-05,,20
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF01,Mira works on Project Helix.,False,,3.309872045065276e-05,,28
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF02,Project Helix uses Go.,False,,0.03239838033914566,,1
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF03,Project Helix depends on Redis.,False,,0.0003935142303816974,,13
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF04,Project Helix is owned by Apex Labs.,False,,8.865492418408394e-05,,20
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF05,Project Helix is deployed in Frankfurt.,False,,4.6578752517234534e-05,,24
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF06,Jonas works on Project Cascade.,False,,1.7480622773291543e-05,,37
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF07,Project Cascade uses TypeScript.,False,,0.014478806406259537,,8
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF08,Project Cascade depends on Kafka.,False,,0.005079171620309353,,10
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF09,Project Cascade is owned by Northwind Systems.,False,,2.976164614665322e-05,,30
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF10,Project Cascade has status beta.,False,,0.00010955025936709717,,19
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF11,Elena works on Project Prism.,False,,1.7487493096268736e-05,,36
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF12,Project Prism uses Kotlin.,False,,0.031058041378855705,,2
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF13,Project Prism depends on Grafana.,False,,0.00035070511512458324,,14
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF14,Project Prism currently uses Go for the API layer.,False,,0.019702985882759094,,3
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF15,Project Prism previously used Python for the API layer.,False,,0.015486620366573334,,7
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF16,Theo works on Project Quasar.,False,,2.244964889541734e-05,,34
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF17,Project Quasar uses Elixir.,False,,0.009094683453440666,,9
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF18,Project Quasar depends on Celery.,False,,0.00026149305631406605,,15
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF19,Project Quasar supports feature streaming.,False,,7.413553248625249e-05,,21
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF20,Project Quasar does NOT support feature streaming.,False,,5.6936685723485425e-05,,23
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF21,Nadia works on Project Ember.,False,,1.8819753677234985e-05,,35
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF22,Project Ember uses PostgreSQL in production.,False,,0.0035351470578461885,,11
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF23,Project Ember uses SQLite in tests.,False,,0.002110021188855171,,12
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF24,Feature auth is enabled by default in Project Ember.,False,,0.00012970501848030835,,18
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF25,Feature auth is enabled only when DEBUG_MODE=true in Project Ember.,False,,3.288822699687444e-05,,29
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF26,Owen works on Project Lattice.,False,,1.693520061962772e-05,,39
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF27,Project Lattice requires more than 16 GB of memory.,False,,3.896427733707242e-05,,27
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF28,Project Lattice requires less than 16 GB of memory.,False,,4.006353992735967e-05,,26
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF29,Project Lattice is deployed in Singapore.,False,,2.8192587706143968e-05,,31
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF30,Priya confirmed migration Lattice-Blue.,False,,2.2466696464107372e-05,,33
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF31,Kai works on Project Flux.,False,,1.739997424010653e-05,,38
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF32,Project Flux uses Go.,False,,0.01740322820842266,,5
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF33,Kai said that Priya may confirm migration Lattice-Blue.,False,,1.6826183127705008e-05,,40
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF34,Project Flux has status alpha.,False,,0.00014030514284968376,,17
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF35,Project Flux is owned by Apex Labs.,False,,4.354925113148056e-05,,25
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF36,Priya works on Project Harbor.,False,,2.31413960136706e-05,,32
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF37,Project Harbor uses TypeScript.,False,,0.019269119948148727,,4
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF38,Project Harbor depends on Redis.,False,,0.0001550256711198017,,16
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF39,Project Harbor has status GA.,False,,5.943431460764259e-05,,22
+CQ14,What language does Project Orion use?,no_answer,nonexistent,CF40,Project HelixCore uses Ruby.,False,,0.01615082658827305,,6
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF01,Mira works on Project Helix.,False,,4.424747021403164e-05,,10
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF02,Project Helix uses Go.,False,,2.847706673492212e-05,,19
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF03,Project Helix depends on Redis.,False,,5.253325798548758e-05,,9
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF04,Project Helix is owned by Apex Labs.,False,,3.0433395295403898e-05,,18
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF05,Project Helix is deployed in Frankfurt.,False,,0.036909185349941254,,1
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF06,Jonas works on Project Cascade.,False,,2.2952510335016996e-05,,28
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF07,Project Cascade uses TypeScript.,False,,2.3206766854855232e-05,,26
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF08,Project Cascade depends on Kafka.,False,,2.5435458155698143e-05,,23
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF09,Project Cascade is owned by Northwind Systems.,False,,3.127030504401773e-05,,17
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF10,Project Cascade has status beta.,False,,6.013441088725813e-05,,7
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF11,Elena works on Project Prism.,False,,1.923316449392587e-05,,34
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF12,Project Prism uses Kotlin.,False,,3.495575219858438e-05,,15
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF13,Project Prism depends on Grafana.,False,,4.197545786155388e-05,,11
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF14,Project Prism currently uses Go for the API layer.,False,,6.026334085618146e-05,,6
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF15,Project Prism previously used Python for the API layer.,False,,3.894729888997972e-05,,12
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF16,Theo works on Project Quasar.,False,,2.439867239445448e-05,,24
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF17,Project Quasar uses Elixir.,False,,3.1815958209335804e-05,,16
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF18,Project Quasar depends on Celery.,False,,5.34913269802928e-05,,8
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF19,Project Quasar supports feature streaming.,False,,2.1619529434246942e-05,,30
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF20,Project Quasar does NOT support feature streaming.,False,,1.679613887972664e-05,,38
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF21,Nadia works on Project Ember.,False,,3.772121272049844e-05,,14
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF22,Project Ember uses PostgreSQL in production.,False,,2.041856714640744e-05,,31
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF23,Project Ember uses SQLite in tests.,False,,1.9806017007795162e-05,,32
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF24,Feature auth is enabled by default in Project Ember.,False,,1.623851312615443e-05,,40
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF25,Feature auth is enabled only when DEBUG_MODE=true in Project Ember.,False,,1.663293005549349e-05,,39
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF26,Owen works on Project Lattice.,False,,1.7924037820193917e-05,,36
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF27,Project Lattice requires more than 16 GB of memory.,False,,2.2748979972675443e-05,,29
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF28,Project Lattice requires less than 16 GB of memory.,False,,2.2973161321715452e-05,,27
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF29,Project Lattice is deployed in Singapore.,False,,0.03543584421277046,,2
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF30,Priya confirmed migration Lattice-Blue.,False,,1.7687450963421725e-05,,37
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF31,Kai works on Project Flux.,False,,1.9466055164230056e-05,,33
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF32,Project Flux uses Go.,False,,2.3754981157253496e-05,,25
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF33,Kai said that Priya may confirm migration Lattice-Blue.,False,,1.8704704416450113e-05,,35
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF34,Project Flux has status alpha.,False,,3.8792244595242664e-05,,13
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF35,Project Flux is owned by Apex Labs.,False,,2.6277728466084227e-05,,21
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF36,Priya works on Project Harbor.,False,,8.959710976341739e-05,,4
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF37,Project Harbor uses TypeScript.,False,,2.555966239015106e-05,,22
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF38,Project Harbor depends on Redis.,False,,7.504870154662058e-05,,5
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF39,Project Harbor has status GA.,False,,0.00013724899326916784,,3
+CQ15,Where is Project Nova deployed?,no_answer,nonexistent,CF40,Project HelixCore uses Ruby.,False,,2.6368075850768946e-05,,20
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF01,Mira works on Project Helix.,False,,0.000125472157378681,,9
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF02,Project Helix uses Go.,False,,4.4229032937437296e-05,,12
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF03,Project Helix depends on Redis.,False,,0.0011569478083401918,,4
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF04,Project Helix is owned by Apex Labs.,False,,0.014469480141997337,,1
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF05,Project Helix is deployed in Frankfurt.,False,,2.4805918656056747e-05,,25
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF06,Jonas works on Project Cascade.,False,,2.1437281247926876e-05,,30
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF07,Project Cascade uses TypeScript.,False,,2.087267057504505e-05,,31
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF08,Project Cascade depends on Kafka.,False,,0.00021574259153567255,,8
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF09,Project Cascade is owned by Northwind Systems.,False,,0.004011011216789484,,3
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF10,Project Cascade has status beta.,False,,3.5752880648942664e-05,,16
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF11,Elena works on Project Prism.,False,,1.7722215488902293e-05,,34
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF12,Project Prism uses Kotlin.,False,,2.7163585400558077e-05,,21
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF13,Project Prism depends on Grafana.,False,,0.00045524752931669354,,7
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF14,Project Prism currently uses Go for the API layer.,False,,2.704378312046174e-05,,22
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF15,Project Prism previously used Python for the API layer.,False,,1.8607437596074305e-05,,32
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF16,Theo works on Project Quasar.,False,,2.465514262439683e-05,,26
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF17,Project Quasar uses Elixir.,False,,2.529248195060063e-05,,24
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF18,Project Quasar depends on Celery.,False,,0.0006942346808500588,,6
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF19,Project Quasar supports feature streaming.,False,,2.2322346922010183e-05,,27
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF20,Project Quasar does NOT support feature streaming.,False,,1.635983062442392e-05,,36
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF21,Nadia works on Project Ember.,False,,3.728990486706607e-05,,15
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF22,Project Ember uses PostgreSQL in production.,False,,1.8254853785037994e-05,,33
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF23,Project Ember uses SQLite in tests.,False,,1.694856291578617e-05,,35
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF24,Feature auth is enabled by default in Project Ember.,False,,1.6274820154649206e-05,,37
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF25,Feature auth is enabled only when DEBUG_MODE=true in Project Ember.,False,,1.6077241525636055e-05,,40
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF26,Owen works on Project Lattice.,False,,2.9333712518564425e-05,,18
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF27,Project Lattice requires more than 16 GB of memory.,False,,3.812694922089577e-05,,14
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF28,Project Lattice requires less than 16 GB of memory.,False,,2.7385218345443718e-05,,20
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF29,Project Lattice is deployed in Singapore.,False,,2.655111711646896e-05,,23
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF30,Priya confirmed migration Lattice-Blue.,False,,1.6264659279841e-05,,38
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF31,Kai works on Project Flux.,False,,3.0990326195023954e-05,,17
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF32,Project Flux uses Go.,False,,2.229526398878079e-05,,28
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF33,Kai said that Priya may confirm migration Lattice-Blue.,False,,1.624955802981276e-05,,39
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF34,Project Flux has status alpha.,False,,7.577371434308589e-05,,10
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF35,Project Flux is owned by Apex Labs.,False,,0.00428716791793704,,2
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF36,Priya works on Project Harbor.,False,,4.0136961615644395e-05,,13
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF37,Project Harbor uses TypeScript.,False,,2.1629984985338524e-05,,29
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF38,Project Harbor depends on Redis.,False,,0.0007529161521233618,,5
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF39,Project Harbor has status GA.,False,,5.180127845960669e-05,,11
+CQ16,Who owns Project Atlas?,no_answer,nonexistent,CF40,Project HelixCore uses Ruby.,False,,2.78022707789205e-05,,19
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF01,Mira works on Project Helix.,False,,0.056289881467819214,,2
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF02,Project Helix uses Go.,False,,0.002211995655670762,,5
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF03,Project Helix depends on Redis.,False,,0.03670767322182655,,3
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF04,Project Helix is owned by Apex Labs.,False,,0.2731679677963257,,1
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF05,Project Helix is deployed in Frankfurt.,False,,0.005305164959281683,,4
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF06,Jonas works on Project Cascade.,False,,1.651457932894118e-05,,29
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF07,Project Cascade uses TypeScript.,False,,1.707634328340646e-05,,20
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF08,Project Cascade depends on Kafka.,False,,5.066007361165248e-05,,8
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF09,Project Cascade is owned by Northwind Systems.,False,,2.3000649889581837e-05,,13
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF10,Project Cascade has status beta.,False,,1.687315307208337e-05,,23
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF11,Elena works on Project Prism.,False,,1.66161098604789e-05,,27
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF12,Project Prism uses Kotlin.,False,,1.758416874508839e-05,,18
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF13,Project Prism depends on Grafana.,False,,2.8566908440552652e-05,,10
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF14,Project Prism currently uses Go for the API layer.,False,,1.7682357793091796e-05,,17
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF15,Project Prism previously used Python for the API layer.,False,,1.8331036699237302e-05,,16
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF16,Theo works on Project Quasar.,False,,1.6402620531152934e-05,,32
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF17,Project Quasar uses Elixir.,False,,1.7045607819454744e-05,,21
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF18,Project Quasar depends on Celery.,False,,3.2512860343558714e-05,,9
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF19,Project Quasar supports feature streaming.,False,,1.641094422666356e-05,,31
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF20,Project Quasar does NOT support feature streaming.,False,,1.623090975044761e-05,,36
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF21,Nadia works on Project Ember.,False,,1.700068787613418e-05,,22
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF22,Project Ember uses PostgreSQL in production.,False,,1.6278763723676093e-05,,35
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF23,Project Ember uses SQLite in tests.,False,,1.628318932489492e-05,,34
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF24,Feature auth is enabled by default in Project Ember.,False,,1.6061379938037135e-05,,40
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF25,Feature auth is enabled only when DEBUG_MODE=true in Project Ember.,False,,1.6126226910273544e-05,,38
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF26,Owen works on Project Lattice.,False,,1.67260950547643e-05,,24
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF27,Project Lattice requires more than 16 GB of memory.,False,,1.7145497622550465e-05,,19
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF28,Project Lattice requires less than 16 GB of memory.,False,,1.6691836208337918e-05,,25
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF29,Project Lattice is deployed in Singapore.,False,,1.6545396647416055e-05,,28
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF30,Priya confirmed migration Lattice-Blue.,False,,1.6198144294321537e-05,,37
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF31,Kai works on Project Flux.,False,,2.1041207219241187e-05,,14
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF32,Project Flux uses Go.,False,,1.9047620298806578e-05,,15
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF33,Kai said that Priya may confirm migration Lattice-Blue.,False,,1.612259802641347e-05,,39
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF34,Project Flux has status alpha.,False,,2.4653709260746837e-05,,12
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF35,Project Flux is owned by Apex Labs.,False,,8.99925289559178e-05,,7
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF36,Priya works on Project Harbor.,False,,1.6505604435224086e-05,,30
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF37,Project Harbor uses TypeScript.,False,,1.6623796909698285e-05,,26
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF38,Project Harbor depends on Redis.,False,,2.7479185519041494e-05,,11
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF39,Project Harbor has status GA.,False,,1.6372114259866066e-05,,33
+CQ17,Who founded Project Helix?,no_answer,unsupported,CF40,Project HelixCore uses Ruby.,False,,0.0013615646166726947,,6
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF01,Mira works on Project Helix.,False,,1.646413147682324e-05,,28
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF02,Project Helix uses Go.,False,,1.6564294128329493e-05,,22
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF03,Project Helix depends on Redis.,False,,1.7693795598461293e-05,,9
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF04,Project Helix is owned by Apex Labs.,False,,1.750154115143232e-05,,11
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF05,Project Helix is deployed in Frankfurt.,False,,1.798113589757122e-05,,8
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF06,Jonas works on Project Cascade.,False,,0.001315159723162651,,5
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF07,Project Cascade uses TypeScript.,False,,0.0022080419585108757,,3
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF08,Project Cascade depends on Kafka.,False,,0.001757544232532382,,4
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF09,Project Cascade is owned by Northwind Systems.,False,,0.026648975908756256,,1
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF10,Project Cascade has status beta.,False,,0.0035107824951410294,,2
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF11,Elena works on Project Prism.,False,,1.6460333426948637e-05,,29
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF12,Project Prism uses Kotlin.,False,,1.640751725062728e-05,,31
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF13,Project Prism depends on Grafana.,False,,1.698322012089193e-05,,13
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF14,Project Prism currently uses Go for the API layer.,False,,1.638518733670935e-05,,33
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF15,Project Prism previously used Python for the API layer.,False,,1.6932359358179383e-05,,16
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF16,Theo works on Project Quasar.,False,,1.647000499360729e-05,,27
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF17,Project Quasar uses Elixir.,False,,1.6612260878900997e-05,,20
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF18,Project Quasar depends on Celery.,False,,1.846105260483455e-05,,6
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF19,Project Quasar supports feature streaming.,False,,1.6471576600451954e-05,,26
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF20,Project Quasar does NOT support feature streaming.,False,,1.6352998500224203e-05,,37
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF21,Nadia works on Project Ember.,False,,1.6472613424411975e-05,,25
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF22,Project Ember uses PostgreSQL in production.,False,,1.6499796402058564e-05,,23
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF23,Project Ember uses SQLite in tests.,False,,1.6485562809975818e-05,,24
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF24,Feature auth is enabled by default in Project Ember.,False,,1.6154872355400585e-05,,39
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF25,Feature auth is enabled only when DEBUG_MODE=true in Project Ember.,False,,1.6028177924454212e-05,,40
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF26,Owen works on Project Lattice.,False,,1.6382922694901936e-05,,35
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF27,Project Lattice requires more than 16 GB of memory.,False,,1.7397220290149562e-05,,12
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF28,Project Lattice requires less than 16 GB of memory.,False,,1.6970510841929354e-05,,14
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF29,Project Lattice is deployed in Singapore.,False,,1.8324168195249513e-05,,7
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF30,Priya confirmed migration Lattice-Blue.,False,,1.638342291698791e-05,,34
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF31,Kai works on Project Flux.,False,,1.6451498595415615e-05,,30
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF32,Project Flux uses Go.,False,,1.6393722034990788e-05,,32
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF33,Kai said that Priya may confirm migration Lattice-Blue.,False,,1.618847636564169e-05,,38
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF34,Project Flux has status alpha.,False,,1.6965510440059006e-05,,15
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF35,Project Flux is owned by Apex Labs.,False,,1.6679297914379276e-05,,19
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF36,Priya works on Project Harbor.,False,,1.635360786167439e-05,,36
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF37,Project Harbor uses TypeScript.,False,,1.6574487744946964e-05,,21
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF38,Project Harbor depends on Redis.,False,,1.7569636838743463e-05,,10
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF39,Project Harbor has status GA.,False,,1.680533569015097e-05,,17
+CQ18,When was Project Cascade started?,no_answer,unsupported,CF40,Project HelixCore uses Ruby.,False,,1.6720721760066226e-05,,18
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF01,Mira works on Project Helix.,False,,1.8839811673387885e-05,,30
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF02,Project Helix uses Go.,False,,4.368630834505893e-05,,18
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF03,Project Helix depends on Redis.,False,,0.0002245375217171386,,8
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF04,Project Helix is owned by Apex Labs.,False,,0.0001816332369344309,,10
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF05,Project Helix is deployed in Frankfurt.,False,,2.5423090846743435e-05,,22
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF06,Jonas works on Project Cascade.,False,,1.6446054360130802e-05,,37
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF07,Project Cascade uses TypeScript.,False,,2.4014851078391075e-05,,23
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF08,Project Cascade depends on Kafka.,False,,2.8717355235130526e-05,,20
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF09,Project Cascade is owned by Northwind Systems.,False,,5.824642357765697e-05,,16
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF10,Project Cascade has status beta.,False,,0.0002481273841112852,,7
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF11,Elena works on Project Prism.,False,,0.0011921938275918365,,5
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF12,Project Prism uses Kotlin.,False,,0.024653656408190727,,3
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF13,Project Prism depends on Grafana.,False,,0.04499296844005585,,2
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF14,Project Prism currently uses Go for the API layer.,False,,0.05790172144770622,,1
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF15,Project Prism previously used Python for the API layer.,False,,0.008207231760025024,,4
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF16,Theo works on Project Quasar.,False,,1.7048403606167994e-05,,34
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF17,Project Quasar uses Elixir.,False,,2.1010308046243154e-05,,26
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF18,Project Quasar depends on Celery.,False,,5.0554775953060016e-05,,17
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF19,Project Quasar supports feature streaming.,False,,0.00012130996765336022,,11
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF20,Project Quasar does NOT support feature streaming.,False,,2.866124123102054e-05,,21
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF21,Nadia works on Project Ember.,False,,1.6413197954534553e-05,,39
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF22,Project Ember uses PostgreSQL in production.,False,,2.158535244234372e-05,,25
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF23,Project Ember uses SQLite in tests.,False,,1.7214901163242757e-05,,32
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF24,Feature auth is enabled by default in Project Ember.,False,,7.978713256306946e-05,,14
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF25,Feature auth is enabled only when DEBUG_MODE=true in Project Ember.,False,,2.0356175809865817e-05,,27
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF26,Owen works on Project Lattice.,False,,1.641910057514906e-05,,38
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF27,Project Lattice requires more than 16 GB of memory.,False,,2.0253952243365347e-05,,28
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF28,Project Lattice requires less than 16 GB of memory.,False,,1.810136564017739e-05,,31
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF29,Project Lattice is deployed in Singapore.,False,,1.9248449461883865e-05,,29
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF30,Priya confirmed migration Lattice-Blue.,False,,1.6477688404847868e-05,,36
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF31,Kai works on Project Flux.,False,,1.716735823720228e-05,,33
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF32,Project Flux uses Go.,False,,2.8726148229907267e-05,,19
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF33,Kai said that Priya may confirm migration Lattice-Blue.,False,,1.630307815503329e-05,,40
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF34,Project Flux has status alpha.,False,,0.0003534577845130116,,6
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF35,Project Flux is owned by Apex Labs.,False,,8.42287263367325e-05,,13
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF36,Priya works on Project Harbor.,False,,1.6543930541956797e-05,,35
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF37,Project Harbor uses TypeScript.,False,,2.3004511604085565e-05,,24
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF38,Project Harbor depends on Redis.,False,,6.83633261360228e-05,,15
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF39,Project Harbor has status GA.,False,,0.00020594691159203649,,9
+CQ19,What is the license of Project Prism?,no_answer,unsupported,CF40,Project HelixCore uses Ruby.,False,,9.679135837359354e-05,,12
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF01,Mira works on Project Helix.,False,,1.7308650058112107e-05,,28
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF02,Project Helix uses Go.,False,,2.5817724235821515e-05,,11
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF03,Project Helix depends on Redis.,False,,2.1938672944088466e-05,,16
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF04,Project Helix is owned by Apex Labs.,False,,1.90680493687978e-05,,22
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF05,Project Helix is deployed in Frankfurt.,False,,1.8490987713448703e-05,,23
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF06,Jonas works on Project Cascade.,False,,1.6930647689150646e-05,,29
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF07,Project Cascade uses TypeScript.,False,,2.343915002711583e-05,,14
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF08,Project Cascade depends on Kafka.,False,,2.102863072650507e-05,,18
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF09,Project Cascade is owned by Northwind Systems.,False,,2.299558400409296e-05,,15
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF10,Project Cascade has status beta.,False,,4.186783917248249e-05,,8
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF11,Elena works on Project Prism.,False,,1.6528963897144422e-05,,36
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF12,Project Prism uses Kotlin.,False,,2.044699613179546e-05,,20
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF13,Project Prism depends on Grafana.,False,,2.063690044451505e-05,,19
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF14,Project Prism currently uses Go for the API layer.,False,,1.7414366084267385e-05,,27
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF15,Project Prism previously used Python for the API layer.,False,,1.6718360711820424e-05,,31
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF16,Theo works on Project Quasar.,False,,0.0009195203892886639,,4
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF17,Project Quasar uses Elixir.,False,,0.0022805777844041586,,3
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF18,Project Quasar depends on Celery.,False,,0.002755996771156788,,2
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF19,Project Quasar supports feature streaming.,False,,0.0073255314491689205,,1
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF20,Project Quasar does NOT support feature streaming.,False,,0.0004293015517760068,,5
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF21,Nadia works on Project Ember.,False,,1.6857873561093584e-05,,30
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF22,Project Ember uses PostgreSQL in production.,False,,1.6630567188258283e-05,,33
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF23,Project Ember uses SQLite in tests.,False,,1.6668514945195056e-05,,32
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF24,Feature auth is enabled by default in Project Ember.,False,,1.6512862202944234e-05,,38
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF25,Feature auth is enabled only when DEBUG_MODE=true in Project Ember.,False,,1.6219335520872846e-05,,39
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF26,Owen works on Project Lattice.,False,,1.6523621525266208e-05,,37
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF27,Project Lattice requires more than 16 GB of memory.,False,,0.00012791046174243093,,6
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF28,Project Lattice requires less than 16 GB of memory.,False,,6.203658995218575e-05,,7
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF29,Project Lattice is deployed in Singapore.,False,,1.7600610590307042e-05,,25
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF30,Priya confirmed migration Lattice-Blue.,False,,1.6570789739489555e-05,,34
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF31,Kai works on Project Flux.,False,,1.6560836229473352e-05,,35
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF32,Project Flux uses Go.,False,,2.145722282875795e-05,,17
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF33,Kai said that Priya may confirm migration Lattice-Blue.,False,,1.6207955923164263e-05,,40
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF34,Project Flux has status alpha.,False,,3.312439366709441e-05,,9
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF35,Project Flux is owned by Apex Labs.,False,,1.828872882470023e-05,,24
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF36,Priya works on Project Harbor.,False,,1.757350764819421e-05,,26
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF37,Project Harbor uses TypeScript.,False,,1.9409035303397104e-05,,21
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF38,Project Harbor depends on Redis.,False,,2.4213377400883473e-05,,12
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF39,Project Harbor has status GA.,False,,3.185664172633551e-05,,10
+CQ20,How many users does Project Quasar have?,no_answer,unsupported,CF40,Project HelixCore uses Ruby.,False,,2.379883335379418e-05,,13

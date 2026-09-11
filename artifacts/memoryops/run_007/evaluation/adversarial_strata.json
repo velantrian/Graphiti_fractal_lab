@@ -1,0 +1,81 @@
+{
+  "discrimination": {
+    "HN7": {
+      "tag": "HN7",
+      "comparisons": 20,
+      "inversions": 0,
+      "inversion_rate": 0.0,
+      "discrimination": "PASS",
+      "examples": [],
+      "systematic_inversion": false
+    },
+    "HN8": {
+      "tag": "HN8",
+      "comparisons": 21,
+      "inversions": 0,
+      "inversion_rate": 0.0,
+      "discrimination": "PASS",
+      "examples": [],
+      "systematic_inversion": false
+    },
+    "HN9": {
+      "tag": "HN9",
+      "comparisons": 10,
+      "inversions": 3,
+      "inversion_rate": 0.3,
+      "discrimination": "PARTIAL",
+      "examples": [
+        {
+          "query_id": "TQ11",
+          "hn_fact": "TF23",
+          "hn_score": 0.17160700261592865,
+          "gold_fact": "TF21",
+          "gold_score": 0.031210962682962418
+        },
+        {
+          "query_id": "TQ11",
+          "hn_fact": "TF23",
+          "hn_score": 0.17160700261592865,
+          "gold_fact": "TF22",
+          "gold_score": 0.030010094866156578
+        },
+        {
+          "query_id": "TQ11",
+          "hn_fact": "TF23",
+          "hn_score": 0.17160700261592865,
+          "gold_fact": "TF24",
+          "gold_score": 0.0035959871020168066
+        }
+      ],
+      "systematic_inversion": false
+    },
+    "HN10": {
+      "tag": "HN10",
+      "comparisons": 4,
+      "inversions": 0,
+      "inversion_rate": 0.0,
+      "discrimination": "PASS",
+      "examples": [],
+      "systematic_inversion": false
+    },
+    "HN11": {
+      "tag": "HN11",
+      "comparisons": 18,
+      "inversions": 0,
+      "inversion_rate": 0.0,
+      "discrimination": "PASS",
+      "examples": [],
+      "systematic_inversion": false
+    },
+    "HN12": {
+      "tag": "HN12",
+      "comparisons": 14,
+      "inversions": 0,
+      "inversion_rate": 0.0,
+      "discrimination": "PASS",
+      "examples": [],
+      "systematic_inversion": false
+    }
+  },
+  "CRITICAL_STRATUM_FAILURE": false
+}

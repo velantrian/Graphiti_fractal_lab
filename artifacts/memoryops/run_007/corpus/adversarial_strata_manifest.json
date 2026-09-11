@@ -1,0 +1,1102 @@
+{
+  "strata": {
+    "HN1": {
+      "calibration_pairs": [
+        {
+          "query_id": "CQ01",
+          "fact_id": "CF02"
+        },
+        {
+          "query_id": "CQ01",
+          "fact_id": "CF03"
+        },
+        {
+          "query_id": "CQ01",
+          "fact_id": "CF04"
+        },
+        {
+          "query_id": "CQ02",
+          "fact_id": "CF06"
+        },
+        {
+          "query_id": "CQ02",
+          "fact_id": "CF08"
+        },
+        {
+          "query_id": "CQ02",
+          "fact_id": "CF10"
+        },
+        {
+          "query_id": "CQ03",
+          "fact_id": "CF01"
+        },
+        {
+          "query_id": "CQ03",
+          "fact_id": "CF02"
+        },
+        {
+          "query_id": "CQ04",
+          "fact_id": "CF01"
+        },
+        {
+          "query_id": "CQ04",
+          "fact_id": "CF02"
+        },
+        {
+          "query_id": "CQ05",
+          "fact_id": "CF12"
+        },
+        {
+          "query_id": "CQ05",
+          "fact_id": "CF13"
+        },
+        {
+          "query_id": "CQ06",
+          "fact_id": "CF16"
+        },
+        {
+          "query_id": "CQ06",
+          "fact_id": "CF18"
+        },
+        {
+          "query_id": "CQ07",
+          "fact_id": "CF20"
+        },
+        {
+          "query_id": "CQ07",
+          "fact_id": "CF16"
+        },
+        {
+          "query_id": "CQ07",
+          "fact_id": "CF17"
+        },
+        {
+          "query_id": "CQ08",
+          "fact_id": "CF28"
+        },
+        {
+          "query_id": "CQ08",
+          "fact_id": "CF26"
+        },
+        {
+          "query_id": "CQ08",
+          "fact_id": "CF29"
+        }
+      ],
+      "test_pairs": [
+        {
+          "query_id": "TQ01",
+          "fact_id": "TF02"
+        },
+        {
+          "query_id": "TQ01",
+          "fact_id": "TF03"
+        },
+        {
+          "query_id": "TQ01",
+          "fact_id": "TF04"
+        },
+        {
+          "query_id": "TQ02",
+          "fact_id": "TF06"
+        },
+        {
+          "query_id": "TQ02",
+          "fact_id": "TF08"
+        },
+        {
+          "query_id": "TQ02",
+          "fact_id": "TF10"
+        },
+        {
+          "query_id": "TQ03",
+          "fact_id": "TF01"
+        },
+        {
+          "query_id": "TQ03",
+          "fact_id": "TF02"
+        },
+        {
+          "query_id": "TQ04",
+          "fact_id": "TF01"
+        },
+        {
+          "query_id": "TQ04",
+          "fact_id": "TF02"
+        },
+        {
+          "query_id": "TQ05",
+          "fact_id": "TF12"
+        },
+        {
+          "query_id": "TQ05",
+          "fact_id": "TF13"
+        },
+        {
+          "query_id": "TQ06",
+          "fact_id": "TF16"
+        },
+        {
+          "query_id": "TQ06",
+          "fact_id": "TF18"
+        },
+        {
+          "query_id": "TQ07",
+          "fact_id": "TF20"
+        },
+        {
+          "query_id": "TQ07",
+          "fact_id": "TF16"
+        },
+        {
+          "query_id": "TQ07",
+          "fact_id": "TF17"
+        },
+        {
+          "query_id": "TQ08",
+          "fact_id": "TF28"
+        },
+        {
+          "query_id": "TQ08",
+          "fact_id": "TF26"
+        },
+        {
+          "query_id": "TQ08",
+          "fact_id": "TF29"
+        }
+      ],
+      "calibration_count": 20,
+      "test_count": 20
+    },
+    "HN2": {
+      "calibration_pairs": [
+        {
+          "query_id": "CQ01",
+          "fact_id": "CF06"
+        },
+        {
+          "query_id": "CQ01",
+          "fact_id": "CF11"
+        },
+        {
+          "query_id": "CQ01",
+          "fact_id": "CF16"
+        },
+        {
+          "query_id": "CQ02",
+          "fact_id": "CF02"
+        },
+        {
+          "query_id": "CQ02",
+          "fact_id": "CF12"
+        },
+        {
+          "query_id": "CQ02",
+          "fact_id": "CF37"
+        },
+        {
+          "query_id": "CQ03",
+          "fact_id": "CF08"
+        },
+        {
+          "query_id": "CQ03",
+          "fact_id": "CF13"
+        },
+        {
+          "query_id": "CQ03",
+          "fact_id": "CF18"
+        },
+        {
+          "query_id": "CQ03",
+          "fact_id": "CF38"
+        },
+        {
+          "query_id": "CQ04",
+          "fact_id": "CF29"
+        },
+        {
+          "query_id": "CQ05",
+          "fact_id": "CF01"
+        },
+        {
+          "query_id": "CQ05",
+          "fact_id": "CF06"
+        },
+        {
+          "query_id": "CQ05",
+          "fact_id": "CF26"
+        },
+        {
+          "query_id": "CQ06",
+          "fact_id": "CF07"
+        },
+        {
+          "query_id": "CQ06",
+          "fact_id": "CF12"
+        },
+        {
+          "query_id": "CQ06",
+          "fact_id": "CF02"
+        },
+        {
+          "query_id": "CQ07",
+          "fact_id": "CF06"
+        },
+        {
+          "query_id": "CQ08",
+          "fact_id": "CF01"
+        },
+        {
+          "query_id": "CQ09",
+          "fact_id": "CF06"
+        },
+        {
+          "query_id": "CQ10",
+          "fact_id": "CF01"
+        },
+        {
+          "query_id": "CQ12",
+          "fact_id": "CF01"
+        }
+      ],
+      "test_pairs": [
+        {
+          "query_id": "TQ01",
+          "fact_id": "TF06"
+        },
+        {
+          "query_id": "TQ01",
+          "fact_id": "TF11"
+        },
+        {
+          "query_id": "TQ01",
+          "fact_id": "TF16"
+        },
+        {
+          "query_id": "TQ02",
+          "fact_id": "TF02"
+        },
+        {
+          "query_id": "TQ02",
+          "fact_id": "TF12"
+        },
+        {
+          "query_id": "TQ02",
+          "fact_id": "TF37"
+        },
+        {
+          "query_id": "TQ03",
+          "fact_id": "TF08"
+        },
+        {
+          "query_id": "TQ03",
+          "fact_id": "TF13"
+        },
+        {
+          "query_id": "TQ03",
+          "fact_id": "TF18"
+        },
+        {
+          "query_id": "TQ03",
+          "fact_id": "TF38"
+        },
+        {
+          "query_id": "TQ04",
+          "fact_id": "TF29"
+        },
+        {
+          "query_id": "TQ05",
+          "fact_id": "TF01"
+        },
+        {
+          "query_id": "TQ05",
+          "fact_id": "TF06"
+        },
+        {
+          "query_id": "TQ05",
+          "fact_id": "TF26"
+        },
+        {
+          "query_id": "TQ06",
+          "fact_id": "TF07"
+        },
+        {
+          "query_id": "TQ06",
+          "fact_id": "TF12"
+        },
+        {
+          "query_id": "TQ06",
+          "fact_id": "TF02"
+        },
+        {
+          "query_id": "TQ07",
+          "fact_id": "TF06"
+        },
+        {
+          "query_id": "TQ08",
+          "fact_id": "TF01"
+        },
+        {
+          "query_id": "TQ09",
+          "fact_id": "TF06"
+        },
+        {
+          "query_id": "TQ10",
+          "fact_id": "TF01"
+        },
+        {
+          "query_id": "TQ12",
+          "fact_id": "TF01"
+        }
+      ],
+      "calibration_count": 22,
+      "test_count": 22
+    },
+    "HN3": {
+      "calibration_pairs": [
+        {
+          "query_id": "CQ01",
+          "fact_id": "CF40"
+        },
+        {
+          "query_id": "CQ02",
+          "fact_id": "CF37"
+        },
+        {
+          "query_id": "CQ03",
+          "fact_id": "CF38"
+        },
+        {
+          "query_id": "CQ05",
+          "fact_id": "CF33"
+        },
+        {
+          "query_id": "CQ08",
+          "fact_id": "CF33"
+        },
+        {
+          "query_id": "CQ09",
+          "fact_id": "CF40"
+        },
+        {
+          "query_id": "CQ10",
+          "fact_id": "CF37"
+        }
+      ],
+      "test_pairs": [
+        {
+          "query_id": "TQ01",
+          "fact_id": "TF40"
+        },
+        {
+          "query_id": "TQ02",
+          "fact_id": "TF37"
+        },
+        {
+          "query_id": "TQ03",
+          "fact_id": "TF38"
+        },
+        {
+          "query_id": "TQ05",
+          "fact_id": "TF33"
+        },
+        {
+          "query_id": "TQ08",
+          "fact_id": "TF33"
+        },
+        {
+          "query_id": "TQ09",
+          "fact_id": "TF40"
+        },
+        {
+          "query_id": "TQ10",
+          "fact_id": "TF37"
+        }
+      ],
+      "calibration_count": 7,
+      "test_count": 7
+    },
+    "HN4": {
+      "calibration_pairs": [
+        {
+          "query_id": "CQ01",
+          "fact_id": "CF18"
+        },
+        {
+          "query_id": "CQ02",
+          "fact_id": "CF15"
+        },
+        {
+          "query_id": "CQ03",
+          "fact_id": "CF20"
+        },
+        {
+          "query_id": "CQ04",
+          "fact_id": "CF15"
+        },
+        {
+          "query_id": "CQ05",
+          "fact_id": "CF15"
+        },
+        {
+          "query_id": "CQ05",
+          "fact_id": "CF14"
+        },
+        {
+          "query_id": "CQ06",
+          "fact_id": "CF20"
+        },
+        {
+          "query_id": "CQ06",
+          "fact_id": "CF14"
+        },
+        {
+          "query_id": "CQ07",
+          "fact_id": "CF24"
+        },
+        {
+          "query_id": "CQ07",
+          "fact_id": "CF25"
+        },
+        {
+          "query_id": "CQ08",
+          "fact_id": "CF22"
+        },
+        {
+          "query_id": "CQ08",
+          "fact_id": "CF30"
+        },
+        {
+          "query_id": "CQ09",
+          "fact_id": "CF15"
+        },
+        {
+          "query_id": "CQ09",
+          "fact_id": "CF23"
+        },
+        {
+          "query_id": "CQ09",
+          "fact_id": "CF14"
+        },
+        {
+          "query_id": "CQ10",
+          "fact_id": "CF15"
+        },
+        {
+          "query_id": "CQ12",
+          "fact_id": "CF33"
+        }
+      ],
+      "test_pairs": [
+        {
+          "query_id": "TQ01",
+          "fact_id": "TF18"
+        },
+        {
+          "query_id": "TQ02",
+          "fact_id": "TF15"
+        },
+        {
+          "query_id": "TQ03",
+          "fact_id": "TF20"
+        },
+        {
+          "query_id": "TQ04",
+          "fact_id": "TF15"
+        },
+        {
+          "query_id": "TQ05",
+          "fact_id": "TF15"
+        },
+        {
+          "query_id": "TQ05",
+          "fact_id": "TF14"
+        },
+        {
+          "query_id": "TQ06",
+          "fact_id": "TF20"
+        },
+        {
+          "query_id": "TQ06",
+          "fact_id": "TF14"
+        },
+        {
+          "query_id": "TQ07",
+          "fact_id": "TF24"
+        },
+        {
+          "query_id": "TQ07",
+          "fact_id": "TF25"
+        },
+        {
+          "query_id": "TQ08",
+          "fact_id": "TF22"
+        },
+        {
+          "query_id": "TQ08",
+          "fact_id": "TF30"
+        },
+        {
+          "query_id": "TQ09",
+          "fact_id": "TF15"
+        },
+        {
+          "query_id": "TQ09",
+          "fact_id": "TF23"
+        },
+        {
+          "query_id": "TQ10",
+          "fact_id": "TF15"
+        },
+        {
+          "query_id": "TQ12",
+          "fact_id": "TF33"
+        }
+      ],
+      "calibration_count": 17,
+      "test_count": 16
+    },
+    "HN5": {
+      "calibration_pairs": [
+        {
+          "query_id": "CQ01",
+          "fact_id": "CF40"
+        },
+        {
+          "query_id": "CQ03",
+          "fact_id": "CF40"
+        },
+        {
+          "query_id": "CQ04",
+          "fact_id": "CF40"
+        },
+        {
+          "query_id": "CQ09",
+          "fact_id": "CF40"
+        }
+      ],
+      "test_pairs": [
+        {
+          "query_id": "TQ01",
+          "fact_id": "TF40"
+        },
+        {
+          "query_id": "TQ03",
+          "fact_id": "TF40"
+        },
+        {
+          "query_id": "TQ04",
+          "fact_id": "TF40"
+        },
+        {
+          "query_id": "TQ09",
+          "fact_id": "TF40"
+        }
+      ],
+      "calibration_count": 4,
+      "test_count": 4
+    },
+    "HN6": {
+      "calibration_pairs": [
+        {
+          "query_id": "CQ01",
+          "fact_id": "CF32"
+        },
+        {
+          "query_id": "CQ01",
+          "fact_id": "CF28"
+        },
+        {
+          "query_id": "CQ02",
+          "fact_id": "CF40"
+        },
+        {
+          "query_id": "CQ02",
+          "fact_id": "CF27"
+        },
+        {
+          "query_id": "CQ03",
+          "fact_id": "CF28"
+        },
+        {
+          "query_id": "CQ04",
+          "fact_id": "CF23"
+        },
+        {
+          "query_id": "CQ04",
+          "fact_id": "CF06"
+        },
+        {
+          "query_id": "CQ05",
+          "fact_id": "CF40"
+        },
+        {
+          "query_id": "CQ06",
+          "fact_id": "CF28"
+        },
+        {
+          "query_id": "CQ06",
+          "fact_id": "CF40"
+        },
+        {
+          "query_id": "CQ07",
+          "fact_id": "CF40"
+        },
+        {
+          "query_id": "CQ07",
+          "fact_id": "CF28"
+        },
+        {
+          "query_id": "CQ08",
+          "fact_id": "CF40"
+        },
+        {
+          "query_id": "CQ08",
+          "fact_id": "CF20"
+        },
+        {
+          "query_id": "CQ09",
+          "fact_id": "CF20"
+        },
+        {
+          "query_id": "CQ09",
+          "fact_id": "CF28"
+        },
+        {
+          "query_id": "CQ10",
+          "fact_id": "CF40"
+        },
+        {
+          "query_id": "CQ10",
+          "fact_id": "CF20"
+        },
+        {
+          "query_id": "CQ10",
+          "fact_id": "CF28"
+        },
+        {
+          "query_id": "CQ11",
+          "fact_id": "CF01"
+        },
+        {
+          "query_id": "CQ11",
+          "fact_id": "CF40"
+        },
+        {
+          "query_id": "CQ12",
+          "fact_id": "CF40"
+        },
+        {
+          "query_id": "CQ12",
+          "fact_id": "CF20"
+        }
+      ],
+      "test_pairs": [
+        {
+          "query_id": "TQ01",
+          "fact_id": "TF32"
+        },
+        {
+          "query_id": "TQ01",
+          "fact_id": "TF28"
+        },
+        {
+          "query_id": "TQ02",
+          "fact_id": "TF40"
+        },
+        {
+          "query_id": "TQ02",
+          "fact_id": "TF27"
+        },
+        {
+          "query_id": "TQ03",
+          "fact_id": "TF28"
+        },
+        {
+          "query_id": "TQ04",
+          "fact_id": "TF23"
+        },
+        {
+          "query_id": "TQ04",
+          "fact_id": "TF06"
+        },
+        {
+          "query_id": "TQ05",
+          "fact_id": "TF40"
+        },
+        {
+          "query_id": "TQ06",
+          "fact_id": "TF28"
+        },
+        {
+          "query_id": "TQ06",
+          "fact_id": "TF40"
+        },
+        {
+          "query_id": "TQ07",
+          "fact_id": "TF40"
+        },
+        {
+          "query_id": "TQ07",
+          "fact_id": "TF28"
+        },
+        {
+          "query_id": "TQ08",
+          "fact_id": "TF40"
+        },
+        {
+          "query_id": "TQ08",
+          "fact_id": "TF20"
+        },
+        {
+          "query_id": "TQ09",
+          "fact_id": "TF20"
+        },
+        {
+          "query_id": "TQ09",
+          "fact_id": "TF28"
+        },
+        {
+          "query_id": "TQ10",
+          "fact_id": "TF40"
+        },
+        {
+          "query_id": "TQ10",
+          "fact_id": "TF20"
+        },
+        {
+          "query_id": "TQ10",
+          "fact_id": "TF28"
+        },
+        {
+          "query_id": "TQ11",
+          "fact_id": "TF01"
+        },
+        {
+          "query_id": "TQ11",
+          "fact_id": "TF40"
+        },
+        {
+          "query_id": "TQ12",
+          "fact_id": "TF40"
+        },
+        {
+          "query_id": "TQ12",
+          "fact_id": "TF20"
+        }
+      ],
+      "calibration_count": 23,
+      "test_count": 23
+    },
+    "HN7": {
+      "calibration_pairs": [
+        {
+          "query_id": "CQ06",
+          "fact_id": "CF20"
+        },
+        {
+          "query_id": "CQ07",
+          "fact_id": "CF20"
+        },
+        {
+          "query_id": "CQ10",
+          "fact_id": "CF20"
+        },
+        {
+          "query_id": "CQ11",
+          "fact_id": "CF20"
+        }
+      ],
+      "test_pairs": [
+        {
+          "query_id": "TQ03",
+          "fact_id": "TF20"
+        },
+        {
+          "query_id": "TQ06",
+          "fact_id": "TF20"
+        },
+        {
+          "query_id": "TQ07",
+          "fact_id": "TF20"
+        },
+        {
+          "query_id": "TQ09",
+          "fact_id": "TF20"
+        },
+        {
+          "query_id": "TQ10",
+          "fact_id": "TF20"
+        },
+        {
+          "query_id": "TQ11",
+          "fact_id": "TF20"
+        },
+        {
+          "query_id": "TQ12",
+          "fact_id": "TF20"
+        }
+      ],
+      "calibration_count": 4,
+      "test_count": 7
+    },
+    "HN8": {
+      "calibration_pairs": [
+        {
+          "query_id": "CQ04",
+          "fact_id": "CF15"
+        },
+        {
+          "query_id": "CQ05",
+          "fact_id": "CF15"
+        },
+        {
+          "query_id": "CQ06",
+          "fact_id": "CF15"
+        },
+        {
+          "query_id": "CQ11",
+          "fact_id": "CF15"
+        },
+        {
+          "query_id": "CQ12",
+          "fact_id": "CF15"
+        }
+      ],
+      "test_pairs": [
+        {
+          "query_id": "TQ02",
+          "fact_id": "TF15"
+        },
+        {
+          "query_id": "TQ04",
+          "fact_id": "TF15"
+        },
+        {
+          "query_id": "TQ05",
+          "fact_id": "TF15"
+        },
+        {
+          "query_id": "TQ06",
+          "fact_id": "TF15"
+        },
+        {
+          "query_id": "TQ09",
+          "fact_id": "TF15"
+        },
+        {
+          "query_id": "TQ10",
+          "fact_id": "TF15"
+        },
+        {
+          "query_id": "TQ11",
+          "fact_id": "TF15"
+        },
+        {
+          "query_id": "TQ12",
+          "fact_id": "TF15"
+        }
+      ],
+      "calibration_count": 5,
+      "test_count": 8
+    },
+    "HN9": {
+      "calibration_pairs": [
+        {
+          "query_id": "CQ02",
+          "fact_id": "CF23"
+        },
+        {
+          "query_id": "CQ03",
+          "fact_id": "CF23"
+        },
+        {
+          "query_id": "CQ11",
+          "fact_id": "CF23"
+        }
+      ],
+      "test_pairs": [
+        {
+          "query_id": "TQ02",
+          "fact_id": "TF23"
+        },
+        {
+          "query_id": "TQ03",
+          "fact_id": "TF23"
+        },
+        {
+          "query_id": "TQ09",
+          "fact_id": "TF23"
+        },
+        {
+          "query_id": "TQ11",
+          "fact_id": "TF23"
+        }
+      ],
+      "calibration_count": 3,
+      "test_count": 4
+    },
+    "HN10": {
+      "calibration_pairs": [
+        {
+          "query_id": "CQ07",
+          "fact_id": "CF25"
+        },
+        {
+          "query_id": "CQ11",
+          "fact_id": "CF25"
+        }
+      ],
+      "test_pairs": [
+        {
+          "query_id": "TQ07",
+          "fact_id": "TF25"
+        },
+        {
+          "query_id": "TQ11",
+          "fact_id": "TF25"
+        }
+      ],
+      "calibration_count": 2,
+      "test_count": 2
+    },
+    "HN11": {
+      "calibration_pairs": [
+        {
+          "query_id": "CQ08",
+          "fact_id": "CF33"
+        },
+        {
+          "query_id": "CQ09",
+          "fact_id": "CF33"
+        },
+        {
+          "query_id": "CQ10",
+          "fact_id": "CF33"
+        },
+        {
+          "query_id": "CQ11",
+          "fact_id": "CF33"
+        },
+        {
+          "query_id": "CQ12",
+          "fact_id": "CF33"
+        }
+      ],
+      "test_pairs": [
+        {
+          "query_id": "TQ08",
+          "fact_id": "TF33"
+        },
+        {
+          "query_id": "TQ09",
+          "fact_id": "TF33"
+        },
+        {
+          "query_id": "TQ10",
+          "fact_id": "TF33"
+        },
+        {
+          "query_id": "TQ11",
+          "fact_id": "TF33"
+        },
+        {
+          "query_id": "TQ12",
+          "fact_id": "TF33"
+        }
+      ],
+      "calibration_count": 5,
+      "test_count": 5
+    },
+    "HN12": {
+      "calibration_pairs": [
+        {
+          "query_id": "CQ01",
+          "fact_id": "CF28"
+        },
+        {
+          "query_id": "CQ08",
+          "fact_id": "CF28"
+        },
+        {
+          "query_id": "CQ09",
+          "fact_id": "CF28"
+        },
+        {
+          "query_id": "CQ11",
+          "fact_id": "CF28"
+        },
+        {
+          "query_id": "CQ12",
+          "fact_id": "CF28"
+        }
+      ],
+      "test_pairs": [
+        {
+          "query_id": "TQ01",
+          "fact_id": "TF28"
+        },
+        {
+          "query_id": "TQ08",
+          "fact_id": "TF28"
+        },
+        {
+          "query_id": "TQ09",
+          "fact_id": "TF28"
+        },
+        {
+          "query_id": "TQ11",
+          "fact_id": "TF28"
+        },
+        {
+          "query_id": "TQ12",
+          "fact_id": "TF28"
+        }
+      ],
+      "calibration_count": 5,
+      "test_count": 5
+    }
+  },
+  "calibration_coverage": {
+    "HN1": 20,
+    "HN2": 22,
+    "HN3": 7,
+    "HN4": 17,
+    "HN5": 4,
+    "HN6": 23,
+    "HN7": 4,
+    "HN8": 5,
+    "HN9": 3,
+    "HN10": 2,
+    "HN11": 5,
+    "HN12": 5
+  },
+  "test_coverage": {
+    "HN1": 20,
+    "HN2": 22,
+    "HN3": 7,
+    "HN4": 16,
+    "HN5": 4,
+    "HN6": 23,
+    "HN7": 7,
+    "HN8": 8,
+    "HN9": 4,
+    "HN10": 2,
+    "HN11": 5,
+    "HN12": 5
+  },
+  "definitions": {
+    "HN1": "SAME_ENTITY_WRONG_PREDICATE",
+    "HN2": "SAME_PREDICATE_WRONG_ENTITY",
+    "HN3": "LEXICAL_OVERLAP_WRONG_ANSWER",
+    "HN4": "SEMANTICALLY_RELATED_WRONG_RELATION",
+    "HN5": "NEAR_NAME_ENTITY_COLLISION",
+    "HN6": "UNRELATED",
+    "HN7": "NEGATION_POLARITY",
+    "HN8": "TEMPORAL_VERSION_MISMATCH",
+    "HN9": "SCOPE_MISMATCH",
+    "HN10": "CONDITION_MISMATCH",
+    "HN11": "ATTRIBUTION_SOURCE_MISMATCH",
+    "HN12": "NUMERIC_UNIT_DIRECTION_MISMATCH"
+  }
+}

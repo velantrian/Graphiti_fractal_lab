@@ -1,0 +1,57 @@
+{
+  "queries": [
+    {
+      "id": "Q1",
+      "text": "Who works on Project Orion?"
+    },
+    {
+      "id": "Q2",
+      "text": "What language does Project Orion use?"
+    },
+    {
+      "id": "Q3",
+      "text": "What is related to Project Nova?"
+    },
+    {
+      "id": "Q4",
+      "text": "Who works on Project Zephyr?"
+    },
+    {
+      "id": "Q5",
+      "text": "Does Alice use Python?"
+    }
+  ],
+  "facts": [
+    {
+      "id": "F1",
+      "text": "Alice works on Project Orion."
+    },
+    {
+      "id": "F2",
+      "text": "Project Orion uses Python."
+    },
+    {
+      "id": "F3",
+      "text": "Bob works on Project Nova."
+    },
+    {
+      "id": "F4",
+      "text": "Project Nova uses Rust."
+    }
+  ],
+  "gold": {
+    "Q1": [
+      "Alice works on Project Orion."
+    ],
+    "Q2": [
+      "Project Orion uses Python."
+    ],
+    "Q3": [
+      "Bob works on Project Nova.",
+      "Project Nova uses Rust."
+    ],
+    "Q4": [],
+    "Q5": []
+  },
+  "note": "Exact FM-15 Q1–Q5 × F1–F4 regression anchor; excluded from threshold selection."
+}

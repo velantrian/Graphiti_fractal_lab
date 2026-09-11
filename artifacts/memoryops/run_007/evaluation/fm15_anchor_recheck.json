@@ -1,0 +1,6 @@
+{
+  "ANCHOR_DETERMINISM": "EXACT",
+  "MAX_ABSOLUTE_CE_DELTA": 0.0,
+  "compared_pairs": 20,
+  "source": "/workspace/Graphiti_fractal_lab/artifacts/memoryops/run_006/cross_encoder_score_matrix.json"
+}

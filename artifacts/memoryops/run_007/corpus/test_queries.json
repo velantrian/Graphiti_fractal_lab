@@ -1,0 +1,122 @@
+[
+  {
+    "id": "TQ01",
+    "text": "Who works on Project Nimbus?",
+    "class": "answerable",
+    "subtype": "narrow"
+  },
+  {
+    "id": "TQ02",
+    "text": "What language does Project Vector use?",
+    "class": "answerable",
+    "subtype": "narrow"
+  },
+  {
+    "id": "TQ03",
+    "text": "What does Project Nimbus depend on?",
+    "class": "answerable",
+    "subtype": "narrow"
+  },
+  {
+    "id": "TQ04",
+    "text": "Where is Project Nimbus deployed?",
+    "class": "answerable",
+    "subtype": "narrow"
+  },
+  {
+    "id": "TQ05",
+    "text": "Which person is assigned to Project Cobalt?",
+    "class": "answerable",
+    "subtype": "paraphrase"
+  },
+  {
+    "id": "TQ06",
+    "text": "What programming language powers Project Aurora?",
+    "class": "answerable",
+    "subtype": "paraphrase"
+  },
+  {
+    "id": "TQ07",
+    "text": "Does Project Aurora support feature sharding?",
+    "class": "answerable",
+    "subtype": "paraphrase"
+  },
+  {
+    "id": "TQ08",
+    "text": "Does Project Willow require more than 32 GB of memory?",
+    "class": "answerable",
+    "subtype": "paraphrase"
+  },
+  {
+    "id": "TQ09",
+    "text": "What is related to Project Nimbus?",
+    "class": "answerable",
+    "subtype": "broad"
+  },
+  {
+    "id": "TQ10",
+    "text": "What should I know about Project Vector?",
+    "class": "answerable",
+    "subtype": "broad"
+  },
+  {
+    "id": "TQ11",
+    "text": "What components are associated with Project Titan?",
+    "class": "answerable",
+    "subtype": "broad"
+  },
+  {
+    "id": "TQ12",
+    "text": "Tell me about Project Cipher.",
+    "class": "answerable",
+    "subtype": "broad"
+  },
+  {
+    "id": "TQ13",
+    "text": "Who works on Project Zephyr?",
+    "class": "no_answer",
+    "subtype": "nonexistent"
+  },
+  {
+    "id": "TQ14",
+    "text": "What language does Project Orion use?",
+    "class": "no_answer",
+    "subtype": "nonexistent"
+  },
+  {
+    "id": "TQ15",
+    "text": "Where is Project Nova deployed?",
+    "class": "no_answer",
+    "subtype": "nonexistent"
+  },
+  {
+    "id": "TQ16",
+    "text": "Who owns Project Atlas?",
+    "class": "no_answer",
+    "subtype": "nonexistent"
+  },
+  {
+    "id": "TQ17",
+    "text": "Who founded Project Nimbus?",
+    "class": "no_answer",
+    "subtype": "unsupported"
+  },
+  {
+    "id": "TQ18",
+    "text": "When was Project Vector started?",
+    "class": "no_answer",
+    "subtype": "unsupported"
+  },
+  {
+    "id": "TQ19",
+    "text": "What is the license of Project Cobalt?",
+    "class": "no_answer",
+    "subtype": "unsupported"
+  },
+  {
+    "id": "TQ20",
+    "text": "How many users does Project Aurora have?",
+    "class": "no_answer",
+    "subtype": "unsupported"
+  }
+]

@@ -1,0 +1,14 @@
+recorded_at_utc=2026-09-11T08:14:22.984074Z
+ce_model=BAAI/bge-reranker-v2-m3
+ce_revision=953dc6f6f85a1b2dbfca4c34a2796e7dde08d41e
+ce_weight_sha256=d9e3e081faff1eefb84019509b2f5558fd74c1a05a2c7db22f74174fcedb5286
+embedding_model=BAAI/bge-small-en-v1.5
+device=cpu
+start_sha_expected=de304f120a7fdf5bbd1ac020e4333a50a541a219
+upstream_sha=2437244149baeb0c645e2e942125be92bba3a96b
+sentence_transformers=6.0.1
+transformers=5.17.0
+torch=2.14.0+cu130
+numpy=2.5.3
+graphiti_core=UNKNOWN
+graphiti-core=0.29.3

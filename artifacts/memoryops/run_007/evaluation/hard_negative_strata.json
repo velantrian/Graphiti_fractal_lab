@@ -1,0 +1,296 @@
+{
+  "ce_test": {
+    "HN1": {
+      "candidate_count": 20,
+      "mean_score": 0.20205652207368985,
+      "median_score": 0.017596432473510504,
+      "p95_score": 0.9638206362724304,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN2": {
+      "candidate_count": 22,
+      "mean_score": 0.014413003830503096,
+      "median_score": 0.0068513823207467794,
+      "p95_score": 0.03975438326597214,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN3": {
+      "candidate_count": 7,
+      "mean_score": 0.008510463402282247,
+      "median_score": 0.00132463569752872,
+      "p95_score": 0.0065493653528392315,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN4": {
+      "candidate_count": 16,
+      "mean_score": 0.00462806160794571,
+      "median_score": 0.0002519142726669088,
+      "p95_score": 0.007572574075311422,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN5": {
+      "candidate_count": 4,
+      "mean_score": 0.007141459849663079,
+      "median_score": 0.004433443653397262,
+      "p95_score": 0.0065493653528392315,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN6": {
+      "candidate_count": 23,
+      "mean_score": 0.0004259793889935321,
+      "median_score": 2.8539050617837347e-05,
+      "p95_score": 0.00023756099108140916,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN7": {
+      "candidate_count": 7,
+      "mean_score": 0.14382652496039686,
+      "median_score": 1.7546948583913036e-05,
+      "p95_score": 0.007572574075311422,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN8": {
+      "candidate_count": 8,
+      "mean_score": 0.007095866453255439,
+      "median_score": 0.00014078574895393103,
+      "p95_score": 0.011378694325685501,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN9": {
+      "candidate_count": 4,
+      "mean_score": 0.04322514772320574,
+      "median_score": 0.0006350234325509518,
+      "p95_score": 0.0007239869446493685,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN10": {
+      "candidate_count": 2,
+      "mean_score": 0.0015914032410364598,
+      "median_score": 0.0015914032410364598,
+      "p95_score": 0.0008984605665318668,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN11": {
+      "candidate_count": 5,
+      "mean_score": 1.797588702174835e-05,
+      "median_score": 1.6234764188993722e-05,
+      "p95_score": 1.6911282727960497e-05,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN12": {
+      "candidate_count": 5,
+      "mean_score": 0.19278622421443287,
+      "median_score": 2.8539050617837347e-05,
+      "p95_score": 3.775036020670086e-05,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    }
+  },
+  "embedding_test": {
+    "HN1": {
+      "candidate_count": 20,
+      "mean_score": 0.7482716193568182,
+      "median_score": 0.7523113815723157,
+      "p95_score": 0.870183836224446,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN2": {
+      "candidate_count": 22,
+      "mean_score": 0.6422298431376744,
+      "median_score": 0.6515169082805965,
+      "p95_score": 0.6906692387062663,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN3": {
+      "candidate_count": 7,
+      "mean_score": 0.6353317517123497,
+      "median_score": 0.6759747700016716,
+      "p95_score": 0.7243188673919917,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN4": {
+      "candidate_count": 16,
+      "mean_score": 0.6422366717310858,
+      "median_score": 0.6360757749738204,
+      "p95_score": 0.752107643491145,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN5": {
+      "candidate_count": 4,
+      "mean_score": 0.7358798583510932,
+      "median_score": 0.735142475824752,
+      "p95_score": 0.7455318512090225,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN6": {
+      "candidate_count": 23,
+      "mean_score": 0.5949056139335779,
+      "median_score": 0.5935131955571544,
+      "p95_score": 0.6640999826724374,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN7": {
+      "candidate_count": 7,
+      "mean_score": 0.6242943551316775,
+      "median_score": 0.5574694296933056,
+      "p95_score": 0.7072442436408993,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN8": {
+      "candidate_count": 8,
+      "mean_score": 0.6793773530238024,
+      "median_score": 0.6572324155916804,
+      "p95_score": 0.7354927263166602,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN9": {
+      "candidate_count": 4,
+      "mean_score": 0.6519272559970446,
+      "median_score": 0.6234570501008625,
+      "p95_score": 0.6382589074060925,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN10": {
+      "candidate_count": 2,
+      "mean_score": 0.6501841052786228,
+      "median_score": 0.6501841052786228,
+      "p95_score": 0.6164522532562269,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN11": {
+      "candidate_count": 5,
+      "mean_score": 0.3858137254747716,
+      "median_score": 0.3583744312689964,
+      "p95_score": 0.3713735269810638,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN12": {
+      "candidate_count": 5,
+      "mean_score": 0.6100103912467398,
+      "median_score": 0.5451327040873494,
+      "p95_score": 0.5567528242774349,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    }
+  },
+  "ce_calibration": {
+    "HN1": {
+      "candidate_count": 20,
+      "mean_score": 0.27999508574430365,
+      "median_score": 0.024213042110204697,
+      "p95_score": 0.9744248390197754,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN2": {
+      "candidate_count": 22,
+      "mean_score": 0.014373594261500826,
+      "median_score": 0.009679112583398819,
+      "p95_score": 0.040844373404979706,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN3": {
+      "candidate_count": 7,
+      "mean_score": 0.014518187763314927,
+      "median_score": 0.007408211939036846,
+      "p95_score": 0.017152544111013412,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN4": {
+      "candidate_count": 17,
+      "mean_score": 0.002337246065187227,
+      "median_score": 7.92824721429497e-05,
+      "p95_score": 0.007072928361594677,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN5": {
+      "candidate_count": 4,
+      "mean_score": 0.02228945167735219,
+      "median_score": 0.01228037802502513,
+      "p95_score": 0.017152544111013412,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN6": {
+      "candidate_count": 23,
+      "mean_score": 0.001077208111699134,
+      "median_score": 4.4728181819664314e-05,
+      "p95_score": 0.0005192214739508927,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN7": {
+      "candidate_count": 4,
+      "mean_score": 0.2512477671102715,
+      "median_score": 0.0032709284032534924,
+      "p95_score": 0.006524696946144104,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN8": {
+      "candidate_count": 5,
+      "mean_score": 0.0029480910845450124,
+      "median_score": 0.00015203897783067077,
+      "p95_score": 0.0014320312766358256,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN9": {
+      "candidate_count": 3,
+      "mean_score": 0.01101631118702547,
+      "median_score": 0.002089382614940405,
+      "p95_score": 0.002089382614940405,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN10": {
+      "candidate_count": 2,
+      "mean_score": 0.0006567626842297614,
+      "median_score": 0.0006567626842297614,
+      "p95_score": 0.0004910375573672354,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN11": {
+      "candidate_count": 5,
+      "mean_score": 2.900427389249671e-05,
+      "median_score": 1.6602203686488792e-05,
+      "p95_score": 4.246889511705376e-05,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    },
+    "HN12": {
+      "candidate_count": 5,
+      "mean_score": 0.19491503957106032,
+      "median_score": 4.4024185626767576e-05,
+      "p95_score": 5.5080185120459646e-05,
+      "rejection_rate": null,
+      "false_survival_rate": null
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "calibrated_threshold_sha256": "dc2c3a30eb29d9e344cd6f018fc056481612a832e9bc22008cc7318780066a57",
+  "heldout_applied_once": true,
+  "thresholds_unchanged_after_freeze": true,
+  "THETA_CE": null,
+  "THETA_EMBEDDING": null,
+  "GLOBAL_THRESHOLD_FEASIBLE_CE": false,
+  "GLOBAL_THRESHOLD_FEASIBLE_EMBEDDING": false
+}

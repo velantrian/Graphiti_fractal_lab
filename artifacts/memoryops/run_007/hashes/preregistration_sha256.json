@@ -1,0 +1,5 @@
+{
+  "preregistration.json": "8a9845b48992d11fbf2c59c1874bae8a79ce5b7d06f96ea6bf2b31bbc7619085",
+  "note": "Hash of preregistration.json as stored (includes scoring_begun flag after freeze of corpus hashes).",
+  "corpus_hashes_frozen_before_scoring": true
+}

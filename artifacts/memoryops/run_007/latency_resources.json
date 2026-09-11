@@ -1,0 +1,15 @@
+{
+  "ce_model_load_time_s": 10.874856815004023,
+  "ce_calibration_scoring_time_s": 20.30931525900087,
+  "ce_heldout_scoring_time_s": 20.271973777998937,
+  "ce_anchor_scoring_time_s": 0.8651358200004324,
+  "ce_total_pair_scoring_time_s": 41.44642485700024,
+  "embedding_scoring_time_s": 2.973646304992144,
+  "mean_ce_pair_latency_s": 0.025584212874691505,
+  "batch_size": "per-query full fact list (40 or 4)",
+  "device": "cpu",
+  "peak_rss_kb_approx": 2475936,
+  "model_weight_size_bytes": 2271071852,
+  "LATENCY_NE_QUALITY": true,
+  "capture_logits": false
+}
