@@ -2,6 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "fm17_pre_oracle_annotations.schema.json",
   "title": "FM-17-pre Oracle Annotation Record",
+  "description": "v1.1 — field-level provenance. gold_relevance_class / hn_labels are EVALUATION-ONLY and MUST be absent from annotator packages.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -9,19 +10,84 @@
     "fact_id",
     "query",
     "fact",
-    "gold_relevance_class",
-    "annotation_source"
+    "record_layer"
   ],
+  "$defs": {
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_type",
+        "blinding_status",
+        "adjudication_status"
+      ],
+      "properties": {
+        "source_type": {
+          "type": "string",
+          "enum": [
+            "RAW_QUERY_TEXT",
+            "RAW_FACT_TEXT",
+            "FIXED_RULE",
+            "HUMAN_ANNOTATION",
+            "ADJUDICATED"
+          ]
+        },
+        "source_span": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rule_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "annotator_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Pseudonymous id, e.g. annotator_A"
+        },
+        "blinding_status": {
+          "type": "string",
+          "enum": [
+            "BLINDED_TO_GOLD_AND_HN",
+            "NOT_BLINDED",
+            "UNKNOWN"
+          ]
+        },
+        "adjudication_status": {
+          "type": "string",
+          "enum": [
+            "NOT_REQUIRED",
+            "PENDING",
+            "AGREED",
+            "ADJUDICATED"
+          ]
+        }
+      }
+    }
+  },
   "properties": {
     "pair_id": {
-      "type": "string",
-      "description": "Optional stable id query_id::fact_id"
+      "type": "string"
     },
     "query_id": {
       "type": "string"
     },
     "fact_id": {
       "type": "string"
+    },
+    "record_layer": {
+      "type": "string",
+      "enum": [
+        "STRUCTURAL",
+        "EVALUATION_OVERLAY"
+      ],
+      "description": "STRUCTURAL = A1/A2 annotator output (no gold/HN). EVALUATION_OVERLAY = attached after annotation freeze only."
     },
     "query": {
       "type": "object",
@@ -33,75 +99,205 @@
       ],
       "properties": {
         "entity_targets": {
-          "type": "array",
-          "items": {
-            "type": "string"
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            }
           }
         },
         "predicate_target": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "scope_target": {
-          "type": "string",
-          "enum": [
-            "prod",
-            "test",
-            "default",
-            "historical",
-            "current",
-            "any",
-            "unknown"
-          ]
-        },
-        "polarity_target": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "condition_target": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "attribution_target": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "query_class": {
-          "type": "string",
-          "enum": [
-            "NARROW",
-            "STATE",
-            "BROAD",
-            "NO_ANSWER",
-            "MULTIHOP"
-          ]
-        },
-        "role_target": {
-          "type": [
-            "object",
-            "null"
-          ],
+          "type": "object",
           "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
           "properties": {
-            "subject": {
+            "value": {
               "type": [
                 "string",
                 "null"
               ]
             },
-            "object": {
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            }
+          }
+        },
+        "scope_target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": "string",
+              "enum": [
+                "prod",
+                "test",
+                "default",
+                "historical",
+                "current",
+                "any",
+                "unknown"
+              ]
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            }
+          }
+        },
+        "temporal_target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "current",
+                "historical",
+                "any",
+                "unknown",
+                null
+              ]
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            }
+          }
+        },
+        "polarity_target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
               "type": [
                 "string",
                 "null"
               ]
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            }
+          }
+        },
+        "condition_target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            }
+          }
+        },
+        "attribution_target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            }
+          }
+        },
+        "query_class": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": "string",
+              "enum": [
+                "NARROW",
+                "STATE",
+                "BROAD",
+                "NO_ANSWER",
+                "MULTIHOP"
+              ]
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            }
+          }
+        },
+        "role_target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "object",
+                "null"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "subject": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "object": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
             }
           }
         }
@@ -116,81 +312,188 @@
       ],
       "properties": {
         "entities": {
-          "type": "array",
-          "items": {
-            "type": "string"
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            }
           }
         },
         "predicate": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "scope": {
-          "type": "string",
-          "enum": [
-            "prod",
-            "test",
-            "default",
-            "historical",
-            "current",
-            "any",
-            "unknown"
-          ]
-        },
-        "polarity": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "condition": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "attribution": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "temporal_state": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "enum": [
-            "current",
-            "historical",
-            "unknown",
-            null
-          ]
-        },
-        "role": {
-          "type": [
-            "object",
-            "null"
-          ],
+          "type": "object",
           "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
           "properties": {
-            "subject": {
+            "value": {
               "type": [
                 "string",
                 "null"
               ]
             },
-            "object": {
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            }
+          }
+        },
+        "scope": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": "string",
+              "enum": [
+                "prod",
+                "test",
+                "default",
+                "historical",
+                "current",
+                "any",
+                "unknown"
+              ]
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            }
+          }
+        },
+        "polarity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
               "type": [
                 "string",
                 "null"
               ]
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            }
+          }
+        },
+        "condition": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            }
+          }
+        },
+        "attribution": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            }
+          }
+        },
+        "temporal_state": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "current",
+                "historical",
+                "unknown",
+                null
+              ]
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
+            }
+          }
+        },
+        "role": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "object",
+                "null"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "subject": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "object": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "provenance": {
+              "$ref": "#/$defs/provenance"
             }
           }
         }
       }
+    },
+    "annotation_notes": {
+      "type": "string"
     },
     "gold_relevance_class": {
       "type": "string",
@@ -199,24 +502,15 @@
         "COMPONENT",
         "RELATED",
         "NONANSWER"
-      ]
-    },
-    "annotation_source": {
-      "type": "string",
-      "enum": [
-        "HUMAN_GOLD",
-        "RULE_DERIVED"
-      ]
-    },
-    "annotation_notes": {
-      "type": "string"
+      ],
+      "description": "EVALUATION-ONLY. Forbidden on STRUCTURAL records and in annotator view."
     },
     "hn_labels": {
       "type": "array",
       "items": {
         "type": "string"
       },
-      "description": "Optional copy of FM-16 HN labels for the pair"
+      "description": "EVALUATION-ONLY. Forbidden on STRUCTURAL records."
     },
     "diagnostic_subset": {
       "type": [
@@ -227,8 +521,37 @@
         "MULTIHOP_COMPONENT_RETENTION",
         "HN9_SCOPE",
         "NO_ANSWER",
+        "SEMANTIC_DESIGN_LIMITATION",
         null
-      ]
+      ],
+      "description": "EVALUATION-ONLY except SEMANTIC_DESIGN_LIMITATION may be set on STRUCTURAL from query text."
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "record_layer": {
+            "const": "STRUCTURAL"
+          }
+        }
+      },
+      "then": {
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "gold_relevance_class"
+              ]
+            },
+            {
+              "required": [
+                "hn_labels"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
 }

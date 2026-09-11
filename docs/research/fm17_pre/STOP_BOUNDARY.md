@@ -22,6 +22,9 @@
 - ❌ Modify Graphiti runtime / search recipe
 - ❌ Architecture promotion / product change
 - ❌ Treat oracle pass as implementation readiness
+- ❌ Annotate real CAL/TEST
+- ❌ Fabricate a second annotator
+- ❌ Use gold/HN/CE/embeddings to build A1/A2 STRUCTURAL fields
 
 ## After protocol review — user decision only
 
@@ -39,5 +42,10 @@
 ```
 ORACLE STRUCTURE ≠ PREDICTED STRUCTURE
 ORACLE FILTER PASS ≠ REAL STRUCTURED PIPELINE PASS
-SUPPORTED_AS_USEFUL_SIGNAL ≠ IMPLEMENTATION_READINESS
+COMBINED QUERY+FACT ORACLE CEILING ≠ DEPLOYABLE PIPELINE
+A3 COMPONENT RETENTION ≠ A1/A2 COMPONENT IDENTIFICATION
+HIGH UNRESOLVED RATE ≠ STRUCTURAL SUCCESS
 ```
+
+After this repair: **SEND REVISED PROTOCOL TO MANUS FOR RE-REVIEW**.  
+Do not start annotation or ablation.

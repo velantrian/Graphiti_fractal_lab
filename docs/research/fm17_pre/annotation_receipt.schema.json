@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fm17_pre_annotation_receipt.schema.json",
+  "title": "FM-17-pre Annotation Freeze Receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "annotation_schema_version",
+    "rulebook_version",
+    "query_corpus_hash",
+    "fact_corpus_hash",
+    "annotation_package_hash",
+    "annotator_A_id",
+    "annotator_B_id",
+    "adjudicator_id",
+    "blinding_declaration",
+    "gold_access",
+    "hn_access",
+    "ce_score_access",
+    "embedding_score_access",
+    "independent_annotation_available",
+    "annotation_started_at",
+    "annotation_frozen_at",
+    "disagreement_count",
+    "adjudicated_count",
+    "post_freeze_amendments"
+  ],
+  "properties": {
+    "annotation_schema_version": {
+      "type": "string"
+    },
+    "rulebook_version": {
+      "type": "string"
+    },
+    "query_corpus_hash": {
+      "type": "string"
+    },
+    "fact_corpus_hash": {
+      "type": "string"
+    },
+    "annotation_package_hash": {
+      "type": "string"
+    },
+    "annotator_A_id": {
+      "type": "string"
+    },
+    "annotator_B_id": {
+      "type": "string"
+    },
+    "adjudicator_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "blinding_declaration": {
+      "type": "string"
+    },
+    "gold_access": {
+      "type": "boolean"
+    },
+    "hn_access": {
+      "type": "boolean"
+    },
+    "ce_score_access": {
+      "type": "boolean"
+    },
+    "embedding_score_access": {
+      "type": "boolean"
+    },
+    "independent_annotation_available": {
+      "type": "boolean"
+    },
+    "annotation_started_at": {
+      "type": "string"
+    },
+    "annotation_frozen_at": {
+      "type": "string"
+    },
+    "total_fields": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "agreements": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "disagreements": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "agreement_rate": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "disagreement_count": {
+      "type": "integer"
+    },
+    "adjudicated_count": {
+      "type": "integer"
+    },
+    "disagreement_categories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "post_freeze_amendments": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "note": {
+      "type": "string"
+    }
+  }
+}

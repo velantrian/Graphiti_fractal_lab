@@ -6,6 +6,8 @@
 **Branch:** `experiment/falkordblite-deterministic-memory`  
 **FM-16 anchor HEAD:** `62cfa45a80ec83794b701d88873ce136b7629354`  
 **Mode:** OFFLINE · BOUNDED · EVIDENCE-FIRST · ANTI-DRIFT  
+**Experiment class:** `TARGETED_MECHANISTIC_ABLATION`  
+**Repair:** v1.1 anti-leakage / annotation integrity  
 
 ---
 
@@ -13,7 +15,7 @@
 
 ### Scientific question
 
-> **Does explicit structural information contain useful relevance signal?**
+> On the frozen FM-16 fixture, does **oracle-quality query-and-fact typed structure** add useful qualification signal beyond CE-only ranking, and does structural→CE residual preserve more useful evidence than structure alone?
 
 ### Purpose
 
@@ -37,16 +39,18 @@ Measure the **upper bound** of usefulness of explicit structural information und
 
 ```
 ORACLE STRUCTURE          ≠  PREDICTED STRUCTURE
-PREDICATE IN GOLD         ≠  PREDICATE EXTRACTABLE RELIABLY
+ORACLE QUERY INTERPRETATION ≠ REAL QUERY UNDERSTANDING
+ORACLE FACT STRUCTURE     ≠  REAL EXTRACTION
+COMBINED QUERY+FACT CEILING ≠ DEPLOYABLE PIPELINE
 ORACLE FILTER PASS        ≠  REAL STRUCTURED PIPELINE PASS
-SUPPORTED_AS_USEFUL_SIGNAL ≠  IMPLEMENTATION_READINESS
-STRUCTURAL_INFORMATION_HAS_MEASURABLE_ORACLE_VALUE
+ORACLE_QUERY_AND_FACT_STRUCTURAL_REPRESENTATION_HAS_MEASURABLE_VALUE
                           ≠  ARCHITECTURE / RUNTIME AUTHORIZATION
+A3 COMPONENT RETENTION    ≠  A1/A2 COMPONENT IDENTIFICATION
 ```
 
 A positive result means **only**:
 
-> If the system had access to **correct** structural information, that information would **materially help** the tested relevance problem.
+> If **correct query structural interpretation and correct fact structural representation** were available, that **combined** information would materially help **this fixture’s known error classes**.
 
 It does **not** establish extraction accuracy, query parsing accuracy, production feasibility, runtime routing, graph implementation, or architecture authorization.
 
@@ -141,7 +145,7 @@ BROAD RECALL IMPROVEMENT
 | **A0** | CE BASELINE | Frozen CE ordering from `run_007`. **No new threshold.** |
 | **A1** | STRUCTURAL ORACLE ONLY | Apply frozen oracle structural constraints. CE not used for keep/reject. |
 | **A2** | STRUCTURAL → CE RESIDUAL | Same structural KEEP set as A1; order survivors by frozen CE `RAW_SCORE`. |
-| **A3** | COMPONENT-PRESERVING STRUCTURAL DIAGNOSTIC | A1/A2 rules + never remove `COMPONENT` facts in `MULTIHOP_COMPONENT_RETENTION` subset. |
+| **A3** | `ORACLE_COMPONENT_IDENTITY_CEILING_DIAGNOSTIC` | Gold-aware COMPONENT KEEP on diagnostic subset **only**; not a primary success gate. |
 
 ### Not in this experiment
 
@@ -173,11 +177,11 @@ Exact MATCH / MISMATCH / UNKNOWN / NOT_APPLICABLE tables:
 - Guide: [`ORACLE_ANNOTATION_GUIDE.md`](ORACLE_ANNOTATION_GUIDE.md)
 - Template (NOT gold): [`oracle_annotations.template.jsonl`](oracle_annotations.template.jsonl)
 
-`annotation_source` ∈ `{HUMAN_GOLD, RULE_DERIVED}` only for primary gold.  
-LLM drafts are non-gold unless independently reviewed and upgraded.
-
-**Freeze + hash annotation file BEFORE any ablation computation.**  
-No TEST-driven rule tuning after freeze.
+STRUCTURAL annotations: raw query/fact + frozen ontology/rulebook only.  
+**Forbidden inputs:** gold sets, `gold_relevance_class`, HN labels, CE/embedding scores/ranks.  
+Field-level provenance required. Independent blinded annotators A/B + adjudication.  
+If independent annotation unavailable → `INDEPENDENT_ANNOTATION_AVAILABLE=NO` and **STOP**.  
+EVALUATION_OVERLAY (gold/HN) attaches only after STRUCTURAL freeze. See annotation guide v1.1.
 
 ---
 
@@ -206,7 +210,7 @@ Full definitions: [`preregistered_metrics.md`](preregistered_metrics.md)
 
 Minimum set:
 
-**Per query class:** DIRECT_GOLD_RECALL · NONANSWER_REJECTION_RATE · RELATED_REJECTION_RATE · COMPONENT_RETENTION · NO_ANSWER_EMPTY_ACCURACY · FALSE_EMPTY_RATE · NONEMPTY_GOLD_MISS_RATE  
+**Per query class:** DIRECT_GOLD_RECALL · NONANSWER_REJECTION_RATE · RELATED_REJECTION_RATE · COMPONENT_RETENTION (A1/A2) · NO_ANSWER_EMPTY_ACCURACY · FALSE_EMPTY_RATE · NONEMPTY_GOLD_MISS_RATE · **UNRESOLVED_RATE (co-primary)**  
 
 **Per HN stratum:** rejection rate · inversion count before/after filtering  
 
@@ -220,10 +224,11 @@ Full table: [`falsification_table.md`](falsification_table.md)
 
 | Label | Short meaning |
 |-------|----------------|
-| `STRUCTURAL_INFORMATION_HAS_MEASURABLE_ORACLE_VALUE` / `SUPPORTED_AS_USEFUL_SIGNAL` | Oracle structure materially helps under preregistered gates |
-| `STRUCTURAL_SIGNAL_NOT_SUFFICIENT` | Helps some axes; residuals / conflicts remain |
-| `STRUCTURAL_SIGNAL_FALSIFIED_FOR_THIS_FIXTURE` | No meaningful gain or harms protected gold/components |
-| `H-E_STRUCTURAL_THEN_CE_RESIDUAL_SUPPORTED_AS_USEFUL_SIGNAL` | A2 beats A1 without harming protected recall/empty |
+| `ORACLE_QUERY_AND_FACT_STRUCTURAL_REPRESENTATION_HAS_MEASURABLE_VALUE` | Combined query+fact oracle ceiling helps this fixture |
+| `STRUCTURAL_THEN_CE_RESIDUAL_SHOWS_ADDITIONAL_VALUE_ON_FROZEN_FIXTURE` | A2 > A1 |
+| `ORACLE_STRUCTURAL_REPRESENTATION_NOT_SUFFICIENT_ON_FIXTURE` | Residuals / UNRESOLVED dominate |
+| `NO_MEASURABLE_GAIN_FROM_SPECIFIED_ORACLE_STRUCTURAL_REPRESENTATION` | Specified rules/representation: no gain vs A0 |
+| `STRUCTURAL_GAIN_WITH_PROTECTED_RECALL_REGRESSION` | Mixed |
 
 Do **not** require that structure “solve everything.”
 
@@ -260,7 +265,19 @@ See [`FROZEN_RUN007_INPUTS.md`](FROZEN_RUN007_INPUTS.md).
 
 ---
 
-## 12. STOP boundary
+## 12. v1.1 semantic rule changelog (explicit)
+
+1. **Annotation inputs:** RULE_DERIVED may not use HN labels or gold sets.  
+2. **CONDITION:** unspecified query + conditional fact → `UNKNOWN`/`UNRESOLVED` (removed gold-DIRECT guidance).  
+3. **PREDICATE × MULTIHOP:** N/A keyed off `query_class` from query text, not COMPONENT gold.  
+4. **SCOPE × BROAD:** default `scope_target=any`; no gold/HN backsolve.  
+5. **TQ11/TF23:** `SEMANTIC_DESIGN_LIMITATION`; HN9 rejection ≠ TF23 universally irrelevant.  
+6. **A3:** renamed `ORACLE_COMPONENT_IDENTITY_CEILING_DIAGNOSTIC`; not a primary success gate.  
+7. **UNRESOLVED_RATE:** co-primary; high unresolved ≠ success.  
+8. **Claim:** combined query+fact ceiling name replaces unqualified oracle-value label.  
+9. **Independence:** two blinded annotators + adjudication, or STOP (`INDEPENDENT_ANNOTATION_AVAILABLE=NO`).
+
+## 13. STOP boundary
 
 See [`STOP_BOUNDARY.md`](STOP_BOUNDARY.md).
 
@@ -269,7 +286,7 @@ Next user decision only: **A** fixes · **B** independent review · **C** author
 
 ---
 
-## 13. Self-review checklist
+## 14. Self-review checklist
 
 - [x] Oracle pass is **not** described as implementation readiness  
 - [x] DIRECT and COMPONENT are separate  
@@ -286,7 +303,7 @@ Next user decision only: **A** fixes · **B** independent review · **C** author
 
 ---
 
-## 14. Machine-readable stub
+## 15. Machine-readable stub
 
 ```json
 {
@@ -294,8 +311,10 @@ Next user decision only: **A** fixes · **B** independent review · **C** author
   "status": "PROTOCOL_FROZEN_NOT_EXECUTED",
   "fm16_anchor_head": "62cfa45a80ec83794b701d88873ce136b7629354",
   "arms": ["A0", "A1", "A2", "A3"],
-  "positive_label": "STRUCTURAL_INFORMATION_HAS_MEASURABLE_ORACLE_VALUE",
-  "positive_label_alias": "SUPPORTED_AS_USEFUL_SIGNAL",
+  "positive_label": "ORACLE_QUERY_AND_FACT_STRUCTURAL_REPRESENTATION_HAS_MEASURABLE_VALUE",
+  "experiment_class": "TARGETED_MECHANISTIC_ABLATION",
+  "a3": "ORACLE_COMPONENT_IDENTITY_CEILING_DIAGNOSTIC",
+  "a3_primary_success_gate": false,
   "implementation_readiness_authorized": false,
   "runtime_authorized": false,
   "merge_authorized": false,

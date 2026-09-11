@@ -1,75 +1,91 @@
-# ⚖️ Falsification / Interpretation Table — FM-17-pre
+# ⚖️ Falsification / Interpretation Table — FM-17-pre (v1.1)
+
+**Experiment class:** `TARGETED_MECHANISTIC_ABLATION`  
+Asks: can explicit **oracle query+fact** structure address **known** FM-16 error classes on this fixture?  
+Does **not** establish general-world structural sufficiency.
+
+```
+FEATURES INFORMED BY PRIOR FAILURE ANALYSIS ≠ BLIND GENERALIZATION
+```
 
 ## Operational thresholds (“materially”)
 
-These are **preregistered** for this fixture protocol:
-
 | Phrase | Operationalization |
 |--------|--------------------|
-| Material HN reduction | On HN9 diagnostic queries: `inversion_count_after = 0` for A1/A2 **or** HN9 `rejection_rate ≥ 0.90` on labeled HN9 pairs; **and** at least two of {HN2, HN1 incompatible-pred, unsupported/no-answer entity mismatch} show `rejection_rate` ↑ by ≥ 0.20 absolute vs A0 membership baseline |
-| DIRECT gold preserved | Macro `DIRECT_GOLD_RECALL` on axis **A (NARROW)** ≥ A0 recall − **0.05** absolute |
-| No-answer improves | Axis **D** `NO_ANSWER_EMPTY_ACCURACY` ↑ by ≥ **0.10** absolute vs A0 **or** reaches **1.0** |
-| Broad not materially destroyed | Axis **C** macro recall over (`DIRECT`∪ broad FM-16 gold mapping) drop ≤ **0.10** absolute vs A0; larger drop = broad-axis failure **without** auto-failing axis A |
-| Component retention | On `MULTIHOP_COMPONENT_RETENTION`: `COMPONENT_RETENTION = 1.0` under **A3**; under A1/A2 report value — regression vs keeping hop-1 is a protected failure for “structural success” claims |
+| Material HN reduction | Evaluation-overlay HN strata: at least two of {HN2, incompatible-pred HN1, unsupported/no-answer entity mismatch} show `rejection_rate` ↑ ≥ 0.20 absolute vs A0; HN9 reported **separately** with `SEMANTIC_DESIGN_LIMITATION` note (not a universal TF23-irrelevance proof) |
+| DIRECT gold preserved | Macro `DIRECT_GOLD_RECALL` on **Q-A** ≥ A0 − **0.05** |
+| No-answer improves | Q-D `NO_ANSWER_EMPTY_ACCURACY` ↑ ≥ **0.10** vs A0 **or** reaches 1.0 |
+| Broad not materially destroyed | Q-C recall drop ≤ **0.10** vs A0; larger drop = Q-C failure only |
+| UNRESOLVED not “success by silence” | `UNRESOLVED_RATE` jointly reported; a high unresolved rate **blocks** a positive useful-qualification claim even if rejection looks good |
+| A1/A2 component retention | Report `COMPONENT_RETENTION` on A1/A2 **without** A3 override; regression vs A0 is mixed/negative evidence |
+| A3 retention | **Not a success gate.** Integrity check only |
+
+A3 `COMPONENT_RETENTION=1.0` MUST NOT be used as evidence of structural component identification.
 
 ---
 
-## Outcome labels
+## Permitted outcome labels
 
-### 1) `STRUCTURAL_INFORMATION_HAS_MEASURABLE_ORACLE_VALUE`
-### (alias: `SUPPORTED_AS_USEFUL_SIGNAL`)
+### 1) `ORACLE_QUERY_AND_FACT_STRUCTURAL_REPRESENTATION_HAS_MEASURABLE_VALUE`
 
-When **all** hold:
+When **all** hold on **A1/A2** (not A3):
 
-1. Material HN reduction (table above)
-2. DIRECT gold preserved on axis A
-3. No-answer improves on axis D
-4. Broad not materially destroyed **or** broad failure is explicitly reported as axis-C-only (still require axes A/D/E gates)
-5. Component retention does not regress on protected diagnostic under **A3** (`COMPONENT_RETENTION=1.0`)
+1. Material HN reduction (table) **and** rejection quality reported
+2. DIRECT gold preserved on Q-A
+3. No-answer improves on Q-D **or** explicitly not claimed
+4. Broad not materially destroyed **or** Q-C-only failure stated
+5. `UNRESOLVED_RATE` jointly reported and not functioning as “keep everything”
+6. A1/A2 `COMPONENT_RETENTION` does not collapse hop-1 on Q-E (A3 not used here)
 
-**Means only:** if the system had correct structural information, it would materially help the tested relevance problem.
+**Means only:** combined ceiling of perfect query interpretation **plus** perfect fact representation would materially help **this fixture’s known error classes**.
 
-**Does NOT mean:** extraction works · query parsing works · production feasibility · runtime routing · graph implementation · architecture authorization · implementation readiness.
-
----
-
-### 2) `STRUCTURAL_SIGNAL_NOT_SUFFICIENT`
-
-When structure helps some strata **but**:
-
-- residual no-answer / broad / semantic errors remain after correct structure; **or**
-- broad still needs semantic qualification; **or**
-- no-answer cannot be separated without harming gold on axis A; **or**
-- component preservation **conflicts** with strict structural rejection (A1 hurts E while A3 is required to save components)
-
-This is a **valid scientific outcome**, not a protocol failure.
+**Does NOT mean:** extraction · query understanding · production · architecture · Honest Empty · general structural sufficiency.
 
 ---
 
-### 3) `STRUCTURAL_SIGNAL_FALSIFIED_FOR_THIS_FIXTURE`
+### 2) `STRUCTURAL_THEN_CE_RESIDUAL_SHOWS_ADDITIONAL_VALUE_ON_FROZEN_FIXTURE`
 
-When **even under oracle-quality labels**:
-
-- structural arms provide **no meaningful improvement** over A0 on preregistered HN/no-answer metrics; **or**
-- materially harm protected DIRECT gold (axis A drop > 0.05) **or** forced component loss that A3 cannot justify without emptying the diagnostic
+A2 improves over A1 on residual ranking / NONANSWER·RELATED rejection / CE MRR among survivors **without** worsening protected DIRECT recall, A1/A2 component retention, empty behavior, or hiding errors in UNRESOLVED.
 
 ---
 
-### 4) `H-E_STRUCTURAL_THEN_CE_RESIDUAL_SUPPORTED_AS_USEFUL_SIGNAL`
+### 3) `ORACLE_STRUCTURAL_REPRESENTATION_NOT_SUFFICIENT_ON_FIXTURE`
 
-When:
+Helps some strata; residuals remain; or UNRESOLVED dominates; or broad still needs semantic qualification; or no-answer vs gold tradeoff.
 
-- A2 improves over A1 on residual ranking / NONANSWER·RELATED rejection / CE MRR among survivors
-- **without** worsening protected DIRECT recall, COMPONENT retention (A3 diagnostic), or no-answer empty behavior beyond preregistered tolerances
+Valid scientific outcome.
 
 ---
 
-## Axis independence reminder
+### 4) `NO_MEASURABLE_GAIN_FROM_SPECIFIED_ORACLE_STRUCTURAL_REPRESENTATION`
+
+Even under oracle query+fact labels + specified rules, no meaningful improvement vs A0 **or** harms DIRECT gold > 0.05.
+
+**Strongest allowed negative:** the **specified** oracle query-and-fact representation and filter rules did not provide sufficient measurable gain on the frozen fixture.
+
+**Do not conclude:** `STRUCTURE IS USELESS`. Residual explanations remain: ontology too coarse · fields incomplete · broad queries not decidable · rules too strict · fixture lacks structure · semantic interpretation dominates · component information missing · useful only on some strata.
+
+---
+
+### 5) `STRUCTURAL_GAIN_WITH_PROTECTED_RECALL_REGRESSION`
+
+Mixed: some HN/no-answer gain with DIRECT or A1/A2 COMPONENT loss.
+
+### 6) `STRUCTURAL_ORACLE_IMPROVED_NO_ANSWER_DISCRIMINATION_ON_FROZEN_FIXTURE`
+
+Fixture-relative empty result only. **Not** `HONEST_EMPTY_SOLVED`.
+
+---
+
+## Forbidden vocabulary
+
+`SOLVED` · `GENERALIZED` · `UNDERSTANDS` · `PRODUCTION_READY` · `ARCHITECTURE_VALIDATED` · `STRUCTURE_IS_SUFFICIENT` · `STRUCTURE_IS_USELESS` · `HONEST_EMPTY_SOLVED` · `MULTI_HOP_SOLVED` · `CE_OBSOLETE` · `STRUCTURAL_INFORMATION_HAS_MEASURABLE_ORACLE_VALUE` as an **unqualified** primary (superseded by the query+fact combined name)
+
+---
+
+## Axis independence
 
 ```
-STRUCTURAL FILTER FAILURE ON BROAD
-≠ STRUCTURAL FILTER FAILURE ON DIRECT
-
-BROAD RECALL IMPROVEMENT
-≠ DIRECT-ANSWER QUALIFICATION
+STRUCTURAL FILTER FAILURE ON BROAD ≠ STRUCTURAL FILTER FAILURE ON DIRECT
+BROAD RECALL IMPROVEMENT ≠ DIRECT-ANSWER QUALIFICATION
 ```

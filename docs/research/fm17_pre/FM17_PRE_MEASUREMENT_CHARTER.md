@@ -7,6 +7,8 @@
 **FM-16 execution anchor:** `62cfa45a80ec83794b701d88873ce136b7629354`  
 **Branch:** `experiment/falkordblite-deterministic-memory`  
 **Mode:** PRE-EXECUTION · ANTI-LEAKAGE · ANTI-DRIFT · NO ABLATION  
+**Experiment class:** `TARGETED_MECHANISTIC_ABLATION` (features informed by FM-16 failures ≠ blind generalization)  
+**Protocol repair:** v1.1 anti-leakage / annotation integrity (this revision)  
 
 ---
 
@@ -35,11 +37,32 @@ ORACLE QUERY INTERPRETATION ≠  REAL QUERY UNDERSTANDING
 ORACLE PASS                 ≠  DEPLOYABLE PIPELINE
 ```
 
+The experiment measures the **combined ceiling** of:
+
+```
+PERFECT QUERY STRUCTURAL INTERPRETATION
++
+PERFECT CANDIDATE/FACT STRUCTURAL REPRESENTATION
+```
+
+It does **not** isolate candidate-side structure alone.
+
+```
+ORACLE QUERY INTERPRETATION ≠ REAL QUERY UNDERSTANDING
+ORACLE FACT STRUCTURE       ≠ REAL EXTRACTION
+COMBINED ORACLE CEILING     ≠ DEPLOYABLE PIPELINE
+ORACLE STRUCTURAL VALUE     ≠ AUTOMATIC EXTRACTION ACCURACY
+```
+
 A positive result authorizes only a **future** question such as:
 
 > Can those fields be extracted reliably enough to preserve the gain?
 
 It does **not** answer that question.
+
+Primary positive label:
+
+`ORACLE_QUERY_AND_FACT_STRUCTURAL_REPRESENTATION_HAS_MEASURABLE_VALUE`
 
 ---
 
@@ -199,33 +222,44 @@ for arms **A1** and **A2**, with **no exceptions**.
 - Feature labels `MATCH|MISMATCH|UNKNOWN|NOT_APPLICABLE` from preregistered rules
 - Frozen CE `RAW_SCORE` **only in A2** for ordering survivors (not for structural ACCEPT/REJECT/UNRESOLVED)
 
-### Forbidden for A1/A2
+### Forbidden for A1/A2 (decisions AND annotation construction)
 
-Using `gold_relevance_class` (or equivalent) to decide:
+Must not use, inspect, or derive STRUCTURAL fields from:
 
-ACCEPT · REJECT · UNRESOLVED · survivor membership · ranking · threshold · filtering rule
+`gold_relevance_class` · FM-16 gold membership · HN class/stratum · CE score/rank · embedding score/rank · candidate rank · known model failure · desired arm outcome · TEST result · expected ACCEPT/REJECT
 
-Gold relevance labels may be used **only after** decisions are frozen, to compute evaluation metrics.
+```
+A1_A2_ANNOTATION_INPUTS ∩ EVALUATION_OUTCOME_INFORMATION = ∅
+```
 
-### A3 — ORACLE_DIAGNOSTIC only
+Allowed STRUCTURAL inputs: raw query text · raw fact text · pre-frozen ontology/schema · pre-frozen lexical/semantic rulebook · adjudication of A–D only.
+
+Gold / HN may be used **only after** STRUCTURAL freeze, in `EVALUATION_OVERLAY`, to compute metrics.
+
+### A3 — `ORACLE_COMPONENT_IDENTITY_CEILING_DIAGNOSTIC`
 
 Arm **A3** is the **sole** authorized exception that may consult COMPONENT gold labels.
 
 | Constraint | Rule |
 |------------|------|
-| Name | `A3_COMPONENT_PRESERVING_ORACLE_DIAGNOSTIC` |
-| Class | **ORACLE_DIAGNOSTIC** — not a deployable structural pipeline |
+| Name | `ORACLE_COMPONENT_IDENTITY_CEILING_DIAGNOSTIC` |
+| Class | integrity / ceiling diagnostic — **not** a deployable pipeline |
 | Report | **Separately** from A1/A2 |
 | Influence | Must **not** change A1/A2 rules, thresholds, or field selection |
-| Claim ban | Must **not** claim a realistic system can already identify components |
+| Primary success | **NO** — A3 retention is **not** a gate for A1/A2 useful-signal |
+| Claim ban | Must **not** claim a realistic system can identify components |
 
-A3 measures: *what would retention look like if COMPONENT identities were known?* — a **ceiling diagnostic**, not pipeline evidence.
+`A3_COMPONENT_RETENTION` = diagnostic / integrity check (partly tautological if KEEP is forced on COMPONENT gold).
 
-### Protocol FINDING (not silently rewritten)
+```
+A3 knows COMPONENT by oracle  ≠  A1/A2 can recognize COMPONENT
+```
 
-`preregistered_filter_rules.md` A3 override **does** read `gold_relevance_class=COMPONENT` — allowed **only** under this ORACLE_DIAGNOSTIC segregation.
+A3 roles only: (1) verify override works (2) show ceiling if perfect COMPONENT identity were known (3) expose whether that changes downstream candidate availability.
 
-Additionally, the CONDITION table prose mentions “while gold treats unconditional fact as DIRECT” as an annotation-aid phrase. **A1/A2 execution must not branch on gold_relevance_class**; condition MISMATCH must be decided only from `query.condition_target` / `fact.condition` and preregistered incompatible patterns. Treat that prose as annotation guidance risk → see §D in the return report (`PROTOCOL_CONSISTENCY = PASS_WITH_FINDINGS`).
+### v1.1 repair of prior FINDING
+
+CONDITION “gold treats unconditional fact as DIRECT” **removed**. Unspecified query condition + conditional fact → `UNKNOWN`/`UNRESOLVED`.
 
 ---
 
@@ -309,7 +343,9 @@ Any A0/A1/A2 difference must be attributable to the **preregistered structural d
 | `UNSUPPORTED_NONEMPTY` | A no-answer query still exposes candidate(s) as answer-worthy |
 | `UNRESOLVED_RATE` | Fraction of pairs where structure cannot make a decisive ACCEPT/REJECT (`state=UNRESOLVED`) |
 
-**Do not** interpret `UNRESOLVED` as automatic failure.
+**Do not** interpret `UNRESOLVED` as automatic failure **or** as success.
+
+`UNRESOLVED_RATE` is **co-primary**. High unresolved rate ≠ structural success. Low false rejection from “keep everything UNRESOLVED” ≠ useful qualification. No positive conclusion from rejection metrics alone.
 
 ---
 
@@ -346,7 +382,8 @@ Charter handling:
 
 - Report HN9 rejection / inversion before vs after structure on Q-B and Q-C as applicable.
 - Do **not** silently assume the broad query has only one valid semantic reading.
-- If gold semantics are debatable → tag `SEMANTIC_DESIGN_LIMITATION` rather than incontrovertible model error.
+- Default BROAD `scope_target=any` unless query text explicitly names a scope.
+- HN9 rejection under one interpretation ≠ proof TF23 is universally irrelevant (`SEMANTIC_DESIGN_LIMITATION`).
 
 ---
 
@@ -394,16 +431,21 @@ STRUCTURAL_EMPTY  ≠  SEMANTIC HONEST EMPTY  ≠  WORLD-KNOWLEDGE ABSENCE
 
 ### Conceptual order
 
-1. Protocol frozen (`469fe64`)  
-2. **Measurement charter frozen** (this document)  
-3. Annotation schema frozen  
-4. Filter rules frozen  
-5. CAL annotations / rule checks  
-6. All decision policies frozen  
-7. TEST exposure  
-8. One TEST execution  
-9. Results lock  
-10. Interpretation  
+1. Protocol frozen  
+2. Measurement charter frozen  
+3. Ontology/schema frozen  
+4. Semantic/lexical rulebook frozen  
+5. Annotators receive **only** sanitized raw query/fact (`sanitized_annotation_input.schema.json`)  
+6. Independent blinded annotation (A then B; no peeking)  
+7. Disagreement report  
+8. Adjudication  
+9. Freeze STRUCTURAL package + SHA256 + receipt (`gold_access=false`, `hn_access=false`, `ce_score_access=false`, `embedding_score_access=false`)  
+10. Only then attach EVALUATION_OVERLAY  
+11. One A0/A1/A2/A3 execution (if later authorized)  
+12. Results lock  
+13. Interpretation  
+
+If `INDEPENDENT_ANNOTATION_AVAILABLE = NO`: **STOP before ablation**. Do not fake a second annotator.
 
 ### Honesty about FM-16 history
 
@@ -449,21 +491,20 @@ LLM drafts are non-gold unless independently reviewed and upgraded (see annotati
 
 | Code | Use when |
 |------|----------|
-| `STRUCTURAL_INFORMATION_HAS_MEASURABLE_ORACLE_VALUE` | Positive oracle useful-signal (alias: `SUPPORTED_AS_USEFUL_SIGNAL`) |
-| `STRUCTURAL_THEN_CE_RESIDUAL_SHOWS_ADDITIONAL_VALUE` | A2 adds value over A1 |
-| `STRUCTURAL_INFORMATION_NOT_SUFFICIENT_ON_FIXTURE` | Insufficient alone |
-| `NO_MEASURABLE_ORACLE_GAIN` | Negative vs A0 |
+| `ORACLE_QUERY_AND_FACT_STRUCTURAL_REPRESENTATION_HAS_MEASURABLE_VALUE` | Positive combined query+fact oracle ceiling on this fixture |
+| `STRUCTURAL_THEN_CE_RESIDUAL_SHOWS_ADDITIONAL_VALUE_ON_FROZEN_FIXTURE` | A2 adds value over A1 |
+| `ORACLE_STRUCTURAL_REPRESENTATION_NOT_SUFFICIENT_ON_FIXTURE` | Insufficient alone |
+| `NO_MEASURABLE_GAIN_FROM_SPECIFIED_ORACLE_STRUCTURAL_REPRESENTATION` | Negative vs A0 for **specified** representation/rules |
 | `STRUCTURAL_GAIN_WITH_PROTECTED_RECALL_REGRESSION` | Mixed |
+| `STRUCTURAL_ORACLE_IMPROVED_NO_ANSWER_DISCRIMINATION_ON_FROZEN_FIXTURE` | Bounded empty-set improvement only |
 
-### Forbidden words/claims
+### Forbidden
 
-`SOLVED` · `PRODUCTION_READY` · `ARCHITECTURE_VALIDATED` · `UNDERSTANDS` · `HONEST_EMPTY_SOLVED` · `GRAPH_REQUIRED` · `CE_OBSOLETE`
+`SOLVED` · `GENERALIZED` · `UNDERSTANDS` · `PRODUCTION_READY` · `ARCHITECTURE_VALIDATED` · `STRUCTURE_IS_SUFFICIENT` · `STRUCTURE_IS_USELESS` · `HONEST_EMPTY_SOLVED` · `MULTI_HOP_SOLVED` · `CE_OBSOLETE`
 
-Align numeric gates with [`falsification_table.md`](falsification_table.md), with charter override:
+Unqualified `STRUCTURAL_INFORMATION_HAS_MEASURABLE_ORACLE_VALUE` is **superseded** (did not state query+fact combined ceiling).
 
-> Positive A1/A2 useful-signal claims must be computable **without** treating A3 gold-aware overrides as evidence of a deployable pipeline. A3 results are reported under `ORACLE_DIAGNOSTIC` only.
-
----
+Negative strongest claim: the specified oracle query-and-fact structural representation and filter rules did not provide sufficient measurable gain on the frozen fixture. **Not** “structure is useless.”
 
 ## 19. External Manus audit status
 
@@ -494,7 +535,9 @@ Not success criteria.
 ## 21. Self-audit checklist
 
 - [x] `gold_relevance_class` cannot influence A1/A2  
-- [x] A3 oracle component diagnostic clearly segregated  
+- [x] HN / gold sets cannot construct A1/A2 STRUCTURAL fields  
+- [x] Field-level provenance + blinding + independent adjudication required  
+- [x] A3 `ORACLE_COMPONENT_IDENTITY_CEILING_DIAGNOSTIC` not a primary success gate  
 - [x] UNKNOWN ≠ MISMATCH  
 - [x] UNRESOLVED ≠ REJECT  
 - [x] DIRECT ≠ COMPONENT  
