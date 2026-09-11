@@ -1,7 +1,8 @@
-"""FM-17-pre v1.2 fail-closed schema enforcement.
+"""FM-17-pre v1.3 fail-closed schema + package integrity enforcement.
 
 TEST_FIXTURE / EXAMPLE_NOT_GOLD only. Does not annotate CAL/TEST.
 Does not compute relevance / A0–A3 metrics.
+Adds T19–T26 / P5–P6 for completeness + real SHA-256 + frozen root.
 """
 from __future__ import annotations
 
@@ -319,23 +320,236 @@ def test_P4_valid_no_disagreement_receipt_passes():
     expect_pass(mod.validate_receipt(valid_receipt()), "P4")
 
 
+import hashlib
+import json
+import tempfile
+from pathlib import Path as _Path
+
+
+def _sanitized_one():
+    return {
+        "query_id": "EX_Q_NARROW",
+        "fact_id": "EX_F_WORKS",
+        "query_text": "Who works on Project Nimbus?",
+        "fact_text": "Sofia works on Project Nimbus.",
+    }
+
+
+def _ann_a():
+    return valid_structural_p1()
+
+
+def _ann_b_agree():
+    rec = valid_structural_p1()
+    # force annotator_B identity on fields that carry annotator_id
+    for path, av in mod.walk_annotated_fields(rec):
+        av["provenance"]["annotator_id"] = "annotator_B"
+    return rec
+
+
+def _ann_b_disagree():
+    rec = _ann_b_agree()
+    # structural value mismatch (integrity compare, not relevance)
+    rec["query"]["predicate_target"]["value"] = "owns"
+    return rec
+
+
+def _adjudicated_from_a():
+    rec = valid_structural_p1()
+    for path, av in mod.walk_annotated_fields(rec):
+        av["provenance"]["adjudication_status"] = "ADJUDICATED"
+        av["provenance"]["adjudicator_id"] = "adjudicator_1"
+        av["provenance"]["source_type"] = "ADJUDICATED"
+    return rec
+
+
+def _disagreement_log_one():
+    return [
+        {
+            "pair_id": "EX_Q_NARROW::EX_F_WORKS",
+            "field_path": "query.predicate_target",
+            "status": "ADJUDICATED",
+            "adjudicator_id": "adjudicator_1",
+            "resolution": "keep_A",
+        }
+    ]
+
+
+def _apply_hashes_to_receipt(receipt: dict, digests: dict, require_conditional: bool = False) -> dict:
+    receipt = copy.deepcopy(receipt)
+    receipt["sanitized_input_hash"] = digests["sanitized_inputs"]
+    receipt["annotation_A_hash"] = digests["annotation_A"]
+    receipt["annotation_B_hash"] = digests["annotation_B"]
+    receipt["final_structural_package_hash"] = digests["final_structural_package"]
+    # schema/corpus/rulebook: bind to same digests only when files absent — use digest of empty marker
+    marker = hashlib.sha256(b"TEST_FIXTURE_NO_EXTERNAL_CORPUS_v1.3").hexdigest()
+    for k in (
+        "ontology_schema_hash",
+        "annotation_schema_hash",
+        "rulebook_hash",
+        "query_corpus_hash",
+        "fact_corpus_hash",
+    ):
+        receipt[k] = marker
+    if require_conditional:
+        receipt["disagreement_log_hash"] = digests["disagreement_log"]
+        receipt["adjudicated_annotation_hash"] = digests["adjudicated_annotations"]
+    else:
+        receipt["disagreement_log_hash"] = None
+        receipt["adjudicated_annotation_hash"] = None
+    return receipt
+
+
+def build_complete_no_disagreement_package(write_files: bool = False, tmpdir: str | None = None) -> dict:
+    """P5 positive control package."""
+    pkg: dict = {
+        "sanitized_inputs": [_sanitized_one()],
+        "annotation_A": [_ann_a()],
+        "annotation_B": [_ann_b_agree()],
+        "final_structural_package": [_ann_a()],
+        "overlay_after_structural_freeze": False,
+    }
+    if write_files:
+        assert tmpdir is not None
+        tdir = _Path(tmpdir)
+        paths = {}
+        for key in ("sanitized_inputs", "annotation_A", "annotation_B", "final_structural_package"):
+            fp = tdir / f"{key}.json"
+            fp.write_text(json.dumps(pkg[key], sort_keys=True, separators=(",", ":")), encoding="utf-8")
+            paths[key] = str(fp)
+        pkg["artifact_paths"] = paths
+
+    # provisional receipt for hashing annotation_receipt itself
+    provisional = valid_receipt()
+    pkg["annotation_receipt"] = provisional
+    materials = mod.build_frozen_materials(pkg, require_conditional=False)
+    # rebuild receipt with real digests then re-hash receipt into manifest
+    receipt = _apply_hashes_to_receipt(provisional, materials["artifact_sha256"], False)
+    pkg["annotation_receipt"] = receipt
+    if write_files:
+        rp = _Path(tmpdir) / "annotation_receipt.json"
+        rp.write_text(json.dumps(receipt, sort_keys=True, separators=(",", ":")), encoding="utf-8")
+        pkg["artifact_paths"]["annotation_receipt"] = str(rp)
+    materials = mod.build_frozen_materials(pkg, require_conditional=False)
+    pkg["frozen_integrity_manifest"] = materials["frozen_integrity_manifest"]
+    pkg["frozen_root_commitment"] = materials["frozen_root_commitment"]
+    # sync receipt hashes again to final digests (receipt content change changes its own hash)
+    receipt = _apply_hashes_to_receipt(provisional, materials["artifact_sha256"], False)
+    pkg["annotation_receipt"] = receipt
+    if write_files:
+        _Path(pkg["artifact_paths"]["annotation_receipt"]).write_text(
+            json.dumps(receipt, sort_keys=True, separators=(",", ":")), encoding="utf-8"
+        )
+    materials = mod.build_frozen_materials(pkg, require_conditional=False)
+    pkg["frozen_integrity_manifest"] = materials["frozen_integrity_manifest"]
+    pkg["frozen_root_commitment"] = materials["frozen_root_commitment"]
+    # final receipt must match final digests of A/B/sanitized/final (not circular on receipt body)
+    receipt = _apply_hashes_to_receipt(provisional, materials["artifact_sha256"], False)
+    pkg["annotation_receipt"] = receipt
+    if write_files:
+        _Path(pkg["artifact_paths"]["annotation_receipt"]).write_text(
+            json.dumps(receipt, sort_keys=True, separators=(",", ":")), encoding="utf-8"
+        )
+        # receipt file bytes changed → recompute manifest/root once more with updated receipt file
+        materials = mod.build_frozen_materials(pkg, require_conditional=False)
+        pkg["frozen_integrity_manifest"] = materials["frozen_integrity_manifest"]
+        pkg["frozen_root_commitment"] = materials["frozen_root_commitment"]
+    else:
+        materials = mod.build_frozen_materials(pkg, require_conditional=False)
+        pkg["frozen_integrity_manifest"] = materials["frozen_integrity_manifest"]
+        pkg["frozen_root_commitment"] = materials["frozen_root_commitment"]
+    return pkg
+
+
+def build_complete_disagreement_package() -> dict:
+    """P6 positive control with real A/B disagreement + adjudication."""
+    pkg: dict = {
+        "sanitized_inputs": [_sanitized_one()],
+        "annotation_A": [_ann_a()],
+        "annotation_B": [_ann_b_disagree()],
+        "final_structural_package": [_adjudicated_from_a()],
+        "adjudicated_annotations": [_adjudicated_from_a()],
+        "disagreement_log": _disagreement_log_one(),
+        "overlay_after_structural_freeze": False,
+    }
+    provisional = valid_adjudicated_receipt()
+    pkg["annotation_receipt"] = provisional
+    materials = mod.build_frozen_materials(pkg, require_conditional=True)
+    receipt = _apply_hashes_to_receipt(provisional, materials["artifact_sha256"], True)
+    receipt["disagreement_count"] = 1  # will be corrected to computed
+    # compute actual disagreement count from A/B
+    computed = mod.compute_disagreement_set(pkg["annotation_A"], pkg["annotation_B"])
+    receipt["disagreement_count"] = len(computed)
+    receipt["adjudicated_count"] = len(computed)
+    pkg["annotation_receipt"] = receipt
+    materials = mod.build_frozen_materials(pkg, require_conditional=True)
+    receipt = _apply_hashes_to_receipt(provisional, materials["artifact_sha256"], True)
+    receipt["disagreement_count"] = len(computed)
+    receipt["adjudicated_count"] = len(computed)
+    pkg["annotation_receipt"] = receipt
+    materials = mod.build_frozen_materials(pkg, require_conditional=True)
+    pkg["frozen_integrity_manifest"] = materials["frozen_integrity_manifest"]
+    pkg["frozen_root_commitment"] = materials["frozen_root_commitment"]
+    return pkg
+
+
 def test_independent_annotation_false_fails_package():
-    pkg = {"annotation_receipt": valid_receipt(independent_annotation_available=False)}
+    """Must fail for independent_annotation=false on a otherwise-complete package."""
+    pkg = build_complete_no_disagreement_package()
+    pkg["annotation_receipt"]["independent_annotation_available"] = False
+    # receipt mutation changes digest → rebuild freeze materials after intentional flag set
+    # For this test we want the FAIL reason to include independent_annotation, so rebuild hashes
+    materials = mod.build_frozen_materials(pkg, require_conditional=False)
+    pkg["annotation_receipt"] = _apply_hashes_to_receipt(
+        pkg["annotation_receipt"], materials["artifact_sha256"], False
+    )
+    pkg["annotation_receipt"]["independent_annotation_available"] = False
+    materials = mod.build_frozen_materials(pkg, require_conditional=False)
+    pkg["frozen_integrity_manifest"] = materials["frozen_integrity_manifest"]
+    pkg["frozen_root_commitment"] = materials["frozen_root_commitment"]
     result = mod.validate_package(pkg)
     assert result["validation_status"] == "FAIL"
     assert result["GO_ALLOWED"] is False
+    assert any("INDEPENDENT_ANNOTATION" in e for e in result["errors"]), result["errors"]
 
 
 def test_validator_debug_cannot_force_go():
-    pkg = {"annotation_receipt": valid_receipt(gold_access=True)}
+    pkg = build_complete_no_disagreement_package()
+    pkg["annotation_receipt"]["gold_access"] = True
+    materials = mod.build_frozen_materials(pkg, require_conditional=False)
+    pkg["annotation_receipt"] = _apply_hashes_to_receipt(
+        pkg["annotation_receipt"], materials["artifact_sha256"], False
+    )
+    pkg["annotation_receipt"]["gold_access"] = True
+    materials = mod.build_frozen_materials(pkg, require_conditional=False)
+    pkg["frozen_integrity_manifest"] = materials["frozen_integrity_manifest"]
+    pkg["frozen_root_commitment"] = materials["frozen_root_commitment"]
     result = mod.validate_package(pkg)
     assert result["GO_ALLOWED"] is False
-    rc = mod.main(["--debug", "/dev/null"]) if False else 1
-    # package path: write temp via validate_package only
     assert result["validation_status"] == "FAIL"
+    assert any("gold_access" in e for e in result["errors"]), result["errors"]
 
 
 def test_positive_package_go_allowed():
+    """Regression: complete legitimate package reaches GO via production validate_package."""
+    pkg = build_complete_no_disagreement_package()
+    result = mod.validate_package(pkg)
+    assert result["errors"] == [], result["errors"]
+    assert result["validation_status"] == "PASS"
+    assert result["GO_ALLOWED"] is True
+
+
+# ----- T19–T26 adversarial completeness / hash -----
+
+
+def test_T19_completely_empty_package_fails():
+    result = mod.validate_package({})
+    assert result["validation_status"] == "FAIL"
+    assert result["GO_ALLOWED"] is False
+    assert any("EMPTY_PACKAGE" in e or "MISSING_REQUIRED" in e for e in result["errors"]), result["errors"]
+
+
+def test_T20_keys_present_content_empty_fails():
     pkg = {
         "sanitized_inputs": [
             {
@@ -345,14 +559,135 @@ def test_positive_package_go_allowed():
                 "fact_text": "Sofia works on Project Nimbus.",
             }
         ],
-        "final_structural_package": [valid_structural_p1()],
+        "annotation_A": [],
+        "annotation_B": [],
+        "final_structural_package": [],
         "annotation_receipt": valid_receipt(),
-        "overlay_after_structural_freeze": False,
+        "frozen_integrity_manifest": {
+            "protocol_version": "fm17-pre-v1.3",
+            "created_before_evaluation_overlay": True,
+            "artifact_sha256": {},
+        },
+        "frozen_root_commitment": {
+            "root_sha256": "a" * 64,
+            "freeze_declared_before_overlay": True,
+        },
     }
     result = mod.validate_package(pkg)
-    assert result["errors"] == [], result["errors"]
-    assert result["validation_status"] == "PASS"
+    assert result["validation_status"] == "FAIL"
+    assert result["GO_ALLOWED"] is False
+    assert any("EMPTY_REQUIRED_RECORD_SET" in e for e in result["errors"]), result["errors"]
+
+
+def test_T21_record_coverage_gap_fails():
+    pkg = build_complete_no_disagreement_package()
+    # drop the only record from annotation_B
+    pkg["annotation_B"] = []
+    result = mod.validate_package(pkg)
+    assert result["validation_status"] == "FAIL"
+    assert any(
+        "EMPTY_REQUIRED_RECORD_SET:annotation_B" in e or "missing expected records" in e
+        for e in result["errors"]
+    ), result["errors"]
+
+
+def test_T22_false_zero_disagreement_declaration_fails():
+    pkg = build_complete_no_disagreement_package()
+    pkg["annotation_B"] = [_ann_b_disagree()]
+    # receipt still claims 0 disagreements; no adjudication evidence
+    pkg["annotation_receipt"]["disagreement_count"] = 0
+    pkg["annotation_receipt"]["adjudicated_count"] = 0
+    materials = mod.build_frozen_materials(pkg, require_conditional=False)
+    pkg["annotation_receipt"] = _apply_hashes_to_receipt(
+        pkg["annotation_receipt"], materials["artifact_sha256"], False
+    )
+    pkg["annotation_receipt"]["disagreement_count"] = 0
+    pkg["annotation_receipt"]["adjudicated_count"] = 0
+    materials = mod.build_frozen_materials(pkg, require_conditional=False)
+    pkg["frozen_integrity_manifest"] = materials["frozen_integrity_manifest"]
+    pkg["frozen_root_commitment"] = materials["frozen_root_commitment"]
+    result = mod.validate_package(pkg)
+    assert result["validation_status"] == "FAIL"
+    assert result["computed_disagreement_count"] > 0
+    assert any("DISAGREEMENT_COUNT_MISMATCH" in e for e in result["errors"]), result["errors"]
+
+
+def test_T23_valid_looking_but_wrong_sha256_fails():
+    pkg = build_complete_no_disagreement_package()
+    # syntactically valid 64-hex that does not match bytes
+    wrong = "b" * 64
+    pkg["frozen_integrity_manifest"]["artifact_sha256"]["annotation_A"] = wrong
+    # keep frozen root as original (also ensure receipt hash wrong path is hit)
+    pkg["annotation_receipt"]["annotation_A_hash"] = wrong
+    result = mod.validate_package(pkg)
+    assert result["validation_status"] == "FAIL"
+    assert any("HASH_MISMATCH:annotation_A" in e or "FROZEN_ROOT_MISMATCH" in e for e in result["errors"]), result["errors"]
+
+
+def test_T24_post_hash_artifact_modification_fails():
+    with tempfile.TemporaryDirectory() as td:
+        pkg = build_complete_no_disagreement_package(write_files=True, tmpdir=td)
+        # freeze done; now tamper file bytes
+        ap = _Path(pkg["artifact_paths"]["annotation_A"])
+        data = json.loads(ap.read_text())
+        data[0]["annotation_comment"]["comment"] = "TAMPERED_AFTER_FREEZE"
+        ap.write_text(json.dumps(data, sort_keys=True, separators=(",", ":")), encoding="utf-8")
+        # keep in-memory annotation_A matching old (validator prefers artifact_paths)
+        result = mod.validate_package(pkg)
+        assert result["validation_status"] == "FAIL"
+        assert any("HASH_MISMATCH:annotation_A" in e or "FROZEN_ROOT_MISMATCH" in e for e in result["errors"]), result["errors"]
+
+
+def test_T25_file_plus_local_manifest_replaced_frozen_root_holds():
+    with tempfile.TemporaryDirectory() as td:
+        pkg = build_complete_no_disagreement_package(write_files=True, tmpdir=td)
+        original_root = pkg["frozen_root_commitment"]["root_sha256"]
+        # tamper file
+        ap = _Path(pkg["artifact_paths"]["annotation_A"])
+        data = json.loads(ap.read_text())
+        data[0]["annotation_comment"]["comment"] = "COLLUDING_TAMPER"
+        ap.write_text(json.dumps(data, sort_keys=True, separators=(",", ":")), encoding="utf-8")
+        # rewrite local manifest + receipt to match new bytes (internal consistency)
+        new_digest = mod.sha256_file(ap)
+        pkg["frozen_integrity_manifest"]["artifact_sha256"]["annotation_A"] = new_digest
+        pkg["annotation_receipt"]["annotation_A_hash"] = new_digest
+        # also rewrite receipt file if present
+        if "annotation_receipt" in pkg["artifact_paths"]:
+            rp = _Path(pkg["artifact_paths"]["annotation_receipt"])
+            rp.write_text(json.dumps(pkg["annotation_receipt"], sort_keys=True, separators=(",", ":")), encoding="utf-8")
+            pkg["frozen_integrity_manifest"]["artifact_sha256"]["annotation_receipt"] = mod.sha256_file(rp)
+        # frozen root commitment UNCHANGED
+        assert pkg["frozen_root_commitment"]["root_sha256"] == original_root
+        result = mod.validate_package(pkg)
+        assert result["validation_status"] == "FAIL"
+        assert any("FROZEN_ROOT_MISMATCH" in e for e in result["errors"]), result["errors"]
+
+
+def test_T26_required_frozen_root_missing_fails():
+    pkg = build_complete_no_disagreement_package()
+    del pkg["frozen_root_commitment"]
+    result = mod.validate_package(pkg)
+    assert result["validation_status"] == "FAIL"
+    assert any(
+        "MISSING_REQUIRED_COMPONENT:frozen_root_commitment" in e or "MISSING_FROZEN_ROOT" in e
+        for e in result["errors"]
+    ), result["errors"]
+
+
+def test_P5_complete_no_disagreement_package_passes():
+    pkg = build_complete_no_disagreement_package()
+    result = mod.validate_package(pkg)
+    assert result["validation_status"] == "PASS", result["errors"]
     assert result["GO_ALLOWED"] is True
+    assert result["computed_disagreement_count"] == 0
+
+
+def test_P6_complete_real_disagreement_package_passes():
+    pkg = build_complete_disagreement_package()
+    result = mod.validate_package(pkg)
+    assert result["validation_status"] == "PASS", result["errors"]
+    assert result["GO_ALLOWED"] is True
+    assert result["computed_disagreement_count"] > 0
 
 
 def test_template_rows_structural_pass_overlay_schema_pass():

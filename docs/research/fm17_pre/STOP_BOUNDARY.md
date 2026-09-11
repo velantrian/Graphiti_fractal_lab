@@ -47,7 +47,9 @@ A3 COMPONENT RETENTION ≠ A1/A2 COMPONENT IDENTIFICATION
 HIGH UNRESOLVED RATE ≠ STRUCTURAL SUCCESS
 ```
 
-After v1.2: **SEND FM-17-PRE v1.2 TO MANUS FOR FINAL INDEPENDENT ENFORCEMENT RE-REVIEW.**
+After v1.3: **SEND FM-17-PRE v1.3 TO MANUS FOR FINAL INDEPENDENT BYPASS RE-REVIEW.**
+
+v1.3 integrity-only: package completeness + A/B-derived disagreement count + real SHA-256 + detached frozen root. No annotation/ablation/merge. `READY_FOR_MANUS_FINAL_BYPASS_RECHECK` only — never auto-authorize offline ablation.
 
 Validator PASS ≠ ablation authorization. `GO_ALLOWED` is an integrity bit only.
 
