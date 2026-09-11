@@ -3,13 +3,14 @@
 
 INTEGRITY VALIDATOR ≠ RELEVANCE JUDGE.
 
-v1.3 closes two Manus fail-open paths:
-  A) empty/incomplete package → PASS
-  B) declared hashes without recomputing real file bytes → PASS
+v1.3 closed empty-package and unused-hash bypasses.
+v1.3.1 closes FULL_PACKAGE_PLUS_ROOT_REPLACEMENT:
+  expected frozen root MUST be supplied externally and MUST NOT
+  default to package["frozen_root_commitment"]["root_sha256"].
 
 Checks form, package completeness, record coverage, A/B-derived
 disagreement consistency, provenance, blinding, freeze order, and
-actual SHA-256 vs non-circular frozen root commitment.
+actual SHA-256 vs package-local root AND an EXTERNAL expected frozen root.
 
 Does NOT score CE/embeddings, does NOT decide DIRECT/gold/scope
 substance, does NOT compute A0/A1/A2/A3 metrics.
@@ -28,7 +29,7 @@ from typing import Any
 from jsonschema import Draft202012Validator
 
 HERE = Path(__file__).resolve().parent
-VALIDATOR_VERSION = "fm17-pre-validator-v1.3"
+VALIDATOR_VERSION = "fm17-pre-validator-v1.3.1"
 
 FORBIDDEN_SANITIZED_KEYS = {
     "split",
@@ -95,6 +96,23 @@ def sha256_bytes(data: bytes) -> str:
 
 def sha256_file(path: Path) -> str:
     return sha256_bytes(path.read_bytes())
+
+
+def is_sha256_hex(value: object) -> bool:
+    return (
+        isinstance(value, str)
+        and len(value) == 64
+        and all(c in "0123456789abcdef" for c in value)
+    )
+
+
+def require_external_expected_root(expected_frozen_root: object) -> list[str]:
+    """Package-local root is never an authority and never a default."""
+    if expected_frozen_root is None or expected_frozen_root == "":
+        return ["MISSING_EXTERNAL_EXPECTED_ROOT"]
+    if not is_sha256_hex(expected_frozen_root):
+        return ["INVALID_EXTERNAL_EXPECTED_ROOT: must be 64 lowercase hex sha256"]
+    return []
 
 
 def canonical_json_bytes(obj: Any) -> bytes:
@@ -410,17 +428,25 @@ def validate_package_completeness(package: dict[str, Any]) -> list[str]:
     return errs
 
 
-def validate_hash_integrity(package: dict[str, Any], computed_dc: int) -> list[str]:
-    """Recompute real digests; compare to local manifest + non-circular frozen root."""
+def validate_hash_integrity(
+    package: dict[str, Any],
+    computed_dc: int,
+    expected_frozen_root: str | None = None,
+) -> tuple[list[str], str | None, str | None]:
+    """Recompute real digests; compare actual vs package-local vs EXTERNAL expected root.
+
+    Returns (errors, actual_root, package_local_root).
+    expected_frozen_root is never read from the package.
+    """
     errs: list[str] = []
     fim = package.get("frozen_integrity_manifest")
     frc = package.get("frozen_root_commitment")
     if not isinstance(fim, dict) or not isinstance(frc, dict):
-        return ["HASH_GATE: frozen integrity materials missing"]
+        return ["HASH_GATE: frozen integrity materials missing"], None, None
 
     declared = fim.get("artifact_sha256")
     if not isinstance(declared, dict):
-        return ["HASH_GATE: artifact_sha256 missing"]
+        return ["HASH_GATE: artifact_sha256 missing"], None, None
 
     require_conditional = computed_dc > 0
     actual = compute_artifact_sha256_map(package, require_conditional=require_conditional)
@@ -483,24 +509,31 @@ def validate_hash_integrity(package: dict[str, Any], computed_dc: int) -> list[s
                         f"RECEIPT_HASH_MISMATCH:{receipt_field}: declared={rh} actual={actual[art_key]}"
                     )
 
-    # Non-circular frozen root: compare recomputed root to immutable commitment
-    # Root is over the LOCAL MANIFEST's artifact_sha256 map as frozen at freeze time,
-    # but we recompute root from ACTUAL digests — both must equal frozen_root_commitment.
-    expected_root = frc.get("root_sha256")
+    # Package-local root is audit/consistency only — NOT the expected-root authority.
+    package_local_root = frc.get("root_sha256")
     actual_root = frozen_root_from_digests(actual)
-    # Also require that declared map's root matches commitment (attacker updating
-    # file+local manifest but not root fails because actual_root != expected_root)
-    declared_root = frozen_root_from_digests({k: declared[k] for k in sorted(declared) if isinstance(declared.get(k), str)})
-    if actual_root != expected_root:
+    declared_root = frozen_root_from_digests(
+        {k: declared[k] for k in sorted(declared) if isinstance(declared.get(k), str)}
+    )
+    if actual_root != package_local_root:
         errs.append(
-            f"FROZEN_ROOT_MISMATCH: expected={expected_root} actual={actual_root}"
+            f"FROZEN_ROOT_MISMATCH: package_local={package_local_root} actual={actual_root}"
         )
-    # If local manifest was rewritten to match tampered files, declared_root == actual_root
-    # but still != expected_root → caught above. If only local manifest wrong:
-    if declared_root != expected_root and actual_root == expected_root:
+    if declared_root != package_local_root and actual_root == package_local_root:
         errs.append(
-            f"LOCAL_MANIFEST_ROOT_DRIFT: declared_root={declared_root} frozen={expected_root}"
+            f"LOCAL_MANIFEST_ROOT_DRIFT: declared_root={declared_root} package_local={package_local_root}"
         )
+
+    # Authority: externally supplied expected root (never defaulted from package).
+    if is_sha256_hex(expected_frozen_root):
+        if expected_frozen_root != package_local_root:
+            errs.append(
+                f"EXTERNAL_VS_PACKAGE_ROOT_MISMATCH: external={expected_frozen_root} package={package_local_root}"
+            )
+        if expected_frozen_root != actual_root:
+            errs.append(
+                f"EXTERNAL_VS_ACTUAL_ROOT_MISMATCH: external={expected_frozen_root} actual={actual_root}"
+            )
 
     # Optional: bind pre_ablation_validation_receipt schema fields when supplied
     pav = package.get("pre_ablation_validation_receipt")
@@ -515,13 +548,20 @@ def validate_hash_integrity(package: dict[str, Any], computed_dc: int) -> list[s
                 # validated_package_hash should bind the frozen root of hashed artifacts
                 errs.append("pre_ablation_receipt validated_package_hash != frozen root")
 
-    return errs
+    return errs, actual_root, package_local_root if isinstance(package_local_root, str) else None
 
 
-def validate_package(package: dict[str, Any]) -> dict[str, Any]:
+def validate_package(
+    package: dict[str, Any],
+    expected_frozen_root: str | None = None,
+) -> dict[str, Any]:
     """Validate a TEST_FIXTURE / mock package dict (fail-closed).
 
-    Required keys (v1.3): sanitized_inputs, annotation_A, annotation_B,
+    expected_frozen_root is a pre-overlay EXTERNAL commitment (64-hex).
+    It is REQUIRED for GO_ALLOWED=true. It is NEVER defaulted from
+    package["frozen_root_commitment"]["root_sha256"].
+
+    Required keys: sanitized_inputs, annotation_A, annotation_B,
     final_structural_package, annotation_receipt, frozen_integrity_manifest,
     frozen_root_commitment.
 
@@ -530,6 +570,8 @@ def validate_package(package: dict[str, Any]) -> dict[str, Any]:
     overlay_after_structural_freeze, pre_ablation_validation_receipt.
     """
     errors: list[str] = []
+    # FIX v1.3.1: external expected root is mandatory and independent of the package.
+    errors.extend(require_external_expected_root(expected_frozen_root))
     rec_schema = _load_schema("oracle_annotations.schema.json")
     san_schema = _load_schema("sanitized_annotation_input.schema.json")
     recpt_schema = _load_schema("annotation_receipt.schema.json")
@@ -626,8 +668,15 @@ def validate_package(package: dict[str, Any]) -> dict[str, Any]:
         and isinstance(package.get("annotation_B"), list)
         and isinstance(package.get("final_structural_package"), list)
     )
+    actual_root = None
+    package_local_root = None
     if has_hash_scaffold:
-        errors.extend(validate_hash_integrity(package, computed_dc))
+        hash_errs, actual_root, package_local_root = validate_hash_integrity(
+            package,
+            computed_dc,
+            expected_frozen_root=expected_frozen_root if is_sha256_hex(expected_frozen_root) else None,
+        )
+        errors.extend(hash_errs)
     elif package:  # non-empty but missing scaffold → completeness already erred;
         # additionally reject missing frozen root explicitly when other materials exist
         if "frozen_root_commitment" not in package:
@@ -643,9 +692,12 @@ def validate_package(package: dict[str, Any]) -> dict[str, Any]:
         "errors": errors,
         "computed_disagreement_count": computed_dc,
         "computed_disagreements": computed_disagreements if computed_dc else [],
+        "external_expected_root": expected_frozen_root if is_sha256_hex(expected_frozen_root) else None,
+        "package_local_root": package_local_root,
+        "actual_root": actual_root,
         "note": (
             "INTEGRITY VALIDATOR ≠ RELEVANCE JUDGE. "
-            "v1.3: completeness + A/B-derived disagreement + real SHA-256 + frozen root."
+            "v1.3.1: completeness + A/B disagreement + real SHA-256 + EXTERNAL frozen root."
         ),
     }
 
@@ -671,15 +723,28 @@ def build_frozen_materials(package: dict[str, Any], require_conditional: bool = 
 
 
 def main(argv: list[str] | None = None) -> int:
-    p = argparse.ArgumentParser(description="FM-17-pre fail-closed integrity validator v1.3")
+    p = argparse.ArgumentParser(description="FM-17-pre fail-closed integrity validator v1.3.1")
     p.add_argument("package_json", nargs="?", help="Path to TEST_FIXTURE package JSON")
+    p.add_argument(
+        "--expected-frozen-root",
+        dest="expected_frozen_root",
+        default=None,
+        help=(
+            "Externally authorized pre-overlay frozen root (64 lowercase hex). "
+            "REQUIRED. Never read from the package. Do not pass the package-local root as a silent default."
+        ),
+    )
     p.add_argument("--debug", action="store_true", help="Print errors; never forces GO_ALLOWED")
     args = p.parse_args(argv)
     if not args.package_json:
-        print("usage: validate_fm17_pre_package.py PACKAGE.json", file=sys.stderr)
+        print(
+            "usage: validate_fm17_pre_package.py PACKAGE.json --expected-frozen-root <sha256>",
+            file=sys.stderr,
+        )
         return 1
     data = json.loads(Path(args.package_json).read_text(encoding="utf-8"))
-    result = validate_package(data)
+    # Intentionally do NOT fall back to data["frozen_root_commitment"]["root_sha256"].
+    result = validate_package(data, expected_frozen_root=args.expected_frozen_root)
     print(json.dumps(result, indent=2))
     if result["validation_status"] != "PASS":
         result["GO_ALLOWED"] = False

@@ -1,6 +1,6 @@
 # 🧪 FM-17-pre — Structural Oracle Ablation (Protocol Index)
 
-**Status:** PROTOCOL + CHARTER + v1.3 FAIL-CLOSED COMPLETENESS+HASH GATE FROZEN — **ABLATION NOT EXECUTED**  
+**Status:** PROTOCOL + CHARTER + v1.3.1 EXTERNAL FREEZE ANCHOR GATE FROZEN — **ABLATION NOT EXECUTED**  
 **Experiment class:** `TARGETED_MECHANISTIC_ABLATION`  
 **Date baseline:** 2026-09-11  
 **FM-16 execution anchor:** `62cfa45a80ec83794b701d88873ce136b7629354`  
@@ -45,7 +45,7 @@ Measure the **combined ceiling** of perfect **query** structural interpretation 
 
 No annotation of CAL/TEST. No ablation. Next: **SEND REVISED PROTOCOL TO MANUS FOR RE-REVIEW**. Do not assume execution GO.
 
-## Enforcement invariants (v1.3)
+## Enforcement invariants (v1.3.1)
 
 ```
 POLICY_PASS ≠ SCHEMA_PASS
@@ -59,6 +59,7 @@ ORACLE VALUE ≠ DEPLOYABILITY
 INVALID INPUT → FAIL CLOSED → STOP
 ```
 
-Adversarial tests: `tests/lab/test_fm17_pre_schema_enforcement.py` (T1–T26 fail-closed, P1–P6 pass).
+Adversarial tests: `tests/lab/test_fm17_pre_schema_enforcement.py` (T1–T29 fail-closed, P1–P7 pass).
 
-v1.3 closes Manus bypasses: empty/incomplete package → FAIL; declared hashes recomputed via `sha256_file` / canonical bytes vs non-circular `frozen_root_commitment`.
+v1.3: empty/incomplete package → FAIL; real SHA-256 vs local root.
+v1.3.1: `expected_frozen_root` is **mandatory and EXTERNAL** (`--expected-frozen-root`); package-local root is never authoritative. FULL_PACKAGE_PLUS_ROOT_REPLACEMENT → FAIL (T27).

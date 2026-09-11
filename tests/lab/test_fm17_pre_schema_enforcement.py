@@ -2,7 +2,7 @@
 
 TEST_FIXTURE / EXAMPLE_NOT_GOLD only. Does not annotate CAL/TEST.
 Does not compute relevance / A0–A3 metrics.
-Adds T19–T26 / P5–P6 for completeness + real SHA-256 + frozen root.
+Adds T19–T26 / P5–P6 (v1.3) and T27–T29 / P7 external freeze anchor (v1.3.1).
 """
 from __future__ import annotations
 
@@ -493,6 +493,20 @@ def build_complete_disagreement_package() -> dict:
     return pkg
 
 
+
+
+def external_root_of(pkg: dict) -> str:
+    """Capture package root as EXTERNAL R0 — must be held outside the package for validation."""
+    return pkg["frozen_root_commitment"]["root_sha256"]
+
+
+def validate_anchored(pkg: dict, expected_frozen_root: str | None = None):
+    """Production path: expected root is an external argument, never package-defaulted."""
+    if expected_frozen_root is None and isinstance(pkg.get("frozen_root_commitment"), dict):
+        # Only for convenience when caller forgot — tests that need absent-anchor must pass None explicitly via validate_package
+        expected_frozen_root = external_root_of(pkg)
+    return mod.validate_package(pkg, expected_frozen_root=expected_frozen_root)
+
 def test_independent_annotation_false_fails_package():
     """Must fail for independent_annotation=false on a otherwise-complete package."""
     pkg = build_complete_no_disagreement_package()
@@ -507,7 +521,8 @@ def test_independent_annotation_false_fails_package():
     materials = mod.build_frozen_materials(pkg, require_conditional=False)
     pkg["frozen_integrity_manifest"] = materials["frozen_integrity_manifest"]
     pkg["frozen_root_commitment"] = materials["frozen_root_commitment"]
-    result = mod.validate_package(pkg)
+    R0 = external_root_of(pkg)
+    result = mod.validate_package(pkg, expected_frozen_root=R0)
     assert result["validation_status"] == "FAIL"
     assert result["GO_ALLOWED"] is False
     assert any("INDEPENDENT_ANNOTATION" in e for e in result["errors"]), result["errors"]
@@ -524,7 +539,8 @@ def test_validator_debug_cannot_force_go():
     materials = mod.build_frozen_materials(pkg, require_conditional=False)
     pkg["frozen_integrity_manifest"] = materials["frozen_integrity_manifest"]
     pkg["frozen_root_commitment"] = materials["frozen_root_commitment"]
-    result = mod.validate_package(pkg)
+    R0 = external_root_of(pkg)
+    result = mod.validate_package(pkg, expected_frozen_root=R0)
     assert result["GO_ALLOWED"] is False
     assert result["validation_status"] == "FAIL"
     assert any("gold_access" in e for e in result["errors"]), result["errors"]
@@ -533,7 +549,8 @@ def test_validator_debug_cannot_force_go():
 def test_positive_package_go_allowed():
     """Regression: complete legitimate package reaches GO via production validate_package."""
     pkg = build_complete_no_disagreement_package()
-    result = mod.validate_package(pkg)
+    R0 = external_root_of(pkg)
+    result = mod.validate_package(pkg, expected_frozen_root=R0)
     assert result["errors"] == [], result["errors"]
     assert result["validation_status"] == "PASS"
     assert result["GO_ALLOWED"] is True
@@ -543,10 +560,14 @@ def test_positive_package_go_allowed():
 
 
 def test_T19_completely_empty_package_fails():
+    # No external root AND empty package — both fail-closed
     result = mod.validate_package({})
     assert result["validation_status"] == "FAIL"
     assert result["GO_ALLOWED"] is False
-    assert any("EMPTY_PACKAGE" in e or "MISSING_REQUIRED" in e for e in result["errors"]), result["errors"]
+    assert any(
+        "EMPTY_PACKAGE" in e or "MISSING_REQUIRED" in e or "MISSING_EXTERNAL_EXPECTED_ROOT" in e
+        for e in result["errors"]
+    ), result["errors"]
 
 
 def test_T20_keys_present_content_empty_fails():
@@ -573,7 +594,8 @@ def test_T20_keys_present_content_empty_fails():
             "freeze_declared_before_overlay": True,
         },
     }
-    result = mod.validate_package(pkg)
+    # Incomplete package: still FAIL even if a dummy external root is supplied
+    result = mod.validate_package(pkg, expected_frozen_root="a" * 64)
     assert result["validation_status"] == "FAIL"
     assert result["GO_ALLOWED"] is False
     assert any("EMPTY_REQUIRED_RECORD_SET" in e for e in result["errors"]), result["errors"]
@@ -581,9 +603,10 @@ def test_T20_keys_present_content_empty_fails():
 
 def test_T21_record_coverage_gap_fails():
     pkg = build_complete_no_disagreement_package()
+    R0 = external_root_of(pkg)
     # drop the only record from annotation_B
     pkg["annotation_B"] = []
-    result = mod.validate_package(pkg)
+    result = mod.validate_package(pkg, expected_frozen_root=R0)
     assert result["validation_status"] == "FAIL"
     assert any(
         "EMPTY_REQUIRED_RECORD_SET:annotation_B" in e or "missing expected records" in e
@@ -606,7 +629,8 @@ def test_T22_false_zero_disagreement_declaration_fails():
     materials = mod.build_frozen_materials(pkg, require_conditional=False)
     pkg["frozen_integrity_manifest"] = materials["frozen_integrity_manifest"]
     pkg["frozen_root_commitment"] = materials["frozen_root_commitment"]
-    result = mod.validate_package(pkg)
+    R0 = external_root_of(pkg)
+    result = mod.validate_package(pkg, expected_frozen_root=R0)
     assert result["validation_status"] == "FAIL"
     assert result["computed_disagreement_count"] > 0
     assert any("DISAGREEMENT_COUNT_MISMATCH" in e for e in result["errors"]), result["errors"]
@@ -614,12 +638,13 @@ def test_T22_false_zero_disagreement_declaration_fails():
 
 def test_T23_valid_looking_but_wrong_sha256_fails():
     pkg = build_complete_no_disagreement_package()
+    R0 = external_root_of(pkg)
     # syntactically valid 64-hex that does not match bytes
     wrong = "b" * 64
     pkg["frozen_integrity_manifest"]["artifact_sha256"]["annotation_A"] = wrong
     # keep frozen root as original (also ensure receipt hash wrong path is hit)
     pkg["annotation_receipt"]["annotation_A_hash"] = wrong
-    result = mod.validate_package(pkg)
+    result = mod.validate_package(pkg, expected_frozen_root=R0)
     assert result["validation_status"] == "FAIL"
     assert any("HASH_MISMATCH:annotation_A" in e or "FROZEN_ROOT_MISMATCH" in e for e in result["errors"]), result["errors"]
 
@@ -627,21 +652,26 @@ def test_T23_valid_looking_but_wrong_sha256_fails():
 def test_T24_post_hash_artifact_modification_fails():
     with tempfile.TemporaryDirectory() as td:
         pkg = build_complete_no_disagreement_package(write_files=True, tmpdir=td)
+        R0 = external_root_of(pkg)
         # freeze done; now tamper file bytes
         ap = _Path(pkg["artifact_paths"]["annotation_A"])
         data = json.loads(ap.read_text())
         data[0]["annotation_comment"]["comment"] = "TAMPERED_AFTER_FREEZE"
         ap.write_text(json.dumps(data, sort_keys=True, separators=(",", ":")), encoding="utf-8")
         # keep in-memory annotation_A matching old (validator prefers artifact_paths)
-        result = mod.validate_package(pkg)
+        result = mod.validate_package(pkg, expected_frozen_root=R0)
         assert result["validation_status"] == "FAIL"
-        assert any("HASH_MISMATCH:annotation_A" in e or "FROZEN_ROOT_MISMATCH" in e for e in result["errors"]), result["errors"]
+        assert any(
+            "HASH_MISMATCH:annotation_A" in e or "FROZEN_ROOT_MISMATCH" in e or "EXTERNAL_VS_ACTUAL" in e
+            for e in result["errors"]
+        ), result["errors"]
 
 
 def test_T25_file_plus_local_manifest_replaced_frozen_root_holds():
     with tempfile.TemporaryDirectory() as td:
         pkg = build_complete_no_disagreement_package(write_files=True, tmpdir=td)
-        original_root = pkg["frozen_root_commitment"]["root_sha256"]
+        R0 = external_root_of(pkg)
+        original_root = R0
         # tamper file
         ap = _Path(pkg["artifact_paths"]["annotation_A"])
         data = json.loads(ap.read_text())
@@ -656,17 +686,20 @@ def test_T25_file_plus_local_manifest_replaced_frozen_root_holds():
             rp = _Path(pkg["artifact_paths"]["annotation_receipt"])
             rp.write_text(json.dumps(pkg["annotation_receipt"], sort_keys=True, separators=(",", ":")), encoding="utf-8")
             pkg["frozen_integrity_manifest"]["artifact_sha256"]["annotation_receipt"] = mod.sha256_file(rp)
-        # frozen root commitment UNCHANGED
+        # package-local frozen root commitment UNCHANGED; EXTERNAL R0 held separately
         assert pkg["frozen_root_commitment"]["root_sha256"] == original_root
-        result = mod.validate_package(pkg)
+        result = mod.validate_package(pkg, expected_frozen_root=R0)
         assert result["validation_status"] == "FAIL"
-        assert any("FROZEN_ROOT_MISMATCH" in e for e in result["errors"]), result["errors"]
+        assert any(
+            "FROZEN_ROOT_MISMATCH" in e or "EXTERNAL_VS_ACTUAL" in e for e in result["errors"]
+        ), result["errors"]
 
 
 def test_T26_required_frozen_root_missing_fails():
     pkg = build_complete_no_disagreement_package()
+    R0 = external_root_of(pkg)
     del pkg["frozen_root_commitment"]
-    result = mod.validate_package(pkg)
+    result = mod.validate_package(pkg, expected_frozen_root=R0)
     assert result["validation_status"] == "FAIL"
     assert any(
         "MISSING_REQUIRED_COMPONENT:frozen_root_commitment" in e or "MISSING_FROZEN_ROOT" in e
@@ -676,7 +709,8 @@ def test_T26_required_frozen_root_missing_fails():
 
 def test_P5_complete_no_disagreement_package_passes():
     pkg = build_complete_no_disagreement_package()
-    result = mod.validate_package(pkg)
+    R0 = external_root_of(pkg)
+    result = mod.validate_package(pkg, expected_frozen_root=R0)
     assert result["validation_status"] == "PASS", result["errors"]
     assert result["GO_ALLOWED"] is True
     assert result["computed_disagreement_count"] == 0
@@ -684,10 +718,78 @@ def test_P5_complete_no_disagreement_package_passes():
 
 def test_P6_complete_real_disagreement_package_passes():
     pkg = build_complete_disagreement_package()
-    result = mod.validate_package(pkg)
+    R0 = external_root_of(pkg)
+    result = mod.validate_package(pkg, expected_frozen_root=R0)
     assert result["validation_status"] == "PASS", result["errors"]
     assert result["GO_ALLOWED"] is True
     assert result["computed_disagreement_count"] > 0
+
+
+
+
+# ----- T27–T29 / P7 external freeze anchor (v1.3.1) -----
+
+
+def test_T27_full_package_plus_root_replacement_fails():
+    """Manus bypass: mutate artifact + recompute ALL package-local roots; EXTERNAL R0 unchanged."""
+    pkg = build_complete_no_disagreement_package()
+    R0 = external_root_of(pkg)
+
+    # 1) mutate hash-bound artifact
+    pkg["annotation_A"][0]["annotation_comment"]["comment"] = "FULL_PACKAGE_REPLACEMENT"
+
+    # 2–5) recompute hashes, receipt, local manifest, AND package-local root = R1
+    materials = mod.build_frozen_materials(pkg, require_conditional=False)
+    pkg["annotation_receipt"] = _apply_hashes_to_receipt(
+        pkg["annotation_receipt"], materials["artifact_sha256"], False
+    )
+    materials = mod.build_frozen_materials(pkg, require_conditional=False)
+    pkg["frozen_integrity_manifest"] = materials["frozen_integrity_manifest"]
+    pkg["frozen_root_commitment"] = materials["frozen_root_commitment"]
+    R1 = pkg["frozen_root_commitment"]["root_sha256"]
+    assert R1 != R0
+
+    # 6) EXTERNAL expected root remains R0
+    result = mod.validate_package(pkg, expected_frozen_root=R0)
+
+    assert result["validation_status"] == "FAIL"
+    assert result["GO_ALLOWED"] is False
+    assert result["package_local_root"] == R1
+    assert result["actual_root"] == R1
+    assert result["external_expected_root"] == R0
+    assert any("EXTERNAL_VS_ACTUAL_ROOT_MISMATCH" in e for e in result["errors"]), result["errors"]
+    assert any("EXTERNAL_VS_PACKAGE_ROOT_MISMATCH" in e for e in result["errors"]), result["errors"]
+
+
+def test_T28_external_expected_anchor_absent_fails():
+    pkg = build_complete_no_disagreement_package()
+    # Explicitly omit external expected root — must NOT default from package
+    result = mod.validate_package(pkg, expected_frozen_root=None)
+    assert result["validation_status"] == "FAIL"
+    assert result["GO_ALLOWED"] is False
+    assert any("MISSING_EXTERNAL_EXPECTED_ROOT" in e for e in result["errors"]), result["errors"]
+
+
+def test_T29_package_valid_but_local_root_ne_external_fails():
+    pkg = build_complete_no_disagreement_package()
+    R0 = external_root_of(pkg)
+    wrong_external = "d" * 64
+    assert wrong_external != R0
+    result = mod.validate_package(pkg, expected_frozen_root=wrong_external)
+    assert result["validation_status"] == "FAIL"
+    assert result["GO_ALLOWED"] is False
+    assert any("EXTERNAL_VS_PACKAGE_ROOT_MISMATCH" in e or "EXTERNAL_VS_ACTUAL_ROOT_MISMATCH" in e for e in result["errors"]), result["errors"]
+
+
+def test_P7_valid_externally_anchored_package_passes():
+    pkg = build_complete_no_disagreement_package()
+    R0 = external_root_of(pkg)
+    result = mod.validate_package(pkg, expected_frozen_root=R0)
+    assert result["validation_status"] == "PASS", result["errors"]
+    assert result["GO_ALLOWED"] is True
+    assert result["external_expected_root"] == R0
+    assert result["package_local_root"] == R0
+    assert result["actual_root"] == R0
 
 
 def test_template_rows_structural_pass_overlay_schema_pass():
