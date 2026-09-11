@@ -1,23 +1,33 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "fm17_pre_annotation_receipt.schema.json",
-  "title": "FM-17-pre Annotation Freeze Receipt",
+  "title": "FM-17-pre Annotation Freeze Receipt v1.2",
+  "description": "PRIMARY STRUCTURAL receipt. Forbidden access flags are const false. VERSION STRING \u2260 CONTENT HASH.",
   "type": "object",
   "additionalProperties": false,
   "required": [
     "annotation_schema_version",
     "rulebook_version",
+    "sanitized_input_hash",
+    "ontology_schema_hash",
+    "annotation_schema_hash",
+    "rulebook_hash",
     "query_corpus_hash",
     "fact_corpus_hash",
-    "annotation_package_hash",
+    "annotation_A_hash",
+    "annotation_B_hash",
+    "disagreement_log_hash",
+    "adjudicated_annotation_hash",
+    "final_structural_package_hash",
     "annotator_A_id",
     "annotator_B_id",
     "adjudicator_id",
-    "blinding_declaration",
+    "blinding",
     "gold_access",
     "hn_access",
     "ce_score_access",
     "embedding_score_access",
+    "evaluation_overlay_access",
     "independent_annotation_available",
     "annotation_started_at",
     "annotation_frozen_at",
@@ -32,20 +42,71 @@
     "rulebook_version": {
       "type": "string"
     },
+    "sanitized_input_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "ontology_schema_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "annotation_schema_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "rulebook_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
     "query_corpus_hash": {
-      "type": "string"
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
     },
     "fact_corpus_hash": {
-      "type": "string"
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
     },
-    "annotation_package_hash": {
-      "type": "string"
+    "annotation_A_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "annotation_B_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "disagreement_log_hash": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "adjudicated_annotation_hash": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "final_structural_package_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
     },
     "annotator_A_id": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "annotator_B_id": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "adjudicator_id": {
       "type": [
@@ -53,29 +114,71 @@
         "null"
       ]
     },
-    "blinding_declaration": {
-      "type": "string"
+    "blinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "gold_access",
+        "hn_access",
+        "ce_score_access",
+        "ce_rank_access",
+        "embedding_score_access",
+        "embedding_rank_access",
+        "other_annotator_access_before_submission",
+        "evaluation_split_identity_access"
+      ],
+      "properties": {
+        "gold_access": {
+          "const": false
+        },
+        "hn_access": {
+          "const": false
+        },
+        "ce_score_access": {
+          "const": false
+        },
+        "ce_rank_access": {
+          "const": false
+        },
+        "embedding_score_access": {
+          "const": false
+        },
+        "embedding_rank_access": {
+          "const": false
+        },
+        "other_annotator_access_before_submission": {
+          "const": false
+        },
+        "evaluation_split_identity_access": {
+          "const": false
+        }
+      }
     },
     "gold_access": {
-      "type": "boolean"
+      "const": false
     },
     "hn_access": {
-      "type": "boolean"
+      "const": false
     },
     "ce_score_access": {
-      "type": "boolean"
+      "const": false
     },
     "embedding_score_access": {
-      "type": "boolean"
+      "const": false
+    },
+    "evaluation_overlay_access": {
+      "const": false
     },
     "independent_annotation_available": {
       "type": "boolean"
     },
     "annotation_started_at": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "annotation_frozen_at": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "total_fields": {
       "type": [
@@ -102,10 +205,12 @@
       ]
     },
     "disagreement_count": {
-      "type": "integer"
+      "type": "integer",
+      "minimum": 0
     },
     "adjudicated_count": {
-      "type": "integer"
+      "type": "integer",
+      "minimum": 0
     },
     "disagreement_categories": {
       "type": "array",
@@ -116,11 +221,152 @@
     "post_freeze_amendments": {
       "type": "array",
       "items": {
-        "type": "object"
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "amendment_id",
+          "timestamp",
+          "previous_package_hash",
+          "new_package_hash",
+          "reason_code",
+          "reason_text",
+          "changed_fields",
+          "affected_record_ids",
+          "authorized_by",
+          "scoring_started",
+          "invalidation_required",
+          "previous_result_invalidated",
+          "new_version"
+        ],
+        "properties": {
+          "amendment_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "timestamp": {
+            "type": "string",
+            "minLength": 1
+          },
+          "previous_package_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "new_package_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "reason_code": {
+            "type": "string",
+            "enum": [
+              "SCHEMA_CORRECTION",
+              "TRANSCRIPTION_ERROR",
+              "PROVENANCE_REPAIR",
+              "ADJUDICATION_CORRECTION",
+              "OTHER_DECLARED"
+            ]
+          },
+          "reason_text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "changed_fields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "affected_record_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "authorized_by": {
+            "type": "string",
+            "minLength": 1
+          },
+          "scoring_started": {
+            "type": "boolean"
+          },
+          "invalidation_required": {
+            "type": "boolean"
+          },
+          "previous_result_invalidated": {
+            "type": "boolean"
+          },
+          "new_version": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "scoring_started": {
+                  "const": true
+                }
+              },
+              "required": [
+                "scoring_started"
+              ]
+            },
+            "then": {
+              "properties": {
+                "invalidation_required": {
+                  "const": true
+                },
+                "previous_result_invalidated": {
+                  "const": true
+                }
+              }
+            }
+          }
+        ]
       }
+    },
+    "blinding_declaration": {
+      "type": "string",
+      "description": "Descriptive only; machine GO uses blinding object + const flags"
     },
     "note": {
       "type": "string"
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "disagreement_count": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "disagreement_count"
+        ]
+      },
+      "then": {
+        "required": [
+          "adjudicator_id",
+          "disagreement_log_hash",
+          "adjudicated_annotation_hash"
+        ],
+        "properties": {
+          "adjudicator_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "disagreement_log_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "adjudicated_annotation_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      }
+    }
+  ]
 }

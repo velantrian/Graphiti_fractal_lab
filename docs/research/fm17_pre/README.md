@@ -1,6 +1,6 @@
 # 🧪 FM-17-pre — Structural Oracle Ablation (Protocol Index)
 
-**Status:** PROTOCOL + CHARTER + v1.1 ANTI-LEAKAGE REPAIR FROZEN — **ABLATION NOT EXECUTED**  
+**Status:** PROTOCOL + CHARTER + v1.2 FAIL-CLOSED SCHEMA GATE FROZEN — **ABLATION NOT EXECUTED**  
 **Experiment class:** `TARGETED_MECHANISTIC_ABLATION`  
 **Date baseline:** 2026-09-11  
 **FM-16 execution anchor:** `62cfa45a80ec83794b701d88873ce136b7629354`  
@@ -30,6 +30,9 @@ Measure the **combined ceiling** of perfect **query** structural interpretation 
 10. [oracle_annotations.template.jsonl](oracle_annotations.template.jsonl) — EXAMPLE_NOT_GOLD
 11. [FROZEN_RUN007_INPUTS.md](FROZEN_RUN007_INPUTS.md)
 12. [STOP_BOUNDARY.md](STOP_BOUNDARY.md)
+13. [validate_fm17_pre_package.py](validate_fm17_pre_package.py) — integrity validator (**≠ relevance judge**)
+14. [annotation_receipt.schema.json](annotation_receipt.schema.json) / [pre_ablation_validation_receipt.schema.json](pre_ablation_validation_receipt.schema.json)
+
 
 ## Arms
 
@@ -41,3 +44,19 @@ Measure the **combined ceiling** of perfect **query** structural interpretation 
 ## STOP
 
 No annotation of CAL/TEST. No ablation. Next: **SEND REVISED PROTOCOL TO MANUS FOR RE-REVIEW**. Do not assume execution GO.
+
+## Enforcement invariants (v1.2)
+
+```
+POLICY_PASS ≠ SCHEMA_PASS
+SCHEMA_PASS ≠ SCIENTIFIC_VALIDITY
+VALIDATOR_PASS ≠ EXPERIMENT_SUCCESS
+BLINDED ≠ CORRECT
+PROVENANCE ≠ TRUTH
+HASH_MATCH ≠ SEMANTIC_CORRECTNESS
+TARGETED_MECHANISTIC_ABLATION ≠ GENERALIZATION
+ORACLE VALUE ≠ DEPLOYABILITY
+INVALID INPUT → FAIL CLOSED → STOP
+```
+
+Adversarial tests: `tests/lab/test_fm17_pre_schema_enforcement.py` (T1–T18 fail-closed, P1–P4 pass).

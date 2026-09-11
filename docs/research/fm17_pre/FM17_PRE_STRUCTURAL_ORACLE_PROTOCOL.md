@@ -277,6 +277,21 @@ See [`FROZEN_RUN007_INPUTS.md`](FROZEN_RUN007_INPUTS.md).
 8. **Claim:** combined query+fact ceiling name replaces unqualified oracle-value label.  
 9. **Independence:** two blinded annotators + adjudication, or STOP (`INDEPENDENT_ANNOTATION_AVAILABLE=NO`).
 
+## 12b. v1.2 fail-closed changelog (enforcement only)
+
+1. STRUCTURAL `blinding_status` const `BLINDED_TO_GOLD_AND_HN` (NOT_BLINDED/UNKNOWN invalid).
+2. Conditional provenance: RAW_* require `source_span`; FIXED_RULE requires `rule_id`; HUMAN_ANNOTATION requires `annotator_id`; ADJUDICATED requires `adjudicator_id` + status ADJUDICATED.
+3. Unbounded `annotation_notes` removed from STRUCTURAL; structured `annotation_comment` only; not consumed by A1/A2.
+4. Receipt forbidden-access flags `const false`.
+5. Sanitized input: no CAL/TEST split field.
+6. Structured post-freeze amendments; scoring_started ⇒ invalidation required.
+7. Receipt binds content hashes (not version strings alone).
+8. Adjudication fail-closed when disagreement_count>0.
+9. BROAD + non-any scope requires source_span and/or frozen rule_id.
+10. PRE-ABLATION validator fail-closed; ≠ relevance judge.
+
+Scientific claim vocabulary, arms, UNRESOLVED co-primary, Honest Empty / multi-hop bounds: **unchanged**.
+
 ## 13. STOP boundary
 
 See [`STOP_BOUNDARY.md`](STOP_BOUNDARY.md).

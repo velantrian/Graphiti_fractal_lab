@@ -47,5 +47,12 @@ A3 COMPONENT RETENTION ≠ A1/A2 COMPONENT IDENTIFICATION
 HIGH UNRESOLVED RATE ≠ STRUCTURAL SUCCESS
 ```
 
-After this repair: **SEND REVISED PROTOCOL TO MANUS FOR RE-REVIEW**.  
+After v1.2: **SEND FM-17-PRE v1.2 TO MANUS FOR FINAL INDEPENDENT ENFORCEMENT RE-REVIEW.**
+
+Validator PASS ≠ ablation authorization. `GO_ALLOWED` is an integrity bit only.
+
+```
+INVALID INPUT → FAIL CLOSED → STOP
+```
+  
 Do not start annotation or ablation.

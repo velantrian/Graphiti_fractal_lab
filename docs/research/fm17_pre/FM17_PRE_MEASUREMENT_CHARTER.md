@@ -579,3 +579,22 @@ Next user decision only:
   "fm16_anchor": "62cfa45a80ec83794b701d88873ce136b7629354"
 }
 ```
+
+---
+
+## 23. v1.2 fail-closed enforcement (no scientific redesign)
+
+```
+POLICY_PASS ≠ SCHEMA_PASS
+SCHEMA_PASS ≠ SCIENTIFIC_VALIDITY
+VALIDATOR_PASS ≠ EXPERIMENT_SUCCESS
+BLINDED ≠ CORRECT
+PROVENANCE ≠ TRUTH
+HASH_MATCH ≠ SEMANTIC_CORRECTNESS
+INTEGRITY VALIDATOR ≠ RELEVANCE JUDGE
+INVALID INPUT → FAIL CLOSED → STOP
+```
+
+Primary STRUCTURAL receipt: `gold_access` / `hn_access` / `ce_score_access` / `embedding_score_access` / `evaluation_overlay_access` are **const false**.
+
+See `validate_fm17_pre_package.py`. No `--force`. Debug mode cannot set `GO_ALLOWED=true` on FAIL.

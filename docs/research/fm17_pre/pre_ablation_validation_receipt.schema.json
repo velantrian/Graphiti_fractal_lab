@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fm17_pre_pre_ablation_validation_receipt.schema.json",
+  "title": "FM-17-pre Pre-Ablation Validation Receipt (schema/template only)",
+  "description": "EXAMPLE_NOT_GOLD / TEST_FIXTURE. Do not create a real experimental receipt in v1.2.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "validator_version",
+    "validator_hash",
+    "validated_package_hash",
+    "schema_hashes",
+    "rulebook_hash",
+    "sanitized_input_hash",
+    "annotation_receipt_hash",
+    "validation_timestamp",
+    "validation_status",
+    "GO_ALLOWED"
+  ],
+  "properties": {
+    "validator_version": {
+      "type": "string"
+    },
+    "validator_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "validated_package_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "schema_hashes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[a-f0-9]{64}$"
+      }
+    },
+    "rulebook_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "sanitized_input_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "annotation_receipt_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "validation_timestamp": {
+      "type": "string"
+    },
+    "validation_status": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "FAIL"
+      ]
+    },
+    "GO_ALLOWED": {
+      "type": "boolean"
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "validation_status": {
+            "const": "FAIL"
+          }
+        },
+        "required": [
+          "validation_status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "GO_ALLOWED": {
+            "const": false
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "validation_status": {
+            "const": "PASS"
+          }
+        },
+        "required": [
+          "validation_status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "GO_ALLOWED": {
+            "const": true
+          }
+        }
+      }
+    }
+  ]
+}

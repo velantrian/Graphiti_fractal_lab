@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "fm17_pre_sanitized_annotation_input.schema.json",
-  "title": "FM-17-pre Sanitized Annotation Input (annotator view)",
-  "description": "Only raw texts + stable IDs. No gold, HN, CE, embedding, ranks, or arm outcomes. FORMAT ONLY \u2014 do not populate evaluation data in this repair.",
+  "title": "FM-17-pre Sanitized Annotation Input v1.2",
+  "description": "Annotator view. No CAL/TEST/HN/gold/score/rank. TEST_FIXTURE format only until execution is authorized.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -13,29 +13,24 @@
   ],
   "properties": {
     "query_id": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "fact_id": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "query_text": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "fact_text": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
-    "split": {
-      "type": [
-        "string",
-        "null"
-      ],
-      "enum": [
-        "CAL",
-        "TEST",
-        "DIAGNOSTIC",
-        null
-      ],
-      "description": "Optional split tag without outcomes"
+    "batch_id": {
+      "type": "string",
+      "description": "Neutral operational batch id; MUST NOT encode CAL/TEST"
     }
   }
 }

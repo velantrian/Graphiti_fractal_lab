@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "fm17_pre_oracle_annotations.schema.json",
   "title": "FM-17-pre Oracle Annotation Record",
-  "description": "v1.1 — field-level provenance. gold_relevance_class / hn_labels are EVALUATION-ONLY and MUST be absent from annotator packages.",
+  "description": "v1.2 fail-closed. STRUCTURAL blinding const BLINDED_TO_GOLD_AND_HN. No unbounded notes on STRUCTURAL. gold/HN forbidden on STRUCTURAL.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -13,7 +13,7 @@
     "record_layer"
   ],
   "$defs": {
-    "provenance": {
+    "structural_provenance": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -48,15 +48,12 @@
           "type": [
             "string",
             "null"
-          ],
-          "description": "Pseudonymous id, e.g. annotator_A"
+          ]
         },
-        "blinding_status": {
-          "type": "string",
-          "enum": [
-            "BLINDED_TO_GOLD_AND_HN",
-            "NOT_BLINDED",
-            "UNKNOWN"
+        "adjudicator_id": {
+          "type": [
+            "string",
+            "null"
           ]
         },
         "adjudication_status": {
@@ -67,29 +64,327 @@
             "AGREED",
             "ADJUDICATED"
           ]
+        },
+        "blinding_status": {
+          "const": "BLINDED_TO_GOLD_AND_HN"
         }
-      }
-    }
-  },
-  "properties": {
-    "pair_id": {
-      "type": "string"
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "source_type": {
+                "const": "RAW_QUERY_TEXT"
+              }
+            },
+            "required": [
+              "source_type"
+            ]
+          },
+          "then": {
+            "required": [
+              "source_span"
+            ],
+            "properties": {
+              "source_span": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "source_type": {
+                "const": "RAW_FACT_TEXT"
+              }
+            },
+            "required": [
+              "source_type"
+            ]
+          },
+          "then": {
+            "required": [
+              "source_span"
+            ],
+            "properties": {
+              "source_span": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "source_type": {
+                "const": "FIXED_RULE"
+              }
+            },
+            "required": [
+              "source_type"
+            ]
+          },
+          "then": {
+            "required": [
+              "rule_id"
+            ],
+            "properties": {
+              "rule_id": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "source_type": {
+                "const": "HUMAN_ANNOTATION"
+              }
+            },
+            "required": [
+              "source_type"
+            ]
+          },
+          "then": {
+            "required": [
+              "annotator_id"
+            ],
+            "properties": {
+              "annotator_id": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "source_type": {
+                "const": "ADJUDICATED"
+              }
+            },
+            "required": [
+              "source_type"
+            ]
+          },
+          "then": {
+            "required": [
+              "annotator_id",
+              "adjudicator_id",
+              "adjudication_status"
+            ],
+            "properties": {
+              "annotator_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "adjudicator_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "adjudication_status": {
+                "const": "ADJUDICATED"
+              }
+            }
+          }
+        }
+      ]
     },
-    "query_id": {
-      "type": "string"
-    },
-    "fact_id": {
-      "type": "string"
-    },
-    "record_layer": {
-      "type": "string",
-      "enum": [
-        "STRUCTURAL",
-        "EVALUATION_OVERLAY"
+    "evaluation_provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_type",
+        "blinding_status",
+        "adjudication_status"
       ],
-      "description": "STRUCTURAL = A1/A2 annotator output (no gold/HN). EVALUATION_OVERLAY = attached after annotation freeze only."
+      "properties": {
+        "source_type": {
+          "type": "string",
+          "enum": [
+            "RAW_QUERY_TEXT",
+            "RAW_FACT_TEXT",
+            "FIXED_RULE",
+            "HUMAN_ANNOTATION",
+            "ADJUDICATED"
+          ]
+        },
+        "source_span": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rule_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "annotator_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "adjudicator_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "adjudication_status": {
+          "type": "string",
+          "enum": [
+            "NOT_REQUIRED",
+            "PENDING",
+            "AGREED",
+            "ADJUDICATED"
+          ]
+        },
+        "blinding_status": {
+          "type": "string",
+          "enum": [
+            "BLINDED_TO_GOLD_AND_HN",
+            "NOT_BLINDED",
+            "UNKNOWN"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "source_type": {
+                "const": "RAW_QUERY_TEXT"
+              }
+            },
+            "required": [
+              "source_type"
+            ]
+          },
+          "then": {
+            "required": [
+              "source_span"
+            ],
+            "properties": {
+              "source_span": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "source_type": {
+                "const": "RAW_FACT_TEXT"
+              }
+            },
+            "required": [
+              "source_type"
+            ]
+          },
+          "then": {
+            "required": [
+              "source_span"
+            ],
+            "properties": {
+              "source_span": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "source_type": {
+                "const": "FIXED_RULE"
+              }
+            },
+            "required": [
+              "source_type"
+            ]
+          },
+          "then": {
+            "required": [
+              "rule_id"
+            ],
+            "properties": {
+              "rule_id": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "source_type": {
+                "const": "HUMAN_ANNOTATION"
+              }
+            },
+            "required": [
+              "source_type"
+            ]
+          },
+          "then": {
+            "required": [
+              "annotator_id"
+            ],
+            "properties": {
+              "annotator_id": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "source_type": {
+                "const": "ADJUDICATED"
+              }
+            },
+            "required": [
+              "source_type"
+            ]
+          },
+          "then": {
+            "required": [
+              "annotator_id",
+              "adjudicator_id",
+              "adjudication_status"
+            ],
+            "properties": {
+              "annotator_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "adjudicator_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "adjudication_status": {
+                "const": "ADJUDICATED"
+              }
+            }
+          }
+        }
+      ]
     },
-    "query": {
+    "structural_query": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -113,7 +408,7 @@
               }
             },
             "provenance": {
-              "$ref": "#/$defs/provenance"
+              "$ref": "#/$defs/structural_provenance"
             }
           }
         },
@@ -132,7 +427,7 @@
               ]
             },
             "provenance": {
-              "$ref": "#/$defs/provenance"
+              "$ref": "#/$defs/structural_provenance"
             }
           }
         },
@@ -157,7 +452,7 @@
               ]
             },
             "provenance": {
-              "$ref": "#/$defs/provenance"
+              "$ref": "#/$defs/structural_provenance"
             }
           }
         },
@@ -183,7 +478,7 @@
               ]
             },
             "provenance": {
-              "$ref": "#/$defs/provenance"
+              "$ref": "#/$defs/structural_provenance"
             }
           }
         },
@@ -202,7 +497,7 @@
               ]
             },
             "provenance": {
-              "$ref": "#/$defs/provenance"
+              "$ref": "#/$defs/structural_provenance"
             }
           }
         },
@@ -221,7 +516,7 @@
               ]
             },
             "provenance": {
-              "$ref": "#/$defs/provenance"
+              "$ref": "#/$defs/structural_provenance"
             }
           }
         },
@@ -240,7 +535,7 @@
               ]
             },
             "provenance": {
-              "$ref": "#/$defs/provenance"
+              "$ref": "#/$defs/structural_provenance"
             }
           }
         },
@@ -263,7 +558,7 @@
               ]
             },
             "provenance": {
-              "$ref": "#/$defs/provenance"
+              "$ref": "#/$defs/structural_provenance"
             }
           }
         },
@@ -297,13 +592,13 @@
               }
             },
             "provenance": {
-              "$ref": "#/$defs/provenance"
+              "$ref": "#/$defs/structural_provenance"
             }
           }
         }
       }
     },
-    "fact": {
+    "structural_fact": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -326,7 +621,7 @@
               }
             },
             "provenance": {
-              "$ref": "#/$defs/provenance"
+              "$ref": "#/$defs/structural_provenance"
             }
           }
         },
@@ -345,7 +640,7 @@
               ]
             },
             "provenance": {
-              "$ref": "#/$defs/provenance"
+              "$ref": "#/$defs/structural_provenance"
             }
           }
         },
@@ -370,7 +665,7 @@
               ]
             },
             "provenance": {
-              "$ref": "#/$defs/provenance"
+              "$ref": "#/$defs/structural_provenance"
             }
           }
         },
@@ -389,7 +684,7 @@
               ]
             },
             "provenance": {
-              "$ref": "#/$defs/provenance"
+              "$ref": "#/$defs/structural_provenance"
             }
           }
         },
@@ -408,7 +703,7 @@
               ]
             },
             "provenance": {
-              "$ref": "#/$defs/provenance"
+              "$ref": "#/$defs/structural_provenance"
             }
           }
         },
@@ -427,7 +722,7 @@
               ]
             },
             "provenance": {
-              "$ref": "#/$defs/provenance"
+              "$ref": "#/$defs/structural_provenance"
             }
           }
         },
@@ -452,7 +747,7 @@
               ]
             },
             "provenance": {
-              "$ref": "#/$defs/provenance"
+              "$ref": "#/$defs/structural_provenance"
             }
           }
         },
@@ -486,14 +781,466 @@
               }
             },
             "provenance": {
-              "$ref": "#/$defs/provenance"
+              "$ref": "#/$defs/structural_provenance"
             }
           }
         }
       }
     },
-    "annotation_notes": {
+    "evaluation_query": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entity_targets",
+        "query_class",
+        "scope_target"
+      ],
+      "properties": {
+        "entity_targets": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "provenance": {
+              "$ref": "#/$defs/evaluation_provenance"
+            }
+          }
+        },
+        "predicate_target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "provenance": {
+              "$ref": "#/$defs/evaluation_provenance"
+            }
+          }
+        },
+        "scope_target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": "string",
+              "enum": [
+                "prod",
+                "test",
+                "default",
+                "historical",
+                "current",
+                "any",
+                "unknown"
+              ]
+            },
+            "provenance": {
+              "$ref": "#/$defs/evaluation_provenance"
+            }
+          }
+        },
+        "temporal_target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "current",
+                "historical",
+                "any",
+                "unknown",
+                null
+              ]
+            },
+            "provenance": {
+              "$ref": "#/$defs/evaluation_provenance"
+            }
+          }
+        },
+        "polarity_target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "provenance": {
+              "$ref": "#/$defs/evaluation_provenance"
+            }
+          }
+        },
+        "condition_target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "provenance": {
+              "$ref": "#/$defs/evaluation_provenance"
+            }
+          }
+        },
+        "attribution_target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "provenance": {
+              "$ref": "#/$defs/evaluation_provenance"
+            }
+          }
+        },
+        "query_class": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": "string",
+              "enum": [
+                "NARROW",
+                "STATE",
+                "BROAD",
+                "NO_ANSWER",
+                "MULTIHOP"
+              ]
+            },
+            "provenance": {
+              "$ref": "#/$defs/evaluation_provenance"
+            }
+          }
+        },
+        "role_target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "object",
+                "null"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "subject": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "object": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "provenance": {
+              "$ref": "#/$defs/evaluation_provenance"
+            }
+          }
+        }
+      }
+    },
+    "evaluation_fact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entities",
+        "scope"
+      ],
+      "properties": {
+        "entities": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "provenance": {
+              "$ref": "#/$defs/evaluation_provenance"
+            }
+          }
+        },
+        "predicate": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "provenance": {
+              "$ref": "#/$defs/evaluation_provenance"
+            }
+          }
+        },
+        "scope": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": "string",
+              "enum": [
+                "prod",
+                "test",
+                "default",
+                "historical",
+                "current",
+                "any",
+                "unknown"
+              ]
+            },
+            "provenance": {
+              "$ref": "#/$defs/evaluation_provenance"
+            }
+          }
+        },
+        "polarity": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "provenance": {
+              "$ref": "#/$defs/evaluation_provenance"
+            }
+          }
+        },
+        "condition": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "provenance": {
+              "$ref": "#/$defs/evaluation_provenance"
+            }
+          }
+        },
+        "attribution": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "provenance": {
+              "$ref": "#/$defs/evaluation_provenance"
+            }
+          }
+        },
+        "temporal_state": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "current",
+                "historical",
+                "unknown",
+                null
+              ]
+            },
+            "provenance": {
+              "$ref": "#/$defs/evaluation_provenance"
+            }
+          }
+        },
+        "role": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "provenance"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "object",
+                "null"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "subject": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "object": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "provenance": {
+              "$ref": "#/$defs/evaluation_provenance"
+            }
+          }
+        }
+      }
+    },
+    "annotation_comment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reason_code"
+      ],
+      "properties": {
+        "reason_code": {
+          "type": "string",
+          "enum": [
+            "LEXICAL_AMBIGUITY",
+            "MULTIPLE_PLAUSIBLE_PARSE",
+            "MISSING_EXPLICIT_SCOPE",
+            "SOURCE_SPAN_DISAGREEMENT",
+            "OTHER_NON_OUTCOME_REASON"
+          ]
+        },
+        "comment": {
+          "type": "string",
+          "maxLength": 280
+        }
+      }
+    }
+  },
+  "properties": {
+    "pair_id": {
       "type": "string"
+    },
+    "query_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fact_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "record_layer": {
+      "type": "string",
+      "enum": [
+        "STRUCTURAL",
+        "EVALUATION_OVERLAY"
+      ]
+    },
+    "query": {
+      "type": "object"
+    },
+    "fact": {
+      "type": "object"
+    },
+    "annotation_comment": {
+      "$ref": "#/$defs/annotation_comment"
     },
     "gold_relevance_class": {
       "type": "string",
@@ -503,14 +1250,14 @@
         "RELATED",
         "NONANSWER"
       ],
-      "description": "EVALUATION-ONLY. Forbidden on STRUCTURAL records and in annotator view."
+      "description": "EVALUATION_OVERLAY only"
     },
     "hn_labels": {
       "type": "array",
       "items": {
         "type": "string"
       },
-      "description": "EVALUATION-ONLY. Forbidden on STRUCTURAL records."
+      "description": "EVALUATION_OVERLAY only"
     },
     "diagnostic_subset": {
       "type": [
@@ -523,8 +1270,11 @@
         "NO_ANSWER",
         "SEMANTIC_DESIGN_LIMITATION",
         null
-      ],
-      "description": "EVALUATION-ONLY except SEMANTIC_DESIGN_LIMITATION may be set on STRUCTURAL from query text."
+      ]
+    },
+    "evaluation_notes": {
+      "type": "string",
+      "description": "EVALUATION_OVERLAY only; never consumed by A1/A2"
     }
   },
   "allOf": [
@@ -534,9 +1284,20 @@
           "record_layer": {
             "const": "STRUCTURAL"
           }
-        }
+        },
+        "required": [
+          "record_layer"
+        ]
       },
       "then": {
+        "properties": {
+          "query": {
+            "$ref": "#/$defs/structural_query"
+          },
+          "fact": {
+            "$ref": "#/$defs/structural_fact"
+          }
+        },
         "not": {
           "anyOf": [
             {
@@ -548,8 +1309,35 @@
               "required": [
                 "hn_labels"
               ]
+            },
+            {
+              "required": [
+                "evaluation_notes"
+              ]
             }
           ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "record_layer": {
+            "const": "EVALUATION_OVERLAY"
+          }
+        },
+        "required": [
+          "record_layer"
+        ]
+      },
+      "then": {
+        "properties": {
+          "query": {
+            "$ref": "#/$defs/evaluation_query"
+          },
+          "fact": {
+            "$ref": "#/$defs/evaluation_fact"
+          }
         }
       }
     }

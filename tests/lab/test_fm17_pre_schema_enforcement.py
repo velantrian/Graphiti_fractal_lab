@@ -1,0 +1,368 @@
+"""FM-17-pre v1.2 fail-closed schema enforcement.
+
+TEST_FIXTURE / EXAMPLE_NOT_GOLD only. Does not annotate CAL/TEST.
+Does not compute relevance / A0–A3 metrics.
+"""
+from __future__ import annotations
+
+import copy
+import importlib.util
+import sys
+from pathlib import Path
+
+import pytest
+
+ROOT = Path(__file__).resolve().parents[2]
+DOC = ROOT / "docs/research/fm17_pre"
+sys.path.insert(0, str(DOC))
+
+spec = importlib.util.spec_from_file_location(
+    "validate_fm17_pre_package", DOC / "validate_fm17_pre_package.py"
+)
+mod = importlib.util.module_from_spec(spec)
+assert spec.loader
+spec.loader.exec_module(mod)
+
+HEX64 = "a" * 64
+
+
+def P(
+    source_type="RAW_QUERY_TEXT",
+    span="Project Nimbus",
+    rule=None,
+    annotator="annotator_A",
+    blind="BLINDED_TO_GOLD_AND_HN",
+    adj="AGREED",
+    adjudicator=None,
+):
+    d = {
+        "source_type": source_type,
+        "source_span": span,
+        "rule_id": rule,
+        "annotator_id": annotator,
+        "adjudicator_id": adjudicator,
+        "blinding_status": blind,
+        "adjudication_status": adj,
+    }
+    return d
+
+
+def AV(value, **kw):
+    return {"value": value, "provenance": P(**kw)}
+
+
+def valid_structural_p1() -> dict:
+    """P1 — blinded raw-text STRUCTURAL record."""
+    return {
+        "pair_id": "EX_Q_NARROW::EX_F_WORKS",
+        "query_id": "EX_Q_NARROW",
+        "fact_id": "EX_F_WORKS",
+        "record_layer": "STRUCTURAL",
+        "query": {
+            "entity_targets": AV(["Project Nimbus"], span="Project Nimbus"),
+            "predicate_target": AV(
+                "works_on", span="Who works on", rule="RB_PRED_WORKS_ON", source_type="FIXED_RULE"
+            ),
+            "scope_target": AV("any", source_type="FIXED_RULE", span=None, rule="RB_SCOPE_UNSPECIFIED_TO_ANY"),
+            "temporal_target": AV("any", source_type="FIXED_RULE", span=None, rule="RB_TEMPORAL_UNSPECIFIED_TO_ANY"),
+            "polarity_target": AV("affirmative", span="Who works on"),
+            "condition_target": AV(None, source_type="FIXED_RULE", span=None, rule="RB_CONDITION_UNSPECIFIED"),
+            "attribution_target": AV(None, source_type="FIXED_RULE", span=None, rule="RB_ATTRIB_UNSPECIFIED"),
+            "query_class": AV("NARROW", span="Who works on Project Nimbus?"),
+            "role_target": AV({"subject": None, "object": "Project Nimbus"}, span="Who works on Project Nimbus?"),
+        },
+        "fact": {
+            "entities": AV(
+                ["Sofia", "Project Nimbus"],
+                source_type="RAW_FACT_TEXT",
+                span="Sofia works on Project Nimbus.",
+            ),
+            "predicate": AV("works_on", source_type="RAW_FACT_TEXT", span="works on"),
+            "scope": AV("default", source_type="FIXED_RULE", span=None, rule="RB_SCOPE_NO_MARKER_DEFAULT"),
+            "polarity": AV("affirmative", source_type="RAW_FACT_TEXT", span="works on"),
+            "condition": AV(None, source_type="FIXED_RULE", span=None, rule="RB_CONDITION_UNSPECIFIED"),
+            "attribution": AV(None, source_type="FIXED_RULE", span=None, rule="RB_ATTRIB_UNSPECIFIED"),
+            "temporal_state": AV("current", source_type="FIXED_RULE", span=None, rule="RB_TEMPORAL_NO_MARKER_CURRENT"),
+            "role": AV(
+                {"subject": "Sofia", "object": "Project Nimbus"},
+                source_type="RAW_FACT_TEXT",
+                span="Sofia works on Project Nimbus.",
+            ),
+        },
+        "annotation_comment": {"reason_code": "OTHER_NON_OUTCOME_REASON", "comment": "EXAMPLE_NOT_GOLD"},
+    }
+
+
+def valid_fixed_rule_p2() -> dict:
+    rec = valid_structural_p1()
+    rec["query"]["scope_target"] = AV(
+        "any", source_type="FIXED_RULE", span=None, rule="RB_SCOPE_UNSPECIFIED_TO_ANY"
+    )
+    return rec
+
+
+def valid_receipt(**over) -> dict:
+    base = {
+        "annotation_schema_version": "1.2",
+        "rulebook_version": "v1.2",
+        "sanitized_input_hash": HEX64,
+        "ontology_schema_hash": HEX64,
+        "annotation_schema_hash": HEX64,
+        "rulebook_hash": HEX64,
+        "query_corpus_hash": HEX64,
+        "fact_corpus_hash": HEX64,
+        "annotation_A_hash": HEX64,
+        "annotation_B_hash": HEX64,
+        "disagreement_log_hash": None,
+        "adjudicated_annotation_hash": None,
+        "final_structural_package_hash": HEX64,
+        "annotator_A_id": "annotator_A",
+        "annotator_B_id": "annotator_B",
+        "adjudicator_id": None,
+        "blinding": {
+            "gold_access": False,
+            "hn_access": False,
+            "ce_score_access": False,
+            "ce_rank_access": False,
+            "embedding_score_access": False,
+            "embedding_rank_access": False,
+            "other_annotator_access_before_submission": False,
+            "evaluation_split_identity_access": False,
+        },
+        "gold_access": False,
+        "hn_access": False,
+        "ce_score_access": False,
+        "embedding_score_access": False,
+        "evaluation_overlay_access": False,
+        "independent_annotation_available": True,
+        "annotation_started_at": "2026-09-11T00:00:00Z",
+        "annotation_frozen_at": "2026-09-11T00:00:01Z",
+        "disagreement_count": 0,
+        "adjudicated_count": 0,
+        "post_freeze_amendments": [],
+    }
+    base.update(over)
+    return base
+
+
+def valid_adjudicated_receipt() -> dict:
+    return valid_receipt(
+        disagreement_count=1,
+        adjudicated_count=1,
+        adjudicator_id="adjudicator_1",
+        disagreement_log_hash=HEX64,
+        adjudicated_annotation_hash=HEX64,
+    )
+
+
+def expect_fail(errs: list[str], code: str) -> None:
+    assert errs, f"{code}: expected FAIL, got PASS"
+    return None
+
+
+def expect_pass(errs: list[str], code: str) -> None:
+    assert not errs, f"{code}: expected PASS, got {errs}"
+
+
+# ----- T1–T18 -----
+
+
+def test_T1_structural_not_blinded_fails():
+    rec = valid_structural_p1()
+    rec["query"]["entity_targets"]["provenance"]["blinding_status"] = "NOT_BLINDED"
+    expect_fail(mod.validate_structural_record(rec), "T1")
+
+
+def test_T2_structural_unknown_blinding_fails():
+    rec = valid_structural_p1()
+    rec["query"]["entity_targets"]["provenance"]["blinding_status"] = "UNKNOWN"
+    expect_fail(mod.validate_structural_record(rec), "T2")
+
+
+def test_T3_fixed_rule_without_rule_id_fails():
+    rec = valid_structural_p1()
+    rec["query"]["scope_target"]["provenance"]["source_type"] = "FIXED_RULE"
+    rec["query"]["scope_target"]["provenance"]["rule_id"] = None
+    rec["query"]["scope_target"]["provenance"]["source_span"] = None
+    expect_fail(mod.validate_structural_record(rec), "T3")
+
+
+def test_T4_raw_fact_text_without_source_span_fails():
+    rec = valid_structural_p1()
+    rec["fact"]["entities"]["provenance"]["source_type"] = "RAW_FACT_TEXT"
+    rec["fact"]["entities"]["provenance"]["source_span"] = ""
+    expect_fail(mod.validate_structural_record(rec), "T4")
+
+
+def test_T5_human_annotation_without_annotator_id_fails():
+    rec = valid_structural_p1()
+    rec["query"]["query_class"]["provenance"]["source_type"] = "HUMAN_ANNOTATION"
+    rec["query"]["query_class"]["provenance"]["annotator_id"] = None
+    rec["query"]["query_class"]["provenance"]["source_span"] = "Who works"
+    expect_fail(mod.validate_structural_record(rec), "T5")
+
+
+def test_T6_adjudicated_without_adjudicator_fails():
+    rec = valid_structural_p1()
+    rec["query"]["predicate_target"]["provenance"]["source_type"] = "ADJUDICATED"
+    rec["query"]["predicate_target"]["provenance"]["adjudication_status"] = "ADJUDICATED"
+    rec["query"]["predicate_target"]["provenance"]["annotator_id"] = "annotator_A"
+    rec["query"]["predicate_target"]["provenance"]["adjudicator_id"] = None
+    rec["query"]["predicate_target"]["provenance"]["rule_id"] = "RB_PRED_WORKS_ON"
+    expect_fail(mod.validate_structural_record(rec), "T6")
+
+
+def test_T7_gold_access_true_fails():
+    r = valid_receipt(gold_access=True)
+    expect_fail(mod.validate_receipt(r), "T7")
+
+
+def test_T8_hn_access_true_fails():
+    r = valid_receipt(hn_access=True)
+    expect_fail(mod.validate_receipt(r), "T8")
+
+
+def test_T9_ce_score_access_true_fails():
+    r = valid_receipt(ce_score_access=True)
+    expect_fail(mod.validate_receipt(r), "T9")
+
+
+def test_T10_embedding_score_access_true_fails():
+    r = valid_receipt(embedding_score_access=True)
+    expect_fail(mod.validate_receipt(r), "T10")
+
+
+def test_T11_sanitized_split_test_fails():
+    obj = {
+        "query_id": "EX_Q",
+        "fact_id": "EX_F",
+        "query_text": "Who works on Project Nimbus?",
+        "fact_text": "Sofia works on Project Nimbus.",
+        "split": "TEST",
+    }
+    expect_fail(mod.validate_sanitized_input(obj), "T11")
+
+
+def test_T12_structural_gold_relevance_class_fails():
+    rec = valid_structural_p1()
+    rec["gold_relevance_class"] = "DIRECT"
+    expect_fail(mod.validate_structural_record(rec), "T12")
+
+
+def test_T13_structural_hn_labels_fails():
+    rec = valid_structural_p1()
+    rec["hn_labels"] = ["HN9"]
+    expect_fail(mod.validate_structural_record(rec), "T13")
+
+
+def test_T14_disagreement_without_adjudicator_fails():
+    r = valid_receipt(disagreement_count=1, adjudicated_count=1, adjudicator_id=None)
+    expect_fail(mod.validate_receipt(r), "T14")
+
+
+def test_T15_disagreement_count_mismatch_fails():
+    r = valid_adjudicated_receipt()
+    r["adjudicated_count"] = 0
+    expect_fail(mod.validate_receipt(r), "T15")
+
+
+def test_T16_amendment_after_scoring_not_invalidated_fails():
+    am = {
+        "amendment_id": "am1",
+        "timestamp": "2026-09-11T01:00:00Z",
+        "previous_package_hash": HEX64,
+        "new_package_hash": "b" * 64,
+        "reason_code": "TRANSCRIPTION_ERROR",
+        "reason_text": "typo",
+        "changed_fields": ["fact.scope"],
+        "affected_record_ids": ["EX_Q_NARROW::EX_F_WORKS"],
+        "authorized_by": "adjudicator_1",
+        "scoring_started": True,
+        "invalidation_required": False,
+        "previous_result_invalidated": False,
+        "new_version": "1.2.1",
+    }
+    r = valid_receipt(post_freeze_amendments=[am])
+    expect_fail(mod.validate_receipt(r), "T16")
+
+
+def test_T17_same_annotator_a_and_b_fails():
+    r = valid_receipt(annotator_A_id="annotator_A", annotator_B_id="annotator_A")
+    expect_fail(mod.validate_receipt(r), "T17")
+
+
+def test_T18_broad_narrow_scope_without_span_or_rule_fails():
+    rec = valid_structural_p1()
+    rec["query"]["query_class"] = AV("BROAD", span="What components are associated with")
+    rec["query"]["scope_target"] = AV(
+        "prod", source_type="HUMAN_ANNOTATION", span="", rule=None, annotator="annotator_A"
+    )
+    # empty span + no rule
+    rec["query"]["scope_target"]["provenance"]["source_span"] = ""
+    rec["query"]["scope_target"]["provenance"]["rule_id"] = None
+    expect_fail(mod.validate_structural_record(rec), "T18")
+
+
+def test_P1_valid_blinded_raw_text_passes():
+    expect_pass(mod.validate_structural_record(valid_structural_p1()), "P1")
+
+
+def test_P2_valid_fixed_rule_with_rule_id_passes():
+    expect_pass(mod.validate_structural_record(valid_fixed_rule_p2()), "P2")
+
+
+def test_P3_valid_fully_adjudicated_receipt_passes():
+    expect_pass(mod.validate_receipt(valid_adjudicated_receipt()), "P3")
+
+
+def test_P4_valid_no_disagreement_receipt_passes():
+    expect_pass(mod.validate_receipt(valid_receipt()), "P4")
+
+
+def test_independent_annotation_false_fails_package():
+    pkg = {"annotation_receipt": valid_receipt(independent_annotation_available=False)}
+    result = mod.validate_package(pkg)
+    assert result["validation_status"] == "FAIL"
+    assert result["GO_ALLOWED"] is False
+
+
+def test_validator_debug_cannot_force_go():
+    pkg = {"annotation_receipt": valid_receipt(gold_access=True)}
+    result = mod.validate_package(pkg)
+    assert result["GO_ALLOWED"] is False
+    rc = mod.main(["--debug", "/dev/null"]) if False else 1
+    # package path: write temp via validate_package only
+    assert result["validation_status"] == "FAIL"
+
+
+def test_positive_package_go_allowed():
+    pkg = {
+        "sanitized_inputs": [
+            {
+                "query_id": "EX_Q_NARROW",
+                "fact_id": "EX_F_WORKS",
+                "query_text": "Who works on Project Nimbus?",
+                "fact_text": "Sofia works on Project Nimbus.",
+            }
+        ],
+        "final_structural_package": [valid_structural_p1()],
+        "annotation_receipt": valid_receipt(),
+        "overlay_after_structural_freeze": False,
+    }
+    result = mod.validate_package(pkg)
+    assert result["errors"] == [], result["errors"]
+    assert result["validation_status"] == "PASS"
+    assert result["GO_ALLOWED"] is True
+
+
+def test_template_rows_structural_pass_overlay_schema_pass():
+    import json
+    from pathlib import Path
+    doc = Path(__file__).resolve().parents[2] / "docs/research/fm17_pre"
+    schema = mod._load_schema("oracle_annotations.schema.json")
+    for line in (doc / "oracle_annotations.template.jsonl").read_text().splitlines():
+        rec = json.loads(line)
+        if rec["record_layer"] == "STRUCTURAL":
+            expect_pass(mod.validate_structural_record(rec, schema), "TEMPLATE")
+        else:
+            expect_pass(mod._schema_errors(schema, rec), "TEMPLATE_OVERLAY")

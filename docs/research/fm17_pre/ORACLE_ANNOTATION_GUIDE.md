@@ -177,3 +177,26 @@ LLM drafts are **not** gold. If used as convenience, they are non-gold and exclu
 ## Template
 
 `oracle_annotations.template.jsonl` — **EXAMPLE_NOT_GOLD** only.
+
+## v1.2 free-text policy
+
+STRUCTURAL records MUST NOT contain unbounded `annotation_notes`.
+
+Optional structured `annotation_comment` only:
+
+- `reason_code` ∈ `{LEXICAL_AMBIGUITY, MULTIPLE_PLAUSIBLE_PARSE, MISSING_EXPLICIT_SCOPE, SOURCE_SPAN_DISAGREEMENT, OTHER_NON_OUTCOME_REASON}`
+- optional `comment` ≤ 280 chars
+
+`annotation_comment` is **not** consumed by A1/A2 filter decisions.
+
+Evaluation commentary lives in `EVALUATION_OVERLAY.evaluation_notes` after STRUCTURAL freeze.
+
+Do not treat keyword regex (`gold`, `HN9`) as scientific protection.
+
+## v1.2 fail-closed blinding
+
+For `record_layer=STRUCTURAL`, every decision-relevant `blinding_status` MUST be `BLINDED_TO_GOLD_AND_HN`.
+
+`NOT_BLINDED` and `UNKNOWN` → **schema-invalid**.
+
+Sanitized annotator input MUST NOT include CAL/TEST split identity.
