@@ -14,10 +14,11 @@ Do **not** treat this chat paraphrase as evidence. Verify SHAs and files on GitH
 1. Fetch `velantrian/Graphiti_fractal_lab` · checkout `experiment/falkordblite-deterministic-memory`.
 2. Read **this file** (FM-16 / FM-17-pre durable archive).
 3. Read the current route: [`docs/research/CROSS_PROJECT_RESEARCH_RESUME_2026-09-12.md`](research/CROSS_PROJECT_RESEARCH_RESUME_2026-09-12.md).
-4. Verify live `HEAD` and referenced SHAs. Chat is **not** newer than GitHub.
-5. Reconstruct DONE / CURRENT / HOLD / BLOCKED / UNKNOWN / NEXT.
-6. Report to Ruslan **before work**: `RESTORED_STATE` · `CURRENT_PRIORITY` · `BLOCKED_TRACKS` · `NEXT_ACTION` · `EXECUTION_AUTHORIZED`.
-7. If execution is not explicit: **do not run experiments.**
+4. Read the required terminology / work-surface map: [`docs/research/VELANTRIM_WORK_SURFACE_MAP_2026-09-12.md`](research/VELANTRIM_WORK_SURFACE_MAP_2026-09-12.md). Use it to interpret `World Map / Working Board`, Anchor, History, Orientation Packet, FM, and project routing/ownership surfaces without conflation.
+5. Verify live `HEAD` and referenced SHAs. Chat is **not** newer than GitHub.
+6. Reconstruct DONE / CURRENT / HOLD / BLOCKED / UNKNOWN / NEXT.
+7. Report to Ruslan **before work**: `RESTORED_STATE` · `CURRENT_PRIORITY` · `BLOCKED_TRACKS` · `NEXT_ACTION` · `EXECUTION_AUTHORIZED`.
+8. If execution is not explicit: **do not run experiments.**
 
 **Current priority is CONT-E0T, not FM-17-pre.** FM-17-pre is one separate read-side line. Do not launch it from a resume.
 
@@ -29,6 +30,9 @@ FM-17-pre is **only one** research line. Overall empirical priority has moved.
 
 Canonical route (Program Route v0.1, first persisted on GitHub here):  
 [`docs/research/CROSS_PROJECT_RESEARCH_RESUME_2026-09-12.md`](research/CROSS_PROJECT_RESEARCH_RESUME_2026-09-12.md)
+
+Terminology / work-surface map (required reading for fresh Labs):  
+[`docs/research/VELANTRIM_WORK_SURFACE_MAP_2026-09-12.md`](research/VELANTRIM_WORK_SURFACE_MAP_2026-09-12.md)
 
 | Track | Status |
 |-------|--------|
@@ -298,6 +302,7 @@ User decision codes after review: **A** fix · **B** send for review · **C** au
   "branch": "experiment/falkordblite-deterministic-memory",
   "labs_handoff": "docs/LABS_HANDOFF_2026-09-12.md",
   "cross_project_resume": "docs/research/CROSS_PROJECT_RESEARCH_RESUME_2026-09-12.md",
+  "work_surface_map": "docs/research/VELANTRIM_WORK_SURFACE_MAP_2026-09-12.md",
   "ornt_e1_pilot": {"status": "COMPLETED", "proves_t2_over_t1": false},
   "cont_e0t": {"status": "DESIGN_PRE_EXECUTION", "program_priority": "NEXT_EMPIRICAL_PRIORITY", "executed": false, "authorized": false},
   "cap_e1": {"status": "HOLD", "executed": false, "semantically_depends_on_t2": false},
