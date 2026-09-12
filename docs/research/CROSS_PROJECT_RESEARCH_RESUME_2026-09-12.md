@@ -1,7 +1,8 @@
 # 🧭 Cross-Project Research Resume — 2026-09-12
 
 **Canonical GitHub location for the current research program route.**  
-**Labs entry point remains:** [`docs/LABS_HANDOFF_2026-09-12.md`](../LABS_HANDOFF_2026-09-12.md)
+**Labs entry point remains:** [`docs/LABS_HANDOFF_2026-09-12.md`](../LABS_HANDOFF_2026-09-12.md)  
+**Required terminology / work-surface map:** [`VELANTRIM_WORK_SURFACE_MAP_2026-09-12.md`](VELANTRIM_WORK_SURFACE_MAP_2026-09-12.md)
 
 This document persists Program Route v0.1 and the continuity/orientation state so a fresh Labs instance can resume **without this chat**. It is **not** evidence that any continuity architecture is correct. It does **not** authorize experiments.
 
@@ -15,9 +16,10 @@ If this file and chat disagree: **trust GitHub**, then investigate.
 2. Checkout `experiment/falkordblite-deterministic-memory`.
 3. Read [`docs/LABS_HANDOFF_2026-09-12.md`](../LABS_HANDOFF_2026-09-12.md) (FM-16 / FM-17-pre archive + this pointer).
 4. Read **this file** (current cross-project route).
-5. Verify live `HEAD` and referenced SHAs. Do not assume chat is newer than GitHub.
-6. Reconstruct: DONE / CURRENT / HOLD / BLOCKED / UNKNOWN / NEXT.
-7. Report to Ruslan **before any work**:
+5. Read the required terminology / work-surface map: [`VELANTRIM_WORK_SURFACE_MAP_2026-09-12.md`](VELANTRIM_WORK_SURFACE_MAP_2026-09-12.md). Use it to interpret `World Map / Working Board`, Anchor, History, Orientation Packet, FM, and the project ownership/routing surfaces without conflation.
+6. Verify live `HEAD` and referenced SHAs. Do not assume chat is newer than GitHub.
+7. Reconstruct: DONE / CURRENT / HOLD / BLOCKED / UNKNOWN / NEXT.
+8. Report to Ruslan **before any work**:
 
 ```text
 RESTORED_STATE:
@@ -27,7 +29,7 @@ NEXT_ACTION:
 EXECUTION_AUTHORIZED: YES/NO
 ```
 
-8. If execution authorization is not explicit: **do not run experiments.**
+9. If execution authorization is not explicit: **do not run experiments.**
 
 GitHub = durable store. Labs' computer = execution environment only. Untracked local `data/` is not archive, Canon, or evidence.
 
@@ -276,7 +278,7 @@ EQUIVALENCE ≠ ADEQUACY
 CURRENT STATE ≠ STATE TRAJECTORY
 REBUILDABILITY ≠ CONTINUITY BENEFIT
 ORACLE VALUE ≠ DEPLOYABILITY
-ORACLE VALUE ≠ TRANSITION-CAPTURE ACCURACY
+ORACLE VALUE ≠ TRANSITION-CAPTURE_ACCURACY
 ORACLE VALUE ≠ PROOF THAT TRANSITION HISTORY IS NECESSARY
 CAPTURE CONFIDENCE ≠ AUTHORITY
 PROJECT ANCHOR ≠ PROJECT SCOPE
@@ -333,6 +335,7 @@ HELD-OUT INTERNAL CONFIRMATION ≠ EXTERNAL GENERALIZATION
   "branch": "experiment/falkordblite-deterministic-memory",
   "labs_handoff": "docs/LABS_HANDOFF_2026-09-12.md",
   "cross_project_resume": "docs/research/CROSS_PROJECT_RESEARCH_RESUME_2026-09-12.md",
+  "work_surface_map": "docs/research/VELANTRIM_WORK_SURFACE_MAP_2026-09-12.md",
   "program_route_persisted_here": true,
   "ornt_e1_pilot": {
     "status": "COMPLETED",
