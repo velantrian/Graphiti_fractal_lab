@@ -7,6 +7,44 @@ Do **not** treat this chat paraphrase as evidence. Verify SHAs and files on GitH
 
 ---
 
+---
+
+## IF YOU ARE A FRESH LABS INSTANCE, START HERE
+
+1. Fetch `velantrian/Graphiti_fractal_lab` · checkout `experiment/falkordblite-deterministic-memory`.
+2. Read **this file** (FM-16 / FM-17-pre durable archive).
+3. Read the current route: [`docs/research/CROSS_PROJECT_RESEARCH_RESUME_2026-09-12.md`](research/CROSS_PROJECT_RESEARCH_RESUME_2026-09-12.md).
+4. Verify live `HEAD` and referenced SHAs. Chat is **not** newer than GitHub.
+5. Reconstruct DONE / CURRENT / HOLD / BLOCKED / UNKNOWN / NEXT.
+6. Report to Ruslan **before work**: `RESTORED_STATE` · `CURRENT_PRIORITY` · `BLOCKED_TRACKS` · `NEXT_ACTION` · `EXECUTION_AUTHORIZED`.
+7. If execution is not explicit: **do not run experiments.**
+
+**Current priority is CONT-E0T, not FM-17-pre.** FM-17-pre is one separate read-side line. Do not launch it from a resume.
+
+---
+
+## CROSS-PROJECT RESEARCH STATE / RESUME
+
+FM-17-pre is **only one** research line. Overall empirical priority has moved.
+
+Canonical route (Program Route v0.1, first persisted on GitHub here):  
+[`docs/research/CROSS_PROJECT_RESEARCH_RESUME_2026-09-12.md`](research/CROSS_PROJECT_RESEARCH_RESUME_2026-09-12.md)
+
+| Track | Status |
+|-------|--------|
+| **ORNT-E1-PILOT** | COMPLETED — exploratory packet vs raw; proxy Δ ≈ +26.5; not T2/architecture proof |
+| **CONT-E0T** | **NEXT EMPIRICAL PRIORITY** · DESIGN / PRE-EXECUTION · not authorized |
+| **CAP-E1** | HOLD · not executed · not cancelled · not dependent on T2 |
+| **ORNT-E1-CONFIRM** | BLOCKED on recorded CONT-E0T verdict |
+| **FM-17-pre** | SEPARATE · integrity GO only · annotation/A0–A3 NOT_EXECUTED |
+
+**One next action:** complete CONT-E0T preregistration fields (primary surface, fixtures, queries, T1/T2 equivalence check, model, rubric, reviewers, complexity, ledger envelope, equivalence ≠ adequacy). Then final review. Then separate Ruslan GO/NO-GO. Only then execute.
+
+This handoff task does **not** authorize CONT-E0T, CAP-E1, ORNT-E1-CONFIRM, or FM-17 execution.
+
+The sections below remain the FM-16 / FM-17-pre archive. **Do not treat them as the current program route.**
+
+
 ## 0. Who produced this
 
 | Field | Value |
@@ -247,3 +285,26 @@ User decision codes after review: **A** fix · **B** send for review · **C** au
 4. Run `pytest tests/lab/test_fm17_pre_schema_enforcement.py`.
 5. Replay T27: mutate artifact + recompute local root to R1; pass external R0 → FAIL.
 6. Do **not** authorize ablation from this handoff alone.
+
+---
+
+## CROSS-PROJECT machine-readable pointer
+
+```json
+{
+  "resume_type": "cross_project_research_state",
+  "date": "2026-09-12",
+  "canonical_lab_repository": "velantrian/Graphiti_fractal_lab",
+  "branch": "experiment/falkordblite-deterministic-memory",
+  "labs_handoff": "docs/LABS_HANDOFF_2026-09-12.md",
+  "cross_project_resume": "docs/research/CROSS_PROJECT_RESEARCH_RESUME_2026-09-12.md",
+  "ornt_e1_pilot": {"status": "COMPLETED", "proves_t2_over_t1": false},
+  "cont_e0t": {"status": "DESIGN_PRE_EXECUTION", "program_priority": "NEXT_EMPIRICAL_PRIORITY", "executed": false, "authorized": false},
+  "cap_e1": {"status": "HOLD", "executed": false, "semantically_depends_on_t2": false},
+  "ornt_e1_confirm": {"status": "BLOCKED", "blocker": "recorded CONT-E0T verdict"},
+  "fm17_pre": {"status": "SEPARATE_READ_SIDE_TRACK", "integrity_go": true, "user_execution_authorized": false, "ablation_executed": false},
+  "current_next_action": "complete CONT-E0T preregistration fields",
+  "architecture_change_authorized": false,
+  "product_repo_change_authorized": false
+}
+```

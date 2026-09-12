@@ -2,10 +2,11 @@
 
 > **Repo:** `velantrian/Graphiti_fractal_lab`  
 > **Role:** 🔬 RESEARCH sandbox — full Fractal tree mirrored for experimentation; not production Fractal Memory  
-> **Updated:** 2026-09-11  
+> **Updated:** 2026-09-12  
 > **Upstream authority:** `velantrian/Graphiti_fractal` remains separate. Lab evidence never authorizes upstream/runtime changes.
 
 🤖 **AI routing:** start with [`docs/ai/README.md`](docs/ai/README.md).  
+🧭 **Cross-project research resume (current program route):** [`docs/research/CROSS_PROJECT_RESEARCH_RESUME_2026-09-12.md`](docs/research/CROSS_PROJECT_RESEARCH_RESUME_2026-09-12.md) — ORNT-E1-PILOT DONE · **CONT-E0T NEXT / PRE-EXECUTION** · CAP-E1 HOLD · ORNT-E1-CONFIRM BLOCKED · FM-17-pre SEPARATE. Labs entry: [`docs/LABS_HANDOFF_2026-09-12.md`](docs/LABS_HANDOFF_2026-09-12.md).
 🔎 **Retrieval-relevance narrative:** [`docs/research/RETRIEVAL_RELEVANCE_TRACK.md`](docs/research/RETRIEVAL_RELEVANCE_TRACK.md) — historical/research narrative; for current FM-17-pre status continue to the FM-17-pre index below.  
 🧭 **Long-form reasoning history:** [`docs/research/RETRIEVAL_RELEVANCE_REASONING_LOG.md`](docs/research/RETRIEVAL_RELEVANCE_REASONING_LOG.md).  
 ✅ **FM-16 closure + independent review reconciliation:** [`docs/research/FM16_CLOSURE_AND_INDEPENDENT_REVIEW_2026-09-11.md`](docs/research/FM16_CLOSURE_AND_INDEPENDENT_REVIEW_2026-09-11.md).  
