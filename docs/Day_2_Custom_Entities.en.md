@@ -1,28 +1,27 @@
-# ДЕНЬ 2: Custom Entity Types & Extraction
+# DAY 2: Custom Entity Types & Extraction
+> 🌐 🇬🇧 **English** · 🇷🇺 [Русский](./Day_2_Custom_Entities.md)
 
-## 🎯 Цель дня
-Определить и протестировать автоматическую экстракцию кастомных сущностей из текста.
-
-> 🌐 🇷🇺 **Русский** · 🇬🇧 [English](./Day_2_Custom_Entities.en.md)
-
----
-
-## 📝 Теория: Что такое Custom Entity Types?
-
-Graphiti по умолчанию экстрактит:
-- **PersonEntity** (люди)
-- **OrganizationEntity** (компании)
-- **LocationEntity** (места)
-- **EventEntity** (события)
-
-Но ты хочешь свои:
-- **ProjectEntity** (проекты с компонентами)
-- **TechnicalConceptEntity** (идеи уровня архитектуры)
-- **DecisionEntity** (решения, которые можно потом опровергнуть)
+## 🎯 Goal for the day
+Define and test automatic extraction of custom entities from text.
 
 ---
 
-## 💻 Шаг 1: Определить Pydantic Models
+## 📝 Theory: What Are Custom Entity Types?
+
+By default, Graphiti extracts:
+- **PersonEntity** (people)
+- **OrganizationEntity** (companies)
+- **LocationEntity** (places)
+- **EventEntity** (events)
+
+But you want your own:
+- **ProjectEntity** (projects with components)
+- **TechnicalConceptEntity** (architecture-level ideas)
+- **DecisionEntity** (decisions that can later be overturned)
+
+---
+
+## 💻 Step 1: Define Pydantic Models
 
 ```python
 # custom_entities.py
@@ -115,7 +114,7 @@ class TeamEntity(BaseModel):
 
 ---
 
-## 🔧 Шаг 2: Updated Main Script
+## 🔧 Step 2: Updated Main Script
 
 ```python
 # main_day2.py
@@ -125,8 +124,8 @@ from dotenv import load_dotenv
 from graphiti_core import Graphiti
 from datetime import datetime, timezone
 from custom_entities import (
-    ProjectEntity, 
-    TechnicalConceptEntity, 
+    ProjectEntity,
+    TechnicalConceptEntity,
     DecisionEntity,
     TeamEntity
 )
@@ -141,11 +140,11 @@ async def main():
         password=os.getenv("NEO4J_PASSWORD"),
         openai_api_key=os.getenv("OPENAI_API_KEY")
     )
-    
+
     print("🔧 Building indices...")
     await graphiti.build_indices_and_constraints()
     print("✅ Indices built\n")
-    
+
     # Регистрируем кастомные типы
     custom_entity_types = [
         ProjectEntity,
@@ -153,29 +152,29 @@ async def main():
         DecisionEntity,
         TeamEntity
     ]
-    
+
     # Episode 1: Project Overview
     print("📝 Episode 1: Project Overview")
     episode1_text = """
     Sergey and Natasha are working on a Fractal Memory project.
-    
+
     The project has three main components:
     1. Graph Engine - built with Neo4j for knowledge representation
     2. LLM Integration - using GPT-4 for entity extraction and reasoning
     3. Temporal Processing - maintaining bi-temporal data (valid_from, valid_to)
-    
+
     The project status is in Development phase.
     Sergey is the primary developer.
     Priority is High - this is a core research initiative.
-    
+
     Key concepts involved:
     - Fractal Architecture: a hierarchical representation system
     - Knowledge Graph: semantic network of entities and relationships
     - Temporal Logic: maintaining contradictions over time
-    
+
     These concepts are at Advanced abstraction level (3-4).
     """
-    
+
     await graphiti.add_episode(
         name="Project Overview",
         episode_body=episode1_text,
@@ -184,21 +183,21 @@ async def main():
         custom_entities=custom_entity_types
     )
     print("✅ Episode 1 added\n")
-    
+
     # Episode 2: Decision Log
     print("📝 Episode 2: Decision Log")
     episode2_text = """
     Decision made on 2025-12-10:
-    
-    "We decided to simplify the Fractal Memory implementation by starting with 
+
+    "We decided to simplify the Fractal Memory implementation by starting with
     vanilla Graphiti instead of building custom Redis buffer layer."
-    
+
     Made by: Natasha
     Rationale: Reduce complexity, avoid Integration Hell, focus on core value.
     Dependencies: This affects L0 optimization, L1 consolidation logic.
     Status: Active - this is our current strategy.
     """
-    
+
     await graphiti.add_episode(
         name="Strategic Decision - Vanilla First",
         episode_body=episode2_text,
@@ -207,19 +206,19 @@ async def main():
         custom_entities=custom_entity_types
     )
     print("✅ Episode 2 added\n")
-    
+
     # Episode 3: Team Structure
     print("📝 Episode 3: Team Structure")
     episode3_text = """
     The development team consists of:
     - Sergey: Senior Developer, specializing in AI/ML and Python
     - Natasha: Technical Lead and Business Advisor, strategic guidance
-    
+
     Team Name: Fractal Memory Core Team
     Focus: Building production-grade memory system for AI agents
     Communication: Primarily Telegram for async discussions
     """
-    
+
     await graphiti.add_episode(
         name="Team Structure",
         episode_body=episode3_text,
@@ -228,10 +227,10 @@ async def main():
         custom_entities=custom_entity_types
     )
     print("✅ Episode 3 added\n")
-    
+
     # Now search for extracted entities
     print("🔍 SEARCH RESULTS:\n")
-    
+
     search_terms = [
         "Fractal Memory project components",
         "Sergey developer role",
@@ -239,11 +238,11 @@ async def main():
         "Neo4j graph engine",
         "Team members communication"
     ]
-    
+
     for search_term in search_terms:
         print(f"  Query: '{search_term}'")
         results = await graphiti._search(search_term, limit=5)
-        
+
         if results.nodes:
             print(f"    Found {len(results.nodes)} entities:")
             for node in results.nodes:
@@ -253,13 +252,13 @@ async def main():
         else:
             print(f"    No entities found")
         print()
-    
+
     # Graph Statistics
     print("\n📊 GRAPH STATISTICS:")
     print("  To view: Open http://localhost:7474")
     print("  Query:   MATCH (n) RETURN n LIMIT 100")
     print("  Expected: ~15-20 nodes (entities)")
-    
+
     # Verify custom types
     print("\n✨ CUSTOM ENTITY TYPES REGISTERED:")
     for entity_type in custom_entity_types:
@@ -271,7 +270,7 @@ if __name__ == "__main__":
 
 ---
 
-## 🧪 Шаг 3: Запуск и Проверка
+## 🧪 Step 3: Running and Verification
 
 ```bash
 # Run the script
@@ -303,7 +302,7 @@ python main_day2.py
 
 ---
 
-## 🔍 Шаг 4: Проверка в Neo4j Browser
+## 🔍 Step 4: Verification in Neo4j Browser
 
 ```cypher
 // Query 1: See all custom entities
@@ -319,7 +318,7 @@ MATCH (n:ProjectEntity) RETURN n LIMIT 20
 // }
 
 // Query 2: See relationships between entities
-MATCH (p:PersonEntity)-[r]-(t:ProjectEntity) 
+MATCH (p:PersonEntity)-[r]-(t:ProjectEntity)
 RETURN p.name, r.type, t.name
 
 // Expected:
@@ -327,22 +326,22 @@ RETURN p.name, r.type, t.name
 // Natasha LEADS     Fractal Memory
 
 // Query 3: See decisions and their status
-MATCH (d:DecisionEntity) 
+MATCH (d:DecisionEntity)
 RETURN d.decision_text, d.status, d.decision_maker
 
 // Query 4: See technical concepts and levels
-MATCH (c:TechnicalConceptEntity) 
+MATCH (c:TechnicalConceptEntity)
 RETURN c.name, c.abstraction_level, c.implementation_status
 ```
 
 ---
 
-## 📊 Ожидаемые Results
+## 📊 Expected Results
 
-После выполнения всех эпизодов граф должен содержать:
+After all episodes are completed, the graph should contain:
 
-| Тип узла | Примеры | Кол-во |
-|----------|---------|--------|
+| Node type | Examples | Count |
+|----------|---------|-------|
 | ProjectEntity | Fractal Memory, Graph Engine | 2-3 |
 | PersonEntity | Sergey, Natasha | 2 |
 | TechnicalConceptEntity | Fractal, Knowledge Graph, Temporal Logic | 3-5 |
@@ -354,13 +353,13 @@ RETURN c.name, c.abstraction_level, c.implementation_status
 
 ---
 
-## ✅ День 2 Checklist
+## ✅ Day 2 Checklist
 
-- [ ] custom_entities.py создан с 4 моделями
-- [ ] main_day2.py запущен без ошибок
-- [ ] 3 эпизода успешно добавлены
-- [ ] Поиск возвращает кастомные типы
-- [ ] Neo4j Browser показывает узлы
-- [ ] Все кастомные типы зарегистрированы ✅
+- [ ] custom_entities.py created with 4 models
+- [ ] main_day2.py run without errors
+- [ ] 3 episodes added successfully
+- [ ] Search returns custom types
+- [ ] Neo4j Browser displays nodes
+- [ ] All custom types registered ✅
 
-**Next: День 3 (Custom Entity Extraction Deep Dive)**
+**Next: Day 3 (Custom Entity Extraction Deep Dive)**

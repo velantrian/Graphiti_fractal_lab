@@ -9,6 +9,10 @@
 🤖 For machine routing see [`docs/ai/README.md`](docs/ai/README.md).  
 Re-run pytest on the exact head before citing pass counts elsewhere.
 
+## 🔬 Issue-linked research
+
+- For issue #3, see the [Engram post-ranking qualification source audit](docs/ENGRAM_POST_RANK_QUALIFICATION.md). It records a future bounded-evaluation candidate only; protocol readiness does not authorize an ablation or other experiment.
+
 ## 🪞 Mirror honesty
 
 | Path | Meaning |
