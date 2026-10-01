@@ -70,3 +70,8 @@ def test_automated_validation_installs_reviewed_constraints():
         workflow = (ROOT / workflow_path).read_text(encoding="utf-8")
         assert "-c constraints-ci.txt -r requirements.txt" in workflow
         assert "python -m pip check" in workflow
+
+
+def test_core_contracts_installs_lab_requirements_for_full_collection():
+    workflow = (ROOT / ".github/workflows/ci.yml").read_text(encoding="utf-8")
+    assert "-c constraints-ci.txt -r requirements.txt -r requirements-lab.txt" in workflow
