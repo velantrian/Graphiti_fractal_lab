@@ -1,12 +1,16 @@
+from copy import deepcopy
 from pathlib import Path
 import shlex
 
+import pytest
 import yaml
 
 
 ROOT = Path(__file__).resolve().parents[1]
 CORE_REQUIREMENTS = {"requirements.txt", "requirements-lab.txt"}
 CACHE_REQUIREMENTS = CORE_REQUIREMENTS | {"constraints-ci.txt"}
+POLICY_MARKERS = {"pip", "test-collect", "test-contracts"}
+SHELL_OPERATOR_CHARS = ";&|"
 
 
 def _load_ci_workflow():
@@ -20,25 +24,45 @@ def _load_ci_workflow():
     return workflow
 
 
+def _shell_tokens(line):
+    lexer = shlex.shlex(line, posix=True, punctuation_chars=SHELL_OPERATOR_CHARS)
+    lexer.whitespace_split = True
+    lexer.commenters = "#"
+    return list(lexer)
+
+
+def _has_shell_operator(tokens):
+    return any(token and all(char in SHELL_OPERATOR_CHARS for char in token) for token in tokens)
+
+
 def _run_commands(steps):
+    """Parse simple command lines; reject unsupported operators in policy-bearing scripts."""
+    commands = []
     for step in steps:
         script = step.get("run")
         if not isinstance(script, str):
             continue
         script = script.replace("\\\r\n", " ").replace("\\\n", " ")
-        for line in script.splitlines():
-            if not line.strip():
-                continue
-            command = []
-            for token in shlex.split(line, comments=True):
-                if token in {";", "&&", "||", "|"}:
-                    if command:
-                        yield command
-                        command = []
-                else:
-                    command.append(token)
-            if command:
-                yield command
+        try:
+            token_lines = [
+                _shell_tokens(line)
+                for line in script.splitlines()
+                if line.strip()
+            ]
+        except ValueError:
+            return None
+
+        token_lines = [tokens for tokens in token_lines if tokens]
+        policy_bearing = any(POLICY_MARKERS.intersection(tokens) for tokens in token_lines)
+        has_unsupported_operator = any(_has_shell_operator(tokens) for tokens in token_lines)
+        if has_unsupported_operator:
+            # Ignore unrelated scripts such as the exact-target check; fail closed when
+            # control flow or `;` could change how a policy command executes.
+            if policy_bearing:
+                return None
+            continue
+        commands.extend(token_lines)
+    return commands
 
 
 def _pip_install_arguments(command):
@@ -51,11 +75,18 @@ def _pip_install_arguments(command):
 
 def _has_option(arguments, value, *options):
     attached = {form for option in options for form in (f"{option}{value}", f"{option}={value}")}
-    return any(
-        token in attached
-        or (token in options and index + 1 < len(arguments) and arguments[index + 1] == value)
-        for index, token in enumerate(arguments)
-    )
+    for index, token in enumerate(arguments):
+        if token == "--":
+            break
+        if token in attached:
+            return True
+        if token in options and index + 1 < len(arguments) and arguments[index + 1] == value:
+            return True
+    return False
+
+
+def _is_pip_check(command):
+    return command[:4] == ["python", "-m", "pip", "check"] or command[:2] == ["pip", "check"]
 
 
 def _make_target(command, target):
@@ -99,8 +130,12 @@ def _core_contracts_policy_is_valid(workflow):
         for step in steps
     )
 
-    commands = list(_run_commands(steps))
+    commands = _run_commands(steps)
+    if commands is None:
+        return False
+
     constrained_requirements = set()
+    has_pip_check_after_required_install = False
     for command in commands:
         arguments = _pip_install_arguments(command)
         if arguments is not None and _has_option(
@@ -111,20 +146,25 @@ def _core_contracts_policy_is_valid(workflow):
                 for requirement in CORE_REQUIREMENTS
                 if _has_option(arguments, requirement, "-r", "--requirement")
             )
+        if _is_pip_check(command) and CORE_REQUIREMENTS <= constrained_requirements:
+            has_pip_check_after_required_install = True
 
-    has_pip_check = any(
-        command[:4] == ["python", "-m", "pip", "check"]
-        or command[:2] == ["pip", "check"]
-        for command in commands
-    )
     has_collection = any(_make_target(command, "test-collect") for command in commands)
     has_contracts = any(_make_target(command, "test-contracts") for command in commands)
     return (
         setup_ok
         and CORE_REQUIREMENTS <= constrained_requirements
-        and has_pip_check
+        and has_pip_check_after_required_install
         and has_collection
         and has_contracts
+    )
+
+
+def _install_step(workflow):
+    return next(
+        step
+        for step in workflow["jobs"]["core-contracts"]["steps"]
+        if "pip install" in step.get("run", "")
     )
 
 
@@ -203,7 +243,7 @@ def test_core_contracts_dependency_policy_is_job_scoped():
 def test_core_contracts_guard_accepts_equivalent_shell_and_cache_formatting():
     workflow = _load_ci_workflow()
     job = workflow["jobs"]["core-contracts"]
-    install = next(step for step in job["steps"] if "pip install" in step.get("run", ""))
+    install = _install_step(workflow)
     install["run"] = (
         "python -m pip install --upgrade pip\n"
         "python -m pip install \\\n"
@@ -221,3 +261,75 @@ def test_core_contracts_guard_accepts_equivalent_shell_and_cache_formatting():
     )
     job["strategy"]["matrix"]["python-version"] = ["3.12", "3.10", "3.13"]
     assert _core_contracts_policy_is_valid(workflow)
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    [
+        "remove-lab-requirement",
+        "remove-constraints",
+        "remove-lab-cache-input",
+        "remove-python-3.10",
+        "remove-python-3.12",
+        "move-install-to-other-job",
+        "pip-check-before-install",
+        "conditional-or-install",
+        "conditional-and-install",
+        "options-after-terminator",
+        "semicolon-in-policy-script",
+    ],
+)
+def test_core_contracts_guard_rejects_policy_regressions(mutation):
+    workflow = deepcopy(_load_ci_workflow())
+    job = workflow["jobs"]["core-contracts"]
+    install = _install_step(workflow)
+
+    if mutation == "remove-lab-requirement":
+        install["run"] = install["run"].replace("-r requirements-lab.txt", "", 1)
+    elif mutation == "remove-constraints":
+        install["run"] = install["run"].replace("-c constraints-ci.txt", "", 1)
+    elif mutation == "remove-lab-cache-input":
+        setup = next(
+            step for step in job["steps"]
+            if str(step.get("uses", "")).startswith("actions/setup-python@")
+        )
+        paths = _cache_paths(setup["with"]["cache-dependency-path"])
+        setup["with"]["cache-dependency-path"] = "\n".join(
+            sorted(paths - {"requirements-lab.txt"})
+        )
+    elif mutation.startswith("remove-python-"):
+        job["strategy"]["matrix"]["python-version"].remove(
+            mutation.removeprefix("remove-python-")
+        )
+    elif mutation == "move-install-to-other-job":
+        line = next(
+            line for line in install["run"].splitlines()
+            if "-c constraints-ci.txt" in line
+        )
+        install["run"] = install["run"].replace(line, "", 1)
+        workflow["jobs"]["docker-build"]["steps"].append({"run": line})
+    elif mutation == "pip-check-before-install":
+        install["run"] = (
+            "python -m pip check\n"
+            "python -m pip install -c constraints-ci.txt -r requirements.txt -r requirements-lab.txt"
+        )
+    elif mutation in {"conditional-or-install", "conditional-and-install"}:
+        operator = "||" if mutation == "conditional-or-install" else "&&"
+        condition = "true" if operator == "||" else "false"
+        install["run"] = (
+            f"{condition} {operator} python -m pip install -c constraints-ci.txt "
+            "-r requirements.txt -r requirements-lab.txt\n"
+            "python -m pip check"
+        )
+    elif mutation == "options-after-terminator":
+        install["run"] = (
+            "python -m pip install -- -c constraints-ci.txt -r requirements.txt "
+            "-r requirements-lab.txt\npython -m pip check"
+        )
+    elif mutation == "semicolon-in-policy-script":
+        install["run"] = (
+            "python -m pip install -c constraints-ci.txt -r requirements.txt "
+            "-r requirements-lab.txt; python -m pip check"
+        )
+
+    assert not _core_contracts_policy_is_valid(workflow), mutation
