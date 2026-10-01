@@ -1,4 +1,5 @@
 # 🧪 LAB NOTICE — Graphiti_fractal_lab
+> 🌐 🇬🇧 **English** · 🇷🇺 [Русский](./README.md)
 
 > **This repository is a RESEARCH full copy of Fractal for experimentation.**
 >
@@ -11,31 +12,29 @@
 
 ---
 
-> 🌐 🇷🇺 **Русский** · 🇬🇧 [English](./README.en.md)
-
 # 🧠 FRACTAL MEMORY 🕸️
 
 > **Graphiti-native local-first memory for AI agents.**
 >
-> Представь AI, который не просто держит последние сообщения в контекстном окне, а может **помнить события во времени, связывать людей и идеи, возвращаться к прошлому опыту и сохранять происхождение памяти** — при этом не превращая найденное, часто повторяемое или сгенерированное моделью в автоматическую истину.
+> Imagine an AI that does not merely keep the latest messages in its context window, but can **remember events over time, connect people and ideas, return to past experience, and preserve the provenance of memory** — without turning found, frequently repeated, or model-generated material into automatic truth.
 >
-> Fractal строит именно такой bounded memory layer поверх **Graphiti + Neo4j**.
+> Fractal builds exactly this kind of bounded memory layer on top of **Graphiti + Neo4j**.
 
 [🤖 **Special for AI / Agents**](docs/ai/README.md) · [🗺️ **Deep Human Overview**](SYSTEM_OVERVIEW.md) · [🧱 Technology Evolution](docs/TECHNOLOGY_EVOLUTION.md) · [🧠 AI Model Evolution](docs/AI_MODEL_EVOLUTION.md) · [🦞 OpenClaw Patterns](docs/OPENCLAW_ADOPTED_PATTERNS.md)
 
-> 🤖 **AI coding agent / automated auditor:** не выводи current state из красивого human narrative. Начни с [`docs/ai/README.md`](docs/ai/README.md), затем проверь exact live code, tests и CI evidence.
+> 🤖 **AI coding agent / automated auditor:** do not infer current state from a polished human narrative. Start with [`docs/ai/README.md`](docs/ai/README.md), then check the exact live code, tests, and CI evidence.
 
 ---
 
-## 👋 Fractal за 60 секунд
+## 👋 Fractal in 60 seconds
 
-Обычный чат часто выглядит так:
+An ordinary chat often looks like this:
 
 ```text
 💬 prompt → 🤖 model → 🗣️ answer
 ```
 
-Fractal добавляет между человеком и моделью долговременную память с явными границами:
+Fractal adds durable memory with explicit boundaries between the human and the model:
 
 ```text
 👤 query
@@ -55,37 +54,37 @@ Fractal добавляет между человеком и моделью до�
 🗣️ answer
 ```
 
-### Простыми словами
+### In simple terms
 
-Fractal похож на персональную библиотеку памяти, где:
+Fractal is like a personal memory library where:
 
-- 🕸️ **Graphiti** связывает события, сущности и отношения во времени;
-- 🗄️ **Neo4j** хранит граф долговременно;
-- 🧩 **namespaces** не дают разным классам памяти незаметно смешаться;
-- 🔎 **recall** ищет только в разрешённых областях;
-- 🧾 **provenance** показывает, откуда произошли derived artifacts;
-- 🛡️ **trust rules** не позволяют частоте или импорту автоматически стать authority;
-- 🤖 **LLM** использует память, но не получает скрытого права объявлять свой вывод durable fact.
+- 🕸️ **Graphiti** connects events, entities, and relationships over time;
+- 🗄️ **Neo4j** stores the graph durably;
+- 🧩 **namespaces** prevent different classes of memory from blending together unnoticed;
+- 🔎 **recall** searches only within permitted areas;
+- 🧾 **provenance** shows where derived artifacts came from;
+- 🛡️ **trust rules** prevent frequency or import from automatically becoming authority;
+- 🤖 **LLM** uses memory, but does not receive a hidden right to declare its output a durable fact.
 
-### Инженерным языком
+### In engineering terms
 
-Fractal — single-owner local-first memory service поверх `graphiti_core==0.29.3` и Neo4j 5.26 LTS с canonical ingestion, namespace-scoped retrieval, chat persistence, provenance, L1–L3 views и bounded memory lifecycle.
+Fractal is a single-owner local-first memory service on top of `graphiti_core==0.29.3` and Neo4j 5.26 LTS with canonical ingestion, namespace-scoped retrieval, chat persistence, provenance, L1–L3 views, and a bounded memory lifecycle.
 
-Он **не строит второй graph engine**: Graphiti остаётся основным temporal/episodic memory semantics layer.
+It **does not build a second graph engine**: Graphiti remains the primary temporal/episodic memory semantics layer.
 
 ---
 
-## 🧭 Что открыть первым
+## 🧭 What to open first
 
-| Если вы… | Начните здесь |
+| If you… | Start here |
 |---|---|
-| 👤 впервые видите проект | этот README, затем [`SYSTEM_OVERVIEW.md`](SYSTEM_OVERVIEW.md) |
+| 👤 are seeing the project for the first time | this README, then [`SYSTEM_OVERVIEW.md`](SYSTEM_OVERVIEW.md) |
 | 🤖 AI coding agent / auditor | [`docs/ai/README.md`](docs/ai/README.md) |
-| 🧑‍💻 хотите понять архитектуру глубоко | [`SYSTEM_OVERVIEW.md`](SYSTEM_OVERVIEW.md) |
-| 🧱 сравниваете технологии | [`docs/TECHNOLOGY_EVOLUTION.md`](docs/TECHNOLOGY_EVOLUTION.md) |
-| 🧠 проверяете model/provider policy | [`docs/AI_MODEL_EVOLUTION.md`](docs/AI_MODEL_EVOLUTION.md) + `core/model_policy.py` |
-| 🦞 изучаете memory lifecycle ideas | [`docs/OPENCLAW_ADOPTED_PATTERNS.md`](docs/OPENCLAW_ADOPTED_PATTERNS.md) |
-| 🧪 проверяете, что реально доказано | tests + GitHub Actions + exact-head PR evidence |
+| 🧑‍💻 want to understand the architecture deeply | [`SYSTEM_OVERVIEW.md`](SYSTEM_OVERVIEW.md) |
+| 🧱 are comparing technologies | [`docs/TECHNOLOGY_EVOLUTION.md`](docs/TECHNOLOGY_EVOLUTION.md) |
+| 🧠 are checking model/provider policy | [`docs/AI_MODEL_EVOLUTION.md`](docs/AI_MODEL_EVOLUTION.md) + `core/model_policy.py` |
+| 🦞 are studying memory lifecycle ideas | [`docs/OPENCLAW_ADOPTED_PATTERNS.md`](docs/OPENCLAW_ADOPTED_PATTERNS.md) |
+| 🧪 are checking what is actually proven | tests + GitHub Actions + exact-head PR evidence |
 
 ---
 
@@ -114,7 +113,7 @@ Fractal — single-owner local-first memory service поверх `graphiti_core=
 
 ---
 
-## 🗺️ Архитектура одним взглядом
+## 🗺️ Architecture at a glance
 
 ```text
 ┌──────────────────── 🌍 HUMAN / AGENT / TOOL ──────────────────────┐
@@ -142,7 +141,7 @@ Fractal — single-owner local-first memory service поверх `graphiti_core=
              🧾 provenance         📊 telemetry          🪜 L1/L2/L3
 ```
 
-### Главная формула
+### The main formula
 
 ```text
 Graphiti remembers relationships through time.
@@ -153,7 +152,7 @@ The model uses memory — it does not become memory authority by default.
 
 ---
 
-## 🌳 Дерево проекта
+## 🌳 Project tree
 
 ```text
 🧠 Fractal Memory
@@ -199,39 +198,39 @@ The model uses memory — it does not become memory authority by default.
 
 ---
 
-## 📊 Что есть, что ограничено, что исследуется
+## 📊 What exists, what is bounded, what is being researched
 
-| Область | Сейчас | Смысл |
+| Area | Now | Meaning |
 |---|---|---|
-| 🕸️ Graphiti memory | ✅ **ACTIVE** | основной temporal graph memory engine |
+| 🕸️ Graphiti memory | ✅ **ACTIVE** | primary temporal graph memory engine |
 | 🗄️ Neo4j 5.26 LTS | ✅ **ACTIVE** | durable graph persistence |
 | 🧩 Namespace isolation | ✅ **ACTIVE** | scoped memory boundaries |
 | 🔎 Adaptive recall | ✅ **ACTIVE** | `off / auto / always` |
 | 💬 Chat persistence | ✅ **ACTIVE** | persisted turns + bounded summaries |
-| 🧾 Provenance | ✅ **ACTIVE** | exact lineage для новых derived artifacts |
+| 🧾 Provenance | ✅ **ACTIVE** | exact lineage for new derived artifacts |
 | 🔐 Unique ingest claim | ✅ **TESTED** | concurrent duplicate admission fail-closed at app boundary |
-| 🔁 Promotion | 🟡 **EXPLAIN / GATED** | eligibility есть; automatic durable writer отсутствует |
+| 🔁 Promotion | 🟡 **EXPLAIN / GATED** | eligibility exists; automatic durable writer is absent |
 | 🧪 Consolidation | 🟡 **DRY_RUN** | preview only |
-| 📥 External imports | 🟡 **ISOLATED** | explicit apply; остаются untrusted |
-| 🪜 L1 / L2 / L3 | ✅ / 🟡 | views/synthesis, не новый Canon |
-| 🕸️ GraphRAG / KAG / CAG | 🔬 **RESEARCH** | не active parallel pipelines |
-| 🗃️ PostgreSQL / pgvector | 🔬 **ADJACENT** | не current memory authority |
-| 🐞 Alternative graph backend | 🔬 **RESEARCH** | migration не активирована |
+| 📥 External imports | 🟡 **ISOLATED** | explicit apply; remain untrusted |
+| 🪜 L1 / L2 / L3 | ✅ / 🟡 | views/synthesis, not a new Canon |
+| 🕸️ GraphRAG / KAG / CAG | 🔬 **RESEARCH** | not active parallel pipelines |
+| 🗃️ PostgreSQL / pgvector | 🔬 **ADJACENT** | not the current memory authority |
+| 🐞 Alternative graph backend | 🔬 **RESEARCH** | migration is not activated |
 | 🧮 Causal / GDS write-back | ❌ **NOT AUTHORIZED** | research ≠ runtime |
 | 🚀 Production authorization | ❌ **NOT CLAIMED** | CI green ≠ production authorization |
 
 ---
 
-## 🧾 Визуальная грамматика статусов
+## 🧾 Visual status grammar
 
-| Метка | Значение |
+| Label | Meaning |
 |---|---|
-| ✅ **active / tested** | относится к текущему инженерному пути и подтверждено соответствующим contract evidence |
-| 🟡 **bounded / gated** | существует, но ограничено preview/config/authority boundary |
-| 🔬 **research / adjacent** | изучается; наличие кода или документа не означает runtime adoption |
-| 🚧 **open PR** | ещё не является `main` |
-| ⚠️ **limitation** | известная граница |
-| ❌ **not authorized / unavailable** | нельзя утверждать как действующую capability |
+| ✅ **active / tested** | belongs to the current engineering path and is confirmed by corresponding contract evidence |
+| 🟡 **bounded / gated** | exists, but is limited by a preview/config/authority boundary |
+| 🔬 **research / adjacent** | under study; the presence of code or documentation does not mean runtime adoption |
+| 🚧 **open PR** | is not `main` yet |
+| ⚠️ **limitation** | known boundary |
+| ❌ **not authorized / unavailable** | cannot be asserted as an active capability |
 
 ```text
 📄 file exists
@@ -244,11 +243,11 @@ The model uses memory — it does not become memory authority by default.
 
 ---
 
-## 🆚 Чем Fractal отличается по архитектурному акценту
+## 🆚 How Fractal differs in architectural emphasis
 
-> Это **не рейтинг “кто лучше”**. Подходы решают разные задачи и могут использоваться вместе.
+> This is **not a “who is better” ranking**. The approaches solve different problems and can be used together.
 
-| Подход | 🎯 Главная задача | 🕸️ Temporal graph | 🧾 Provenance | 🛡️ Trust isolation | 🔁 Promotion lifecycle |
+| Approach | 🎯 Main task | 🕸️ Temporal graph | 🧾 Provenance | 🛡️ Trust isolation | 🔁 Promotion lifecycle |
 |---|---|---:|---:|---:|---:|
 | 📦 Vector RAG | retrieve relevant context | ❌ | 🟡 varies | 🟡 varies | ❌ usually outside scope |
 | 🧠 Agent memory / Letta-style | continuity + managed memory | 🟡 varies | 🟡 varies | 🟡 varies | ✅/🟡 |
@@ -256,13 +255,13 @@ The model uses memory — it does not become memory authority by default.
 | 🕸️ Graphiti | temporal knowledge-graph primitives | 🎯 core | 🎯 core | implementation-level | graph semantics |
 | 🧠 **Fractal** | bounded local AI memory **on Graphiti** | ✅ | ✅ explicit | 🎯 core | 🎯 explain / preview / gated |
 
-**Fractal не заменяет Graphiti.** Он использует Graphiti как основной memory engine и добавляет application-level boundaries: namespaces, canonical ingestion, trust isolation, lifecycle gates, product surfaces и validation contracts.
+**Fractal does not replace Graphiti.** It uses Graphiti as the primary memory engine and adds application-level boundaries: namespaces, canonical ingestion, trust isolation, lifecycle gates, product surfaces, and validation contracts.
 
-Подробное объяснение и ограничения сравнения → [`SYSTEM_OVERVIEW.md`](SYSTEM_OVERVIEW.md).
+Detailed explanation and comparison limitations → [`SYSTEM_OVERVIEW.md`](SYSTEM_OVERVIEW.md).
 
 ---
 
-## 🛡️ Пять границ, которые важнее количества функций
+## 🛡️ Five boundaries that matter more than the number of features
 
 ```text
 🔎 retrieval  ≠ evidence
@@ -272,7 +271,7 @@ The model uses memory — it does not become memory authority by default.
 🤖 model text ≠ durable fact
 ```
 
-И ещё две инженерные:
+And two more engineering boundaries:
 
 ```text
 🔬 research ≠ runtime
@@ -283,15 +282,15 @@ The model uses memory — it does not become memory authority by default.
 
 ## 🧩 Memory namespaces
 
-| Namespace | Для чего | Normal recall |
+| Namespace | Purpose | Normal recall |
 |---|---|---:|
-| 👤 `personal` | локальная память владельца / диалога | ✅ |
-| 🛠️ `project` | проекты и технические решения | ✅ |
-| 📚 `knowledge` | документы и общие знания | ✅ |
-| 🧪 `experience` | опыт выполнения задач | ✅ |
-| 📥 `imports` | явно применённая внешняя память | ❌ isolated |
+| 👤 `personal` | local owner/dialogue memory | ✅ |
+| 🛠️ `project` | projects and technical decisions | ✅ |
+| 📚 `knowledge` | documents and general knowledge | ✅ |
+| 🧪 `experience` | task execution experience | ✅ |
+| 📥 `imports` | explicitly applied external memory | ❌ isolated |
 
-Для нескольких namespaces Fractal делает **отдельные bounded Graphiti searches**, затем объединяет результаты на application layer. Один скрытый global unscoped query не является canonical path.
+For multiple namespaces, Fractal performs **separate bounded Graphiti searches**, then combines the results at the application layer. A hidden global unscoped query is not the canonical path.
 
 ---
 
@@ -310,9 +309,9 @@ recall policy
 
 ### ⚖️ Promotion gate
 
-Deterministic scoring может объяснить eligibility и blockers, но **не выполняет automatic durable promotion write**.
+Deterministic scoring can explain eligibility and blockers, but **does not perform an automatic durable promotion write**.
 
-`untrusted` и `system` origins не становятся eligible только из-за высокой частоты recall.
+`untrusted` and `system` origins do not become eligible merely because of high recall frequency.
 
 ### 🧪 Consolidation
 
@@ -320,7 +319,7 @@ Deterministic scoring может объяснить eligibility и blockers, н�
 python main.py memory-consolidate-preview candidates.json
 ```
 
-Всегда preview: `DRY_RUN / writes_performed=false`.
+Always preview: `DRY_RUN / writes_performed=false`.
 
 ### 📥 External imports
 
@@ -332,7 +331,7 @@ python main.py memory-import ./memory.md --source-type openclaw
 python main.py memory-import ./export.jsonl --source-type claude --apply
 ```
 
-Applied import остаётся `untrusted` и не получает normal chat recall authority.
+An applied import remains `untrusted` and does not receive normal chat recall authority.
 
 ---
 
@@ -346,13 +345,13 @@ Applied import остаётся `untrusted` и не получает normal chat
 🧩 L3 — bounded synthesis with provenance
 ```
 
-L3 — derived representation, а не параллельный источник истины.
+L3 is a derived representation, not a parallel source of truth.
 
 ---
 
 ## 🤖 AI model policy
 
-Current defaults централизованы в `core/model_policy.py`.
+Current defaults are centralized in `core/model_policy.py`.
 
 | Workload | Default |
 |---|---|
@@ -363,9 +362,9 @@ Current defaults централизованы в `core/model_policy.py`.
 | 🧭 Frontier opt-in | `gpt-5.6-sol` via env |
 | 🔢 Embeddings | `text-embedding-3-small` |
 
-First-class provider path сейчас OpenAI. История и роли других model families описаны отдельно в [`docs/AI_MODEL_EVOLUTION.md`](docs/AI_MODEL_EVOLUTION.md); упоминание модели там **не означает active runtime support**.
+The first-class provider path is currently OpenAI. The history and roles of other model families are described separately in [`docs/AI_MODEL_EVOLUTION.md`](docs/AI_MODEL_EVOLUTION.md); mentioning a model there **does not mean active runtime support**.
 
-Embedding model не меняется автоматически вместе с chat model, потому что это меняет identity векторного индекса и требует отдельного reindex/migration решения.
+The embedding model does not change automatically with the chat model, because that changes vector-index identity and requires a separate reindex/migration decision.
 
 ---
 
@@ -384,7 +383,7 @@ Evidence-backed details → [`docs/TECHNOLOGY_EVOLUTION.md`](docs/TECHNOLOGY_EVO
 
 ---
 
-## 🚀 Быстрый запуск
+## 🚀 Quickstart
 
 ```bash
 cp .env.example .env
@@ -394,13 +393,13 @@ docker compose build
 docker compose up -d
 ```
 
-Локально:
+Locally:
 
 - 🌐 Web/API — `http://127.0.0.1:8000`
 - 🕸️ Neo4j Browser — `http://127.0.0.1:7474`
 - 🔌 Bolt — `127.0.0.1:7687`
 
-Минимальная конфигурация:
+Minimal configuration:
 
 ```env
 NEO4J_URI=bolt://localhost:7687
@@ -412,7 +411,7 @@ FRACTAL_USER_ID=<local-owner>
 FRACTAL_MEMORY_RECALL=auto
 ```
 
-Destructive operations выключены по умолчанию:
+Destructive operations are disabled by default:
 
 ```env
 FRACTAL_ALLOW_HARD_DELETE=0
@@ -421,7 +420,7 @@ FRACTAL_ALLOW_CLEAR_ALL=0
 
 ---
 
-## 🛠️ Основные CLI команды
+## 🛠️ Main CLI commands
 
 ```bash
 python main.py setup
@@ -447,7 +446,7 @@ python -m mcp_server
 
 ---
 
-## 🧪 Как проверяется система
+## 🧪 How the system is tested
 
 ```text
 ⚙️ always-on Python contracts
@@ -462,34 +461,34 @@ python -m mcp_server
    DRY_RUN only
 ```
 
-External test, который был skipped из-за отсутствующего secret, **не считается PASS**.
+An external test that was skipped because a secret was missing **does not count as PASS**.
 
 ---
 
-## ⚠️ Честные ограничения
+## ⚠️ Honest limitations
 
-- 🏠 система намеренно local/single-owner, не multi-user SaaS;
-- 📥 applied imports остаются isolated/untrusted;
-- 🔁 automatic durable promotion writer не активирован;
-- 🧪 consolidation остаётся preview-first;
-- 🤖 first-class provider path пока OpenAI;
-- 🔬 GraphRAG/KAG/CAG/PostgreSQL/pgvector/alternative graph backends не являются скрытыми active dependencies;
-- 🧮 causal/GDS research не имеет runtime write authority;
-- 🚀 production authorization не следует из одного green CI.
+- 🏠 the system is intentionally local/single-owner, not a multi-user SaaS;
+- 📥 applied imports remain isolated/untrusted;
+- 🔁 the automatic durable promotion writer is not activated;
+- 🧪 consolidation remains preview-first;
+- 🤖 the first-class provider path is currently OpenAI;
+- 🔬 GraphRAG/KAG/CAG/PostgreSQL/pgvector/alternative graph backends are not hidden active dependencies;
+- 🧮 causal/GDS research has no runtime write authority;
+- 🚀 production authorization does not follow from a single green CI.
 
 ---
 
-## 📚 Читать глубже
+## 📚 Read deeper
 
-### 👤 Для человека
+### 👤 For humans
 
-➡️ **[`SYSTEM_OVERVIEW.md`](SYSTEM_OVERVIEW.md)** — подробная архитектурная экскурсия: flows, boundaries, lifecycle, comparisons, validation semantics и research map.
+➡️ **[`SYSTEM_OVERVIEW.md`](SYSTEM_OVERVIEW.md)** — a detailed architectural tour: flows, boundaries, lifecycle, comparisons, validation semantics, and research map.
 
-### 🤖 Для AI / Agents / Auditors
+### 🤖 For AI / Agents / Auditors
 
-➡️ **[`docs/ai/README.md`](docs/ai/README.md)** — machine-first reading order, authority rules, invariants и forbidden inferences.
+➡️ **[`docs/ai/README.md`](docs/ai/README.md)** — machine-first reading order, authority rules, invariants, and forbidden inferences.
 
-### 🧱 Для технического исследования
+### 🧱 For technical research
 
 - [`docs/TECHNOLOGY_EVOLUTION.md`](docs/TECHNOLOGY_EVOLUTION.md) — technology decisions;
 - [`docs/AI_MODEL_EVOLUTION.md`](docs/AI_MODEL_EVOLUTION.md) — model/provider evolution;
@@ -497,7 +496,7 @@ External test, который был skipped из-за отсутствующе�
 
 ---
 
-## 🧭 Одна реальность — разные представления
+## 🧭 One reality — different views
 
 ```text
                        🧠 ONE PROJECT REALITY
@@ -513,4 +512,4 @@ External test, который был skipped из-за отсутствующе�
                        ⚙️ LIVE CODE / STATE
 ```
 
-**Human docs объясняют. AI docs маршрутизируют. Evidence доказывает. Live code определяет текущую реализацию.**
+**Human docs explain. AI docs route. Evidence proves. Live code defines the current implementation.**

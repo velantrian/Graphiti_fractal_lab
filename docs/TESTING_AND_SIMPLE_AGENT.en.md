@@ -1,10 +1,10 @@
-# 🧪 ПОЛНЫЙ ГАЙД: Как Видеть и Тестировать Память
+# 🧪 COMPLETE GUIDE: How to View and Test Memory
+> 🌐 🇬🇧 **English** · 🇷🇺 [Русский](./TESTING_AND_SIMPLE_AGENT.md)
 
-## Часть 1: Как Увидеть Что Сохраняется
 
-> 🌐 🇷🇺 **Русский** · 🇬🇧 [English](./TESTING_AND_SIMPLE_AGENT.en.md)
+## Part 1: How to See What Is Saved
 
-### Способ 1: Neo4j Browser (Визуально в Браузере)
+### Method 1: Neo4j Browser (Visual Browser View)
 
 ```bash
 # 1. Убедись, что Neo4j работает
@@ -19,12 +19,12 @@ http://localhost:7474
 # 4. Копируй и выполняй эти запросы:
 ```
 
-#### Query 1: Все узлы
+#### Query 1: All Nodes
 ```cypher
 MATCH (n) RETURN n LIMIT 100
 ```
 
-**Результат:** Увидишь все 20+ узлов, их типы, свойства
+**Result:** You will see all 20+ nodes, their types, and properties
 ```
 PersonEntity: {name: "Sergey", role: "Developer", ...}
 ProjectEntity: {name: "Fractal Memory", status: "Development", ...}
@@ -33,14 +33,14 @@ DecisionEntity: {decision_text: "Use vanilla Graphiti", status: "Active", ...}
 TeamEntity: {team_name: "Core Team", members: ["Sergey", "Natasha"], ...}
 ```
 
-#### Query 2: Все связи с типами
+#### Query 2: All Relationships with Types
 ```cypher
-MATCH (n)-[r]->(m) 
+MATCH (n)-[r]->(m)
 RETURN n.name as from, type(r) as relationship, m.name as to
 LIMIT 50
 ```
 
-**Результат:** Увидишь как связаны узлы
+**Result:** You will see how the nodes are connected
 ```
 from              relationship        to
 ─────────────────────────────────────────────
@@ -51,13 +51,13 @@ Sergey            DISCUSSES_WITH      Natasha
 ...
 ```
 
-#### Query 3: Граф одного человека (со всеми его связями)
+#### Query 3: One Person’s Graph (with All Relationships)
 ```cypher
 MATCH (person:PersonEntity {name: "Sergey"})-[r]-(connected)
 RETURN person, r, connected
 ```
 
-**Результат:** Паучок с Sergey в центре и всеми связями
+**Result:** A spider-like graph with Sergey at the center and all relationships
 ```
      Neo4j
       ↑
@@ -68,7 +68,7 @@ RETURN person, r, connected
     Graph Engine
 ```
 
-#### Query 4: Что сохранилось за последние 24h?
+#### Query 4: What Was Saved in the Last 24h?
 ```cypher
 MATCH (e:Episode)
 WHERE e.ingested_at > datetime.now() - duration('P1D')
@@ -76,10 +76,10 @@ RETURN e.name, e.episode_body, e.ingested_at
 ORDER BY e.ingested_at DESC
 ```
 
-#### Query 5: Все эпизоды и откуда они (source)
+#### Query 5: All Episodes and Their Source
 ```cypher
 MATCH (e:Episode)
-RETURN 
+RETURN
   e.name as episode_name,
   e.source as source_type,
   e.source_description as description,
@@ -88,7 +88,7 @@ RETURN
 
 ---
 
-### Способ 2: D3.js Visualization (Интерактивный Граф)
+### Method 2: D3.js Visualization (Interactive Graph)
 
 ```bash
 # 1. Сгенерируй JSON
@@ -110,7 +110,7 @@ open visualization/visualization.html
 # - Силовой layout = автоматически раскладывает узлы
 ```
 
-**Что видишь:**
+**What you see:**
 ```
     PersonEntity (красные)
          ↓
@@ -121,18 +121,18 @@ open visualization/visualization.html
     DecisionEntity (жёлтые)
 ```
 
-Каждый узел = сущность  
-Каждая линия = отношение  
+Each node = an entity\
+Each line = a relationship\
 
 ---
 
-### Способ 3: Текстовый Отчёт (в Терминале)
+### Method 3: Text Report (in the Terminal)
 
 ```bash
 python main.py quality
 ```
 
-**Вывод:**
+**Output:**
 ```
 📊 GRAPH QUALITY REPORT
 ═══════════════════════════════════════════════════════
@@ -155,17 +155,17 @@ Quality Checks:
 
 ---
 
-## Часть 2: Как Видеть Связи
+## Part 2: How to See Relationships
 
-### Все типы связей, которые создаются:
+### All Relationship Types That Are Created:
 
 ```cypher
 # Возвращает все уникальные типы отношений
-MATCH ()-[r]->() 
+MATCH ()-[r]->()
 RETURN DISTINCT type(r) as relationship_type, count(r) as count
 ```
 
-**Вывод:**
+**Output:**
 ```
 relationship_type       count
 ────────────────────────────────
@@ -178,34 +178,34 @@ INVOLVES               1
 OCCURS_AT              1
 ```
 
-### Что означает каждое отношение:
+### What Each Relationship Means:
 
-| Тип | Смысл | Пример |
+| Type | Meaning | Example |
 |-----|-------|--------|
-| MENTIONS | Сущность упоминается в эпизоде | Neo4j упоминается в эпизоде "Project Overview" |
-| WORKS_ON | Человек работает на проекте | Sergey WORKS_ON Fractal Memory |
-| DISCUSSES_WITH | Люди обсуждают | Sergey DISCUSSES_WITH Natasha |
-| USES_TECHNOLOGY | Проект использует технологию | Fractal Memory USES_TECHNOLOGY Neo4j |
-| IS_A | Классификация | Neo4j IS_A Graph Database |
-| INVOLVES | Участвует в | Team INVOLVES Sergey |
+| MENTIONS | An entity is mentioned in an episode | Neo4j is mentioned in the “Project Overview” episode "Project Overview" |
+| WORKS_ON | A person works on a project | Sergey WORKS_ON Fractal Memory |
+| DISCUSSES_WITH | People discuss | Sergey DISCUSSES_WITH Natasha |
+| USES_TECHNOLOGY | A project uses a technology | Fractal Memory USES_TECHNOLOGY Neo4j |
+| IS_A | Classification | Neo4j IS_A Graph Database |
+| INVOLVES | Is involved in | Team INVOLVES Sergey |
 
 ---
 
-## Часть 3: Простой Агент для Тестирования
+## Part 3: A Simple Agent for Testing
 
-Создадим минимальный агент, который:
-1. ✅ Может добавлять информацию в память
-2. ✅ Может извлекать контекст
-3. ✅ Может отвечать с учётом памяти
+We will create a minimal agent that:
+1. ✅ Can add information to memory
+2. ✅ Can retrieve context
+3. ✅ Can answer with memory in mind
 
-### ⚠️ УСТАРЕЛО: Файл `simple_agent.py` был удален
+### ⚠️ OUTDATED: The `simple_agent.py` file was removed
 
-**Примечание:** `simple_agent.py` больше не существует. Используйте:
-- `SimpleChatAgent` для чата (см. `simple_chat_agent.py`)
-- `MemoryOps` для операций с памятью (см. `core/memory_ops.py`)
-- API эндпойнт `/chat` для тестирования через HTTP
+**Note:** `simple_agent.py` no longer exists. Use:
+- `SimpleChatAgent` for chat (see `simple_chat_agent.py`)
+- `MemoryOps` for memory operations (see `core/memory_ops.py`)
+- The `/chat` API endpoint for testing over HTTP
 
-### Устаревший код (только для справки): `simple_agent.py`
+### Outdated code (for reference only): `simple_agent.py`
 
 ```python
 #!/usr/bin/env python3
@@ -231,7 +231,7 @@ load_dotenv()
 
 class SimpleAgent:
     """Минимальный агент для тестирования памяти"""
-    
+
     def __init__(self):
         self.graphiti = GraphitiClient(
             uri=os.getenv("NEO4J_URI"),
@@ -240,51 +240,51 @@ class SimpleAgent:
             openai_api_key=os.getenv("OPENAI_API_KEY")
         )
         self.conversation_history = []
-    
+
     async def initialize(self):
         """Инициализировать агент"""
         print("🤖 Initializing Simple Agent...")
-        
+
         # Проверим что граф работает
         quality = await check_graph_quality(self.graphiti)
         print(f"   Graph has {quality['total_nodes']} nodes")
         print(f"   Nodes by type: {quality['node_breakdown']}")
         print("   ✅ Ready to chat!\n")
-    
+
     async def remember(self, entity_name: str):
         """
         Вспомнить информацию об сущности
         """
         print(f"🧠 Remembering information about '{entity_name}'...")
-        
+
         # L1: Недавняя информация
         l1 = await get_l1_context(self.graphiti, entity_name, hours_back=24)
-        
+
         # L2: Паттерны отношений
         l2 = await get_l2_semantic_context(self.graphiti, entity_name)
-        
+
         # Build context
         context = await build_agent_context(self.graphiti, entity_name)
-        
+
         result = {
             "entity": entity_name,
             "L1_recent": l1,
             "L2_patterns": l2,
             "full_context": context
         }
-        
+
         return result
-    
+
     async def learn(self, message: str, tags: list = None):
         """
         Добавить новую информацию в память
-        
+
         Args:
             message: Текст, который нужно запомнить
             tags: Теги для категоризации
         """
         print(f"📝 Learning: {message}")
-        
+
         # Добавим в граф
         await self.graphiti.add_episode(
             name=f"Agent Learning {datetime.now().isoformat()}",
@@ -292,70 +292,70 @@ class SimpleAgent:
             source_description="agent_learning",
             reference_time=datetime.now(timezone.utc)
         )
-        
+
         # Сохраним в историю
         self.conversation_history.append({
             "type": "learning",
             "content": message,
             "timestamp": datetime.now().isoformat()
         })
-        
+
         print("   ✅ Learned!\n")
-    
+
     async def chat(self, user_message: str):
         """
         Ответить на вопрос с учётом памяти
         """
         print(f"👤 You: {user_message}\n")
-        
+
         # Сохраним в историю
         self.conversation_history.append({
             "type": "question",
             "content": user_message,
             "timestamp": datetime.now().isoformat()
         })
-        
+
         # Найдём релевантный контекст из памяти
         # (это упрощённо - просто достаём что-то связанное)
         search_results = await self.graphiti._search(user_message, limit=5)
-        
+
         if search_results.nodes:
             print(f"🤖 Based on my memory, here's what I know:\n")
-            
+
             for node in search_results.nodes[:3]:
                 print(f"   • {node.name} ({node.node_type})")
-                
+
                 # Если это проект - покажи компоненты
                 if "Project" in node.node_type and hasattr(node, 'components'):
                     if node.components:
                         print(f"     Components: {', '.join(node.components)}")
-                
+
                 # Если это решение - покажи статус
                 if "Decision" in node.node_type and hasattr(node, 'status'):
                     print(f"     Status: {node.status}")
-            
+
             print()
         else:
             print(f"🤖 I don't have information about that yet.\n")
-        
+
         # Сохраним ответ
         self.conversation_history.append({
             "type": "response",
             "content": "Based on my memory...",
             "timestamp": datetime.now().isoformat()
         })
-    
+
     async def show_memory_graph(self):
         """Показать граф памяти"""
         print("\n📊 Memory Graph Structure:\n")
-        
+
         quality = await check_graph_quality(self.graphiti)
-        
+
         print(f"Total entities in memory: {quality['total_nodes']}")
         print(f"\nBreakdown by type:")
         for entity_type, count in quality['node_breakdown'].items():
             print(f"  • {entity_type}: {count}")
-        
+
         print(f"\nTotal relationships: {quality.get('total_edges', 'unknown')}")
 
 
@@ -364,70 +364,70 @@ async def demo():
     Демо работы агента
     Это то, что ты сможешь запустить и увидеть как всё работает
     """
-    
+
     agent = SimpleAgent()
     await agent.initialize()
-    
+
     # === ФАЗА 1: Посмотреть что уже в памяти ===
     print("=" * 60)
     print("PHASE 1: Exploring Existing Memory")
     print("=" * 60 + "\n")
-    
+
     memory = await agent.remember("Sergey")
     print("📋 What I know about Sergey (L1):")
     print(memory["L1_recent"][:200] + "...\n")
-    
+
     # === ФАЗА 2: Поговорить ===
     print("=" * 60)
     print("PHASE 2: Conversation with Memory")
     print("=" * 60 + "\n")
-    
+
     await agent.chat("What project is Sergey working on?")
-    
+
     await agent.chat("Who is involved in Fractal Memory?")
-    
+
     await agent.chat("What technologies do we use?")
-    
+
     # === ФАЗА 3: Научить новому ===
     print("=" * 60)
     print("PHASE 3: Teaching Agent New Information")
     print("=" * 60 + "\n")
-    
+
     await agent.learn("Sergey and Natasha decided to use vanilla Graphiti first before optimizing with Redis buffers.")
-    
+
     await agent.learn("The team is working remotely, with async communication via Telegram.")
-    
+
     # === ФАЗА 4: Проверить что запомнилось ===
     print("=" * 60)
     print("PHASE 4: Verify Learning")
     print("=" * 60 + "\n")
-    
+
     await agent.chat("What decision was made about optimization?")
-    
+
     # === ФАЗА 5: Показать весь граф ===
     print("=" * 60)
     print("PHASE 5: Memory Graph Overview")
     print("=" * 60 + "\n")
-    
+
     await agent.show_memory_graph()
-    
+
     print("\n" + "=" * 60)
     print("✅ DEMO COMPLETE")
     print("=" * 60)
-    
+
     print("""
     📊 Next steps to explore:
-    
+
     1. Open Neo4j Browser:
        http://localhost:7474
        User: neo4j / Password: password
-       
+
        Run: MATCH (n) RETURN n LIMIT 100
-       
+
     2. View Interactive Graph:
        Run: python main.py viz-export
        Open: visualization/visualization.html
-       
+
     3. Check full memory state:
        Run: python main.py quality
     """)
@@ -439,9 +439,9 @@ if __name__ == "__main__":
 
 ---
 
-## Как Использовать Этот Агент
+## How to Use This Agent
 
-### Запуск Демо
+### Running the Demo
 ```bash
 # 1. Убедись что Neo4j работает
 docker ps | grep neo4j
@@ -454,7 +454,7 @@ python main.py seed
 # Используйте: curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d '{"message": "test", "user_id": "test"}'
 ```
 
-### Ожидаемый Вывод
+### Expected Output
 ```
 🤖 Initializing Simple Agent...
    Graph has 23 nodes
@@ -498,11 +498,11 @@ PHASE 2: Conversation with Memory
 
 ---
 
-## Проверка Ошибок
+## Troubleshooting
 
-### Если что-то не работает:
+### If something does not work:
 
-#### ❌ "Connection refused"
+#### ❌ “Connection refused”
 ```bash
 # Проверь Neo4j
 docker ps | grep neo4j
@@ -517,7 +517,7 @@ sleep 10
 curl http://localhost:7474
 ```
 
-#### ❌ "No nodes found"
+#### ❌ “No nodes found”
 ```bash
 # Загрузи демо-данные
 python main.py seed
@@ -526,7 +526,7 @@ python main.py seed
 python main.py quality
 ```
 
-#### ❌ "GraphitiClient import error"
+#### ❌ “GraphitiClient import error”
 ```bash
 # Убедись что ты в правильной директории
 pwd  # должно быть fractal_memory_v2/
@@ -541,48 +541,48 @@ PYTHONPATH=. # УСТАРЕЛО: python simple_agent.py (файл удален)
 
 ---
 
-## Что Видишь После Запуска
+## What You See After Running
 
-### В Терминале
-- ✅ Начальное состояние графа
-- ✅ Ответы агента на вопросы
-- ✅ Что он выучил
-- ✅ Финальное состояние графа
+### In the Terminal
+- ✅ Initial graph state
+- ✅ Agent answers to questions
+- ✅ What it learned
+- ✅ Final graph state
 
-### В Neo4j Browser
-- ✅ Все 25+ узлов
-- ✅ Все связи между ними
-- ✅ Визуальный граф
+### In Neo4j Browser
+- ✅ All 25+ nodes
+- ✅ All relationships between them
+- ✅ Visual graph
 
-### В D3.js Visualization
-- ✅ Интерактивный граф
-- ✅ Перемещаемые узлы
-- ✅ Hover информация
-- ✅ Силовой layout
-
----
-
-## Почему Это Работает (Объяснение)
-
-### Без магии. Реально:
-
-1. **Graphiti** (библиотека) делает:
-   - Экстракцию сущностей из текста (через LLM)
-   - Дедупликацию (нет дублей)
-   - Управление отношениями
-
-2. **Neo4j** (БД) делает:
-   - Сохранение узлов и связей
-   - Быстрый поиск
-   - Консистентность (ACID)
-
-3. **Наш код** делает:
-   - L1-L3 слои (резюме, паттерны, абстракции)
-   - Контекст-建筑для LLM
-   - UI для визуализации
-
-### Никаких фокусов. Всё проверяемо.
+### In D3.js Visualization
+- ✅ Interactive graph
+- ✅ Movable nodes
+- ✅ Hover information
+- ✅ Force-directed layout
 
 ---
 
-**Запусти и посмотри. Не верь на слово — вери на код.** 🚀
+## Why This Works (Explanation)
+
+### No magic. For real:
+
+1. **Graphiti** (the library) does:
+   - Entity extraction from text (through an LLM)
+   - Deduplication (no duplicates)
+   - Relationship management
+
+2. **Neo4j** (the database) does:
+   - Node and relationship storage
+   - Fast search
+   - Consistency (ACID)
+
+3. **Our code** does:
+   - L1–L3 layers (summaries, patterns, abstractions)
+   - Context building for the LLM
+   - UI for visualization
+
+### No tricks. Everything is verifiable.
+
+---
+
+**Run it and see. Don’t take it on faith—verify it against the code.** 🚀

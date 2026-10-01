@@ -1,16 +1,16 @@
-# 🚀 QUICK START: Запусти и Проверь Всё Сам
+# 🚀 QUICK START: Run and Check Everything Yourself
+> 🌐 🇬🇧 **English** · 🇷🇺 [Русский](./HANDS_ON_TESTING.md)
 
-## ШАГ 1: Подготовка (5 минут)
 
-> 🌐 🇷🇺 **Русский** · 🇬🇧 [English](./HANDS_ON_TESTING.en.md)
+## STEP 1: Preparation (5 minutes)
 
-### 1.1 Проверь Docker
+### 1.1 Check Docker
 ```bash
 docker --version
 # Output: Docker version 24.x.x (или новее)
 ```
 
-### 1.2 Запусти Neo4j
+### 1.2 Start Neo4j
 ```bash
 docker run -d \
   --name neo4j \
@@ -25,7 +25,7 @@ sleep 10
 curl -s http://localhost:7474 > /dev/null && echo "✅ Neo4j running"
 ```
 
-### 1.3 Подготовь Python
+### 1.3 Prepare Python
 ```bash
 cd fractal_memory_v2
 
@@ -37,7 +37,7 @@ source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 1.4 Настрой .env
+### 1.4 Configure .env
 ```bash
 # Копируй пример
 cp .env.example .env
@@ -51,7 +51,7 @@ cat .env
 
 ---
 
-## ШАГ 2: Инициализация (2 минуты)
+## STEP 2: Initialization (2 minutes)
 
 ```bash
 # Инициализируй базу
@@ -64,7 +64,7 @@ python main.py setup
 
 ---
 
-## ШАГ 3: Загрузи Демо-Данные (1 минута)
+## STEP 3: Load Demo Data (1 minute)
 
 ```bash
 python main.py seed
@@ -82,9 +82,9 @@ python main.py seed
 
 ---
 
-## ШАГ 4: Проверь Что Сохранилось
+## STEP 4: Check What Was Saved
 
-### 4.1 В Терминале (Быстро)
+### 4.1 In the Terminal (Quickly)
 ```bash
 python main.py quality
 
@@ -99,33 +99,33 @@ python main.py quality
 # ✓ Duplicates: 0
 ```
 
-### 4.2 В Neo4j Browser (Визуально)
+### 4.2 In Neo4j Browser (Visually)
 
-**Открой в браузере:**
+**Open in a browser:**
 ```
 http://localhost:7474
 ```
 
-**Логин/Пароль:**
+**Login/Password:**
 ```
 neo4j / password
 ```
 
-**Скопируй и выполни эту команду:**
+**Copy and run this command:**
 ```cypher
 MATCH (n) RETURN n LIMIT 100
 ```
 
-**Что увидишь:**
-- Красные узлы = PersonEntity (Sergey, Natasha)
-- Голубые узлы = ProjectEntity (Fractal Memory)
-- Зелёные узлы = TechnicalConceptEntity (Neo4j, Graph, etc)
-- Жёлтые узлы = DecisionEntity (Решения)
-- Серые узлы = TeamEntity
+**What you will see:**
+- Red nodes = PersonEntity (Sergey, Natasha)
+- Light-blue nodes = ProjectEntity (Fractal Memory)
+- Green nodes = TechnicalConceptEntity (Neo4j, Graph, etc.)
+- Yellow nodes = DecisionEntity (decisions)
+- Gray nodes = TeamEntity
 
-**Стрелки между ними = отношения (WORKS_ON, USES_TECHNOLOGY, etc)**
+**Arrows between them = relationships (WORKS_ON, USES_TECHNOLOGY, etc.)**
 
-### 4.3 Интерактивный Граф (Для Красивого Просмотра)
+### 4.3 Interactive Graph (For a Better View)
 
 ```bash
 # Экспортируй граф в JSON
@@ -144,12 +144,12 @@ open visualization/visualization.html
 
 ---
 
-## ШАГ 5: Тестирование через API или SimpleChatAgent
+## STEP 5: Testing through the API or SimpleChatAgent
 
-**Примечание:** `simple_agent.py` удален. Используйте:
-- API эндпойнт `/chat` для тестирования чата
-- `SimpleChatAgent` напрямую для программного тестирования
-- `MemoryOps` для тестирования операций с памятью
+**Note:** `simple_agent.py` was removed. Use:
+- The `/chat` API endpoint for chat testing
+- `SimpleChatAgent` directly for programmatic testing
+- `MemoryOps` for testing memory operations
 
 ```bash
 # Тестирование через API
@@ -160,11 +160,11 @@ curl -X POST http://localhost:8000/chat \
 # Expected output: JSON с ответом агента
 #    Graph has 23 nodes
 #    ✅ Ready to chat!
-# 
+#
 # ============================================================
 # PHASE 1: Exploring Existing Memory
 # ============================================================
-# 
+#
 # 🧠 Remembering information about 'Sergey'...
 #    📋 What I know about Sergey (L1):
 #    Recent context (last 24h):
@@ -173,30 +173,30 @@ curl -X POST http://localhost:8000/chat \
 #      • Natasha (PersonEntity)
 #    Key interactions:
 #      • Sergey WORKS_ON Fractal Memory
-# 
+#
 # ============================================================
 # PHASE 2: Conversation with Memory
 # ============================================================
-# 
+#
 # 👤 You: What project is Sergey working on?
-# 
+#
 # 🤖 Based on my memory, here's what I know:
-# 
+#
 #    • Fractal Memory (ProjectEntity)
 #      Components: Graph Engine, LLM Integration, Temporal Processing
 #    • Sergey (PersonEntity)
 #    • Neo4j (TechnicalConceptEntity)
-# 
+#
 # ... (еще фазы) ...
-# 
+#
 # ✅ DEMO COMPLETE
 ```
 
 ---
 
-## ШАГ 6: Проверь Что Агент Выучил
+## STEP 6: Check What the Agent Learned
 
-После запуска агента он добавил новые данные. Проверь:
+After running the agent, it added new data. Check:
 
 ```bash
 # Посмотри обновленный граф
@@ -213,7 +213,7 @@ python main.py quality
 
 ---
 
-## ШАГ 7: Запусти Все Тесты
+## STEP 7: Run All Tests
 
 ```bash
 pytest -q
@@ -228,7 +228,7 @@ pytest -q
 
 ---
 
-## ШАГ 8: Запусти Полное Демо
+## STEP 8: Run the Full Demo
 
 ```bash
 make run
@@ -247,7 +247,7 @@ make run
 
 ---
 
-## ШАГ 9: Запусти Бенчмарки
+## STEP 9: Run Benchmarks
 
 ```bash
 python main.py benchmark
@@ -255,7 +255,7 @@ python main.py benchmark
 # Expected output:
 # 📊 PERFORMANCE REPORT
 # ═══════════════════════════════════════════════════════
-# 
+#
 # add_episode Performance:
 #   Count: 10 operations
 #   Average: 850ms
@@ -263,7 +263,7 @@ python main.py benchmark
 #   P95: 950ms
 #   Max: 1100ms
 #   Min: 700ms
-# 
+#
 # search Performance:
 #   Count: 20 operations
 #   Average: 45ms
@@ -271,7 +271,7 @@ python main.py benchmark
 #   P95: 65ms
 #   Max: 95ms
 #   Min: 35ms
-# 
+#
 # ✅ Performance Targets:
 #   add_episode: <1000ms ✓
 #   search: <100ms ✓
@@ -279,9 +279,9 @@ python main.py benchmark
 
 ---
 
-## 📊 ЧТО ВИДЕТЬ НА КАЖДОМ ЭТАПЕ
+## 📊 WHAT TO SEE AT EACH STEP
 
-### После шага 3 (seed):
+### After step 3 (seed):
 ```
 ✅ 20+ узлов в графе
 ✅ 25+ связей между ними
@@ -289,7 +289,7 @@ python main.py benchmark
 ✅ 4 типа кастомных сущностей
 ```
 
-### После шага 4 (quality check):
+### After step 4 (quality check):
 ```
 ✅ Отчёт о количестве узлов
 ✅ Распределение по типам
@@ -298,7 +298,7 @@ python main.py benchmark
 ✅ 95%+ успешная экстракция
 ```
 
-### После шага 4.2 (Neo4j Browser):
+### After step 4.2 (Neo4j Browser):
 ```
 ✅ Визуальный граф с цветными узлами
 ✅ Стрелки показывают отношения
@@ -306,7 +306,7 @@ python main.py benchmark
 ✅ Видишь как всё связано
 ```
 
-### После шага 4.3 (D3.js visualization):
+### After step 4.3 (D3.js visualization):
 ```
 ✅ Интерактивный граф в браузере
 ✅ Можешь перемещать узлы мышкой
@@ -314,7 +314,7 @@ python main.py benchmark
 ✅ Красивый силовой layout
 ```
 
-### После шага 5 (simple_agent):
+### After step 5 (simple_agent):
 ```
 ✅ Агент читает память (L1-L3)
 ✅ Отвечает на вопросы с контекстом
@@ -323,7 +323,7 @@ python main.py benchmark
 ✅ Всё видно в Neo4j
 ```
 
-### После шага 7 (tests):
+### After step 7 (tests):
 ```
 ✅ 4/4 теста зелёные
 ✅ Сущности работают
@@ -332,7 +332,7 @@ python main.py benchmark
 ✅ Context builder работает
 ```
 
-### После шага 8 (full demo):
+### After step 8 (full demo):
 ```
 ✅ ВСЁ РАБОТАЕТ
 ✅ Инициализация ✓
@@ -346,9 +346,9 @@ python main.py benchmark
 
 ---
 
-## 🔍 ЕСЛИ ЧТО-ТО НЕ РАБОТАЕТ
+## 🔍 IF SOMETHING DOES NOT WORK
 
-### "Connection refused"
+### “Connection refused”
 ```bash
 # Проверь что Docker работает
 docker ps
@@ -365,7 +365,7 @@ docker run -d \
   neo4j:5.20-community
 ```
 
-### "No nodes found after seed"
+### “No nodes found after seed”
 ```bash
 # Проверь логи Neo4j
 docker logs neo4j
@@ -377,7 +377,7 @@ PYTHONPATH=. python main.py seed
 python main.py quality
 ```
 
-### "Visualization.html blank"
+### “Visualization.html blank”
 ```bash
 # Проверь что JSON экспортировался
 ls -la visualization/graph_data.json
@@ -390,7 +390,7 @@ wc -l visualization/graph_data.json
 # Должно быть >100 строк
 ```
 
-### "Tests failing"
+### “Tests failing”
 ```bash
 # Проверь что зависимости установлены
 pip install -r requirements.txt
@@ -404,43 +404,43 @@ docker ps | grep neo4j
 
 ---
 
-## ✅ ЧЕКЛИСТ: "ВСЁ РАБОТАЕТ?"
+## ✅ CHECKLIST: “IS EVERYTHING WORKING?”
 
-После каждого шага проверь:
+After each step, check:
 
-- [ ] Шаг 1: Docker работает? (`docker ps | grep neo4j`)
-- [ ] Шаг 2: Setup прошел без ошибок?
-- [ ] Шаг 3: Seed добавил 3 эпизода?
-- [ ] Шаг 4.1: Quality report показывает 20+ узлов?
-- [ ] Шаг 4.2: Neo4j Browser открылся и показывает граф?
-- [ ] Шаг 4.3: visualization.html открылся и показывает узлы?
-- [ ] Шаг 5: Агент запустился и ответил на вопросы?
-- [ ] Шаг 7: Все 4 теста зелёные?
-- [ ] Шаг 9: Бенчмарки показывают правильные числа?
+- [ ] Step 1: Is Docker running? (`docker ps | grep neo4j`)
+- [ ] Step 2: Did setup complete without errors?
+- [ ] Step 3: Did seed add 3 episodes?
+- [ ] Step 4.1: Does the quality report show 20+ nodes?
+- [ ] Step 4.2: Did Neo4j Browser open and show the graph?
+- [ ] Step 4.3: Did visualization.html open and show nodes?
+- [ ] Step 5: Did the agent start and answer questions?
+- [ ] Step 7: Are all 4 tests green?
+- [ ] Step 9: Do the benchmarks show the expected numbers?
 
-Если все ✅ — **ВСЁ РАБОТАЕТ, НЕ ВЕРЙ НА СЛОВО, ПРОВЕРИЛ СЕГОДНЯ!**
-
----
-
-## 🎯 ИТОГОВЫЙ ВЫВОД
-
-**Теперь ты знаешь:**
-
-1. ✅ Как видеть что сохраняется (Neo4j Browser)
-2. ✅ Как видеть связи (Cypher queries)
-3. ✅ Как визуализировать (D3.js график)
-4. ✅ Как тестировать (через API или SimpleChatAgent)
-5. ✅ Как проверить что всё работает (pytest)
-6. ✅ Как мерить производительность (benchmark)
-
-**Больше никаких "но это же не может работать", потому что:**
-- Ты сам видишь узлы в Neo4j
-- Ты сам видишь связи в браузере
-- Ты сам запустил агента и он работает
-- Ты сам запустил тесты и они зелёные
-
-**Zero magic. Всё проверяемо. Всё работает.** 🚀
+If everything is ✅ — **EVERYTHING WORKS; DON’T TAKE IT ON FAITH, I CHECKED IT TODAY!**
 
 ---
 
-*Начни с ШАГ 1 прямо сейчас. Займёт 15 минут до первого зелёного отчёта.*
+## 🎯 FINAL CONCLUSION
+
+**Now you know:**
+
+1. ✅ How to see what is saved (Neo4j Browser)
+2. ✅ How to see relationships (Cypher queries)
+3. ✅ How to visualize (D3.js graph)
+4. ✅ How to test (through the API or SimpleChatAgent)
+5. ✅ How to check that everything works (pytest)
+6. ✅ How to measure performance (benchmark)
+
+**No more “but this can’t work,” because:**
+- You can see the nodes in Neo4j yourself
+- You can see the relationships in the browser yourself
+- You started the agent yourself and it works
+- You ran the tests yourself and they are green
+
+**Zero magic. Everything is verifiable. Everything works.** 🚀
+
+---
+
+*Start with STEP 1 right now. It takes 15 minutes to reach the first green report.*
