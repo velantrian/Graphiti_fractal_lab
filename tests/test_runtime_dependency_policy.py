@@ -74,7 +74,17 @@ def _pip_install_arguments(command):
 
 
 def _has_option(arguments, value, *options):
-    attached = {form for option in options for form in (f"{option}{value}", f"{option}={value}")}
+    short_attached = {
+        f"{option}{value}"
+        for option in options
+        if option.startswith("-") and not option.startswith("--")
+    }
+    long_equals = {
+        f"{option}={value}"
+        for option in options
+        if option.startswith("--")
+    }
+    attached = short_attached | long_equals
     for index, token in enumerate(arguments):
         if token == "--":
             break
@@ -87,6 +97,38 @@ def _has_option(arguments, value, *options):
 
 def _is_pip_check(command):
     return command[:4] == ["python", "-m", "pip", "check"] or command[:2] == ["pip", "check"]
+
+
+@pytest.mark.parametrize(
+    ("arguments", "value", "short_option", "long_option"),
+    [
+        (["-r", "requirements.txt"], "requirements.txt", "-r", "--requirement"),
+        (["-rrequirements.txt"], "requirements.txt", "-r", "--requirement"),
+        (["--requirement", "requirements.txt"], "requirements.txt", "-r", "--requirement"),
+        (["--requirement=requirements.txt"], "requirements.txt", "-r", "--requirement"),
+        (["-c", "constraints-ci.txt"], "constraints-ci.txt", "-c", "--constraint"),
+        (["-cconstraints-ci.txt"], "constraints-ci.txt", "-c", "--constraint"),
+        (["--constraint", "constraints-ci.txt"], "constraints-ci.txt", "-c", "--constraint"),
+        (["--constraint=constraints-ci.txt"], "constraints-ci.txt", "-c", "--constraint"),
+    ],
+)
+def test_has_option_accepts_supported_pip_option_forms(
+    arguments, value, short_option, long_option
+):
+    assert _has_option(arguments, value, short_option, long_option)
+
+
+@pytest.mark.parametrize(
+    ("arguments", "value", "short_option", "long_option"),
+    [
+        (["--requirementrequirements.txt"], "requirements.txt", "-r", "--requirement"),
+        (["--constraintconstraints-ci.txt"], "constraints-ci.txt", "-c", "--constraint"),
+    ],
+)
+def test_has_option_rejects_malformed_glued_long_options(
+    arguments, value, short_option, long_option
+):
+    assert not _has_option(arguments, value, short_option, long_option)
 
 
 def _make_target(command, target):
