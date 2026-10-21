@@ -1,5 +1,13 @@
 # 🧪 LAB NOTICE — Graphiti_fractal_lab
 
+> 🧪 **Experimental Graphiti Fractal sandbox — not a second production memory service.**
+>
+> **Why:** Test alternate local backends and controlled memory experiments without misrepresenting them as upstream deployment changes.
+>
+> **Example:** Run a bounded SQLite/LadybugDB lab smoke test, then compare its documented behavior with the separate Neo4j-based Fractal path.
+>
+> **Scope:** Research copy and bounded lab paths; results are not automatically transferred to the upstream repository.
+
 > **This repository is a RESEARCH full copy of Fractal for experimentation.**
 >
 > - **Upstream (do not modify from lab tasks):** https://github.com/velantrian/Graphiti_fractal
