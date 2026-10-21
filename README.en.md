@@ -7,6 +7,7 @@
 > **Example:** Run a LadybugDB/SQLite smoke test in the lab and compare it separately with Fractal's Neo4j path.
 >
 > **Scope:** Research copy; results and capabilities do not transfer automatically to the main Fractal repository.
+
 > 🌐 🇬🇧 **English** · 🇷🇺 [Русский](./README.md)
 
 > **This repository is a RESEARCH full copy of Fractal for experimentation.**
