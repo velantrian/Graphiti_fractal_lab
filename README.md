@@ -1,5 +1,13 @@
 # 🧪 LAB NOTICE — Graphiti_fractal_lab
 
+> 🧪 **Экспериментальная копия Graphiti Fractal, а не второй production-сервис памяти.**
+>
+> **Зачем:** проверять альтернативные локальные хранилища и ограниченные сценарии памяти, не выдавая результаты лаборатории за изменения основного Fractal.
+>
+> **Пример:** выполнить ограниченный smoke-тест LadybugDB/SQLite и отдельно сравнить его с путём Fractal на Neo4j.
+>
+> **Границы:** исследовательская копия с отдельными лабораторными путями; результаты не переносятся автоматически в основной репозиторий.
+
 > **This repository is a RESEARCH full copy of Fractal for experimentation.**
 >
 > - **Upstream (do not modify from lab tasks):** https://github.com/velantrian/Graphiti_fractal
