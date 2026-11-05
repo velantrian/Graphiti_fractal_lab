@@ -10,7 +10,11 @@ from fractal_lab.backends.base import BackendInfo, ValidationStatus
 
 
 class SqliteLabMeta:
-    """stdlib sqlite3 helper for lab run metadata."""
+    """stdlib sqlite3 helper for lab run metadata.
+
+    ``info().status`` is a path-level ledger claim (backed by lab smoke tests),
+    not proof that this particular connection has been exercised.
+    """
 
     def __init__(self, path: str | Path) -> None:
         self.path = Path(path)
@@ -21,7 +25,7 @@ class SqliteLabMeta:
             name="sqlite",
             role="lab ops/metadata (not graph authority)",
             status=ValidationStatus.SMOKE_TESTED,
-            notes="stdlib sqlite3; no Neo4j/Graphiti claims",
+            notes="Path-level smoke claim; stdlib sqlite3; no Neo4j/Graphiti claims",
         )
 
     def connect(self) -> None:
@@ -33,6 +37,13 @@ class SqliteLabMeta:
         if self._conn is not None:
             self._conn.close()
             self._conn = None
+
+    def __enter__(self) -> "SqliteLabMeta":
+        self.connect()
+        return self
+
+    def __exit__(self, *exc: object) -> None:
+        self.close()
 
     @property
     def conn(self) -> sqlite3.Connection:
