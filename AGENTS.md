@@ -6,7 +6,7 @@ Mandatory entry for AI coding agents and automated auditors.
 
 1. [`docs/ai/README.md`](docs/ai/README.md) — machine-first identity, reading order, invariants.
 2. [`RESEARCH_STATUS.md`](RESEARCH_STATUS.md) — what is smoke-proven vs NOT VALIDATED; mirror honesty.
-3. Exact-head `src/fractal_lab/` + lab smoke tests + `pytest` when claiming lab results.
+3. Exact-head `src/fractal_lab/` + lab smoke tests (`make test-lab` / pytest) when claiming lab results.
 4. Mirrored Fractal tree (`core/`, `api/`, …) is for **experimentation** — do not claim it runs without Docker/secrets.
 
 Human narrative (`README.md` LAB NOTICE + Fractal body, `SYSTEM_OVERVIEW.md`) explains; it is **not** live proof.
@@ -25,4 +25,4 @@ Human narrative (`README.md` LAB NOTICE + Fractal body, `SYSTEM_OVERVIEW.md`) ex
 
 Use: ✅ lab smoke · 🔬 research/stub · ❌ not claimed / not authorized.
 
-Re-run `pytest` (lab smoke subset or full suite with gates) before stating pass counts.
+Re-run `make test-lab` or `pytest` (lab smoke subset or full suite with gates) before stating pass counts.

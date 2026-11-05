@@ -13,7 +13,7 @@
 [🤖 **Special for AI / Agents**](docs/ai/README.md) ·
 [🗺️ **Deep Human Overview**](SYSTEM_OVERVIEW.md) ·
 [📊 Research Status](RESEARCH_STATUS.md) ·
-[🗄️ Backend Matrix](docs/GRAPH_BACKEND_CAPABILITY_MATRIX.md)
+[🗄️ Lab Backend Matrix](docs/LAB_GRAPH_BACKEND_CAPABILITY_MATRIX.md)
 
 > 🤖 **AI coding agent / automated auditor:** не выводи current state из красивого
 > human narrative. Начни с [`docs/ai/README.md`](docs/ai/README.md), затем проверь

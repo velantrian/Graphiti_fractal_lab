@@ -6,6 +6,8 @@
 graphiti_core==0.29.3
 python-dotenv==1.2.3
 neo4j==5.28.5
+# Lab primary smoke path (requirements-lab.txt); not a Fractal Neo4j replacement.
+ladybug==0.20.3
 pytest==9.1.1
 pytest-asyncio==1.4.0
 pydantic==2.13.5

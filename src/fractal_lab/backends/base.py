@@ -8,7 +8,11 @@ from typing import Any, Protocol, runtime_checkable
 
 
 class ValidationStatus(str, Enum):
-    """Honest status — do not promote stubs to VALIDATED without evidence."""
+    """Honest path-level status — do not promote stubs without evidence.
+
+    ``SMOKE_TESTED`` means the lab adapter *path* has executable smoke coverage,
+    not that a particular cold instance has already been exercised.
+    """
 
     SMOKE_TESTED = "smoke_tested"
     STUB_NOT_VALIDATED = "stub_not_validated"
