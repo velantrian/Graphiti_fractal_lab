@@ -10,6 +10,15 @@
 🤖 For machine routing see [`docs/ai/README.md`](docs/ai/README.md).  
 Re-run pytest on the exact head before citing pass counts elsewhere.
 
+## 2026-10-29 — Draft lab parameter-binding experiment
+
+The proposed branch delegates value parameters to Ladybug 0.20.3 rather than
+interpolating text or rejecting parameterized queries. Local lab subset:
+**9 passed** (four existing smoke tests and five parameter/reopen controls),
+Python 3.12.14. See [scope and reproduction](docs/LAB_PARAMETER_BINDING.md).
+This is no Graphiti/Neo4j parity, migration or production claim. The historical
+four-test checkpoint below remains preserved; resolve the Draft PR for proposal state.
+
 ## 🔬 Issue-linked research
 
 - For issue #3, see the [Engram post-ranking qualification source audit](docs/ENGRAM_POST_RANK_QUALIFICATION.md). It records a future bounded-evaluation candidate only; protocol readiness does not authorize an ablation or other experiment.
@@ -98,3 +107,4 @@ Never treat lab graphs as Fractal durable memory
 2. Map REQUIRED matrix rows to concrete Ladybug features with evidence.
 3. Keep stubs for Kùzu/Postgres/DuckDB until an owner explicitly schedules validation.
 4. Do not convert this ledger into a migration authorization.
+

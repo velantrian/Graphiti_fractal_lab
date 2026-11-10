@@ -56,7 +56,7 @@ test-contracts:
 
 # Lab-only Ladybug/SQLite smoke (no Docker/Neo4j). Always-on in CI after contracts.
 test-lab:
-	$(PYTHON) -m pytest -q tests/test_ladybug_smoke.py tests/test_sqlite_meta.py
+	$(PYTHON) -m pytest -q tests/test_ladybug_smoke.py tests/test_sqlite_meta.py tests/test_ladybug_parameters.py
 
 # Collection hygiene spans every automated pytest surface without executing live/provider tests.
 test-collect:

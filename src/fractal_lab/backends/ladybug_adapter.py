@@ -66,12 +66,9 @@ class LadybugAdapter:
         return self._conn
 
     def execute(self, query: str, parameters: dict[str, Any] | None = None) -> Any:
-        if parameters:
-            # Ladybug prepared params vary by version; smoke path uses literal Cypher.
-            raise NotImplementedError(
-                "Parameterized queries not used in lab smoke; embed literals carefully"
-            )
-        return self.conn.execute(query)
+        # The pinned Ladybug 0.20.3 driver binds values itself. Never interpolate
+        # untrusted note/source text into Cypher, including for this lab path.
+        return self.conn.execute(query, parameters=parameters)
 
     def ensure_smoke_schema(self) -> None:
         """Create Person/Knows smoke tables; ignore only catalog-already-exists."""
@@ -103,3 +100,4 @@ class LadybugAdapter:
             "RETURN a.name, b.name, k.since ORDER BY a.name"
         )
         return [list(row) for row in result]
+

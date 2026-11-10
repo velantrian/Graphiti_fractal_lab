@@ -49,10 +49,24 @@ def test_ladybug_schema_is_idempotent_and_rejects_bad_ddl(tmp_path: Path):
             adapter.execute("CREATE NODE TABLE TotallyBroken(")
 
 
-def test_ladybug_rejects_parameters(tmp_path: Path):
+def test_ladybug_accepts_bound_parameters(tmp_path: Path):
+    """Value binding is delegated to the pinned Ladybug 0.20.3 driver.
+
+    The parameter-binding proposal lifted the old NotImplementedError contract;
+    adversarial binding coverage (injection, Unicode, reopen) lives in
+    tests/test_ladybug_parameters.py.
+    """
     with LadybugAdapter(tmp_path / "params.lbdb") as adapter:
-        with pytest.raises(NotImplementedError, match="Parameterized"):
-            adapter.execute("RETURN 1", {"x": 1})
+        adapter.ensure_smoke_schema()
+        adapter.execute(
+            "CREATE (:LabPerson {name: $name, age: $age})", {"name": "Ada", "age": 36}
+        )
+        rows = list(
+            adapter.execute(
+                "MATCH (p:LabPerson) WHERE p.name = $name RETURN p.name", {"name": "Ada"}
+            )
+        )
+        assert rows == [["Ada"]]
 
 
 def test_stubs_declare_not_validated_and_refuse_connect():
