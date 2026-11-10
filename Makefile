@@ -1,4 +1,4 @@
-successfully downloaded text file (SHA: f2494f897b29b54646c986e79ef09df351009e8b)VENV?=.venv
+VENV?=.venv
 PYTHON?=$(VENV)/bin/python
 PIP?=$(VENV)/bin/pip
 CONTRACT_TESTS?=tests/contract_suite.txt
