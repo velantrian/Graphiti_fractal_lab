@@ -1,4 +1,4 @@
-successfully downloaded text file (SHA: d203dc21f03de288e2447b65c3e0c547317204cc)"""LadybugDB on-disk smoke — primary runnable path without Docker/Neo4j."""
+"""LadybugDB on-disk smoke — primary runnable path without Docker/Neo4j."""
 
 from __future__ import annotations
 
