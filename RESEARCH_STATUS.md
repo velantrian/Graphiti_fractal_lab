@@ -2,9 +2,10 @@
 
 > **Repo:** `velantrian/Graphiti_fractal_lab`  
 > **Role:** 🔬 RESEARCH sandbox — full Fractal tree mirrored for experimentation; not production Fractal Memory  
-> **Date:** 2026-09-09  
+> **Date:** 2026-11-05  
 > **Mirror:** Entire tracked tree from `velantrian/Graphiti_fractal` copied into this lab so experiments can edit freely. Upstream must **never** be modified from lab tasks.  
-> **Last local verify (lab smoke only):** `pytest tests/test_ladybug_smoke.py tests/test_sqlite_meta.py -v` → **4 passed** · Python 3.13.5 · `ladybug==0.20.3`
+> **Last local verify (lab smoke only):** `make PYTHON=python test-lab` / `pytest tests/test_ladybug_smoke.py tests/test_sqlite_meta.py -v` → **8 passed** · Python 3.12.3 · `ladybug==0.20.3`  
+> **CI wire:** always-on `make test-lab` in `.github/workflows/ci.yml` after `test-contracts` (does **not** authorize Fractal migration).
 
 🤖 For machine routing see [`docs/ai/README.md`](docs/ai/README.md).  
 Re-run pytest on the exact head before citing pass counts elsewhere.
@@ -32,6 +33,7 @@ four-test checkpoint below remains preserved; resolve the Draft PR for proposal 
 | `docs/ai/UPSTREAM_FRACTAL_README.md` | Upstream Fractal machine router (preserved beside lab router) |
 | `requirements.txt` | Fractal stack deps (Graphiti/Neo4j/…); need Docker/secrets for real use |
 | `requirements-lab.txt` + `pyproject.toml` | Lab Ladybug smoke deps |
+| `constraints-ci.txt` | Reviewed pins including `ladybug==0.20.3` for lab smoke |
 
 ```text
 Mirrored Fractal files ≠ Docker available ≠ Neo4j running ≠ Fractal ACTIVE in this environment
@@ -52,19 +54,23 @@ Mirrored Fractal files ≠ Docker available ≠ Neo4j running ≠ Fractal ACTIVE
 📄 file exists ≠ 🧪 tested ≠ 🔗 Fractal active ≠ 🚀 production/migration authorized
 ```
 
+`ValidationStatus.SMOKE_TESTED` on an adapter is a **path-level** ledger claim (backed by lab tests), not proof that a cold `info()` call exercised storage.
+
 ---
 
 ## ✅ Validated in this lab
 
 | Item | Evidence | Notes |
 |---|---|---|
-| ✅ LadybugDB on-disk create | `tests/test_ladybug_smoke.py` | `ladybug==0.20.3`, Python 3.13 |
+| ✅ LadybugDB on-disk create | `tests/test_ladybug_smoke.py` | `ladybug==0.20.3` |
 | ✅ Ladybug node/rel Cypher write+read | same | CREATE NODE/REL TABLE + MATCH |
-| ✅ SQLite lab metadata table | `tests/test_sqlite_meta.py` | stdlib `sqlite3` |
+| ✅ Ladybug reopen in-process read | `test_ladybug_reopen_reads_prior_smoke_rows` | not crash/restart durability |
+| ✅ SQLite lab metadata table | `tests/test_sqlite_meta.py` | stdlib `sqlite3` + reopen |
 | ✅ Thin adapter interfaces | `src/fractal_lab/backends/` | Protocol + `ValidationStatus` |
-| ✅ Stubs declare NOT VALIDATED | `test_stubs_declare_not_validated` | Kùzu / Postgres / DuckDB |
+| ✅ Stubs declare NOT VALIDATED and refuse connect/execute | `test_stubs_declare_not_validated_and_refuse_connect` | Kùzu / Postgres / DuckDB |
+| ✅ Lab smoke wired into always-on CI | `.github/workflows/ci.yml` → `make test-lab` | still lab-only |
 
-**Pytest count (local verify):** 4 passed.
+**Pytest count (local verify):** 8 passed (`test-lab`).
 
 ---
 
@@ -78,9 +84,10 @@ Mirrored Fractal files ≠ Docker available ≠ Neo4j running ≠ Fractal ACTIVE
 | PostgreSQL adapter | 🔬 stub only — ❌ **NOT VALIDATED** |
 | DuckDB adapter | 🔬 stub only — ❌ **NOT VALIDATED** |
 | Migration / dual-write / rollback tooling | ❌ **NOT DESIGNED** |
-| OpenAI / LLM / embeddings path | ❌ **OUT OF SCOPE** |
-| Docker / Neo4j server | ❌ **INTENTIONALLY ABSENT** |
+| OpenAI / LLM / embeddings path | ❌ **OUT OF SCOPE for lab smoke** (mirrored modules may exist) |
+| Docker / Neo4j server in this lab box | ❌ **NOT CLAIMED runnable without Docker+secrets** |
 | Production / Fractal ACTIVE authority | ❌ **NOT THIS REPO** |
+| Crash/restart durability / parameterized Cypher | ❌ **NOT VALIDATED** |
 
 ---
 

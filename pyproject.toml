@@ -7,7 +7,7 @@ name = "fractal-lab"
 version = "0.1.0"
 description = "RESEARCH lab for Graphiti_fractal multi-backend experiments (LadybugDB + SQLite). Not production."
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.10,<3.15"
 license = { text = "MIT" }
 authors = [{ name = "velantrian" }]
 dependencies = [
@@ -24,6 +24,4 @@ duckdb = ["duckdb>=1.0"]
 [tool.setuptools.packages.find]
 where = ["src"]
 
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-pythonpath = ["src"]
+# Pytest config lives only in pytest.ini (single source of truth).

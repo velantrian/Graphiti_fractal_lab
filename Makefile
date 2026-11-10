@@ -3,13 +3,17 @@ PYTHON?=$(VENV)/bin/python
 PIP?=$(VENV)/bin/pip
 CONTRACT_TESTS?=tests/contract_suite.txt
 
-.PHONY: venv install setup seed quality search context l1 l2 l3 l3-build viz benchmark test test-contracts test-collect test-integration migrate web dedupe-entities dedupe-episodes dc-build dc-up dc-down dc-logs
+.PHONY: venv install install-lab setup seed quality search context l1 l2 l3 l3-build viz benchmark test test-contracts test-lab test-collect test-integration migrate web dedupe-entities dedupe-episodes dc-build dc-up dc-down dc-logs
 
 venv:
 	python -m venv $(VENV)
 
 install: venv
 	$(PIP) install -r requirements.txt
+
+# Lab Ladybug/SQLite smoke deps (no Neo4j). Prefer constraints when present (CI).
+install-lab: venv
+	$(PIP) install -c constraints-ci.txt -r requirements-lab.txt
 
 setup:
 	$(PYTHON) main.py setup
@@ -49,6 +53,10 @@ test: test-contracts
 
 test-contracts:
 	$(PYTHON) -m pytest -q $$(cat $(CONTRACT_TESTS))
+
+# Lab-only Ladybug/SQLite smoke (no Docker/Neo4j). Always-on in CI after contracts.
+test-lab:
+	$(PYTHON) -m pytest -q tests/test_ladybug_smoke.py tests/test_sqlite_meta.py
 
 # Collection hygiene spans every automated pytest surface without executing live/provider tests.
 test-collect:

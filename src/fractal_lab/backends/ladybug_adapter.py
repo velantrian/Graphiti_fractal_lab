@@ -10,10 +10,20 @@ import ladybug as lb
 from fractal_lab.backends.base import BackendInfo, ValidationStatus
 
 
+def _is_catalog_already_exists(exc: BaseException) -> bool:
+    """Ladybug raises RuntimeError when CREATE NODE/REL TABLE hits an existing name."""
+    if not isinstance(exc, RuntimeError):
+        return False
+    return "already exists" in str(exc).lower()
+
+
 class LadybugAdapter:
     """Thin wrapper around ladybug.Database / Connection.
 
     Does **not** claim graphiti_core compatibility or Neo4j parity.
+
+    ``info().status`` is a path-level ledger claim (backed by lab smoke tests),
+    not proof that this particular instance has been exercised.
     """
 
     def __init__(self, path: str | Path) -> None:
@@ -26,7 +36,10 @@ class LadybugAdapter:
             name="ladybug",
             role="primary on-disk property graph (lab)",
             status=ValidationStatus.SMOKE_TESTED,
-            notes="Cypher node/rel round-trip only; Graphiti parity NOT VALIDATED",
+            notes=(
+                "Path-level smoke claim only; Cypher node/rel round-trip. "
+                "Graphiti parity NOT VALIDATED"
+            ),
         )
 
     def connect(self) -> None:
@@ -35,9 +48,16 @@ class LadybugAdapter:
         self._conn = lb.Connection(self._db)
 
     def close(self) -> None:
-        # Ladybug Connection/Database close via GC; clear refs for tests.
+        # Ladybug Connection/Database expose no explicit close in 0.20.3; drop refs.
         self._conn = None
         self._db = None
+
+    def __enter__(self) -> "LadybugAdapter":
+        self.connect()
+        return self
+
+    def __exit__(self, *exc: object) -> None:
+        self.close()
 
     @property
     def conn(self) -> lb.Connection:
@@ -51,29 +71,25 @@ class LadybugAdapter:
         return self.conn.execute(query, parameters=parameters)
 
     def ensure_smoke_schema(self) -> None:
-        """Idempotent-ish schema for Person/Knows smoke (CREATE may fail if exists)."""
-        try:
-            self.execute(
-                "CREATE NODE TABLE LabPerson(name STRING PRIMARY KEY, age INT64)"
-            )
-        except Exception:
-            pass
-        try:
-            self.execute(
-                "CREATE REL TABLE LabKnows(FROM LabPerson TO LabPerson, since INT64)"
-            )
-        except Exception:
-            pass
+        """Create Person/Knows smoke tables; ignore only catalog-already-exists."""
+        for query in (
+            "CREATE NODE TABLE LabPerson(name STRING PRIMARY KEY, age INT64)",
+            "CREATE REL TABLE LabKnows(FROM LabPerson TO LabPerson, since INT64)",
+        ):
+            try:
+                self.execute(query)
+            except RuntimeError as exc:
+                if not _is_catalog_already_exists(exc):
+                    raise
 
     def smoke_write_read(self) -> list[list[Any]]:
-        """Write two nodes + one rel; return MATCH rows."""
+        """Write two nodes + one rel; return MATCH rows.
+
+        Clears prior ``LabPerson`` / ``LabKnows`` rows on this database file first.
+        """
         self.ensure_smoke_schema()
-        # Clear prior smoke rows if re-running on same file
-        try:
-            self.execute("MATCH (a:LabPerson)-[r:LabKnows]->(b:LabPerson) DELETE r")
-            self.execute("MATCH (p:LabPerson) DELETE p")
-        except Exception:
-            pass
+        self.execute("MATCH (a:LabPerson)-[r:LabKnows]->(b:LabPerson) DELETE r")
+        self.execute("MATCH (p:LabPerson) DELETE p")
         self.execute(
             "CREATE (a:LabPerson {name: 'Ada', age: 36}), "
             "(b:LabPerson {name: 'Bob', age: 40}), "

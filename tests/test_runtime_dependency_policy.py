@@ -9,7 +9,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 CORE_REQUIREMENTS = {"requirements.txt", "requirements-lab.txt"}
 CACHE_REQUIREMENTS = CORE_REQUIREMENTS | {"constraints-ci.txt"}
-POLICY_MARKERS = {"pip", "test-collect", "test-contracts"}
+POLICY_MARKERS = {"pip", "test-collect", "test-contracts", "test-lab"}
 SHELL_OPERATOR_CHARS = ";&|"
 
 
@@ -193,12 +193,14 @@ def _core_contracts_policy_is_valid(workflow):
 
     has_collection = any(_make_target(command, "test-collect") for command in commands)
     has_contracts = any(_make_target(command, "test-contracts") for command in commands)
+    has_lab = any(_make_target(command, "test-lab") for command in commands)
     return (
         setup_ok
         and CORE_REQUIREMENTS <= constrained_requirements
         and has_pip_check_after_required_install
         and has_collection
         and has_contracts
+        and has_lab
     )
 
 
@@ -249,6 +251,7 @@ def test_reviewed_ci_constraints_pin_direct_runtime_dependencies():
         "graphiti_core==0.29.3",
         "python-dotenv==1.2.3",
         "neo4j==5.28.5",
+        "ladybug==0.20.3",
         "pytest==9.1.1",
         "pytest-asyncio==1.4.0",
         "pydantic==2.13.5",
@@ -319,6 +322,7 @@ def test_core_contracts_guard_accepts_equivalent_shell_and_cache_formatting():
         "conditional-and-install",
         "options-after-terminator",
         "semicolon-in-policy-script",
+        "remove-test-lab",
     ],
 )
 def test_core_contracts_guard_rejects_policy_regressions(mutation):
@@ -373,5 +377,11 @@ def test_core_contracts_guard_rejects_policy_regressions(mutation):
             "python -m pip install -c constraints-ci.txt -r requirements.txt "
             "-r requirements-lab.txt; python -m pip check"
         )
+    elif mutation == "remove-test-lab":
+        job["steps"] = [
+            step
+            for step in job["steps"]
+            if "test-lab" not in str(step.get("run", ""))
+        ]
 
     assert not _core_contracts_policy_is_valid(workflow), mutation
