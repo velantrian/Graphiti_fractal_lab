@@ -7,7 +7,7 @@ from fractal_lab.backends.ladybug_adapter import LadybugAdapter
 
 @pytest.mark.parametrize("value", ["O'Brien", "'}) MATCH (n) DETACH DELETE n //", "заметка\n$token"])
 def test_bound_text_is_literal_and_preserves_existing_node(tmp_path, value):
-    adapter = LadybugAdapter(tmp_path / "parameters.lbdb")
+    adapter = LadybugAdapter(tmp_path / "parameters.lbdb", disposable=True)
     adapter.connect()
     try:
         adapter.ensure_smoke_schema()
@@ -33,7 +33,7 @@ def test_empty_parameter_mapping_and_unconnected_guard(tmp_path):
 
 
 def test_bound_value_survives_close_and_reopen(tmp_path):
-    adapter = LadybugAdapter(tmp_path / "reopen.lbdb")
+    adapter = LadybugAdapter(tmp_path / "reopen.lbdb", disposable=True)
     value = "source 'quoted'\nновая строка"
     adapter.connect()
     try:

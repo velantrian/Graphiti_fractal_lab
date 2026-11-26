@@ -22,7 +22,7 @@ def test_ladybug_info_status_is_path_level_declaration():
 
 def test_ladybug_create_write_read(tmp_path: Path):
     db_path = tmp_path / "lab_smoke.lbdb"
-    with LadybugAdapter(db_path) as adapter:
+    with LadybugAdapter(db_path, disposable=True) as adapter:
         rows = adapter.smoke_write_read()
         assert rows == [["Ada", "Bob", 2020]]
     assert db_path.exists()
@@ -30,7 +30,7 @@ def test_ladybug_create_write_read(tmp_path: Path):
 
 def test_ladybug_reopen_reads_prior_smoke_rows(tmp_path: Path):
     db_path = tmp_path / "lab_reopen.lbdb"
-    with LadybugAdapter(db_path) as writer:
+    with LadybugAdapter(db_path, disposable=True) as writer:
         assert writer.smoke_write_read() == [["Ada", "Bob", 2020]]
 
     with LadybugAdapter(db_path) as reader:
@@ -42,7 +42,7 @@ def test_ladybug_reopen_reads_prior_smoke_rows(tmp_path: Path):
 
 
 def test_ladybug_schema_is_idempotent_and_rejects_bad_ddl(tmp_path: Path):
-    with LadybugAdapter(tmp_path / "schema.lbdb") as adapter:
+    with LadybugAdapter(tmp_path / "schema.lbdb", disposable=True) as adapter:
         adapter.ensure_smoke_schema()
         adapter.ensure_smoke_schema()
         with pytest.raises(RuntimeError, match="(?i)parser|mismatch|exception"):
@@ -56,7 +56,7 @@ def test_ladybug_accepts_bound_parameters(tmp_path: Path):
     adversarial binding coverage (injection, Unicode, reopen) lives in
     tests/test_ladybug_parameters.py.
     """
-    with LadybugAdapter(tmp_path / "params.lbdb") as adapter:
+    with LadybugAdapter(tmp_path / "params.lbdb", disposable=True) as adapter:
         adapter.ensure_smoke_schema()
         adapter.execute(
             "CREATE (:LabPerson {name: $name, age: $age})", {"name": "Ada", "age": 36}
