@@ -10,6 +10,7 @@ from fractal_lab.backends.sqlite_meta import SqliteLabMeta
 
 def test_sqlite_meta_roundtrip(tmp_path: Path):
     db_path = tmp_path / "lab_meta.sqlite"
+    assert not db_path.exists()  # tests only ever create their own store
     with SqliteLabMeta(db_path) as meta:
         assert meta.info().status == ValidationStatus.SMOKE_TESTED
         assert "Path-level" in meta.info().notes
@@ -26,6 +27,7 @@ def test_sqlite_meta_roundtrip(tmp_path: Path):
 
 def test_sqlite_meta_reopen_preserves_runs(tmp_path: Path):
     db_path = tmp_path / "lab_meta_reopen.sqlite"
+    assert not db_path.exists()
     with SqliteLabMeta(db_path) as writer:
         writer.ensure_schema()
         writer.record_run("ladybug", "pass", note="first")
