@@ -23,8 +23,8 @@
 
 ## 🧪 Что проверяется в Lab
 
-- **Lab smoke:** LadybugDB и SQLite проверяются через `make test-lab`. Статусы отдельных хранилищ перечислены в [матрице Lab](docs/LAB_GRAPH_BACKEND_CAPABILITY_MATRIX.md).
-- **Neo4j в CI:** вспомогательные интеграционные тесты используют одноразовую базу с маркером. Прогон с моделью требует ключа провайдера. [Изоляция тестов](docs/TEST_DATABASE_ISOLATION.md)
+- Команда `make test-lab` запускает **smoke-тесты LadybugDB и SQLite**. Статусы отдельных хранилищ перечислены в [матрице Lab](docs/LAB_GRAPH_BACKEND_CAPABILITY_MATRIX.md).
+- **Интеграционные тесты Neo4j** в CI используют одноразовую базу с маркером. Прогон с моделью требует ключа провайдера. [Изоляция тестов](docs/TEST_DATABASE_ISOLATION.md)
 
 ## 🧠 Архитектура основного Graphiti Fractal
 

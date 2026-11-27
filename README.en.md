@@ -23,8 +23,8 @@
 
 ## 🧪 What Lab validates
 
-- **Lab smoke tests:** `make test-lab` exercises LadybugDB and SQLite. See the [Lab backend matrix](docs/LAB_GRAPH_BACKEND_CAPABILITY_MATRIX.md) for per-backend status.
-- **Neo4j in CI:** supporting integration tests use a marker-verified disposable database. The model round trip requires a provider key. [Test database isolation](docs/TEST_DATABASE_ISOLATION.md)
+- Run `make test-lab` for **LadybugDB and SQLite smoke tests**. See the [Lab backend matrix](docs/LAB_GRAPH_BACKEND_CAPABILITY_MATRIX.md) for per-backend status.
+- **Neo4j integration tests** in CI use a marker-verified disposable database. The model round trip requires a provider key. [Test database isolation](docs/TEST_DATABASE_ISOLATION.md)
 
 ## 🤖 For agents and contributors
 
