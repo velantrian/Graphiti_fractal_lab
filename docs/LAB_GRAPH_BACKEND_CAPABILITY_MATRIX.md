@@ -19,7 +19,7 @@ storage migration of Fractal Memory.
 
 | Метка | Значение |
 |---|---|
-| ✅ **ACTIVE (upstream)** | durable Fractal path — not used in this lab |
+| ✅ **ACTIVE (upstream)** | durable Fractal path. Lab CI uses disposable Neo4j for [integration tests](TEST_DATABASE_ISOLATION.md). |
 | ✅ **SMOKE (lab)** | local pytest evidence only |
 | 🔬 **STUB / RESEARCH** | code or candidate without validation |
 | ❌ **NOT VALIDATED / NOT DESIGNED / NOT RUN** | honesty row — do not soft-pedal |
@@ -36,7 +36,7 @@ storage migration of Fractal Memory.
 |---|---|---|
 | 🐞 LadybugDB (`ladybug` pip) | primary on-disk graph smoke | ✅ **SMOKE-TESTED (lab only)** |
 | 🗃️ SQLite | ops / lab metadata (not a graph authority) | ✅ **SMOKE-TESTED** |
-| 🗄️ Neo4j | upstream Fractal durable graph | ✅ **ACTIVE upstream — not used here** |
+| 🗄️ Neo4j | upstream Fractal durable graph. Lab CI runs integration tests on disposable Neo4j. | ✅ **ACTIVE upstream** |
 | 📄 KùzuDB | historical embedded predecessor | 🔬 **STUB / ❌ NOT VALIDATED** |
 | 📄 PostgreSQL | relational metadata / optional | 🔬 **STUB / ❌ NOT VALIDATED** |
 | 📄 DuckDB | analytical / optional | 🔬 **STUB / ❌ NOT VALIDATED** |
