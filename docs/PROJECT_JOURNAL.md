@@ -9,6 +9,7 @@
 | Статус | Что работает | Где разбираться |
 |---|---|---|
 | ✅ В `main` | Тесты Neo4j проверяют, что подключились к одноразовой базе. Одноразовый режим LadybugDB отклоняет существующий файл до открытия. | [Lab #10](https://github.com/velantrian/Graphiti_fractal_lab/pull/10) · [коммит `0838a9f`](https://github.com/velantrian/Graphiti_fractal_lab/commit/0838a9f2ada83cf198f243ee0170301dc1ac8221) |
+| 🔎 На проверке · 27.11.2026 | Provider E2E допускается к одноразовой Neo4j через guard: маркер проверяется на том подключении, которое затем использует Graphiti, до схемы и записи. Без ключа провайдера проверяется сам допуск. | [Изоляция тестовой базы](TEST_DATABASE_ISOLATION.md) · [Lab #12](https://github.com/velantrian/Graphiti_fractal_lab/pull/12) |
 | 🧪 Проверяется в Lab | LadybugDB и SQLite имеют собственные тесты. Поддержка функций зависит от хранилища. | [Матрица возможностей](LAB_GRAPH_BACKEND_CAPABILITY_MATRIX.md) |
 | 🔬 Исследовательская ветка | FalkorDBLite и связанные экспериментальные артефакты развиваются отдельно. | [Ветка эксперимента](https://github.com/velantrian/Graphiti_fractal_lab/tree/experiment/falkordblite-deterministic-memory) |
 
