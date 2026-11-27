@@ -21,7 +21,19 @@
 
 ---
 
-# 🧠 FRACTAL MEMORY 🕸️
+## 🧪 What Lab validates
+
+- Run `make test-lab` for **LadybugDB and SQLite smoke tests**. See the [Lab backend matrix](docs/LAB_GRAPH_BACKEND_CAPABILITY_MATRIX.md) for per-backend status.
+- **Neo4j integration tests** in CI use a marker-verified disposable database. The model round trip requires a provider key. [Test database isolation](docs/TEST_DATABASE_ISOLATION.md)
+
+## 🤖 For agents and contributors
+
+- [Agent documentation](docs/ai/README.md) explains how to verify the repository's capabilities.
+- [Project journal](docs/PROJECT_JOURNAL.md) tracks completed work, pending decisions and where to resume.
+
+## 🧠 Upstream Graphiti Fractal architecture
+
+The sections below provide architecture context for Lab experiments. Use the [Lab journal](docs/PROJECT_JOURNAL.md) and [backend matrix](docs/LAB_GRAPH_BACKEND_CAPABILITY_MATRIX.md) for Lab capabilities.
 
 > **Graphiti-native local-first memory for AI agents.**
 >
@@ -207,7 +219,7 @@ The model uses memory — it does not become memory authority by default.
 
 ---
 
-## 📊 What exists, what is bounded, what is being researched
+## 📊 Upstream Fractal capability status
 
 | Area | Now | Meaning |
 |---|---|---|

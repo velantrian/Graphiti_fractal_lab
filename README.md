@@ -21,7 +21,14 @@
 
 > 🌐 🇷🇺 **Русский** · 🇬🇧 [English](./README.en.md)
 
-# 🧠 FRACTAL MEMORY 🕸️
+## 🧪 Что проверяется в Lab
+
+- Команда `make test-lab` запускает **smoke-тесты LadybugDB и SQLite**. Статусы отдельных хранилищ перечислены в [матрице Lab](docs/LAB_GRAPH_BACKEND_CAPABILITY_MATRIX.md).
+- **Интеграционные тесты Neo4j** в CI используют одноразовую базу с маркером. Прогон с моделью требует ключа провайдера. [Изоляция тестов](docs/TEST_DATABASE_ISOLATION.md)
+
+## 🧠 Архитектура основного Graphiti Fractal
+
+Ниже — архитектурный контекст для экспериментов. Возможности и ограничения Lab сверяйте по [журналу](docs/PROJECT_JOURNAL.md) и [матрице Lab](docs/LAB_GRAPH_BACKEND_CAPABILITY_MATRIX.md).
 
 > **Graphiti-native local-first memory for AI agents.**
 >
@@ -212,7 +219,7 @@ The model uses memory — it does not become memory authority by default.
 
 ---
 
-## 📊 Что есть, что ограничено, что исследуется
+## 📊 Статусы возможностей основного Fractal
 
 | Область | Сейчас | Смысл |
 |---|---|---|

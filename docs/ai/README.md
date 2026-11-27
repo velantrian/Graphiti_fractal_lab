@@ -38,6 +38,8 @@ Do **not** begin by scanning upstream `Graphiti_fractal` narrative and inferring
 
 The working tree now **mirrors** upstream Fractal sources for safe edits. Presence of `core/`, `docker-compose.yml`, etc. does **not** mean Neo4j/Docker/secrets are available or that Fractal is ACTIVE in this environment. Upstream machine router preserved at [`UPSTREAM_FRACTAL_README.md`](UPSTREAM_FRACTAL_README.md).
 
+Lab CI runs Neo4j integration tests on a marker-verified disposable database. The Lab-local smoke path exercises LadybugDB and SQLite. See [test database isolation](../TEST_DATABASE_ISOLATION.md) and the [Lab backend matrix](../LAB_GRAPH_BACKEND_CAPABILITY_MATRIX.md).
+
 ## Authority order
 
 For current lab behavior, prefer evidence in this order:
