@@ -50,9 +50,16 @@ jobs:
 
       - name: Compile integration surface
         run: |
-          python -m compileall -q core tests/integration tests/isolation tests/support scripts/test_neo4j.py
+          python -m compileall -q core tests/integration tests/isolation tests/support tests/e2e scripts/test_neo4j.py
 
       - name: Live Neo4j contracts on an admitted disposable database, then decoy rejection
         run: |
           python scripts/test_neo4j.py acceptance \
             --target tests/integration/test_neo4j_operational_contracts.py
+
+      - name: Provider E2E admission on the connection Graphiti uses (no provider key), then decoy rejection
+        # The provider round trip itself is skipped here (no OPENAI_API_KEY); it runs only in the
+        # opt-in Provider E2E workflow, on the same admission path.
+        run: |
+          python scripts/test_neo4j.py acceptance \
+            --target tests/e2e/test_provider_backed_memory_e2e.py
